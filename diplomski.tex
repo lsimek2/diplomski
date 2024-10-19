@@ -1,12 +1,11 @@
 \documentclass[a4paper,twoside,12pt]{memoir}
-\usepackage{diplomski}
 
 \usepackage[utf8]{inputenc}
 \usepackage[croatian]{babel}
 \usepackage{datetime}
-\newdate{date}{25}{07}{2024}
-\date{\displaydate{date}}
-\usepackage[a4paper,margin=0.75in]{geometry}
+\usepackage[bindingoffset=12mm,nomarginpar,includeall,left=23mm,right=23mm,top=35mm,bottom=38mm]{geometry}
+\setlength\baselineskip{15pt}
+
 \usepackage{amsfonts}
 \usepackage{amsmath}
 \usepackage{amssymb}
@@ -18,11 +17,10 @@
 \pagenumbering{gobble}
 \usepackage{float}
 \usepackage{xcolor}
-%\usepackage[dvipsnames]{xcolor}
 %\usepackage{mathptmx} % times new roman
 % \usepackage{mathpazo} % tex gyre pagella
-\usepackage{baskervaldx}
-\usepackage[baskervaldx]{newtxmath}
+% \usepackage{baskervaldx}
+% \usepackage[baskervaldx]{newtxmath}
 
 \usepackage{breqn}
 \usepackage[T1]{fontenc}
@@ -32,6 +30,8 @@
 
 \usepackage{booktabs}
 \usepackage{listings}
+
+\usepackage{diplomski}
 
 
 \definecolor{seagreen}{HTML}{21b2aa}
@@ -98,14 +98,15 @@
 \newcommand{\Q}{\mathbb{Q}}
 \newcommand{\R}{\mathbb{R}}
 \newcommand{\C}{\mathbb{C}}
-\newcommand{\P}{\mathbb{P}}
+\renewcommand{\P}{\mathbb{P}}
 \newcommand{\E}{\mathbb{E}}
 \newcommand{\F}{\mathbb{F}}
 
-\title{Harmonijska analiza i slučajni procesi}
+\title{Harmonijska analiza i slu\v{c}ajni procesi}
 \author{Luka Šimek}
 \advisor{prof.\ dr.\ sc.\ Nikola Sandrić}
-\date{7,2025}
+\newdate{date}{10}{07}{2025}
+\date{date}
 
 \begin{document}
 \frontmatter
@@ -117,8 +118,7 @@
 \chapter{Prvo poglavlje}
 ...
 
-\bibliographystyle{babamspl}
-\bibliography{literatura}
+\printbibliography
 \pagestyle{empty}
 
 \begin{sazetak}
@@ -130,6 +130,6 @@
 \end{summary}
 
 \begin{cv}
-	...
+	Bla bla \(x + y - z < \varepsilon \)
 \end{cv}
 \end{document}
