@@ -1,0 +1,27 @@
+_*
+
+.ipynb_checkpoints/
+__pycache__/
+.idea/
+
+*.out
+*.log
+
+output/
+
+# latex
+*.aux
+*.bcf
+*.log
+*.nav
+*.out
+*.xml
+*.snm
+*.toc
+
+# bib
+*.blg
+*.bbl
+
+# beamer
+*.vrb
