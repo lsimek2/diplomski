@@ -1,0 +1,143 @@
+\documentclass[main.tex]{subfiles}
+
+\begin{document}
+\nocite{*}
+
+\chapter{Slučajni procesi u neprekidnom vremenu} \label{ch:sp}
+\section{Osnovni pojmovi} \label{sec:sp-osnovni}
+Slučajni proces je indeksirana familija slučajnih veličina \( \left\{ X_t \st t \in T \right\} \) na istom vjerojatnosnom prostoru
+gdje je \( T \) neki indeksni skup. On može biti prebrojiv (npr.\ \( T = \N \) ili \( T = \Z \))
+ili neprebrojiv (npr.\ \( T = \R \) ili \( T = \left[ 0, \infty \right]  \)). Budući da o
+elementima \( T \) često razmišljamo kao o vremenskim trenucima, govorimo o procesu u diskretnom
+ili u neprekidnom vremenu.
+U kontekstu ovog rada podrazumijevamo \( T = \left[ 0,\infty \right] \) i koristimo skraćenu notaciju
+\( \left\{ X_t \right\} \).
+
+Razlikujemo proces od realizacije
+\[ t \mapsto X_t(\omega), \quad t \in \left[ 0,\infty \right], \quad \mathrm{za \ neki} \ \omega \in \Omega \]
+koju još zovemo \emph{trajektorijom}. Nadalje, kažemo da je slučajni proces \( \left\{ X_t \right\} \) \emph{modifikacija} procesa
+\( \left\{ Y_t \right\} \) ako je \( \P(X_t = Y_t) = 1 \) za sve \( t \in \left[ 0,\infty \right] \). Primijetimo razliku u odnosu
+na jači uvjet \( \P(X_t = Y_t,\ \forall t \in \left[ 0,\infty \right]) = 1 \) kada procese više uopće ne razlikujemo.
+
+Slučajne procese obično promatramo preko konačnodimenzionalnih funkcija distribucije
+\( F_{t_1, \ldots, t_n} \), \( t_j \in T \), koje zadovoljavaju tzv.\ uvjete suglasnosti Kolmogorova.
+Dva su važna rezultata koja to opravdaju --- teorem Kolmogorova (v.~\cite[tm.\ 9.6.]{sarapa}) koji tvrdi
+da suglasna familija konačnodimenzionalnih distribucija inducira je\-din\-stve\-nu vjerojatnosnu mjeru na \( \sigma \)-algebri cilindara
+i drugi teorem (v.~\cite[tm.\ 9.7.]{sarapa}) koji tvrdi da se za takvu familiju uvijek može konstruirati
+slučajni proces (odn.\ vjerojatnosni prostor) s upravo tim konačnodimenzionalnim distribucijama. Stoga nam, kao i obično,
+nije bitan vjerojatnosni prostor u kojem se nalazimo.
+
+Sada ćemo definirati \levy jeve procese, jednu od najznamenitijih klasa slučajnih procesa. Uvest ćemo Poissonov proces
+i Brownovo gibanje kao poznate primjere. Pokazat ćemo i vrlo blisku vezu \levy jevih procesa i beskonačno djeljivih distribucija (definiranih u~\ref{unkno}), koja
+je potrebna za naš dokaz da Brownovo gibanje (i \levy jevi procesi općenito) postoji. Nakon toga ćemo skrenuti pažnju na teoriju samosličnih procesa i uvesti
+frakcionalno Brownovo gibanje kao generalizaciju. Prije te definicije, uvedimo još jedan osnovni pojam.
+
+\begin{definicija}
+	Slučajni proces \( \left\{ X_t \right\} \) je \emph{stohastički neprekidan} ako vrijedi
+	\begin{equation} \label{def:stohnep}
+		\lim\limits_{s \rightarrow t} \P (\abs{X_s - X_t} > \varepsilon)  = 0,
+	\end{equation}
+	za svaki \( t \ge 0 \) i \( \varepsilon > 0 \).
+\end{definicija}
+
+\begin{definicija}
+	Slučajni proces \( \left\{ X_t \right\} \) u \( \R^d \) je \emph{\levy jev} ako vrijede uvjeti:
+	\begin{enumerate}[label=(\roman*)]
+		\item \( X_0 = 0 \) g.s.,
+		\item \( \left\{ X_t \right\} \) je stohastički neprekidan,
+		\item varijable \( X_{t_0}, X_{t_1}-X_{t_0}, \ldots ,X_{t_n}-X_{t_{n-1}} \) su nezavisne za sve \( n \ge 1 \) i \(0 \le t_1 < t_2 < \cdots < t_n \) (nezavisnost inkremenata),
+		\item distribucija varijable \( X_{s+t}-X_s \) ne ovisi o \( s \) (stacionarnost inkremenata), \label{stacink}
+		\item Postoji \( \Omega_0 \in \mathcal F \) takav da je \( \P(\Omega_0) = 1 \) te za svaki \( \omega \in \Omega_0 \) vrijedi da je trajektorija
+		      \( t \mapsto X_t(\omega) \) \cadlag\footnote{\cadlag, od fr.\ \textit{continue à droite, limite à gauche}, označava funkciju koja je na cijeloj domeni neprekidna zdesna s limesima slijeva}. \label{cadlag}
+	\end{enumerate}
+	Nadalje, ako ne vrijedi~\ref{stacink} kažemo da je proces \emph{aditivan}. Ako ne vrijedi~\ref{cadlag} tada kažemo da je proces \emph{\levy jev po distribuciji} odn.\
+	\emph{aditivan po distribuciji}.
+\end{definicija}
+
+\section{Poissonov proces}\label{sec:sp-poisson}
+U ovom odjeljku uvodimo Poissonov proces kao primjer \levy jevog procesa. Intuitivno, taj proces mjeri broj doagađaja koji su se dogodili do
+trenutka \( t \), pri čemu su duljine intervala između uzastopnih događaja distribuirane eksponencijalno. Pritom, eksponencijalnu distribuciju karakterizira
+tzv.\ gubitak pamćenja. Poissonov proces uvest ćemo kao \levy jev proces s dodatnim svojstvom da je \( X_t \sim \mathrm P(\lambda t) \), a onda konstrukcijom
+dokazati da takav proces zaista postoji. Kasnije ćemo pokazati da je moguće na taj način odrediti \levy jev proces i kad se Poissonova razdioba zamijeni
+bilo kojom beskonačno djeljivom distribucijom.
+
+\begin{definicija}
+	Slučajni proces \( \left\{ X_t \right\} \) na \( \R \) je \emph{Poissonov proces s parametrom \( \lambda > 0\)} ako je \levy jev i ako
+	\begin{equation} \label{eq:poispois}
+		X_t \sim \mathrm{P}(\lambda t), \quad t > 0.
+	\end{equation}
+\end{definicija}
+
+\begin{teorem}
+	Neka je \( (W_n)_{n \ge 0} \) slučajna šetnja na \( \R \) definirana na vjerojatnosnom prostoru
+	\( (\Omega, \mathcal F, \P) \), takva da \( T_n = W_n - W_{n-1} \) ima eksponencijalnu distribuciju
+	s parametrom \( \lambda > 0 \). Definiramo
+	\begin{equation}\label{eq:poiscons}
+		X_t(\omega) = n \iff W_n(\omega) \le t < W_{n+1}(\omega).
+	\end{equation}
+	Tada je \( \left\{ X_t \right\} \) Poissonov proces s parametrom \( \lambda \).
+\end{teorem}
+
+\begin{proof}
+	Ustanovimo prvo da \( W_n \sim \Gamma(n, \lambda) \). Naime, \( T_n \sim \mathrm{Exp}(\lambda) \equiv \Gamma(1, \lambda) \) i
+	\( W_n = \sum_{j=1}^n T_j \) pa tvrdnja slijedi po poznatoj lemi o zbroju nezavisnih \( \Gamma \)-distribuiranih varijabli\footnote{zbroj
+		je \( \Gamma \)-distribuiran, a prvi parametar (parametar oblika) je zbroj prvih parametara sumanada}. Sada slijedi \( \P(W_n \le t) \rightarrow 0,\ n \ub \), što se
+	može dobiti i iz
+	\[
+		\P(W_n \le t) \le \P(T_1 \le t, T_2 \le t, \ldots, T_n \le t) = \left[ \P(T_1 \le t) \right]^n \rightarrow 0, \textquotestraightdblbase n \ub.
+	\]
+	Slijedi da je svaka \( X_t \) g.s.\ dobro definirana preko~\eqref{eq:poiscons}. Da je \( \left\{ X_t \right\} \) stohastički neprekidan
+	s \cadlag \ trajektorijama i \( X_0 = 0 \) g.s.\ je trivijalno. Preostaje dokazati~\eqref{eq:poispois} i da su inkrementi stacionarni i nezavisni.
+	
+	Prvo se dobije iz
+	\begin{align}
+		\P(X_t = n) & = \P(W_n \le t < W_n + T_{n+1}) =
+		\int_{\R^2} 1_{\left\{ (u, v) \in \R^2 \st 0 \le u \le t < u+v \right\}}(x,y) \D \P_{(W_n, T_{n+1})} \\ &= \frac{\lambda^{n+1}}{(n-1)!} \int_0^t x^{n-1}e^{-\lambda x} \int_{t-x}^\infty e^{-\lambda y} \D y \D x
+		= \frac{(\lambda t)^n}{n!}e^{-\lambda t},
+	\end{align}
+	pri čemu koristimo nezavisnost varijabli \( W_n \) i \( T_{n+1} \) za prelazak na njihove gustoće. Sličnim izravnim računom možemo dobiti i
+	\begin{equation} \label{eq:poiswnuzxt}
+		\P(W_{n+1} > t + s \given X_t = n) = e^{-cs} = \P(T_1 > s), \quad t > 0, s \ge 0, n \ge 0.
+	\end{equation}
+	Pomoću toga možemo dobiti da \( (W_{n+1} - t, T_{n+2}, \ldots, T_{n+m}) \) uz dano \( X_t = n \)
+	ima jednaku distribuciju kao i \( (T_1, T_2, \ldots, T_m) \). Vrijedi:
+	\begin{align}
+		\P & (W_{n+1} -t > s_1 , T_{n+2} > s_2, \ldots, T_{n+m} > s_m \given X_t = n)         \\
+		   & =\P(W_n \le t, W_{n+1} -t > s_1, T_{n+2} > s_2, \ldots, T_{n+m} > s_m)/\P(X_t=n) \\
+		   & =\P(W_n \le t, W_{n+1} -t > s_1)\P(T_{n+2}>s_2,\ldots,T_{n+m}>s_m)/\P(X_t=n)     \\
+		   & =\P(W_{n+1} -t>s_1 \given X_t = n)\P(T_{n+2}>s_2,\ldots,T_{n+m}>s_m)             \\
+		   & =\P(T_1>s_1)\P(T_2>s_2,\ldots,T_m>s_m)                                           \\
+		   & =\P(T_1>s_1,T_2>s_2,\ldots,T_m>s_m). \label{eq:poisuvj}
+	\end{align}
+	To nam zatim daje
+	\begin{equation}
+		\begin{aligned} \label{eq:poislema}
+			\P & (W_{n+m} \le t+s < W_{n+m+1} \given X_t = n)                                                   \\
+			   & =\P((W_{n+1}-t)+T_{n+2} + \cdots + T_{n+m} \le s < (W_{n+1}-t) + T_{n+2} + \cdots + T_{n+m+1}) \\
+			   & \overset{\footnotesize\eqref{eq:poisuvj}}= \P(T_1+\cdots+T_m \le s < T_1+\cdots+T_m+T_{m+1})
+			= \P(W_m \le s < W_{m+1}) = \P(X_s=m).
+		\end{aligned}
+	\end{equation}
+	Sada stacionarnost inkremenata slijedi sumiranjem po \( n \ge 0 \) jednakosti:
+	\begin{equation}
+		\begin{aligned}
+			\P & (X_{t+s}-X_t =  m, X_t=n) = \P(X_{t+s}=n+m, X_t=n)                              \\
+			   & = \P(X_t=n)\P(W_{n+m} \le t+s < W_{n+m+1} \given X_t = n) = \P(X_t=n)\P(X_s=m).
+		\end{aligned}
+	\end{equation}
+	
+	Nezavisnost inkremenata slijedi iz
+	\begin{equation}
+		\begin{aligned}
+			\P & (X_{t_0}=n_0, X_{t_1}- X_{t_0} = n_1, \ldots, X_{t_k}-X_{t_{k-1}} = n_k)                                \\
+			   & =\P(X_{t_0} = n_0, X_{t_1}=n_0+n_1, \ldots, X_{t_k} = n_0+\cdots+n_k \given X_{t_0}=n_0)\P(X_{t_0}=n_0) \\
+			   & =\P(X_{t_1-t_0}=n_1,\ldots,X_{t_k-t_0}=n_1+\cdots+n_k)\P(X_{t_0}=n_0)
+		\end{aligned}
+	\end{equation}
+	gdje druga jednakost slijedi primjenom iste ideje kao u dokazu stacionarnosti. Dokaz se završi indukcijom.
+\end{proof}
+
+\section{Brownovo gibanje}\label{sec:sp-brownovo}
+
+
+\end{document}

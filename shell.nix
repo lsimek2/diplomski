@@ -52,7 +52,7 @@ pkgs.mkShell {
   # nativeBuildInputs is usually what you want -- tools you need to run
   nativeBuildInputs = [
     tex
-    pkgs.bibtex-tidy
+    pkgs.biber
     pkgs.texlab
     pkgs.texmaker
   ];

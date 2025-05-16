@@ -1,0 +1,5 @@
+PWD /home/lsimek/projects/diplomski
+INPUT /nix/store/wwfq8brj795wbpfc5x8dhcv5i5ay8qqw-texlive-combined-2023/share/texmf-var/web2c/texmf.cnf
+INPUT /nix/store/wwfq8brj795wbpfc5x8dhcv5i5ay8qqw-texlive-combined-2023/share/texmf-var/web2c/pdftex/pdflatex.fmt
+INPUT /home/lsimek/projects/diplomski/literatura.bib
+OUTPUT literatura.log
