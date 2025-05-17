@@ -6,18 +6,18 @@
 \chapter{Slučajni procesi u neprekidnom vremenu} \label{ch:sp}
 \section{Osnovni pojmovi} \label{sec:sp-osnovni}
 Slučajni proces je indeksirana familija slučajnih veličina \( \left\{ X_t \st t \in T \right\} \) na istom vjerojatnosnom prostoru
-gdje je \( T \) neki indeksni skup. On može biti prebrojiv (npr.\ \( T = \N \) ili \( T = \Z \))
-ili neprebrojiv (npr.\ \( T = \R \) ili \( T = \left[ 0, \infty \right]  \)). Budući da o
+gdje je \( T \) neki indeksni skup. On može biti diskretan (npr.\ \( T = \N \) ili \( T = \Z \))
+ili neprekidan (npr.\ \( T = \R \) ili \( T = \left[ 0, \infty \right\rangle  \)). Budući da o
 elementima \( T \) često razmišljamo kao o vremenskim trenucima, govorimo o procesu u diskretnom
 ili u neprekidnom vremenu.
-U kontekstu ovog rada podrazumijevamo \( T = \left[ 0,\infty \right] \) i koristimo skraćenu notaciju
+U kontekstu ovog rada podrazumijevamo \( T = \left[ 0,\infty \right\rangle \) i koristimo skraćenu notaciju
 \( \left\{ X_t \right\} \).
 
 Razlikujemo proces od realizacije
-\[ t \mapsto X_t(\omega), \quad t \in \left[ 0,\infty \right], \quad \mathrm{za \ neki} \ \omega \in \Omega \]
+\[ t \mapsto X_t(\omega), \quad t \in \left[ 0,\infty \right\rangle, \quad \mathrm{za \ neki} \ \omega \in \Omega \]
 koju još zovemo \emph{trajektorijom}. Nadalje, kažemo da je slučajni proces \( \left\{ X_t \right\} \) \emph{modifikacija} procesa
-\( \left\{ Y_t \right\} \) ako je \( \P(X_t = Y_t) = 1 \) za sve \( t \in \left[ 0,\infty \right] \). Primijetimo razliku u odnosu
-na jači uvjet \( \P(X_t = Y_t,\ \forall t \in \left[ 0,\infty \right]) = 1 \) kada procese više uopće ne razlikujemo.
+\( \left\{ Y_t \right\} \) ako je \( \P(X_t = Y_t) = 1 \) za sve \( t \in \left[ 0,\infty \right\rangle \). Primijetimo razliku u odnosu
+na jači uvjet \( \P(X_t = Y_t,\ \forall t \in \left[ 0,\infty \right\rangle) = 1 \) kada procese više uopće ne razlikujemo.
 
 Slučajne procese obično promatramo preko konačnodimenzionalnih funkcija distribucije
 \( F_{t_1, \ldots, t_n} \), \( t_j \in T \), koje zadovoljavaju tzv.\ uvjete suglasnosti Kolmogorova.
@@ -58,7 +58,7 @@ frakcionalno Brownovo gibanje kao generalizaciju. Prije te definicije, uvedimo j
 U ovom odjeljku uvodimo Poissonov proces kao primjer \levy jevog procesa. Intuitivno, taj proces mjeri broj doagađaja koji su se dogodili do
 trenutka \( t \), pri čemu su duljine intervala između uzastopnih događaja distribuirane eksponencijalno. Pritom, eksponencijalnu distribuciju karakterizira
 tzv.\ gubitak pamćenja. Poissonov proces uvest ćemo kao \levy jev proces s dodatnim svojstvom da je \( X_t \sim \mathrm P(\lambda t) \), a onda konstrukcijom
-dokazati da takav proces zaista postoji. Kasnije ćemo pokazati da je moguće na taj način odrediti \levy jev proces i kad se Poissonova razdioba zamijeni
+dokazati da takav proces zaista postoji. Kasnije ćemo pokazati da je moguće na taj način odrediti \levy jev proces i kad se Poissonova distribucija zamijeni
 bilo kojom beskonačno djeljivom distribucijom.
 
 \begin{definicija}
@@ -73,7 +73,7 @@ bilo kojom beskonačno djeljivom distribucijom.
 	\( (\Omega, \mathcal F, \P) \), takva da \( T_n = W_n - W_{n-1} \) ima eksponencijalnu distribuciju
 	s parametrom \( \lambda > 0 \). Definiramo
 	\begin{equation}\label{eq:poiscons}
-		X_t(\omega) = n \iff W_n(\omega) \le t < W_{n+1}(\omega).
+		X_t(\omega) = n \iff W_n(\omega) \le t < W_{n+1}(\omega), \quad \omega \in \Omega.
 	\end{equation}
 	Tada je \( \left\{ X_t \right\} \) Poissonov proces s parametrom \( \lambda \).
 \end{teorem}
@@ -88,7 +88,7 @@ bilo kojom beskonačno djeljivom distribucijom.
 	\]
 	Slijedi da je svaka \( X_t \) g.s.\ dobro definirana preko~\eqref{eq:poiscons}. Da je \( \left\{ X_t \right\} \) stohastički neprekidan
 	s \cadlag \ trajektorijama i \( X_0 = 0 \) g.s.\ je trivijalno. Preostaje dokazati~\eqref{eq:poispois} i da su inkrementi stacionarni i nezavisni.
-	
+
 	Prvo se dobije iz
 	\begin{align}
 		\P(X_t = n) & = \P(W_n \le t < W_n + T_{n+1}) =
@@ -125,7 +125,7 @@ bilo kojom beskonačno djeljivom distribucijom.
 			   & = \P(X_t=n)\P(W_{n+m} \le t+s < W_{n+m+1} \given X_t = n) = \P(X_t=n)\P(X_s=m).
 		\end{aligned}
 	\end{equation}
-	
+
 	Nezavisnost inkremenata slijedi iz
 	\begin{equation}
 		\begin{aligned}
@@ -138,6 +138,129 @@ bilo kojom beskonačno djeljivom distribucijom.
 \end{proof}
 
 \section{Brownovo gibanje}\label{sec:sp-brownovo}
+Sada na slični način uvodimo Brownovo gibanje.
 
+\begin{definicija} \label{def:brown}
+	Slučajni proces \( \left\{ X_t \right\} \) u \( \R^d \) je Brownovo gibanje ako je
+	\begin{enumerate}[label=(\roman*)]
+		\item \( X_t \) je normalno distribuirana s očekivanjem \( 0 \in \R^d \) i kovarijacijskom matricom \( tI \)  i \label{enum:browndef1}
+		\item postoji \( \Omega_0 \in \mathcal F \) takav da je \( \P(\Omega_0)=1 \) i \( \omega \in \Omega_0 \) povlači da je trajektorija \( t \mapsto X_t(\omega) \) neprekidna. \label{enum:browndef2}
+	\end{enumerate}
+\end{definicija}
+
+Ovime nismo dokazali da takav proces postoji, što ćemo ostaviti za kasnije. Dana svojstva su nam dovoljna da dokažemo nekoliko zanimljivih osnovnih rezultata
+o Brownovom gibanju. Dokazat ćemo par nama najznačajnijih rezultata, a drugi se mogu naći u~\cite[\textsection 5]{sato}. Spomenimo još kako je svojstvo~\ref{enum:browndef1}
+dovoljno za~\ref{enum:browndef2}. (dodati jos kasnije)
+
+Prvo ćemo dokazati da Brownovo gibanje zadržava istu distribuciju pri širenju u vremenu i odgovarajućem širenju u prostoru. To svojstvo ćemo kasnije zvati
+samosličnost.
+
+\begin{teorem} \label{tm:brown-samoslicnost}
+	Neka je \( \left\{ X_t \right\} \) Brownovo gibanje u \( \R^d \). Tada je \( \left\{ c^{-1/2}X_{ct} \right\} \) također Brownovo gibanje
+	u \( \R^d \) za svaki \( c > 0 \).
+\end{teorem}
+
+\begin{proof}
+	Neka je \( Y_t = c^{-1/2}X_{ct} \). Odmah slijedi \( Y \sim \mathrm N(0, tI) \). Stohastička neprekidnost, g.s.\ neprekidnost trajektorija i nezavinost
+	inkremenata lako se svedu na isto za \( \left\{ X_t \right\} \).
+
+	Stacionarnost inkremenata također --- neka \( 0 \le s < t \) pa \( Y_t - Y_s = c^{-1/2}\left( X_{ct} - X_{cs} \right) \overset{\mathrm d}{=} c^{-1/2}X_{ct-cs} \).
+	Slijedi i  \( Y_t-Y_s \jpod Y_{t-s} \).
+\end{proof}
+
+Sada ćemo dokazati da u jednoj dimenziji g.s.\ vrijede dva inače neuobičajena svojstva --- nigdje-monotonost i nigdje-diferencijabilnost\footnote{ustvari je dovoljno dokazati nigdje-diferencijabilnost;
+	Lebesgueov teorem o diferencijabilnosti monotonih funkcija govori da je svaka neprekidna monotona funkcija diferencijabilna g.s., v.~\cite[remark 5.10]{sato} za još dovoljnih uvjeta}.
+
+\begin{teorem} \label{tm:brown-nemonotonost}
+	Neka je \( \left\{ X_t \right\} \) Brownovo gibanje u \( \R \). Gotovo sigurno je \( t \mapsto X_t(\omega) \) nigdje-monotona, tj.\
+	postoji \( \Omega_1 \in \mathcal F \) takav da \( \P(\Omega_1)=1 \) i \( \omega \in \Omega_1 \) povlači da \( t \mapsto X_t(\omega) \)
+	nije monotona niti na jednom segmentu.
+\end{teorem}
+
+\begin{proof}
+	Bez smanjenja općenitosti dokazujemo samo nigdje-rastućost na segmentu\footnote{to možemo jer svaki segment \( \left[ a,b \right] \) možemo smanjiti na \( \left[ a',b' \right] \) gdje \( a',b'\in\Q \) i onda \enquote{ukupni} \( \Omega_1 \) dobiti kao prebrojivi presjek \enquote{lokalnih}} \( \left[ a,b \right] \subset \left[ 0,\infty \right\rangle \). Neka je još \( n \ge 2 \) proizvoljan i \( \Omega_0 \) iz definicije~\ref{def:brown}.
+	Definiramo
+	\begin{equation}
+		A = \left\{ \omega \in \Omega_0 \st t \mapsto X_t(\omega) \mathrm{\ ne \ opada \ na } \left[ a,b \right] \right\}
+	\end{equation}
+	i zatim ekvidistantnu particiju segmenta \( \left[ a,b \right] \) s \( t_k = a + \frac{b-a}n \cdot k \), \( 0 \le k \le n  \) te
+	\begin{equation}
+		A_n = \left\{ \omega \in \Omega_0 \st X_{t_0} \le X_{t_1} \le \cdots \le X_{t_n} \right\} \in \mathcal F.
+	\end{equation}
+	Očito \( A \subset A_n \) i
+	% Kada bismo znali \( A \in \mathcal F \) bi bilo i \( \P(A) \le P(A_n) \) pri čemu zbog nezavisnosti inkremenata
+	\begin{align}
+		\P(A_n) & \le \P\left(\bigcap_{k=1}^n \left\{ X_{t_k} - X_{t_{k-1}} \ge 0  \right\} \right) \\
+		        & = \prod_{k=1}^n P(X_{t_k} - X_{t_{k-1}} \ge 0) = 2^{-n} \un, \quad n \ub
+	\end{align}
+	pa možemo odabrati
+	\[
+		\Omega_1 = \bigcup_{n=1}^\infty A_n^c \in \mathcal F.
+	\]
+	% pa i \( \P(A) = 0 \) tj.\ možemo staviti \( \Omega_1 = A^c \). Da je \( A \in \mathcal F \) dobijemo jer
+\end{proof}
+
+
+\begin{komentar}
+	Štoviše, vrijedi
+	\begin{equation}
+		A = \bigcap_{n=1}^{\infty} A_n \in \mathcal F.
+	\end{equation}
+	Inkluzija \( \subseteq \) je očita. Za \( \supseteq \) pretpostavimo \( \omega \in \cap_n A_n \setminus A \). Tada postoje \( a \le s < t \le b \) takvi da \( X_s(\omega) - X_t(\omega) > \varepsilon \) za neki \( \varepsilon > 0 \). Jer je skup
+	\[ \Delta = \bigcup_{n=1}^\infty \Delta_n, \quad \Delta_n = \left\{ a + \frac{b-a}n \cdot k \st 0 \le k \le n \right\}   \]
+	gust u \( \left[ a,b \right] \) i zbog neprekidnosti trajektorije postoje \( n \) i \( s', t' \in \Delta_n \)
+	takvi da \( X_{s'}(\omega) - X_{t'}(\omega) > \varepsilon/2  \). Time smo došli do kontradikcije jer \( \omega \not \in A_n \).
+\end{komentar}
+
+
+\begin{teorem}
+	Neka je \( \left\{ X_t \right\} \) Brownovo gibanje u \( \R \). Gotovo sigurno je \( t \mapsto X_t(\omega) \) nigdje-diferencijabilna, tj.\
+	postoji \( \Omega_1 \in \mathcal F \) takav da \( \P(\Omega_1)=1 \) i \( \omega \in \Omega_1 \) povlači da \( t \mapsto X_t(\omega) \)
+	nije diferencijabilna niti u jednoj točki \( t \in \left[ 0, \infty \right\rangle \).
+\end{teorem}
+
+\begin{proof}
+	Slično kao u prošlom dokazu, ograničimo se na pitanje diferencijabilnosti u nekom
+	\( t \in \left[ 0, N \right] \) gdje \( N \in \N \). Stavimo
+	\[ A = \left\{ \omega \in \Omega \st t \mapsto X_t(\omega)\mathrm{\ je \ diferencijabilna \ u\ nekom \  } s \in \left[ 0, N \right] \right\}  \]
+	i za \( M, n \in \N \)
+	\begin{equation} \label{eq:brownndif-defAn}
+		A_{n, M} = \left\{ \omega \in \Omega \st (\exists s \in \left[ 0, N(1-1/n) \right])(\abs{t-s} \le 2N/n \implies \abs{X_t(\omega) - X_s(\omega)} \le M\abs{t-s}) \right\}.
+	\end{equation}
+	Lako se pokaže
+	\[
+		A \subseteq \bigcup_{M=1}^\infty \bigcup_{n=1}^\infty A_{n, M}.
+	\]
+
+	Fiksiramo \( M \in \N \) i stavimo \( A_n=A_{n,M} \). Nadalje uvedimo mrežu \( t_k = \frac{Nk}n \), \( 0\le k\le n \) i definiramo slučajne varijable\footnote{za \( k=0 \) maknemo prvi član skupa}
+	\begin{equation}
+		Y_{n, k} = \max \left\{ \abs{X_{t_k} - X_{t_{k-1}}}, \abs{X_{t_{k+1}}-X_{t_k}}, \abs{X_{t_{k+2}}, X_{t_{k+1}}}  \right\}, \quad 0 \le k \le n-2.
+	\end{equation}
+	Definiramo još događaje
+	\begin{equation}
+		B_n = \bigcup_{k=0}^{n-2} \left\{ Y_{n,k} \le 4MN/n \right\}.
+	\end{equation}
+	Neka je \( \omega \in A_n \) i \( s \) iz~\eqref{eq:brownndif-defAn}. Lako se pokaže da je \( \omega \in Y_{k, n} \) gdje je \( k \) takav da \( s \) nije udaljen ni od kojeg ruba segmenta
+	\( \left[ t_{k-1}, t_{k+2} \right] \) za više od \( 2N/n \). Dakle, \( A_n \subseteq B_n \).
+
+	Uvedimo oznaku \( a_n = \P\left(\abs{X_{N/n}} \le 4MN/n \right) \). Pomoću stacionarnosti i nezavisnosti inkremenata dobivamo
+	\begin{align}
+		\P(B_n) & \le \sum_{k=0}^{n-2} \P(Y_{n, k} \le 4MN/n) = \P(Y_{n, 0}) + \sum_{k=1}^{n-2} \P(Y_{n, k}) \\
+		        & = \P\left(\abs{X_{t_1}-X_{t_0}} \le 4MN/n, \abs{X_{t_2} - X_{t_1}} \le 4MN/n\right) +      \\&+
+		\P\left(\bigcap_{\ell=0}^3 \left\{ \abs{X_{t_{k+\ell} - X_{t_{k+\ell-1}}}} \le 4MN/n \right\} \right)
+		\\ &= a_n^2 + (n-2)a_n^3.
+	\end{align}
+
+	Želimo odozgo ocijeniti \( a_n \). Prvo iz teorema~\ref{tm:brown-samoslicnost} imamo \( X_{N/n} \jpod (N/n)^{1/2} X_1 \). Ako gustoću jedinične normalne distribucija ocijenimo odozgo konstantom, imamo
+	\[
+		a_n = \P\left(\abs{X_1} \le 4M \left( N/n \right)  ^{1/2}\right) \lesssim \left( \frac Nn \right)^{1/2}.
+	\]
+	Iz toga slijedi \( \P(B_n) \un \), \( n \ub \) pa i \( \P\left( \liminf_n B_n \right) = 0 \). Tvrdnja teorema slijedi jer
+	\[
+		\bigcup_{n=1}^\infty A_n = \liminf_{n \ub} A_n \subseteq \liminf_{n \ub} B_n.
+	\]
+\end{proof}
+
+\section{Beskonačno djeljive distribucije} \label{sec:sp-bdd}
 
 \end{document}
