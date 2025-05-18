@@ -1,0 +1,171 @@
+\documentclass[main.tex]{subfiles}
+
+\begin{document}
+\nocite{*}
+
+\section{Beskonačno djeljive distribucije} \label{sec:sp-bdd}
+U ovom odjeljku uvodimo pojam beskonačno djeljive distribucije odn.\ mjere. Beskonačno djeljive
+distribucije su u vrlo bliskoj vezi s \levy jevim procesima. Naime, dokazat ćemo da
+\begin{itemize}
+	\item za svaku beskonačno djeljivu distribuciju \( \mu \) postoji \levy jev po distribuciji proces \( \left\{ X_t \right\} \)
+	      jedinstven po distribuciji takav da \( \P_{X_1} = \mu \) i
+	\item svaki proces \levy jev po distribuciji ima modifikaciju koja je \levy jev proces (u sljedećem odjeljku~\ref{sec:sp-markov}).
+\end{itemize}
+Posljedica je da svakom beskonačno djeljivom distribucijom (među kojima su i Poissonova i normalna, v.\ komentar~\ref{bdd-komentar}) možemo
+odrediti \levy jev proces kako smo to napravili u definicijama~\ref{def:poisson} i~\ref{def:brown}. Da dokažemo
+da Brownovo gibanje postoji još je potrebna i neprekidnost trajektorija, a nju ćemo dokazati u teoremu~\ref{tm:aditgauss}.
+
+Sada definiramo beskonačno djeljivu distribuciju preko tri ekvivalentne tvrdnje. Da su ekvivalentne lako se vidi
+jer konvolucija mjere i zbrajanje nezavisnih slučajnih varijabli odgovaraju množenju odgovarajućih karakterističnih funkcija.
+Ako je \( \mu \) konačna mjera, s \( \mu^n \) označavamo \( n \)-kratnu konvoluciju \( \mu \) same sa sobom.
+
+\begin{definicija} \label{deF:bdd}
+	Neka je \( X \) slučajna varijabla na \( \R^d \) i \( \mu \) odgovarajuća vjerojatnosna mjera. Tada:
+	\begin{enumerate}[label=(\roman*)]
+		\item kažemo da je \( \mu \) \emph{beskonačno djeljiva} ako za svaki \( n \in \N \) postoji vjerojatnosna mjera \( \mu_n \)
+		      takva da \( \mu = \mu_n^n \),
+		\item kažemo da \( X \) ima beskonačno djeljivu distribuciju ako za svaki \( n \in \N \) postoje n.j.d.\ varijable \( X_1, \ldots, X_n \)
+		      takve da \label{item:defbdd2}
+		      \[
+			      X \jpod X_1 + X_2 + \cdots + X_n,
+		      \]
+		\item \( \mu \) je beskonačno djeljiva ako za svaki \( n \in \N \) postoji \( \wh \mu_n \colon \R^d \to \C \)
+		      takva da je karakteristična funkcija neke vjerojatnosne distribucije i \( \wh \mu (z) = \wh \mu_n(z)^n \) za svaki \( z \in \R^d \).
+	\end{enumerate}
+\end{definicija}
+
+U sljedećoj propoziciji bez dokaza navodimo osnovna svojstva beskonačno djeljivih distribucija (v.~\cite[\textsection 7]{sato} i~\cite[\textsection 13,14]{sarapa}).
+Najvažnije nam je vidjeti da logaritmirajne i potenciranje beskonačno djeljivih mjera ima neka očekivana lijepa svojstva --- jedinstvenost, neprekidnost i dobro granično ponašanje.
+\begin{propozicija} \label{bdd-prop}
+	% Vrijede sljedeći rezultati o beskoinačno djeljivim distribucijama i njihovim karakterističnim funkcijama.
+	\begin{enumerate}[label=(\roman*)]
+		\item Ako su \( \mu_1 \) i \( \mu_2 \) beskonačno djeljive, tada je to i \( \mu_1 * \mu_2 \).
+		\item Ako je \( \mu \) beskonačno djeljiva tada \( \wh \mu (z) \neq 0 \) za svaki \( z \in \R^d \). \label{bdd-prop-2}
+		\item Neka je \( \varphi \colon \R^d \to \C \) takva da \( \varphi(0) = 1 \) i \( \varphi(z) \neq 0 \) za sve \( z \in \R^d \).
+		      Tada postoji jedinstvena neprekidna funkcija \( f \colon \R^d \to \C \) takva da \( f(0)=0 \) i \( e^{f(z)} = \varphi(z) \).
+		      Za svaki \( n \in \N \) postoji jedinstvena neprekidna funkcija \( g_n \colon \R^d \to \C \) takva da \( g_n(0) = 1 \) i
+		      \( g_n(z)^n = \varphi(z) \). Vrijedi \( g_n(z) = e^{f(z)/n} \). Pišemo \( f = \log \varphi \) i \( g_n = \varphi^{1/n} \). \label{bdd-prop-4}
+		\item Neka su \( \varphi \) i \( (\varphi_n)_n \) kao u uvjetima t.~\ref{bdd-prop-4}. Ako \( \varphi_n \rightarrow \varphi \) uniformno
+		      na svakom kompaktnom skupu, tada \( \log \varphi_n \rightarrow \log \varphi \) uniformno na svakom kompaktnom skupu.
+		\item Ako je \( (\mu_n)_n \) niz beskonačno djeljivih vjerojatnosnih mjera i \( \mu_n \konvw \mu \), tada je i \( \mu \) beskonačno djeljiva.
+		\item Ako je \( \varphi \) beskonačno djeljiva, tada je \( \mu^t \) dobro definirana i beskonačno djeljiva za svaki \( t \in \left[ 0, \infty \right\rangle \). \label{bdd-prop-6}
+	\end{enumerate}
+\end{propozicija}
+
+\begin{komentar} \label{bdd-komentar}
+	Razmotrimo primjere beskonačno djeljivih distribucija.
+	\begin{itemize}
+		\item Neka je \( X \sim \mathrm N(\mu, \sigma^2) \). Za \( n \in \N \) definiramo \( X_k \sim \mathrm N(\mu/n, \sigma^2/n) \) n.j.d.\ pa je
+		      \[
+			      X_n \jpod X_1 + \cdots + X_n.
+		      \]
+		      Po definiciji slijedi da je normalna distribucija beskonačno djeljiva. Istu ideju možemo primijeniti da dokažemo da su beskonačno djeljive Poissonova,
+		      \( \Gamma \) i \( \delta \)-distribucije. Ekvivalentno je gledati korijene karakterističnih funkcija i vidjeti da odgovaraju istom tipu distribucije
+		      s različitim parametrima. Tako su još beskonačno djeljive Cauchyjeva i negativna binomna distribucija.
+
+		\item Uniformna i binomna distribucija nisu beskonačno djeljive. Za uniformnu karakteristična funkcija ima nultočke (prop.~\ref{bdd-prop}, t.~\ref{bdd-prop-2}).
+		      Za binomnu to nije slučaj, ali nije beskonačno djeljiva pa to pokazuje da ne vrijedi obrat. U~\cite{sato} se u kasnijim poglavljima pokazuje da su \( \delta \)-distribucije
+		      jedine beskonačno djeljive distribucije s kompaktnim nosačem.
+
+		\item Ako je \( \left\{ X_t \right\} \) \levy jev je \( \P_{X_1} \) beskonačno djeljiva. Za \( n \in \N \) definiramo \( t_k = k/n \), \( 0 \le k \le n \) pa
+		      \[
+			      X_1 = \sum_{k=0}^n \left( X_{t_k} - X_{t_{k-1}} \right) \quad \mathrm{g.s.}
+		      \]
+		      Tvrdnja slijedi zbog stacionarnosti i nezavisnosti inkremenata.
+	\end{itemize}
+\end{komentar}
+
+Slijedi glavni rezultat ovog odjeljka koji smo najavili na početku.
+\begin{teorem} \label{bddlpd}
+	\begin{enumerate}[label=(\roman*)]
+		\item Ako je \( {X_t} \) \levy jev po distribuciji, tada je \( \P_{X_t} \) beskonačno djeljiva za svaki \( t \geq 0 \) i \( \P_{X_t} = \P_{X_1}^t \). \label{bddlpd1}
+		\item Ako je \( \mu \) beskonačno djeljiva distribucija, tada postoji \levy jev proces po distribuciji \( \left\{ X_t \right\} \) takav da \( \P_{X_1} = \mu \). \label{bddlpd2}
+		\item Ako su \( \left\{ X_t \right\} \) i \( \left\{ X_t' \right\} \) \levy jevi procesi po distribuciji takvi da \( \P_{X_1} = \P_{X_1'} \), tada \( \left\{ X_t \right\} \jpod \left\{ X_t' \right\}\). \label{bddlpd3}
+	\end{enumerate}
+\end{teorem}
+
+\begin{proof}
+	Dokažimo prvo~\ref{bddlpd1}. Da je \( \P_{X_t} \) beskonačno djeljiva za sve \( t \geq 0 \) slijedi istom konstrukcijom kao u komentaru~\ref{bdd-komentar}. Iz nje štoviše slijedi
+	\( \P_{X_{1/n}} = \P_{X_1}^{1/n} \) i zatim po prop.~\ref{bdd-prop} je  \( \P_{X_{m/n}} = \P_{X_1}^{m/n} \). Dakle, tvrdnju smo dokazali za sve \( t \in \mathbb Q_{\ge 0} \).
+	Neka je sada \( t \) iracionalan i \( t_n \rightarrow t \) gdje \( t_n \in \mathbb Q \). Stohastičku neprekidnost u \( t \) možemo zapisati kao \( X_{t_n} \konvp X_{t} \) pa konvergencija vrijedi i po distribuciji
+	te povlači konvergenciju mjera \( \P_{X_1}^{t_n} = \P_{X_{t_n}} \konvw \P_{X_t} \). Također \( \P_{X_1}^{t_n} \konvw P_{X_1}^t \) po prop.~\ref{bdd-prop}, t.~\ref{bdd-prop-4}. Tvrdnja slijedi zbog jedinstvenosti limesa (npr.\ prop.~13.7 u~\cite{sarapa}).
+
+	Sada dokažimo~\ref{bddlpd3}. Po~\ref{bddlpd1} slijedi \( X_t \jpod X_t' \) za \( t \ge 0 \) i po stacionarnosti inkremenata \( X_{s+t}-X_s \jpod X_{s+t}'-X_s' \) za \( s, t \ge 0 \). Zbog nezavisnosti komponenti jednako su distrbuirani i vektori\footnote{njihove komponente isto mogu biti vektori, tada se radi o blok-zapisu}
+	\begin{equation} \label{jd7103}
+		( X_{t_0}, X_{t_1}-X_{t_0}, \ldots, X_{t_n}-X_{t_{n-1}}  )
+		\jpod
+		( X_{t_0}', X_{t_1}'-X_{t_0}', \ldots, X_{t_n}'-X_{t_{n-1}}'  )
+	\end{equation}
+	za sve \( n \in \N \) i \( 0 \le t_0 < t_1 < \cdots < t_n \). Primjenom
+	izmjerivog preslikavanja
+	\[
+		\left( x_0, x_1, \ldots x_n \right) \mapsto \left( x_0, x_0 + x_1, \ldots, x_0 + x_1 + \cdots + x_n  \right), \quad x_k \in \R^d
+	\]
+	na obje strane~\eqref{jd7103} dobivamo
+	\[
+		( X_{t_0}, X_{t_1}, \ldots X_{t_n} )
+		\jpod
+		( X_{t_0}', X_{t_1}', \ldots X_{t_n}' ).
+	\]
+
+	Preostaje~\ref{bddlpd2}. Moramo definirati vjerojatnosni prostor i \( \left\{ X_t \right\} \) na njemu te zatim dokazati da proces ima željena svojstva.
+	Uvedimo uobičajenu konstrukciju (npr.~\cite[str.~4]{sato}): \( \Omega = (\R^d)^{\left[0, \infty \right\rangle} \), odgovarajuća \( \sigma \)-algebra
+	cilindara za \( \mathcal F \) i za \( \omega=(\omega(t))_t \) stavimo \( X_t(\omega)=\omega(t) \). Za
+	\( n \in \N \) i \( 0 \le t_0 < t_1 < \cdots < t_n \) definiramo vjerojatnosnu mjeru na bazi \( \sigma \)-algebre \(\mathcal B((\R^d)^{n+1})  \)
+	\begin{equation} \label{tmbdd-mjera}
+		\begin{aligned}
+			\mu_{t_0, \ldots, t_n}(B_0 \times \cdots \times B_n) =
+			\int_{\R^d} \cdots \int_{\R^d} & \D \mu^{t_0}(y_0) 1_{B_0}(y_0)
+			\D \mu^{t_1-t_0}(y_1)1_{B_1}(y_0+y_1)                           \\ &\cdots
+			\D \mu^{t_n-t_{n-1}}(y_n)1_{B_n}(y_0+\cdots+y_n),
+		\end{aligned}
+	\end{equation}
+	gdje \( B_k \in \mathcal B(\R^d) \). Mjera je dobro definirana po prop.~\ref{bdd-prop}, t.~\ref{bdd-prop-6}. Familija \( \left\{ \mu_{t_0,\ldots,t_n} \right\} \)
+	je suglasna (v.\ komentar~\ref{tmbdd-komentar}) pa po teoremu Kolmogorova postoji jedinstvena vjerojatnosna mjera \( \P \) na \( \mathcal F \) takva da
+	\begin{equation}
+		\P(X_{t_0} \in B_0, \ldots , X_{t_n} \in B_n) = \mu_{t_0, \ldots, t_n}(B_0 \times \cdots \times B_n)
+	\end{equation}
+	Stavimo li \( t_0 = t \) i \( B_k = \R^d \) za \( k \ge 1 \) dobivamo da \( X_t \) ima distribuciju \( \mu^t \). Posebice, \( X_0 = 0 \) g.s. Za ograničenu izmjerivu funkciju \( f \) generalno vrijedi
+	\begin{equation} \label{eq:tmbddef}
+		\begin{aligned}
+			\E f(X_0, \ldots, X_n) = \int_{\R^d} \cdots \int_{\R^d} & f(y_0, y_0+y_1, \ldots, y_0+\cdots+y_n)
+			\\ & \D \mu^{t_0}(y_0) \D \mu^{t_1-t_0}(y_1) \cdots \D \mu^{t_n-t_{n-1}}(y_n).
+		\end{aligned}
+	\end{equation}
+	Neka je \( z = (z_1, \ldots, z_n) \), \( z_k \in \R^d \) fiksan. Definiramo
+	\begin{equation}
+		\begin{aligned}
+			 & f(x_0, \ldots, x_n) = \exp\left( i \sum_{k=1}^n \skp{z_k}{x_k-x_{k-1}}  \right)
+			\quad \mathrm{i}                                                                              \\
+			 & f_k(x_0, \ldots, x_n) = \exp \left( i \skp{z_k}{x_k-x_{k-1}} \right), \quad 1 \le k \le n.
+		\end{aligned}
+	\end{equation}
+	Onda je \( f = \prod_k f_k \) te su \( \E f(X_0, \ldots, X_n) \) i \( \E f_k(X_0, \ldots, X_n) \)
+	vrijednosti u točki \( z \) karakterističnih funkcija od redom \( (X_{t_0}, X_{t_1}-X_{t_0},\ldots, X_{t_n}-X_{t_{n-1}}) \) i \( X_{t_k}-X_{t_{k-1}} \). Najprije se iz~\eqref{eq:tmbddef} lako dobije
+	\begin{equation}
+		\E f_k(X_0, \ldots, X_n) = \int_{\R^d} \exp\left(i\skp{z_k}{y_k}\right) \D \mu^{t_k-t_{k-1}} (y_k)
+	\end{equation}
+	pa slijedi da \( X_{t_k}-X_{t_{k-1}} \) ima distribuciju \( \mu_{t_k-t_{k-1}} \). Dakle, dokazali smo stacionarnost. Nezavisnost dobijemo jer
+	\begin{equation}
+		\begin{aligned}
+			\E & f(X_0, \ldots, X_n)                                                                \\
+			   & = \int_{\R^d} \cdots \int_{\R^d} \exp \left( i \sum_{k=1}^n \skp{z_k}{y_k} \right)
+			\D \mu_{t_1-t_0}(y_1) \cdots \D \mu_{t_n-t_{n-1}} (y_n)                                 \\
+			   & = \prod_{k=1}^n \E f_k(X_0, \ldots, X_n).
+		\end{aligned}
+	\end{equation}
+
+	Na kraju jer \( \mu_t \konvw \mu_0 = \delta_0  \) slijedi \( X_t \konvd 0 \) i \( X_t \konvp 0 \) kad \( t \downarrow 0 \). Zbog stacionarnosti inkremenata, to se lako proširi na stohastičku neprekidnost na cijeloj domeni. Dakle, \( \left\{ X_t \right\} \) je \levy jev po distribuciji.
+\end{proof}
+
+\begin{komentar} Razjasnimo par stvari iz dokaza teorema~\ref{bddlpd}.
+	\begin{itemize}
+		\item akjlsk
+	\end{itemize}
+\end{komentar}
+
+Za kraj odjeljka vrijedi spomenuti i temu \levy --Hinčinove reprezentacije beskonačno djeljivih distribucija odn.\
+njihovih karakterističnih funkcija. Ona nam ovdje nije bila potrebna, no detaljno je
+odbrađena u~\cite[\textsection 8]{sato}.
+
+\end{document}
