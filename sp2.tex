@@ -48,7 +48,7 @@ Najvažnije nam je vidjeti da logaritmirajne i potenciranje beskonačno djeljivi
 		\item Neka su \( \varphi \) i \( (\varphi_n)_n \) kao u uvjetima t.~\ref{bdd-prop-4}. Ako \( \varphi_n \rightarrow \varphi \) uniformno
 		      na svakom kompaktnom skupu, tada \( \log \varphi_n \rightarrow \log \varphi \) uniformno na svakom kompaktnom skupu.
 		\item Ako je \( (\mu_n)_n \) niz beskonačno djeljivih vjerojatnosnih mjera i \( \mu_n \konvw \mu \), tada je i \( \mu \) beskonačno djeljiva.
-		\item Ako je \( \varphi \) beskonačno djeljiva, tada je \( \mu^t \) dobro definirana i beskonačno djeljiva za svaki \( t \in \left[ 0, \infty \right\rangle \). \label{bdd-prop-6}
+		\item Ako je \( \mu \) beskonačno djeljiva, tada je \( \mu^t \) dobro definirana i beskonačno djeljiva za svaki \( t \in \left[ 0, \infty \right\rangle \). \label{bdd-prop-6}
 	\end{enumerate}
 \end{propozicija}
 
@@ -90,7 +90,7 @@ Slijedi glavni rezultat ovog odjeljka koji smo najavili na početku.
 	Neka je sada \( t \) iracionalan i \( t_n \rightarrow t \) gdje \( t_n \in \mathbb Q \). Stohastičku neprekidnost u \( t \) možemo zapisati kao \( X_{t_n} \konvp X_{t} \) pa konvergencija vrijedi i po distribuciji
 	te povlači konvergenciju mjera \( \P_{X_1}^{t_n} = \P_{X_{t_n}} \konvw \P_{X_t} \). Također \( \P_{X_1}^{t_n} \konvw P_{X_1}^t \) po prop.~\ref{bdd-prop}, t.~\ref{bdd-prop-4}. Tvrdnja slijedi zbog jedinstvenosti limesa (npr.\ prop.~13.7 u~\cite{sarapa}).
 
-	Sada dokažimo~\ref{bddlpd3}. Po~\ref{bddlpd1} slijedi \( X_t \jpod X_t' \) za \( t \ge 0 \) i po stacionarnosti inkremenata \( X_{s+t}-X_s \jpod X_{s+t}'-X_s' \) za \( s, t \ge 0 \). Zbog nezavisnosti komponenti jednako su distrbuirani i vektori\footnote{njihove komponente isto mogu biti vektori, tada se radi o blok-zapisu}
+	Sada dokažimo~\ref{bddlpd3}. Po~\ref{bddlpd1} slijedi \( X_t \jpod X_t' \) za \( t \ge 0 \) i po stacionarnosti inkremenata \( X_{s+t}-X_s \jpod X_{s+t}'-X_s' \) za \( s, t \ge 0 \). Zbog nezavisnosti komponenti jednako su distribuirani i vektori\footnote{njihove komponente isto mogu biti vektori, tada se radi o blok-zapisu}
 	\begin{equation} \label{jd7103}
 		( X_{t_0}, X_{t_1}-X_{t_0}, \ldots, X_{t_n}-X_{t_{n-1}}  )
 		\jpod
@@ -123,7 +123,7 @@ Slijedi glavni rezultat ovog odjeljka koji smo najavili na početku.
 	gdje \( B_k \in \mathcal B(\R^d) \). Mjera je dobro definirana po prop.~\ref{bdd-prop}, t.~\ref{bdd-prop-6}. Familija \( \left\{ \mu_{t_0,\ldots,t_n} \right\} \)
 	je suglasna (v.\ komentar~\ref{tmbdd-komentar}) pa po teoremu Kolmogorova postoji jedinstvena vjerojatnosna mjera \( \P \) na \( \mathcal F \) takva da
 	\begin{equation}
-		\P(X_{t_0} \in B_0, \ldots , X_{t_n} \in B_n) = \mu_{t_0, \ldots, t_n}(B_0 \times \cdots \times B_n)
+		\P(X_{t_0} \in B_0, \ldots , X_{t_n} \in B_n) = \mu_{t_0, \ldots, t_n}(B_0 \times \cdots \times B_n).
 	\end{equation}
 	Stavimo li \( t_0 = t \) i \( B_k = \R^d \) za \( k \ge 1 \) dobivamo da \( X_t \) ima distribuciju \( \mu^t \). Posebice, \( X_0 = 0 \) g.s. Za ograničenu izmjerivu funkciju \( f \) generalno vrijedi
 	\begin{equation} \label{eq:tmbddef}
@@ -132,7 +132,7 @@ Slijedi glavni rezultat ovog odjeljka koji smo najavili na početku.
 			\\ & \D \mu^{t_0}(y_0) \D \mu^{t_1-t_0}(y_1) \cdots \D \mu^{t_n-t_{n-1}}(y_n).
 		\end{aligned}
 	\end{equation}
-	Neka je \( z = (z_1, \ldots, z_n) \), \( z_k \in \R^d \) fiksan. Definiramo
+	Neka je \( z = (z_1, \ldots, z_n) \), \( z_k \in \R^d \), fiksan. Definiramo
 	\begin{equation}
 		\begin{aligned}
 			 & f(x_0, \ldots, x_n) = \exp\left( i \sum_{k=1}^n \skp{z_k}{x_k-x_{k-1}}  \right)
@@ -145,12 +145,12 @@ Slijedi glavni rezultat ovog odjeljka koji smo najavili na početku.
 	\begin{equation}
 		\E f_k(X_0, \ldots, X_n) = \int_{\R^d} \exp\left(i\skp{z_k}{y_k}\right) \D \mu^{t_k-t_{k-1}} (y_k)
 	\end{equation}
-	pa slijedi da \( X_{t_k}-X_{t_{k-1}} \) ima distribuciju \( \mu_{t_k-t_{k-1}} \). Dakle, dokazali smo stacionarnost. Nezavisnost dobijemo jer
+	pa slijedi da \( X_{t_k}-X_{t_{k-1}} \) ima distribuciju \( \mu^{t_k-t_{k-1}} \). Dakle, dokazali smo stacionarnost. Nezavisnost dobijemo jer
 	\begin{equation}
 		\begin{aligned}
 			\E & f(X_0, \ldots, X_n)                                                                \\
 			   & = \int_{\R^d} \cdots \int_{\R^d} \exp \left( i \sum_{k=1}^n \skp{z_k}{y_k} \right)
-			\D \mu_{t_1-t_0}(y_1) \cdots \D \mu_{t_n-t_{n-1}} (y_n)                                 \\
+			\D \mu^{t_1-t_0}(y_1) \cdots \D \mu^{t_n-t_{n-1}} (y_n)                                 \\
 			   & = \prod_{k=1}^n \E f_k(X_0, \ldots, X_n).
 		\end{aligned}
 	\end{equation}
@@ -158,14 +158,39 @@ Slijedi glavni rezultat ovog odjeljka koji smo najavili na početku.
 	Na kraju jer \( \mu_t \konvw \mu_0 = \delta_0  \) slijedi \( X_t \konvd 0 \) i \( X_t \konvp 0 \) kad \( t \downarrow 0 \). Zbog stacionarnosti inkremenata, to se lako proširi na stohastičku neprekidnost na cijeloj domeni. Dakle, \( \left\{ X_t \right\} \) je \levy jev po distribuciji.
 \end{proof}
 
-\begin{komentar} Razjasnimo par stvari iz dokaza teorema~\ref{bddlpd}.
+\begin{komentar} \label{tmbdd-komentar}
+	Razjasnimo par stvari iz dokaza teorema~\ref{bddlpd}.
 	\begin{itemize}
-		\item akjlsk
+		\item Intuicija iza~\eqref{tmbdd-mjera} je sljedeća: svakako nas zanima
+		      vjerojatnost da \( x_k \in B_k \), no preostaje pitanje kako \enquote{mjeriti} pojedini skok.
+		      Dekomponiranje mjere na komponente koje ovise samo o rasponu \( t_k-t_{k-1} \) i mjerenje po
+		      inkrementima (\( y_0=x_0, y_k = x_k-x_{k-1} \)) osiguravaju željena svojstva, a to se i
+		      potvrdi formalno.
+
+		\item Obrazložimo zašto je familija mjera definiranih preko~\eqref{tmbdd-mjera} suglasna.
+		      Kada imamo \( 1_{B_k} \equiv 1 \) za \( k < n \) dobiva se konvolucija dviju od mjera, a za \( k = n \)
+		      funkcija koju integriramo više ne ovisi o \( y_n \) pa i mjera \( \mu_n \) nestaje. Prikažimo prvo bez smanjenja općenitosti za \( n = 3 \) i \( B_1 = \R^d \):
+		      \begin{align}
+			       & \mu_{t_0, t_1, t_2}(B_0 \times \R^d \times B_2) =                                                                                         \\
+			       & = \int_{\R^d}\int_{\R^d}\int_{\R^d} 1_{B_0}(y_0) \D \mu^{t_0} (y_0) 1_{B_2}(y_0+y_1+y_2) \D \mu^{t_1-t_0}(y_1) \D \mu^{t_2-t_1}(y_2)      \\
+			       & = \int_{\R^d} \int_{\R^d} 1_{B_0}(y_0) \D \mu^{t_0}(y_0) 1_{B_2}(y_0+y_2') \D (\mu^{t_2-t_1}*\mu^{t_1-t_0})(y_2')  \label{bddtm-konvform} \\
+			       & = \mu_{t_0, t_2}(B_0, B_2) \label{bddtm-jj},
+		      \end{align}
+		      gdje \( y_2' = y_1 + y_2 \), jednakost~\eqref{bddtm-konvform} dobijemo preko poznate formule za konvoluciju (npr.~\cite[\textsection 13.4,~(6)]{sarapa}). Naime, možemo ju u našem slučaju pisati
+		      i kao:
+		      \begin{equation}
+			      \begin{aligned}
+				      \int_{\R^d} 1_{B_2-y_0} (y_2')\D (\mu^{t_2-t_1} & * \mu^{t_1-t_0})(y_2')                                                                       \\
+				                                                      & =  \int_{\R^d} \int_{\R^d} 1_{B_2}(y_0+y_1+y_2) \D \mu^{t_2-t_1}(y_2) \D \mu^{t_1-t_0}(y_1).
+			      \end{aligned}
+		      \end{equation}
+		      Za~\eqref{bddtm-jj} nam treba i \( \mu^s * \mu^t = \mu^{s+t} \). Zadnje dobijemo po prop.~\ref{bdd-prop} --- karakteristična funkcija od
+		      \( \mu^{s+t} \) je \( \exp[(t+s) \log \wh \mu] \) što je produkt karakterističnih funkcija od \( \mu^s \) i \( \mu^t \).
 	\end{itemize}
 \end{komentar}
 
 Za kraj odjeljka vrijedi spomenuti i temu \levy --Hinčinove reprezentacije beskonačno djeljivih distribucija odn.\
 njihovih karakterističnih funkcija. Ona nam ovdje nije bila potrebna, no detaljno je
-odbrađena u~\cite[\textsection 8]{sato}.
+obrađena u~\cite[\textsection 8]{sato}.
 
 \end{document}

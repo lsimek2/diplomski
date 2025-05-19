@@ -96,7 +96,7 @@ bilo kojom beskonačno djeljivom distribucijom.
 		= \frac{(\lambda t)^n}{n!}e^{-\lambda t},
 	\end{align}
 	pri čemu koristimo nezavisnost varijabli \( W_n \) i \( T_{n+1} \) za prelazak na njihove gustoće.
-	
+
 	Sličnim izravnim računom možemo dobiti i
 	\begin{equation} \label{eq:poiswnuzxt}
 		\P(W_{n+1} > t + s \given X_t = n) = e^{-cs} = \P(T_1 > s), \quad t > 0, s \ge 0, n \ge 0.
@@ -139,20 +139,20 @@ bilo kojom beskonačno djeljivom distribucijom.
 	gdje druga jednakost slijedi primjenom iste ideje kao u dokazu stacionarnosti. Dokaz se završi indukcijom.
 \end{proof}
 
-\section{Brownovo gibanje}\label{sec:sp-brownovo}
+\section{Brownovo gibanje}\label{sec:sp-brown}
 Sada na slični način uvodimo Brownovo gibanje.
 
 \begin{definicija} \label{def:brown}
 	Slučajni proces \( \left\{ X_t \right\} \) u \( \R^d \) je \emph{Brownovo gibanje} (ili \emph{Wienerov proces}) ako je \levy jev i ako
 	\begin{enumerate}[label=(\roman*)]
-		\item je \( X_t \) normalno distribuirana s očekivanjem \( 0 \in \R^d \) i kovarijacijskom matricom \( tI \)  i \label{enum:browndef1}
+		\item \( X_t \sim \mathrm N(0, tI) \) i \label{enum:browndef1}
 		\item postoji \( \Omega_0 \in \mathcal F \) takav da je \( \P(\Omega_0)=1 \) i \( \omega \in \Omega_0 \) povlači da je trajektorija \( t \mapsto X_t(\omega) \) neprekidna. \label{enum:browndef2}
 	\end{enumerate}
 \end{definicija}
 
 Ovime nismo dokazali da takav proces postoji, što ćemo ostaviti za kasnije. Dana svojstva su nam dovoljna da dokažemo nekoliko osnovnih rezultata
 o Brownovom gibanju. Dokazat ćemo par nama najznačajnijih rezultata, a drugi se mogu naći u~\cite[\textsection 5]{sato}. Spomenimo još kako je svojstvo~\ref{enum:browndef1}
-skupa s \levy jevosti dovoljno za~\ref{enum:browndef2} po kasnijem teoremu~\ref{tm:aditgauss}.
+skupa s \levy jevosti dovoljno za~\ref{enum:browndef2} po teoremu~\ref{tm:aditgauss}.
 
 Prvo ćemo dokazati da Brownovo gibanje zadržava istu distribuciju pri širenju u vremenu i odgovarajućem širenju u prostoru. To svojstvo ćemo kasnije zvati
 \emph{samosličnost}.
