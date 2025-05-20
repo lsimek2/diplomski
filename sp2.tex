@@ -4,7 +4,8 @@
 \nocite{*}
 
 \section{Beskonačno djeljive distribucije} \label{sec:sp-bdd}
-U ovom odjeljku uvodimo pojam beskonačno djeljive distribucije odn.\ mjere. Beskonačno djeljive
+U ovom odjeljku uvodimo pojam beskonačno djeljive distribucije odn.\ mjere.\footnote{često poistovjećujemo vjerojatnosnu
+	mjeru i odgovarajuću vjerojatnosnu funkciju distribucije (v.~\cite[str.~257]{sarapa})} Beskonačno djeljive
 distribucije su u vrlo bliskoj vezi s \levy jevim procesima. Naime, dokazat ćemo da
 \begin{itemize}
 	\item za svaku beskonačno djeljivu distribuciju \( \mu \) postoji \levy jev po distribuciji proces \( \left\{ X_t \right\} \)
@@ -169,12 +170,12 @@ Slijedi glavni rezultat ovog odjeljka koji smo najavili na početku.
 
 		\item Obrazložimo zašto je familija mjera definiranih preko~\eqref{tmbdd-mjera} suglasna.
 		      Kada imamo \( 1_{B_k} \equiv 1 \) za \( k < n \) dobiva se konvolucija dviju od mjera, a za \( k = n \)
-		      funkcija koju integriramo više ne ovisi o \( y_n \) pa i mjera \( \mu_n \) nestaje. Prikažimo prvo bez smanjenja općenitosti za \( n = 3 \) i \( B_1 = \R^d \):
+		      funkcija koju integriramo više ne ovisi o \( y_n \) pa i mjera \( \mu_n \) nestaje. Prikažimo prvo bez smanjenja općenitosti za \( n = 2 \) i \( B_1 = \R^d \):
 		      \begin{align}
 			       & \mu_{t_0, t_1, t_2}(B_0 \times \R^d \times B_2) =                                                                                         \\
 			       & = \int_{\R^d}\int_{\R^d}\int_{\R^d} 1_{B_0}(y_0) \D \mu^{t_0} (y_0) 1_{B_2}(y_0+y_1+y_2) \D \mu^{t_1-t_0}(y_1) \D \mu^{t_2-t_1}(y_2)      \\
 			       & = \int_{\R^d} \int_{\R^d} 1_{B_0}(y_0) \D \mu^{t_0}(y_0) 1_{B_2}(y_0+y_2') \D (\mu^{t_2-t_1}*\mu^{t_1-t_0})(y_2')  \label{bddtm-konvform} \\
-			       & = \mu_{t_0, t_2}(B_0, B_2) \label{bddtm-jj},
+			       & = \mu_{t_0, t_2}(B_0 \times B_2) \label{bddtm-jj},
 		      \end{align}
 		      gdje \( y_2' = y_1 + y_2 \), jednakost~\eqref{bddtm-konvform} dobijemo preko poznate formule za konvoluciju (npr.~\cite[\textsection 13.4,~(6)]{sarapa}). Naime, možemo ju u našem slučaju pisati
 		      i kao:
@@ -184,7 +185,7 @@ Slijedi glavni rezultat ovog odjeljka koji smo najavili na početku.
 				                                                      & =  \int_{\R^d} \int_{\R^d} 1_{B_2}(y_0+y_1+y_2) \D \mu^{t_2-t_1}(y_2) \D \mu^{t_1-t_0}(y_1).
 			      \end{aligned}
 		      \end{equation}
-		      Za~\eqref{bddtm-jj} nam treba i \( \mu^s * \mu^t = \mu^{s+t} \). Zadnje dobijemo po prop.~\ref{bdd-prop} --- karakteristična funkcija od
+		      Za~\eqref{bddtm-jj} nam treba i \( \mu^s * \mu^t = \mu^{s+t} \) --- po prop.~\ref{bdd-prop} karakteristična funkcija od
 		      \( \mu^{s+t} \) je \( \exp[(t+s) \log \wh \mu] \) što je produkt karakterističnih funkcija od \( \mu^s \) i \( \mu^t \).
 	\end{itemize}
 \end{komentar}

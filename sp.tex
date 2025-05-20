@@ -17,7 +17,8 @@ Razlikujemo proces od realizacije
 \[ t \mapsto X_t(\omega), \quad t \in \left[ 0,\infty \right\rangle, \quad \mathrm{za \ neki} \ \omega \in \Omega \]
 koju još zovemo \emph{trajektorijom}. Nadalje, kažemo da je slučajni proces \( \left\{ X_t \right\} \) \emph{modifikacija} procesa
 \( \left\{ Y_t \right\} \) ako je \( \P(X_t = Y_t) = 1 \) za sve \( t \in \left[ 0,\infty \right\rangle \). Primijetimo razliku u odnosu
-na jači uvjet \( \P(X_t = Y_t,\ \forall t \in \left[ 0,\infty \right\rangle) = 1 \) kada procese više uopće ne razlikujemo.
+na jači uvjet \( \P(X_t = Y_t,\ \forall t \in \left[ 0,\infty \right\rangle) = 1 \) kada procese više načelno ne razlikujemo.
+Jednakost dvaju procesa po distribuciji znači jednakost svih konačnodiomenzionalnih distribucija.
 
 Slučajne procese obično promatramo preko konačnodimenzionalnih funkcija distribucije
 \( F_{t_1, \ldots, t_n} \), \( t_j \in T \), koje zadovoljavaju tzv.\ uvjete suglasnosti Kolmogorova.
@@ -55,7 +56,7 @@ frakcionalno Brownovo gibanje kao generalizaciju. Prije te definicije, uvedimo j
 \end{definicija}
 
 \section{Poissonov proces}\label{sec:sp-poisson}
-U ovom odjeljku uvodimo Poissonov proces kao primjer \levy jevog procesa. Intuitivno, taj proces mjeri broj doagađaja koji su se dogodili do
+U ovom odjeljku uvodimo Poissonov proces kao primjer \levy jevog procesa. Intuitivno, taj proces mjeri broj događaja koji su se dogodili do
 trenutka \( t \), pri čemu su duljine intervala između uzastopnih događaja distribuirane eksponencijalno. Pritom, eksponencijalnu distribuciju karakterizira
 tzv.\ gubitak pamćenja. Poissonov proces uvest ćemo kao \levy jev proces s dodatnim svojstvom da je \( X_t \sim \mathrm P(\lambda t) \), a onda konstrukcijom
 dokazati da takav proces zaista postoji. Kasnije ćemo pokazati da je moguće na taj način odrediti \levy jev proces i kad se Poissonova distribucija zamijeni

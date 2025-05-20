@@ -1,13 +1,13 @@
 # Fdb version 4
-["biber main"] 1747694284.47085 "main.bcf" "main.bbl" "main" 1747696722.91635 0
+["biber main"] 1747748226.66358 "main.bcf" "main.bbl" "main" 1747750194.32104 0
   "literatura.bib" 1747412174.59036 1147 5b4fba84f4db0ae2eeb4f7a9f93b927e ""
-  "main.bcf" 1747696722.72344 108796 006eeb15e26b9494fcd4f6bc7ed1b57d "pdflatex"
+  "main.bcf" 1747750194.1135 108918 aace41dc39c953489e2fed97d3f8218b "pdflatex"
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1747696721.71365 "/home/lsimek/projects/diplomski/main.tex" "main.pdf" "main" 1747696722.91659 0
-  "/home/lsimek/projects/diplomski/main.tex" 1747605499.65883 6198 a33221d0a2382134f71ee26b9abd3e69 ""
+["pdflatex"] 1747750193.06305 "/home/lsimek/projects/diplomski/main.tex" "main.pdf" "main" 1747750194.3213 0
+  "/home/lsimek/projects/diplomski/main.tex" 1747737021.64084 6198 a33221d0a2382134f71ee26b9abd3e69 ""
   "/nix/store/73pbsbdmwsfynw5aza54plj25mxqr172-texlive-combined-2023-texmfdist/fonts/enc/dvips/cm-super/cm-super-t1.enc" 1 2971 def0b6c1f0b107b3b936def894055589 ""
   "/nix/store/73pbsbdmwsfynw5aza54plj25mxqr172-texlive-combined-2023-texmfdist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/nix/store/73pbsbdmwsfynw5aza54plj25mxqr172-texlive-combined-2023-texmfdist/fonts/map/fontname/texfonts.map" 1 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -55,7 +55,9 @@
   "/nix/store/73pbsbdmwsfynw5aza54plj25mxqr172-texlive-combined-2023-texmfdist/fonts/type1/public/amsfonts/cm/cmex10.pfb" 1 30251 6afa5cb1d0204815a708a080681d4674 ""
   "/nix/store/73pbsbdmwsfynw5aza54plj25mxqr172-texlive-combined-2023-texmfdist/fonts/type1/public/amsfonts/cm/cmmi10.pfb" 1 36299 5f9df58c2139e7edcf37c8fca4bd384d ""
   "/nix/store/73pbsbdmwsfynw5aza54plj25mxqr172-texlive-combined-2023-texmfdist/fonts/type1/public/amsfonts/cm/cmmi12.pfb" 1 36741 fa121aac0049305630cf160b86157ee4 ""
+  "/nix/store/73pbsbdmwsfynw5aza54plj25mxqr172-texlive-combined-2023-texmfdist/fonts/type1/public/amsfonts/cm/cmmi5.pfb" 1 37912 77d683123f92148345f3fc36a38d9ab1 ""
   "/nix/store/73pbsbdmwsfynw5aza54plj25mxqr172-texlive-combined-2023-texmfdist/fonts/type1/public/amsfonts/cm/cmmi6.pfb" 1 37166 8ab3487cbe3ab49ebce74c29ea2418db ""
+  "/nix/store/73pbsbdmwsfynw5aza54plj25mxqr172-texlive-combined-2023-texmfdist/fonts/type1/public/amsfonts/cm/cmmi7.pfb" 1 36281 c355509802a035cadc5f15869451dcee ""
   "/nix/store/73pbsbdmwsfynw5aza54plj25mxqr172-texlive-combined-2023-texmfdist/fonts/type1/public/amsfonts/cm/cmmi8.pfb" 1 35469 70d41d2b9ea31d5d813066df7c99281c ""
   "/nix/store/73pbsbdmwsfynw5aza54plj25mxqr172-texlive-combined-2023-texmfdist/fonts/type1/public/amsfonts/cm/cmr10.pfb" 1 35752 024fb6c41858982481f6968b5fc26508 ""
   "/nix/store/73pbsbdmwsfynw5aza54plj25mxqr172-texlive-combined-2023-texmfdist/fonts/type1/public/amsfonts/cm/cmr12.pfb" 1 32722 d7379af29a190c3f453aba36302ff5a9 ""
@@ -336,15 +338,15 @@
   "/nix/store/wwfq8brj795wbpfc5x8dhcv5i5ay8qqw-texlive-combined-2023/share/texmf-var/web2c/pdftex/pdflatex.fmt" 1 8021457 de3c7488d73b1b6fe059bab0526fa73d ""
   "/nix/store/wwfq8brj795wbpfc5x8dhcv5i5ay8qqw-texlive-combined-2023/share/texmf-var/web2c/texmf.cnf" 1 42803 25506858c009a3a3559b863182d009e5 ""
   "diplomski.sty" 1747171339.77885 3380 4ae0b53cdc4f7bed2c8deba986d1b95f ""
-  "main.aux" 1747696722.71944 9126 82eab26e891155b8f4e69170b469c9d1 "pdflatex"
-  "main.bbl" 1747694285.30848 5987 7279917e69d2dbb3b7ea7423bcd7af43 "biber main"
-  "main.out" 1747696722.72144 1365 8a2de08d2f91a03d7e2be25930748baf "pdflatex"
-  "main.run.xml" 1747696722.72344 2312 595ba44bd03ceb6f995e9f40f21c616c "pdflatex"
-  "main.tex" 1747605499.65883 6198 a33221d0a2382134f71ee26b9abd3e69 ""
-  "main.toc" 1747696722.72444 754 47576aec222ae68a2855f094188da848 "pdflatex"
-  "sp.tex" 1747694852.53952 17000 091a615bc2d8f93d7d3b1ecd6a2badfa ""
-  "sp2.tex" 1747696721.62243 14403 01a7ba4fc444149c9614f8a75b58f20a ""
-  "sp3.tex" 1747598629.05908 149 e087c689c1caeaee820ff9eb71d9357f ""
+  "main.aux" 1747750194.1095 10794 d2dbe3298c487ce6a8b93a5921a120a1 "pdflatex"
+  "main.bbl" 1747748227.37862 5987 7279917e69d2dbb3b7ea7423bcd7af43 "biber main"
+  "main.out" 1747750194.1115 1365 8a2de08d2f91a03d7e2be25930748baf "pdflatex"
+  "main.run.xml" 1747750194.1135 2312 41c57239f0c07c6eec605d2c7bed6cf3 "pdflatex"
+  "main.tex" 1747737021.64084 6198 a33221d0a2382134f71ee26b9abd3e69 ""
+  "main.toc" 1747750194.1145 755 fb949323dc676dcfb6b76d37dbea2a3b "pdflatex"
+  "sp.tex" 1747742127.29248 17101 3d7f4871cb6ef6d0954a382fa84c66b6 ""
+  "sp2.tex" 1747741847.68234 14528 31971c6e0de639f6d528b098b18ef08d ""
+  "sp3.tex" 1747750192.97549 7005 384ac5ffbfe3ebfec0039a413999c423 ""
   (generated)
   "main.aux"
   "main.bcf"

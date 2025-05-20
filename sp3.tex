@@ -4,6 +4,99 @@
 \nocite{*}
 
 \section{Markovljevi procesi i modifikacije} \label{sec:sp-markov}
+U ovom odjeljku uvodimo Markovljeve procese. Pokazuje se da
+su oni generalizacija \levy jevih i aditivnih procesa, tj.\ \levy jevi
+i aditivni procesi zadovoljavaju Markovljevo svojstvo. Zanima nas ima
+li \levy jev po distribuciji proces iz teorema~\ref{bddlpd}, t.~\ref{bddlpd2}, modifikaciju koja je \levy jev proces. Pitanje modifikacija
+s \cadlag \ ili neprekidnim trajektorijama promatrat ćemo na Markovljevim procesima; dovoljne uvjete
+dajemo u teoremu~\ref{markov-dov}.
 
+Najprije uvedimo pojam tranzicijske funkcije. Intuitivno, funkcija mjeri
+vjerojatnost prijelaza iz točke \( x \) u skup \( B \) između trenutaka \( s \) i \( t \).
+\begin{definicija} \label{def:transf}
+	Preslikavanje \( \Ptrans_{s, t}(x, B) \) gdje \( x \in \R^d \), \( B \in \mathcal B(\R^d) \)
+	i \( 0 \le s \le t < \infty \) je \emph{tranzicijska funkcija} na \( \R^d \) ako
+	\begin{enumerate}[label=(\roman*)]
+		\item za fiksni \( x \) je \( B \mapsto \Ptrans_{s,t}(x, B) \) vjerojatnosna mjera na \( \mathcal B(\R^d) \),
+		\item za fiksni \( B \) je \( x \mapsto \Ptrans_{s, t}(x, B) \) Borel-izmjeriva,
+		\item vrijedi \( \Ptrans_{s,s}(x, B) = \delta_x(B) \) i
+		\item zadovoljava relaciju
+		      \begin{equation} \label{eq:chapkolm}
+			      \int_{\R^d} \Ptrans_{s, t}(x, \D y) \Ptrans_{t, u} (y, B) = \Ptrans_{s, u}(x, B), \quad u \ge t.
+		      \end{equation}
+	\end{enumerate}
+	Dodatno, razmatramo uvjete:
+	\begin{enumerate}[label=(\roman*), resume]
+		\item \( \Ptrans_{s+h, t+h}(x, B) \) ne ovisi o \( h \) i  \label{deftransf-star1}
+		\item \( \Ptrans_{s, t}(x, B) = \Ptrans_{s,t}(0, B-x) \). \label{deftransf-star2}
+	\end{enumerate}
+	Ako vrijedi~\ref{deftransf-star1} kažemo da je tranzicijska funkcija \emph{vremenski homogena}.
+	Ako vrijedi~\ref{deftransf-star2} kažemo da je \emph{prostorno homogena} ili \emph{invarijantna na translaciju}.
+\end{definicija}
+
+\begin{komentar} \label{markov-konstr}
+	\begin{itemize}
+		\item Jednakost~\eqref{eq:chapkolm} zove se identitet Chapman--Kolmogorova.
+		      % ovdje ono o izmjerivosti?
+		\item Ako familiju \( \{\Ptrans_{s, t} \st 0 \le s \le t \} \) čine vremenski homogene tranzicijske funkcije, označavamo ju s \( \left\{ \Ptrans_t \st t \ge 0 \right\} \) gdje \( \Ptrans_t = \Ptrans_{0, t} \).
+		\item Za familiju \( \left\{ \Ptrans_{s, t} \right\} \) tranzicijskih funkcija i početnu vrijednost \( a \in \R^d \) možemo konstruirati proces \( \left\{ Y_t \right\} \) kako slijedi. Tehnika i ideje slične su
+		      kao u dokazu teorema~\ref{bddlpd} pa ćemo biti manje detaljni. Definiramo na uobičajeni način \( \Omega \), \( \mathcal F \) i \( \left\{ Y_t \right\} \). Za \( 0 \le t_1 < \cdots < t_n \) i \( B_0, \ldots, B_n \in \mathcal B(\R^d) \) definiramo vjerojatnosnu mjeru preko
+		      \begin{equation} \label{markov-konstr-mjera}
+			      \begin{aligned}
+				      \mu_{t_0, \ldots, t_n}^{(a)}(B_0  \times \cdots \times B_n)                       \\
+				      = \int_{\R^d} \cdots \int_{\R^d} & 1_{B_0}(x_0)\cdots 1_{B_n}(x_n)                \\
+				                                       & \Ptrans_{t_{n-1}, t_n}(x_{n-1}, \D x_n) \cdots
+				      \Ptrans_{t_0, t_1}(x_0, \D x_1) \Ptrans_{0, t_0}(a, \D x_0).
+			      \end{aligned}
+		      \end{equation}
+		      Suglasnost takve familije slijedi iz~\eqref{eq:chapkolm} te se ona proširi na jedinstvenu vjerojatnosnu mjeru \( \Ptrans^{a} \) na \( \mathcal F \).
+
+		      Slična konstrukcija moguća je za drukčije početno vrijeme \( s > 0 \). Tada \( \Omega^s = (\R^d)^{\left[ s, \infty \right\rangle} \) i definiramo proces \( \left\{ Y_t \st t \ge s \right\} \).
+		      Familija mjera \[ \left\{ \mu^{(s,a)}_{t_0,\ldots,t_n} \st s \le t_0 < \cdots < t_n \right\} \]
+		      definira se analogno kao u~\eqref{markov-konstr-mjera} i proširi se na jedinstvenu vjerojatnosnu mjeru \( \P^{s,a} \) na \( \sigma \)-algebri \( \mathcal F^s \).
+		      Možemo iste oznake s \( s=0 \) koristiti za objekte iz prošlog paragrafa.
+	\end{itemize}
+\end{komentar}
+
+\begin{definicija}
+	Slučajni proces \( \left\{ X_t \right\} \) definiran na vjerojatnosnom prostoru \( \left( \Omega, \mathcal F, \P \right) \) je \emph{Markovljev proces sa familijom tranzicijskih funkcija} \( \left\{ \Ptrans_{s, t} \right\} \) \emph{i početnom vrijednosti} \( a \) ako je po distribuciji jednak procesu \( \left\{ Y_t \st t \ge 0 \right\} \) definiranom u komentaru~\ref{markov-konstr}. Ako su tranzicijske funkcije vremenski homogene, i sam proces naziva se \emph{vremenski homogenim}. Analogno, za proces
+	\( \left\{ X_t \st t \ge s \right\} \) jednak po distribuciji procesu \( \left\{ Y_t \st t \ge s\right\} \)
+	na prostoru \( \left( \Omega^s, \mathcal F^s, \P^{s,a} \right) \) može se dodati da ima \emph{početno vrijeme} \( s \). Procesi \( \left\{ Y_t \right\} \) zovu se \emph{trajektorijska reprezentacija}.
+\end{definicija}
+
+Vezu Markovljevih s aditivnim i \levy jevim procesima možemo ukratko i pomalo neprecizno
+(v.~\cite[\textsection 10]{sato}) rezimirati ovako:
+\begin{itemize}
+	\item aditivni (po distribuciji) proces odgovara Markovljevom procesu s prostorno homogenom tranzicijskom funkcijom i
+	\item \levy jev (po distribuciji) proces odgovara Markovljevom procesu s prostorno i vremenski homogenom tranzicijskom funkcijom.
+\end{itemize}
+
+Sljedeća propozicija uvodi pojam Markovljevog svojstva. Kao i obično, ideja je da
+na budućnost utječe samo sadašnjost, a ne ni najneposrednija prošlost.
+
+\begin{propozicija}
+	Neka je \( \left\{ Y_t \right\} \) trajektorijska reprezentacija Markovljevog procesa s
+	familijom tranzicijskih funkcija \( \left\{ \Ptrans_{s, t}  \right\} \). Neka su
+	\( 0 \le t_0 < \cdots < t_n \) i \( f \) ograničena Borel-izmjeriva funkcija na \( \R^d \).
+	S \( \E^{s,a} \) označimo matematičko očekivanjem s obzirom na vjerojatnosnu mjeru
+	\( \P^{s,a} \). Tada je \( a \mapsto \E^{0,a}[f(Y_{t_0},\ldots,Y_{t_n})] \) Borel-izmjeriva za sve \( a \in \R^d \) i
+	\begin{equation} \label{markov-prop1}
+		\begin{aligned}
+			\E^{0,a}[f(Y_{t,0},\ldots,Y_{t_n})]                                               \\
+			= \int_{\R^d} \cdots \int_{\R^d} & f(x_0,\ldots,x_n)                              \\
+			                                 & \Ptrans_{t_{n-1}, t_n}(x_{n-1}, \D x_n) \cdots
+			\Ptrans_{t_0, t_1}(x_0, \D x_1) \Ptrans_{0, t_0}(a, \D x_0).
+		\end{aligned}
+	\end{equation}
+	Nadalje, ako su \( 0 \le s_0 < \cdots < s_m \le s \) i \( g \) ograničena Borel-izmjeriva
+	funkcija na \( \R^d \) vrijedi\footnote{\( \E^{s,Y_s}[\cdot] \) znači \( h(Y_s) \) gdje
+		je \( h(x) = \E^{s,x}[\cdot] \)}
+	\begin{equation} \label{markov-svojstvo}
+		\begin{aligned}
+			\E^{0,a}[ & g(Y_{s_0},\ldots,Y_{s_m}) f(Y_{s+t_0},\ldots,Y_{s+t_m})]                                   \\
+			          & =\E^{0,a}\bigl[g(Y_{s_0},\ldots,Y_{s_m}) \E^{s, Y_s}[f(Y_{s+t_0},\ldots,Y_{s+t_n})]\bigr].
+		\end{aligned}
+	\end{equation}
+\end{propozicija}
 
 \end{document}
