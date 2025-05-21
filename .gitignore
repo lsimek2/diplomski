@@ -18,10 +18,14 @@ output/
 *.xml
 *.snm
 *.toc
+*.run.xml
+*.bcf-SAVE-ERROR
+*.fdb_latexmk
 
 # bib
 *.blg
 *.bbl
+*.fls
 
 # beamer
 *.vrb
