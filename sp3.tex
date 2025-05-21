@@ -73,7 +73,7 @@ Vezu Markovljevih s aditivnim i \levy jevim procesima možemo ukratko i pomalo n
 	\item \levy jev (po distribuciji) proces odgovara Markovljevom procesu s prostorno i vremenski homogenom tranzicijskom funkcijom.
 \end{itemize}
 
-Sljedeća propozicija uvodi varijantu Markovljevevog svojstva za ovu vrstu procesa.
+Sljedeća propozicija uvodi varijantu Markovljevog svojstva za ovu vrstu procesa.
 Većina dokaza je tehnička i temelji se na Lebesgueovoj indukciji pa ga izostavljamo,
 ali neke stvari pojašnjavamo u komentaru~\ref{markov-prop-kom}.
 
@@ -96,14 +96,56 @@ ali neke stvari pojašnjavamo u komentaru~\ref{markov-prop-kom}.
 		je \( h(x) = \E^{s,x}[\cdot] \)}
 	\begin{equation} \label{markov-svojstvo}
 		\begin{aligned}
-			\E^{0,a}[ & g(Y_{s_0},\ldots,Y_{s_m}) f(Y_{s+t_0},\ldots,Y_{s+t_m})]                                   \\
+			\E^{0,a}[ & g(Y_{s_0},\ldots,Y_{s_m}) f(Y_{s+t_0},\ldots,Y_{s+t_n})]                                   \\
 			          & =\E^{0,a}\bigl[g(Y_{s_0},\ldots,Y_{s_m}) \E^{s, Y_s}[f(Y_{s+t_0},\ldots,Y_{s+t_n})]\bigr].
 		\end{aligned}
 	\end{equation}
 \end{propozicija}
 
 \begin{komentar} \label{markov-prop-kom}
+	Relacija~\eqref{markov-svojstvo} zove se Markovljevo svojstvo. Objasnimo prvo bazu Lebesgueove
+	indukcije u dokazu~\eqref{markov-svojstvo}. Uzimamo
+	\[
+		f = \prod_{k=0}^n 1_{B_k} \quad \mathrm i \quad g = \prod_{k=0}^m 1_{C_k},
+	\]
+	gdje su \( B_0, \ldots B_n, C_0, \ldots, C_m \) Borelovi. Raspišemo li lijevu stranu od~\eqref{markov-svojstvo} preko~\eqref{markov-prop1}
+	dobivamo da je jednaka
+	\begin{equation} \label{Pbaza}
+		\P^{0,a}(Y_{s_0} \in C_0, \ldots, Y_{s_m} \in C_m, Y_{s+t_0} \in B_0, \ldots, Y_{s+t_n} \in B_n).
+	\end{equation}
+	zbog~\eqref{markov-konstr-mjera}. U~\eqref{Pbaza} dodamo još \( Y_s \in \R^d \) prije nego raspišemo po~\eqref{markov-konstr-mjera}. Unutarnjih \( n + 1 \) integrala je jednako
+	\begin{equation}
+		\begin{aligned}
+			\int_{\R^d} \int_{\R^d} \cdots \int_{\R^d} & \prod_{k=0}^n 1_{B_k}(y_k) \Ptrans_{s+t_{n-1}, s+t_n} (y_{n-1}, \D y_n)      \\
+			                                           & \cdots \Ptrans_{s+t_0, s+t_1}(y_0, \D y_1) \Ptrans_{s, s+t_0} (y_s, \D y_0),
+		\end{aligned}
+	\end{equation}
+	što po~\eqref{markov-prop1} i~\eqref{markov-konstr-mjera} za opći \( s \) prepoznajemo kao \( \E^{s, y_s}[f(Y_{s+t_0},\ldots,Y_{s+t_n})] \).
+	Uvrštavanjem natrag u raspis opet primijenimo~\eqref{markov-prop1} da zaključimo da je upravo riječ o desnoj strani u~\eqref{markov-svojstvo}.
 
+	Intuitivno, Markovljevo svojstvo govori da budućnost ovisi samo o trenutnom stanju procesa, a ne i o prošlima. Preciznije, za predvidjeti budućnost jednako je korisna
+	sadašnjost koliko i svi dosad poznati događaji. Pokažimo kako to doista slijedi iz~\eqref{markov-svojstvo}. Fiksirajmo \( s, t_0, \ldots, t_n \), uvedimo
+	pokrate \( X = f\left(Y_{s+t_0},\ldots,Y_{s+t_n}\right) \) i \( h(x) = \E^{s,x}(X)  \) te definirajmo \( \sigma \)-algebru
+	\[
+		\mathcal F_s = \sigma \left( Y_t \st 0 \le t \le s \right).
+	\]
+	Razmotrimo i skup
+	\begin{equation} \label{markov-G}
+		G = \left\{ g(Y_{s_0},\ldots,Y_{s_m}) \st 0 \le s_0 < \cdots < s_m \le s, g \mathrm{\ Borelova \ i \ ograni\check cena} \right\}.
+	\end{equation}
+	Kad bismo u~\eqref{markov-G} izostavili uvjet da je \( g \) ograničena bio bi \( G \) jednak skupu svih \( \mathcal F_s \)-izmjerivih varijabli (v.~\cite[tm.~8.6]{sarapa}).
+	Ipak, budući da svaku \( g \) možemo dobiti kao limes ograničenih, lako je dokazati da \( \sigma(G) = \mathcal F_s \). U novim oznakama~\eqref{markov-svojstvo}
+	postaje
+	\begin{equation}
+		\E^{0,a}[ZX] = \E^{0,a}[Zh(Y_s)], \quad Z \in G,
+	\end{equation}
+	što se istim principom proširuje na sve \( Z \) izmjerive u \( \mathcal F_s \). Budući da je \( h(Y_s) \) očito izmjeriva u \( \mathcal F_s \), po definiciji uvjetnog očekivanja
+	(v.~\cite[str.~579]{sarapa}) zaključujemo da je \( h(Y_s) = \E^{0,a}[X \given \mathcal F_s] \). No, \( h(Y_s) \) je izmjeriva i u \( \sigma(Y_s) \) te zbog
+	\( \sigma(Y_s) \subseteq \mathcal F_s \) opet po definiciji \( h(Y_s) = \E^{0,a}[X \given Y_s] \). Dakle,
+	\begin{equation}
+		\E^{0,a}\left[ X \given \mathcal F_s \right] = \E^{0,a}[X \given Y_s].
+	\end{equation}
+	Analogno prethodnoj diskusiji, \( X \) se može zamijeniti bilo kojom varijablom izmjerivom u \( \sigma(Y_t \st t \ge s) \).
 \end{komentar}
 
 \end{document}
