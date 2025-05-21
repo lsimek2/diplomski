@@ -34,28 +34,30 @@ vjerojatnost prijelaza iz točke \( x \) u skup \( B \) između trenutaka \( s \
 	Ako vrijedi~\ref{deftransf-star2} kažemo da je \emph{prostorno homogena} ili \emph{invarijantna na translaciju}.
 \end{definicija}
 
-\begin{komentar} \label{markov-konstr}
+\begin{komentar}
 	\begin{itemize}
 		\item Jednakost~\eqref{eq:chapkolm} zove se identitet Chapman--Kolmogorova.
 		      % ovdje ono o izmjerivosti?
-		\item Ako familiju \( \{\Ptrans_{s, t} \st 0 \le s \le t \} \) čine vremenski homogene tranzicijske funkcije, označavamo ju s \( \left\{ \Ptrans_t \st t \ge 0 \right\} \) gdje \( \Ptrans_t = \Ptrans_{0, t} \).
-		\item Za familiju \( \left\{ \Ptrans_{s, t} \right\} \) tranzicijskih funkcija i početnu vrijednost \( a \in \R^d \) možemo konstruirati proces \( \left\{ Y_t \right\} \) kako slijedi. Tehnika i ideje slične su
-		      kao u dokazu teorema~\ref{bddlpd} pa ćemo biti manje detaljni. Definiramo na uobičajeni način \( \Omega \), \( \mathcal F \) i \( \left\{ Y_t \right\} \). Za \( 0 \le t_1 < \cdots < t_n \) i \( B_0, \ldots, B_n \in \mathcal B(\R^d) \) definiramo vjerojatnosnu mjeru preko
-		      \begin{equation} \label{markov-konstr-mjera}
-			      \begin{aligned}
-				      \mu_{t_0, \ldots, t_n}^{(a)}(B_0  \times \cdots \times B_n)                       \\
-				      = \int_{\R^d} \cdots \int_{\R^d} & 1_{B_0}(x_0)\cdots 1_{B_n}(x_n)                \\
-				                                       & \Ptrans_{t_{n-1}, t_n}(x_{n-1}, \D x_n) \cdots
-				      \Ptrans_{t_0, t_1}(x_0, \D x_1) \Ptrans_{0, t_0}(a, \D x_0).
-			      \end{aligned}
-		      \end{equation}
-		      Suglasnost takve familije slijedi iz~\eqref{eq:chapkolm} te se ona proširi na jedinstvenu vjerojatnosnu mjeru \( \Ptrans^{a} \) na \( \mathcal F \).
-
-		      Slična konstrukcija moguća je za drukčije početno vrijeme \( s > 0 \). Tada \( \Omega^s = (\R^d)^{\left[ s, \infty \right\rangle} \) i definiramo proces \( \left\{ Y_t \st t \ge s \right\} \).
-		      Familija mjera \[ \left\{ \mu^{(s,a)}_{t_0,\ldots,t_n} \st s \le t_0 < \cdots < t_n \right\} \]
-		      definira se analogno kao u~\eqref{markov-konstr-mjera} i proširi se na jedinstvenu vjerojatnosnu mjeru \( \P^{s,a} \) na \( \sigma \)-algebri \( \mathcal F^s \).
-		      Možemo iste oznake s \( s=0 \) koristiti za objekte iz prošlog paragrafa.
+		\item Ako familiju \( \{\Ptrans_i{s, t} \st 0 \le s \le t \} \) čine vremenski homogene tranzicijske funkcije, označavamo ju s \( \left\{ \Ptrans_t \st t \ge 0 \right\} \) gdje \( \Ptrans_t = \Ptrans_{0, t} \).
 	\end{itemize}
+\end{komentar}
+\begin{komentar} \label{markov-konstr}
+	Za familiju \( \left\{ \Ptrans_{s, t} \right\} \) tranzicijskih funkcija i početnu vrijednost \( a \in \R^d \) možemo konstruirati proces \( \left\{ Y_t \right\} \) kako slijedi. Tehnika i ideje slične su
+	kao u dokazu teorema~\ref{bddlpd} pa ćemo biti manje detaljni. Definiramo na uobičajeni način \( \Omega \), \( \mathcal F \) i \( \left\{ Y_t \right\} \). Za \( 0 \le t_1 < \cdots < t_n \) i \( B_0, \ldots, B_n \in \mathcal B(\R^d) \) definiramo vjerojatnosnu mjeru preko
+	\begin{equation} \label{markov-konstr-mjera}
+		\begin{aligned}
+			\mu_{t_0, \ldots, t_n}^{(a)}(B_0  \times \cdots \times B_n)                       \\
+			= \int_{\R^d} \cdots \int_{\R^d} & 1_{B_0}(x_0)\cdots 1_{B_n}(x_n)                \\
+			                                 & \Ptrans_{t_{n-1}, t_n}(x_{n-1}, \D x_n) \cdots
+			\Ptrans_{t_0, t_1}(x_0, \D x_1) \Ptrans_{0, t_0}(a, \D x_0).
+		\end{aligned}
+	\end{equation}
+	Suglasnost takve familije slijedi iz~\eqref{eq:chapkolm} te se ona proširi na jedinstvenu vjerojatnosnu mjeru \( \Ptrans^{a} \) na \( \mathcal F \).
+
+	Slična konstrukcija moguća je za drukčije početno vrijeme \( s > 0 \). Tada \( \Omega^s = (\R^d)^{\left[ s, \infty \right\rangle} \) i definiramo proces \( \left\{ Y_t \st t \ge s \right\} \).
+	Familija mjera \[ \left\{ \mu^{(s,a)}_{t_0,\ldots,t_n} \st s \le t_0 < \cdots < t_n \right\} \]
+	definira se analogno kao u~\eqref{markov-konstr-mjera} i proširi se na jedinstvenu vjerojatnosnu mjeru \( \P^{s,a} \) na \( \sigma \)-algebri \( \mathcal F^s \).
+	Možemo iste oznake s \( s=0 \) koristiti za objekte iz prošlog paragrafa.
 \end{komentar}
 
 \begin{definicija}
@@ -71,8 +73,9 @@ Vezu Markovljevih s aditivnim i \levy jevim procesima možemo ukratko i pomalo n
 	\item \levy jev (po distribuciji) proces odgovara Markovljevom procesu s prostorno i vremenski homogenom tranzicijskom funkcijom.
 \end{itemize}
 
-Sljedeća propozicija uvodi pojam Markovljevog svojstva. Kao i obično, ideja je da
-na budućnost utječe samo sadašnjost, a ne ni najneposrednija prošlost.
+Sljedeća propozicija uvodi varijantu Markovljevevog svojstva za ovu vrstu procesa.
+Većina dokaza je tehnička i temelji se na Lebesgueovoj indukciji pa ga izostavljamo,
+ali neke stvari pojašnjavamo u komentaru~\ref{markov-prop-kom}.
 
 \begin{propozicija}
 	Neka je \( \left\{ Y_t \right\} \) trajektorijska reprezentacija Markovljevog procesa s
@@ -82,7 +85,7 @@ na budućnost utječe samo sadašnjost, a ne ni najneposrednija prošlost.
 	\( \P^{s,a} \). Tada je \( a \mapsto \E^{0,a}[f(Y_{t_0},\ldots,Y_{t_n})] \) Borel-izmjeriva za sve \( a \in \R^d \) i
 	\begin{equation} \label{markov-prop1}
 		\begin{aligned}
-			\E^{0,a}[f(Y_{t,0},\ldots,Y_{t_n})]                                               \\
+			\E^{0,a}[f(Y_{t_0},\ldots,Y_{t_n})]                                               \\
 			= \int_{\R^d} \cdots \int_{\R^d} & f(x_0,\ldots,x_n)                              \\
 			                                 & \Ptrans_{t_{n-1}, t_n}(x_{n-1}, \D x_n) \cdots
 			\Ptrans_{t_0, t_1}(x_0, \D x_1) \Ptrans_{0, t_0}(a, \D x_0).
@@ -98,5 +101,9 @@ na budućnost utječe samo sadašnjost, a ne ni najneposrednija prošlost.
 		\end{aligned}
 	\end{equation}
 \end{propozicija}
+
+\begin{komentar} \label{markov-prop-kom}
+
+\end{komentar}
 
 \end{document}
