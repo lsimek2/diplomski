@@ -21,6 +21,7 @@ output/
 *.run.xml
 *.bcf-SAVE-ERROR
 *.fdb_latexmk
+*.gz
 
 # bib
 *.blg

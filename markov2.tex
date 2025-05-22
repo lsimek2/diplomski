@@ -1,0 +1,170 @@
+\documentclass[main.tex]{subfiles}
+
+\begin{document}
+\nocite{*}
+
+\bigskip
+Sada možemo krenuti prema glavnom rezultatu odjeljka. Definirajmo najprije nekoliko novih pojmova.
+Za \( x \in \R^d \) neka je \( K_\varepsilon(x) \) \( \varepsilon \)-okolina točke \( x \), tj.\footnote{zapis implicira da je  \( \abs{\, \cdot \,} \) norma na \( \R^d \) --- kako su
+	sve norme ekvivalentne na konačnodimenzionalnom vektorskom prostoru, odabir nije bitan}\
+\( K_x(\varepsilon) = \left\{ y \in \R^d \st \abs{y-x} < \varepsilon \right\} \). S \( K_\varepsilon^c(x) \) označimo komplement.
+Nadalje neka su \( \Ptrans_{s,t} \) tranzicijske funkcije na \( \R^d \). Definiramo
+\begin{equation}\label{eq:defalpha}
+	\alpha_{\varepsilon, T}(u) = \sup \bigl\{ \Ptrans_{s,t}(x, K_\varepsilon^c(x)) \st x \in \R^d, \ s, t \in [0, T], \ 0 \le t-s \le u \bigr\}.
+\end{equation}
+Neka je \( M \subseteq \left[ 0, \infty\right\rangle \). Za fiksni \( \omega \) kažemo da
+\( X_t(\omega)  \) ima \( \varepsilon \)-\emph{oscilaciju} \( n \) \emph{puta u} \( M \) ako postoje
+\( t_0 < \cdots < t_n \) gdje \( t_k \in M \) takvi da
+\[
+	\abs{X_{t_k}(\omega)-X_{t_{k-1}}(\omega)} > \varepsilon, \quad 1 \le k \le n.
+\]
+Ako tvrdnja vrijedi za sve \( n \in \N \), kažemo da ima \emph{beskonačno čestu} \( \varepsilon \)\emph{-oscilaciju}. Definiramo još
+\begin{gather}
+	\begin{aligned}
+		\Omega_2 = \bigl\{ \omega \in \Omega \st & \lim_{s \in \Q, s \downarrow t} X_s(\omega) \mathrm{\ postoji \ u \ } \R^d \mathrm{\ za \ sve \ } t \ge 0 \mathrm{ \ i \ } \\                                & \lim_{s \in \Q, s \uparrow t} X_s(\omega) \mathrm{\ postoji \ u \ } \R^d \mathrm{\ za \ sve \ } t > 0	\bigr\},
+	\end{aligned}
+	\\
+	A_{N, k} = \bigl\{ \omega \in \Omega \st X_t(\omega) \mathrm{\ nema \ beskona\check cno \ \check cestu \ } \frac 1k \mathrm{\text{-oscilaciju}\ u \ } [0, N] \cap \Q \bigr\},
+	\\
+	\Omega_2' = \bigcap_{N=1}^\infty \bigcap_{k=1}^\infty A_{N, k},
+	\\
+	B(p, \varepsilon, M) = \bigl\{  \omega \in \Omega \st X_t(\omega) \mathrm{\ ima \ } \varepsilon \mathrm{\text{-oscilaciju}\ } p \mathrm{\ puta \ u \ } M  \bigr\}.
+\end{gather}
+Pokaže se \( \Omega_2' \in \mathcal F \). Prije glavnog rezultata, potrebno nam je nekoliko lema.
+\begin{lema}
+	Vrijedi \( \Omega_2' \subseteq \Omega_2 \).
+\end{lema}
+
+\begin{proof}
+	Neka je \( \omega \in \Omega_2' \) i pretpostavimo da ne postoji limes zdesna u \( t \ge 0 \) (analogno za limes slijeva). To znači da postoji niz \( (s_n)_n \)
+	racionalnih brojeva takvih da \( s_n \downarrow t \) i da ne postoji limes \( \lim_n X_{s_n}(\omega) \). To znači da niz \( (X_{s_n}(\omega))_n \) nije Cauchyjev tj.\ postoji
+	\( \varepsilon > 0 \) takav da
+	\begin{equation} \label{lema112cauchy}
+		(\forall n_0 \in \N)(\exists m,n \ge n_0 \mathrm{\ takvi \ da \ } \abs{X_{s_n}(\omega) - X_{s_m}(\omega)} > 2\varepsilon ).
+	\end{equation}
+	Naći ćemo beskonačno čestu \( \varepsilon \)-oscilaciju i time kontradikciju. Neka je \( s_1' = s_n \) proizvoljan. Tvrdimo da postoji
+	\( s_2' = s_m \) gdje \( m > n \) takav da \( \abs{X_{s_1'}(\omega) - X_{s_2'}(\omega)} > \varepsilon \). U suprotnom bi bilo
+	\begin{equation}
+		\begin{aligned}
+			\abs{X_{s_m}(\omega) - X_{s_k}(\omega)} & \le \abs{X_{s_m}(\omega) - X_{s_1'}(\omega)} + \abs{X_{s_1'}(\omega) - X_{s_k}(\omega)} \\
+			                                        & \le \varepsilon + \varepsilon = 2\varepsilon,
+		\end{aligned}
+	\end{equation}
+	za sve \( m, k > n \) što je u kontradikciji s~\eqref{lema112cauchy}. Iteriranjem ovog postupka dolazimo do
+	niza \( (s_n')_n \) takvog da \( \abs{X_{s_k'}(\omega) - X_{s_{k+1}'}(\omega)} > \varepsilon \) za \( k \in \N \).
+\end{proof}
+
+\begin{lema}
+	Ako je \( \left\{ X_t \right\} \) stohastički neprekidan i \( \P(\Omega_2') = 1 \), tada ima modifikaciju \( \left\{ X_t' \right\} \)
+	takvu da je \( t \mapsto X_t'(\omega) \) \cadlag \ za svaki \( \omega \in \Omega \).
+\end{lema}
+
+\begin{proof}
+	Definiramo
+	\begin{equation} X_t'(\omega) =
+		\begin{cases}
+			\lim\limits_{s \in \Q, s \downarrow t}  X_s(\omega), \quad & \omega \in \Omega_2',      \\
+			0, \quad                                                   & \omega \not \in \Omega_2'.
+		\end{cases}
+	\end{equation}
+	Dokažimo da je \( t \mapsto X_t'(\omega) \) neprekidna zdesna. Za \( \omega \not \in \Omega_2' \) je očito, pa neka
+	\( \omega \in \Omega_2' \). Neka je \( t \ge 0 \) proizvoljan i \( (t_n)_n \) takav da \( t_n \downarrow t \). Za svaki \( n \in \N \)
+	definiramo \( \delta_n > 0 \) takav da \( t_n + \delta_n \in \Q \) i takav da desna strana u
+	\begin{equation}
+		\abs{X'_t(\omega) - X'_{t_n}(\omega)} \le \abs{X'_t(\omega) - X_{t_n+\delta_n}(\omega)} + \abs{X_{t_n+\delta_n}(\omega) - X'_{t_n}(\omega)}
+	\end{equation}
+	teži k nuli kad \( n \ub \). Jasno je da je to moguće po definiciji skupa \( \Omega_2 \supseteq \Omega_2' \). Time smo dokazali neprekidnost zdesna,
+	a postojanje limesa slijeva dokaže se sličnom tehnikom.
+
+	Preostaje dokazati da je \( \left\{ X_t \right\} \) doista modifikacija polaznog procesa. Neka je \( t \ge 0 \) i \( (s_n)_n \) niz racionalnih brojeva
+	takav da \( s_n \downarrow t \). Po stohastičkoj neprekidnosti je \( X_{s_n} \konvp X_t \), a po definiciji procesa \( \left\{ X_t' \right\} \) i \( \P(\Omega_2')=1 \) vrijedi
+	\( X_{s_n} \konvgs X_t' \). Slijedi \( \P(X_t=X_t')=1 \).
+	%\begin{equation}
+	%	t_n + \delta_n \in \Q, \quad \abs{X_t'(\omega) - X_{t_n+\delta_n}} \le \frac 1{2n}, \quad \abs{X'_{t_n(\omega)} - X_{t_n+\delta_n}(\omega)} \le \frac 1{2n},
+	%\end{equation}
+\end{proof}
+
+\begin{lema}
+	Neka je \( p \in \N \),
+	\[
+		0 \le s_1 < \cdots < s_m \le u \le t_1 < \cdots < t_n \le v \le T
+	\]
+	i \( M = \left\{ t_1, \ldots, t_n \right\} \). Ako je \( \left\{ X_t \right\} \) Markovljev proces
+	s familijom tranzicijskih funkcija \( \left\{ \Ptrans_{s,t} \right\} \) i početnom vrijednosti \( a \), tada
+	\begin{equation}
+		\E^{0,a}[Z \cdot 1_{B(p, 4\varepsilon, M)}] \le \E^{0,a}[Z](2\alpha_{\varepsilon, T}(v-u))^p,
+	\end{equation}
+	za svaku \( Z = g(X_{s_1},\ldots,X_{s_m}) \), gdje je \( g \) Borelova i nenegativna.
+\end{lema}
+
+\begin{proof}
+	Pretpostavimo bez smanjenja općenitosti da je \( \left\{ X_t \right\} \) sam trajektorijska reprezentacija. Tvrdnju dokazujemo indukcijom po \( p \).
+	Neka je \( p=1 \). Definiramo događaje
+	\begin{align}
+		C_k & = \left\{ \abs{X_{t_j}-X_u} \le 2\varepsilon, \text{\ za \ }  1 \le j \le k-1  \text{\, i \,} \abs{X_{t_k} - X_u} > 2\varepsilon \right\}, \\
+		D_k & = \left\{ \abs{X_v - X_{t_k}} > \varepsilon \right\}, \quad 1 \le k \le n.
+	\end{align}
+	Događaji \( C_k \) su disjunktni. Tvrdimo
+	\begin{equation}
+		\begin{aligned}
+			B(1, 4\varepsilon, M) & \subseteq \bigcup_{k=1}^n \left\{ \abs{X_{t_k}-X_u} > 2\varepsilon  \right\} = \bigcup_{k=1}^n C_k \\
+			                      & \subseteq \left\{ \abs{X_u-X_v} \ge \varepsilon  \right\} \cup \bigcup_{k=1}^n (C_k \cap D_k).
+		\end{aligned}
+	\end{equation}
+	Prva inkluzija vrijedi jer ako \( \omega \in  B(1, 4\varepsilon, M) \) i \( 4\varepsilon < \abs{X_{t_j}(\omega)-X_{t_k}} \le \abs{X_{t_j}-X_u} + \abs{X_{t_k}-X_u} \)
+	pa je barem jedan od sumanada zdesna \( > 2\varepsilon \). Ako \( \omega \in C_k \) iz \( 4\varepsilon \abs{X_{t_j}-X_{t_k}} \le \abs{X_{t_j}-X_u} + \abs{X_u-X_v} + \abs{X_{t_k}-X_v}  \)
+	i \( \abs{X_u-X_v} < \varepsilon \) slijedi \( \abs{X_{t_k} - X_v} > \varepsilon \), stoga vrijedi druga inkluzija. Primjenom matematičkog očekivanja dobivamo
+	\begin{equation}
+		\begin{aligned}
+			\E^{0,a}[Z \cdot 1_{B(1, 4\varepsilon, M)}] & \le \E^{0,a}\left[Z \cdot 1_{\left\{ \abs{X_u-X_v} \ge \varepsilon \right\}}\right] +
+			\sum_{k=1}^n \E^{0,a}[Z 1_{C_k} 1_{D_k}]                                                                                                               \\
+			                                            & \le \E^{0,a} [Z] \alpha_{\varepsilon, T}(v-u) + \sum_{k=1}^n \E^{0,a}[Z1C_k]\alpha_{\varepsilon, T}(v-u) \\
+			                                            & \le 2 \E^{0,a} [Z] \alpha_{\varepsilon, T}(v-u),
+		\end{aligned}
+	\end{equation}
+	pri čemu drugu nejednakost dobivamo primjenom Markovljevog svojstva~\eqref{markov-svojstvo}, nakon čega
+	dobivenu varijablu možemo uniformno ograničiti konstantom \( \alpha_{\varepsilon, T}(v-u) \) po definiciji~\eqref{eq:defalpha}. Time je dokazana baza indukcije.
+
+	Pretpostavimo da tvrdnja vrijedi za \( p-1 \) i dokažimo da vrijedi za \( p \). Definiramo događaje
+	\begin{equation}
+		\begin{aligned}
+			F_k & = \left\{ X_t \text{\ ima\ } 4\varepsilon \text{-oscilaciju\ } p-1 \text{\ puta u} \left\{ t_1, \ldots, t_k \right\} \text{\ ali ne i u} \left\{ t_1, \ldots, t_{k-1} \right\}  \right\}, \\
+			G_k & = \left\{ X_t \text{\ ima\ } 4\varepsilon \text{-oscilaciju jednom u} \left\{t_{k+1},\ldots,t_n\right\}\right\}, \quad 1 \le k \le n.
+		\end{aligned}
+	\end{equation}
+	Događaji \( F_k \) su disjunktni i očito
+	\begin{equation}
+		B(p-1, 4\varepsilon, M) = \bigcup_{k=1}^n F_k \quad \mathrm i \quad B(p, 4\varepsilon, M) \subseteq \bigcup_{k=1}^n (F_k \cap G_k).
+	\end{equation}
+	Nastavimo kao u dokazu baze te primjenom pretpostavke i slučaja \( p=1 \) dobivamo traženo.
+\end{proof}
+
+\bigskip
+Slijedi glavni rezultat odjeljka koji daje dovoljne uvjete da bi Markovljev proces imao modifikaciju s \cadlag \ odn.\ neprekidnim trajektorijama.
+
+\begin{teorem}\label{markov-dov}
+	Neka je \( \left\{ X_t \right\} \) Markovljev proces na \( \left( \Omega, \mathcal F, \P \right) \) s familijom tranzicijskih funkcija
+	\( \left\{ \Ptrans_{s,t} \right\} \). Ako vrijedi
+	\begin{equation} \label{markov-dov1}
+		\lim\limits_{u \downarrow 0} \alpha_{\varepsilon, T}(u) = 0, \quad \varepsilon >0, \ T > 0,
+	\end{equation}
+	tada \( \left\{ X_t \right\} \) ima modifikaciju \( \left\{ X_t' \right\} \) takvu
+	da je trajektorija \( t \mapsto X_t'(\omega) \) \cadlag \ za svaki \( \omega \in \Omega \).
+	Ako vrijedi jači uvjet
+	\begin{equation}
+		\lim\limits_{u \downarrow 0} \frac 1u \alpha_{\varepsilon, T}(u) = 0, \quad \varepsilon > 0, \ T > 0,
+	\end{equation}
+	tada \( \left\{ X_t \right\} \) ima modifikaciju \( \left\{ X_t' \right\} \) takvu da postoji \( \Omega_1 \in \mathcal F \)
+	takav da \( \P(\Omega_1) = 1 \) i \( \omega \in \Omega_1 \) povlači da je trajektorija \( t \mapsto X_t'(\omega) \) neprekidna.
+\end{teorem}
+
+\begin{proof}
+\end{proof}
+
+\begin{teorem}\label{adit-gauss}
+\end{teorem}
+
+\begin{proof}
+\end{proof}
+
+\end{document}

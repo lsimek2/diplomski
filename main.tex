@@ -151,6 +151,7 @@
 \newcommand{\konvp}{\stackrel{\mathbb P}{\longrightarrow}}
 \newcommand{\konvw}{\stackrel{\mathrm w}{\longrightarrow}}
 \newcommand{\konvd}{\stackrel{\mathrm d}{\longrightarrow}}
+\newcommand{\konvgs}{\stackrel{\mathrm{g.s.}}{\longrightarrow}}
 
 \newcommand{\ol}[1]{\overline{#1}}
 \newcommand{\wh}[1]{\widehat{#1}}
@@ -202,22 +203,66 @@
 \frontmatter
 
 \begin{intro}
-	...
+	Slučajni procesi su višestruko zanimljivi --- iz perspektive drugih znanosti jer
+	se njima modeliraju razne veličine koje se mijenjaju kroz vrijeme, i u teoriji vjerojatnosti
+	jer podrazumijevaju kompliciraniju i bogatiju strukturu nego familije nezavisnih
+	slučajnih varijabli. Zbog njihove velike važnosti, razumno se pitati koji nam
+	sve alati mogu pomoći da ih bolje razumijemo. Harmonijska analiza nameće se kao mogući odgovor.
+	Kao i većina matematičkih disciplina, harmonijska analiza nema strogu definiciju, ali
+	možemo reći da se bavi reprezentacijom funkcija u \emph{frekvencijskoj} domeni, za razliku
+	od uobičajene vremenske. Pogled na taj alternativni prikaz funkcije često može teške
+	probleme u vremenskoj domeni znatno olakšati u frekvencijskoj. Primjer nam
+	je poznat i u teoriji vjerojatnosti --- upravo su karakteristične funkcije Fourierove transformacije
+	vjerojatnosnih mjera, a znamo da su u teoriji vjerojatnosti jedan od najvažnijih analitičkih alata.
+
+	Uža tema ovog rada je \holder -regularnost trajektorija frakcionalnog Brownovog gibanja (poglavlje~\ref{chapter-gl}).
+	Frakcionalno Brownovo gibanje primjer je \emph{samosličnog} slučajnog procesa, a i generalizacija poznatijeg Brownovog gibanja (koje je također samoslično). Samosličnost kod slučajnih procesa
+	podrazumijeva da se distribucija procesa ne mijenja skaliranjem u vremenu i odgovarajućim skaliranjem po amplitudi. Drugim riječima, slična statistička svojstva
+	vrijede i u malim i u velikim rezolucijama. Samoslični slučajni procesi ponekad se nazivaju i \emph{statistički fraktali}, iako se frakcionalno Brownovo gibanje
+	pojavljuje u radovima Kolmogorova više od dvadeset godina prije no što Mandelbrot uvodi izraz \emph{fraktal} (citirati). Za analizu takvih procesa
+	prirodno pogoduju valići koje detaljno uvodimo u poglavlju~\ref{ch-ha}, o čemu najbolje govori ovaj citat iz~\cite[str.~22.]{flandrin}:
+	\begin{displayquote}
+		Štoviše, čim su se pojavile sredinom osamdesetih, gotovo se odmah prepoznalo da su valićne transformacije,
+		zahvaljujući svojoj ugrađenoj multirezolucijskoj strukturi, prirodni alati
+		za otkrivanje samosličnih pojava u signalima, slikama i procesima.
+	\end{displayquote}
+
+	\bigskip
+	Osim posljednjeg trećeg poglavlja, ovaj rad se sastoji od dva pripremna poglavlja kojima je cilj
+	predstaviti osnovne pojmove, rezultate i tehnike u svojim područjima --- redom teoriji valića i teoriji
+	slučajnih procesa u neprekidnom vremenu.
+	\begin{itemize}
+		\item U prvom poglavlju...
+
+		\item U drugom poglavlju...
+
+		\item U trećem poglavlju...
+	\end{itemize}
+
+	Glavnu literaturu čine~\cite{daub} za prvo poglavlje, \cite{sato, em, sarapa} za drugo poglavlje i~\cite{ayache} za treće poglavlje.
 \end{intro}
 
+% ha --------------------
+\subfile{ha.tex}
+
+% sp --------------------
 \subfile{sp-pois-brown.tex}
 \subfile{bdd.tex}
 \subfile{markov1.tex}
+\subfile{markov2.tex}
+
+% gl --------------------
+\subfile{gl.tex}
 
 \printbibliography
 \pagestyle{empty}
 
 \begin{sazetak}
-	...
+	U ovom radu...
 \end{sazetak}
 
 \begin{summary}
-	...
+	In this thesis...
 \end{summary}
 
 \begin{cv}

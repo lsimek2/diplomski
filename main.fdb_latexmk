@@ -1,13 +1,13 @@
 # Fdb version 4
-["biber main"] 1747851475.93269 "main.bcf" "main.bbl" "main" 1747853979.23327 0
-  "literatura.bib" 1747412174.59036 1147 5b4fba84f4db0ae2eeb4f7a9f93b927e ""
-  "main.bcf" 1747853979.03547 109042 d5830fe704326d7cb0956130ff4aab2d "pdflatex"
+["biber main"] 1747947755.5314 "main.bcf" "main.bbl" "main" 1747957581.72447 0
+  "literatura.bib" 1747943541.43799 1331 0255cfb2f4e5faf75f934a77492e78be ""
+  "main.bcf" 1747957581.52093 109610 10e57c32e7736a172c30abc7848875e3 "pdflatex"
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1747853977.96936 "/home/lsimek/projects/diplomski/main.tex" "main.pdf" "main" 1747853979.23351 0
-  "/home/lsimek/projects/diplomski/main.tex" 1747737021.64084 6198 a33221d0a2382134f71ee26b9abd3e69 ""
+["pdflatex"] 1747957580.38087 "/home/lsimek/projects/diplomski/main.tex" "main.pdf" "main" 1747957581.72471 0
+  "/home/lsimek/projects/diplomski/main.tex" 1747948922.31911 9196 8f151cff7a20651c1f6f3b46198ea281 ""
   "/nix/store/73pbsbdmwsfynw5aza54plj25mxqr172-texlive-combined-2023-texmfdist/fonts/enc/dvips/cm-super/cm-super-t1.enc" 1 2971 def0b6c1f0b107b3b936def894055589 ""
   "/nix/store/73pbsbdmwsfynw5aza54plj25mxqr172-texlive-combined-2023-texmfdist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/nix/store/73pbsbdmwsfynw5aza54plj25mxqr172-texlive-combined-2023-texmfdist/fonts/map/fontname/texfonts.map" 1 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -337,16 +337,19 @@
   "/nix/store/wwfq8brj795wbpfc5x8dhcv5i5ay8qqw-texlive-combined-2023/share/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1 334052 39d014ec5c67068a1eb30edfc0c4617e ""
   "/nix/store/wwfq8brj795wbpfc5x8dhcv5i5ay8qqw-texlive-combined-2023/share/texmf-var/web2c/pdftex/pdflatex.fmt" 1 8021457 de3c7488d73b1b6fe059bab0526fa73d ""
   "/nix/store/wwfq8brj795wbpfc5x8dhcv5i5ay8qqw-texlive-combined-2023/share/texmf-var/web2c/texmf.cnf" 1 42803 25506858c009a3a3559b863182d009e5 ""
+  "bdd.tex" 1747741847.68234 14528 31971c6e0de639f6d528b098b18ef08d ""
   "diplomski.sty" 1747171339.77885 3380 4ae0b53cdc4f7bed2c8deba986d1b95f ""
-  "main.aux" 1747853979.03147 12222 9b8f6afeaec065eebc1b5e67e72c802c "pdflatex"
-  "main.bbl" 1747851476.79682 5987 7279917e69d2dbb3b7ea7423bcd7af43 "biber main"
-  "main.out" 1747853979.03247 1365 8a2de08d2f91a03d7e2be25930748baf "pdflatex"
-  "main.run.xml" 1747853979.03547 2312 41c57239f0c07c6eec605d2c7bed6cf3 "pdflatex"
-  "main.tex" 1747737021.64084 6198 a33221d0a2382134f71ee26b9abd3e69 ""
-  "main.toc" 1747853979.03547 755 fb949323dc676dcfb6b76d37dbea2a3b "pdflatex"
-  "sp.tex" 1747742127.29248 17101 3d7f4871cb6ef6d0954a382fa84c66b6 ""
-  "sp2.tex" 1747741847.68234 14528 31971c6e0de639f6d528b098b18ef08d ""
-  "sp3.tex" 1747853977.88146 10248 609ca5a3f792ca7de1689892b3cba26d ""
+  "gl.tex" 1747942456.82555 175 315f4f24d1ba1567dc9b03af2f6a8bd5 ""
+  "ha.tex" 1747942418.66511 112 b2021e5ef697dad0509b93955bf54cdf ""
+  "main.aux" 1747957581.51793 14499 319a8c77cb77917e6cdadb22c73d1d81 "pdflatex"
+  "main.bbl" 1747947756.24731 7228 5cbc9c7331a918fcfd1ab23500a45b1f "biber main"
+  "main.out" 1747957581.51893 1816 cec91616ec779fcf39d85b622a2b97b0 "pdflatex"
+  "main.run.xml" 1747957581.52193 2312 595ba44bd03ceb6f995e9f40f21c616c "pdflatex"
+  "main.tex" 1747948922.31911 9196 8f151cff7a20651c1f6f3b46198ea281 ""
+  "main.toc" 1747957581.52193 955 88ab7a8842aac74370c95ea9f47aea13 "pdflatex"
+  "markov1.tex" 1747935317.19936 10442 3b446bcdc92fb9a5d849953fdb10135a ""
+  "markov2.tex" 1747957580.28192 10400 00ba302e53bc3baba126573676fd07f3 ""
+  "sp-pois-brown.tex" 1747742127.29248 17101 3d7f4871cb6ef6d0954a382fa84c66b6 ""
   (generated)
   "main.aux"
   "main.bcf"
