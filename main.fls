@@ -586,6 +586,10 @@ INPUT ./markov2.tex
 INPUT markov2.tex
 INPUT ./markov2.tex
 INPUT markov2.tex
+INPUT ./ss.tex
+INPUT ss.tex
+INPUT ./ss.tex
+INPUT ss.tex
 INPUT ./gl.tex
 INPUT gl.tex
 INPUT ./gl.tex
@@ -597,6 +601,7 @@ INPUT ./main.out
 INPUT main.run.xml
 OUTPUT main.run.xml
 INPUT /nix/store/73pbsbdmwsfynw5aza54plj25mxqr172-texlive-combined-2023-texmfdist/fonts/type1/public/amsfonts/cm/cmex10.pfb
+INPUT /nix/store/73pbsbdmwsfynw5aza54plj25mxqr172-texlive-combined-2023-texmfdist/fonts/type1/public/amsfonts/cmextra/cmex8.pfb
 INPUT /nix/store/73pbsbdmwsfynw5aza54plj25mxqr172-texlive-combined-2023-texmfdist/fonts/type1/public/amsfonts/cm/cmmi10.pfb
 INPUT /nix/store/73pbsbdmwsfynw5aza54plj25mxqr172-texlive-combined-2023-texmfdist/fonts/type1/public/amsfonts/cm/cmmi12.pfb
 INPUT /nix/store/73pbsbdmwsfynw5aza54plj25mxqr172-texlive-combined-2023-texmfdist/fonts/type1/public/amsfonts/cm/cmmi5.pfb

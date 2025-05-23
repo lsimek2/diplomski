@@ -7,12 +7,12 @@
 Sada možemo krenuti prema glavnom rezultatu odjeljka. Definirajmo najprije nekoliko novih pojmova.
 Za \( x \in \R^d \) neka je \( K_\varepsilon(x) \) \( \varepsilon \)-okolina točke \( x \), tj.\footnote{zapis implicira da je  \( \abs{\, \cdot \,} \) norma na \( \R^d \) --- kako su
 	sve norme ekvivalentne na konačnodimenzionalnom vektorskom prostoru, odabir nije bitan}\
-\( K_x(\varepsilon) = \left\{ y \in \R^d \st \abs{y-x} < \varepsilon \right\} \). S \( K_\varepsilon^c(x) \) označimo komplement.
-Nadalje neka su \( \Ptrans_{s,t} \) tranzicijske funkcije na \( \R^d \). Definiramo
+\( K_x(\varepsilon) = \left\{ y \in \R^d \st \abs{y-x} < \varepsilon \right\} \).
+Neka su \( \Ptrans_{s,t} \) tranzicijske funkcije na \( \R^d \). Definiramo
 \begin{equation}\label{eq:defalpha}
-	\alpha_{\varepsilon, T}(u) = \sup \bigl\{ \Ptrans_{s,t}(x, K_\varepsilon^c(x)) \st x \in \R^d, \ s, t \in [0, T], \ 0 \le t-s \le u \bigr\}.
+	\alpha_{\varepsilon, T}(u) = \sup \bigl\{ \Ptrans_{s,t}(x, K^c_\varepsilon(x)) \st x \in \R^d, \ s, t \in [0, T], \ 0 \le t-s \le u \bigr\}.
 \end{equation}
-Neka je \( M \subseteq \left[ 0, \infty\right\rangle \). Za fiksni \( \omega \) kažemo da
+Nadalje neka je \( M \subseteq \left[ 0, \infty\right\rangle \). Za fiksni \( \omega \) kažemo da
 \( X_t(\omega)  \) ima \( \varepsilon \)-\emph{oscilaciju} \( n \) \emph{puta u} \( M \) ako postoje
 \( t_0 < \cdots < t_n \) gdje \( t_k \in M \) takvi da
 \[
@@ -54,7 +54,7 @@ Pokaže se \( \Omega_2' \in \mathcal F \). Prije glavnog rezultata, potrebno nam
 	niza \( (s_n')_n \) takvog da \( \abs{X_{s_k'}(\omega) - X_{s_{k+1}'}(\omega)} > \varepsilon \) za \( k \in \N \).
 \end{proof}
 
-\begin{lema}
+\begin{lema}\label{markovlema2}
 	Ako je \( \left\{ X_t \right\} \) stohastički neprekidan i \( \P(\Omega_2') = 1 \), tada ima modifikaciju \( \left\{ X_t' \right\} \)
 	takvu da je \( t \mapsto X_t'(\omega) \) \cadlag \ za svaki \( \omega \in \Omega \).
 \end{lema}
@@ -84,7 +84,7 @@ Pokaže se \( \Omega_2' \in \mathcal F \). Prije glavnog rezultata, potrebno nam
 	%\end{equation}
 \end{proof}
 
-\begin{lema}
+\begin{lema}\label{markovlema3}
 	Neka je \( p \in \N \),
 	\[
 		0 \le s_1 < \cdots < s_m \le u \le t_1 < \cdots < t_n \le v \le T
@@ -146,25 +146,104 @@ Slijedi glavni rezultat odjeljka koji daje dovoljne uvjete da bi Markovljev proc
 	Neka je \( \left\{ X_t \right\} \) Markovljev proces na \( \left( \Omega, \mathcal F, \P \right) \) s familijom tranzicijskih funkcija
 	\( \left\{ \Ptrans_{s,t} \right\} \). Ako vrijedi
 	\begin{equation} \label{markov-dov1}
-		\lim\limits_{u \downarrow 0} \alpha_{\varepsilon, T}(u) = 0, \quad \varepsilon >0, \ T > 0,
+		\lim\limits_{u \downarrow 0} \alpha_{\varepsilon, T}(u) = 0, \quad \forall \varepsilon >0, \ \forall T > 0,
 	\end{equation}
 	tada \( \left\{ X_t \right\} \) ima modifikaciju \( \left\{ X_t' \right\} \) takvu
 	da je trajektorija \( t \mapsto X_t'(\omega) \) \cadlag \ za svaki \( \omega \in \Omega \).
 	Ako vrijedi jači uvjet
-	\begin{equation}
-		\lim\limits_{u \downarrow 0} \frac 1u \alpha_{\varepsilon, T}(u) = 0, \quad \varepsilon > 0, \ T > 0,
+	\begin{equation} \label{markov-dov2}
+		\lim\limits_{u \downarrow 0} \frac 1u \alpha_{\varepsilon, T}(u) = 0, \quad \forall \varepsilon > 0,\  \forall T > 0,
 	\end{equation}
 	tada \( \left\{ X_t \right\} \) ima modifikaciju \( \left\{ X_t' \right\} \) takvu da postoji \( \Omega_1 \in \mathcal F \)
 	takav da \( \P(\Omega_1) = 1 \) i \( \omega \in \Omega_1 \) povlači da je trajektorija \( t \mapsto X_t'(\omega) \) neprekidna.
 \end{teorem}
 
 \begin{proof}
-\end{proof}
+	Pretpostavimo prvo~\eqref{markov-dov1}. Po lemi~\ref{markovlema2} dovoljno je dokazati
+	\( \P(\Omega_2') = 1 \), a za to je opet dovoljno \( \P(A_{N,k}^c) = 0 \) za sve \( N, k \in N \).
+	Fiksirajmo \( N \) i \( k \). Po~\eqref{markov-dov1} odaberimo \( \ell \)
+	takav da \( 2\alpha_{1/(4k), N}(N/\ell) < 1 \). Definiramo \( t_j = \frac{Nj}\ell \) za \( 0 \le j \le \ell \) i \( I_j = \left[ t_{j-1}, t_j \right] \cap \Q \) za \( j > 0 \). Vrijedi
+	\begin{align}
+		\P(A_{N,k}^c) & = \P\left( X_t \text{\ ima\ } \frac 1k \text{-oscilaciju beskonačno često u\ } [0,N]\cap \Q \right)            \\
+		              & \le \sum_{j=1}^\ell \P\left( X_t \text{\ ima\ } \frac 1k \text{-oscilaciju beskonačno često u\  } I_j \right)  \\
+		              & =\sum_{j=1}^\ell \lim\limits_{p \ub} \P \left[ B\left( p, \frac 1k, I_j \right) \right]. \label{eq:markovtm11}
+	\end{align}
+	Uzmimo fiksni \( I_j \) i \( \left\{ s_1, \ldots, s_n \right\} \subset I_j \). Po lemi~\ref{markovlema3} je
+	\begin{equation}
+		\P\left[ B\left(p, 1/k, \left\{ s_1, \ldots, s_n  \right\}\right) \right] \le
+		\left( 2\alpha_{\frac 1{4k}, N} \left( \frac N\ell \right)  \right)^p.
+	\end{equation}
+	Aproksimirajući \( I_j \) odozgo konačnim skupovima (\( n \ub \)) slijedi
+	\begin{equation}
+		\P\left[ B\left(p, 1/k, I_j\right) \right] \le
+		\left( 2\alpha_{\frac 1{4k}, N} \left( \frac N\ell \right)  \right)^p,
+	\end{equation}
+	što znači da~\eqref{eq:markovtm11} teži u \( 0 \), a stoga i \( \P(A_{N,k}^c)=0 \) kako smo htjeli.
 
-\begin{teorem}\label{adit-gauss}
+	Pretpostavimo sada~\eqref{markov-dov2}. Dovoljno je dokazati da za svaki \( N \in \N \)
+	postoji \( H_N \in \mathcal F \) takav da \( \P(H_N)=1 \) i
+	\[
+		H_N \subseteq \left\{ X'_t = X'_{t-}, \ \forall t \in \left\langle 0,N \right] \right\}.
+	\]
+	gdje je \( X'_{t-} \) limes slijeva u \( t \). Neka je \( N \) fiksan i definiramo za \( \ell \in \N \) i \( \varepsilon > 0 \)
+	\begin{align}
+		R_{\ell, \varepsilon}   & = \sum_{j=1}^\ell 1_{\abs{X'_{t_j}-X'_{t_{j-1}}} > \varepsilon},                                            \\
+		R_{\varepsilon}(\omega) & = \card \left\{ t \in \left\langle0, N\right] \st \abs{X'_t(\omega)-X'_{t-}(\omega)} > \varepsilon \right\}
+	\end{align}
+	pa je \( R_\varepsilon(\omega) \le \liminf\limits_{\ell \ub} R_{\ell, \varepsilon}(\omega) \). Vrijedi
+	\begin{equation}
+		\E(R_{\ell, \varepsilon}) =
+		\sum_{j=1}^\ell \P\left(\abs{X'_{t_j} - X'_{t_{j-1}}} > \varepsilon\right) \le \ell \alpha_{\varepsilon, N}\left( \frac N\ell \right).
+	\end{equation}
+	Po~\eqref{markov-dov2} imamo \( \lim\limits_{\ell \ub} \E(R_{\ell, \varepsilon}) = 0 \) i po Fatouovoj lemi \( \E\left(\liminf\limits_{\ell \ub} R_{\ell, \varepsilon}\right) = 0 \). Stavimo
+	\[
+		H_N = \bigcap_{k=1}^\infty \left\{ \liminf\limits_{\ell \ub} R_{\ell, 1/k} = 0 \right\}.
+	\]
+	Zadovoljili smo željeni uvjet jer \( H_N \subseteq \left\{ R_\varepsilon = 0, \ \forall \varepsilon > 0 \right\} \).
+\end{proof}
+% Satov (11.4)?
+\bigskip
+Sada samo trebamo dokazati da \levy jev po distribuciji proces zadovoljava~\eqref{markov-dov1} da
+bismo mogli pojačati teorem~\ref{bddlpd} i zaključiti da postoji \( 1 \)-\( 1 \)
+korespondencija između beskonačno djeljivih distribucija i \levy jevih procesa. Štoviše, za aditivni
+proces po distribuciji, koji je Markovljev s prostorno homogenim tranzicijskim funkcijama, imamo:
+\[
+	\Ptrans_{s, t}(x, K_\varepsilon^c(x)) = \Ptrans_{s, t}(0, K_\varepsilon^c(0)) = \P(\abs{X_s-X_t} > \varepsilon).
+\]
+Slijedi \( \alpha_{\varepsilon, T}(u) \un \) kad \( u \un \). Za taj zaključak nam je zapravo
+potrebna i uniformnost stohastičke neprekidnosti (v.~\cite[lema~9.6]{sato}). Dakle, po
+teoremu~\ref{markov-dov} svaki \levy jev po distribuciji (aditivan po distribuciji)
+proces ima modifikaciju s \cadlag \ trajektorijama, tj.\ koja je \levy jev (aditivni) proces.
+
+Na korak smo i do dokaza da Brownovo gibanje definirano preko definicije~\ref{def:brown} postoji, no fali još svojstvo~\ref{enum:browndef2} za što bismo trebali dokazati
+i~\eqref{markov-dov2}. Pokazuje se svaki \levy jev gaussovski (tj.\ takav da
+je svaka konačnodimenzionalna distribucija normalna) proces u \( \R \) g.s.\ ima neprekidne trajektorije,
+što je tvrdnja sljedećeg teorema. Tvrdnja vrijedi i za aditivni proces u općem \( \R^d \) (v.~\cite[tm.~11.7]{sato}). Čak vrijedi i obrat, tj.\ jedini aditivni procesi s neprekidnim trajektorijama su gaussovski (v.~\cite[\textsection21]{sato}).
+
+\begin{teorem}\label{tm:aditgauss}
+	Ako je \( X_t \) \levy jev gaussovski proces na \( \R \), tada gotovo sigurno vrijedi da je trajektorija \( t \mapsto X_t(\omega) \) neprekidna, tj.\ postoji \( \Omega_1 \in \mathcal F \) takav da \( \P(\Omega_1)=1 \) i \( \omega\in \Omega_1\) povlači da je trajektorija \( t \mapsto X_t(\omega) \) neprekidna.
 \end{teorem}
 
 \begin{proof}
+	Neka je bez smanjenja općenitosti \( X_1 \sim \mathrm N(0,1) \). Ocjenu
+	\[
+		\int_c^\infty e^{-\frac{x^2}2} \D x \le
+		\int_c^\infty e^{-\frac{x^2}2} \left( 1 + \frac 1{x^2} \right) \D x
+		= \frac 1c e^{-\frac{c^2}2}, \quad c > 0,
+	\]
+	gdje se jednakost dobije direktno antiderivacijom, iskoristimo za
+	\begin{align}
+		\P(\abs{X_s} > \varepsilon) & = \frac 2{\sqrt{2\pi s}} \int_\varepsilon^\infty e^{-\frac{-x^2}{2s}} \D x      \\
+		                            & = \frac 2{\sqrt{2 \pi}} \int_{\varepsilon/\sqrt s}^\infty e^{-\frac{x^2}2} \D x
+		\le \frac{2 \sqrt s}{\varepsilon \sqrt{2\pi}} e^{\frac{\varepsilon^2}{2s}}.
+	\end{align}
+	Stoga,
+	\begin{equation}
+		\frac 1u \alpha_{\varepsilon, T}(u) =
+		\frac 1u \sup\limits_{s \le u, T} \P(\abs{X_s} > \varepsilon) \le
+		\sup\limits_{s \le u, T} \frac 1s \P(\abs{X_s} > \varepsilon) \un, \quad u \downarrow 0,
+	\end{equation}
+	čime smo dokazali~\eqref{markov-dov2}.
 \end{proof}
 
 \end{document}
