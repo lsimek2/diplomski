@@ -4,6 +4,207 @@
 \nocite{*}
 
 \section{Samosličnost}\label{sec:sp-ss}
+U ovom odjeljku formalno uvodimo pojam samosličnosti
+slučajnih procesa koji smo najavili još u uvodu. Za
+Brownovo gibanje vidjeli smo to svojstvo u
+teoremu~\ref{tm:brown-samoslicnost}.
+Osim o samosličnosti, govori se i o nekoliko generalizacija.
 
+\begin{definicija}
+	Kažemo da je slučajni proces \( \left\{ X_t \right\} \) na \( \R^d \):
+	\begin{itemize}
+		\item \emph{samosličan} ako za svaki \( a > 0 \) postoji \( b > 0 \) takav da
+		      \begin{equation}\label{defeq:ss}
+			      \left\{ X_{at} \right\} \jpod \left\{ bX_t \right\},
+		      \end{equation}
+		\item \emph{samosličan u širem smislu} ako za svaki \( a > 0 \) postoje \( b > 0 \) i \( c\colon \left[0,\infty\right\rangle \to \R^d \) takvi da
+		      \begin{equation}\label{defeq:bsss}
+			      \left\{ X_{at}  \right\} \jpod \left\{ bX_t + c(t)  \right\},
+		      \end{equation}
+		\item \emph{polu-samosličan} ako za neki \( a > 0 \),  \( a \neq 1 \),  postoji \( b > 0 \) takav da
+		      vrijedi~\eqref{defeq:ss},
+		\item \emph{polu-samosličan u širem smislu} ako za neki \( a > 0 \), \( a \neq 1 \), postoji
+		      \( b > 0 \) i \( c\colon \left[ 0,\infty\right\rangle \to \R^d \) takvi da vrijedi~\eqref{defeq:bsss}.
+	\end{itemize}
+\end{definicija}
 
+Sljedeći teorem je fundamentalan za samosličnost i generalizacije.
+
+\begin{teorem}\label{tm:ss-opci}
+	Neka je \( \left\{ X_t \right\} \) polu-samosličan u širem smislu, stohastički neprekidan
+	i netrivijalan\footnote{slučajna varijabla je trivijalna ako \( \P(X=c)=1 \) za neki \( c \), slučajni proces \( \left\{ X_t \right\} \) je trivijalan ako je svaka \( X_t \) trivijalna} proces na \( \R^d \) s \( X_0 \) g.s.\ konstantom. Neka je \( \Gamma \) skup svih \( a \) takvih da postoje \( b \) i \( c \) takvi da
+	vrijedi~\eqref{defeq:bsss}.
+	\begin{enumerate}[label=(\roman*)]
+		\item Postoji \( H > 0 \) takav da
+		      \begin{equation}\label{eq:bah}
+			      b = a^H, \quad a \in \Gamma.
+		      \end{equation}
+		\item Skup \( \Gamma \cap \left\langle1,\infty\right\rangle\) je neprazan. Neka je \( a_0 \)
+		      infimum tog skupa.
+		      \begin{itemize}
+			      \item Ako je \(a_0 > 1 \) je \( \Gamma = \left\{ a_0^n \st n \in \Z \right\} \)
+			            i \( \left\{X_t\right\} \) nije samosličan u širem smislu.
+			      \item Ako je \( a_0 = 1 \) je \( \Gamma = \left\langle0,\infty\right\rangle  \)
+			            i \( \left\{ X_t \right\} \) je samosličan u širem smislu.
+		      \end{itemize}
+	\end{enumerate}
+\end{teorem}
+
+Eksponent \( H \) iz~\eqref{eq:bah} je važna karakteristika samosličnog
+slučajnog procesa. Naziva se i Hurstov eksponent. Kada ga želimo naglasiti
+govorimo o \( H \)-samosličnim procesima. Dokazat ćemo manje općenitu verziju teorema,
+a za to nam je najprije potrebna sljedeća jednostavna lema.
+
+\begin{lema}\label{lema:ss}
+	Neka je \( X \) ne-nul slučajna varijabla na \( \R^d \). Ako je \( b_1X \jpod b_2X \) za
+	neke \( b_1, b_2 > 0\), onda \( b_1=b_2 \).
+\end{lema}
+
+\begin{proof}
+	Neka je \( b_1 < b_2 \) bez smanjenja općenitosti i \( b = b_1/b_2 < 1 \). Tada je
+	\( X \jpod bX  \) i induktivno \( X \jpod b^nX \) za sve \( n \in \N \).
+	Puštanjem \( n \ub \) dobivamo \( X = 0 \) g.s.\ s kontradikcijom.
+\end{proof}
+
+\begin{teorem}\label{tm:ss}
+	Neka je \( \left\{ X_t \right\} \) samosličan, stohastički neprekidan i netrivijalan slučajni proces.
+	Tada postoji \( H \ge 0 \) takav da vrijedi \( b=a^H \) za sve
+	\( a, b \) iz~\eqref{defeq:ss}.
+\end{teorem}
+
+\begin{proof}
+	Neka je \( t \) takav da je \( X_t \) ne-nul varijabla. Ako
+	\( b_1X_t \jpod X_{at} \jpod b_2X_t \) po lemi~\ref{lema:ss} slijedi \( b_1=b_2 \).
+	Dakle, \( b \) u~\eqref{defeq:ss} je jedinstveno određen s
+	\( a \) i možemo ga označavati \( b(a) \) (isto se pokazuje da vrijedi za \( c \) iz~\eqref{defeq:bsss}). Nadalje vrijedi
+	\[
+		X_{a_1a_2t} \jpod b(a_1)X_{a_2t} \jpod b(a_1)b(a_2)X_t,
+	\]
+	ali jasno i \( X_{a_1a_2t} = b(a_1a_2)X_t \) iz čega slijedi \( b(a_1a_2)=b(a_1)b(a_2) \).
+	Stoga \( X_{a^nt} \jpod b(a)^nX_t \). Za \( a < 1 \) po stohastičkoj neprekidnosti
+	\( X_{a^nt} \konvp X_0 \) i zato \( b(a) \le 1 \). Ako \( a_1 < a_2 \) je
+	\( 1 \ge b(a_1/a_2) = b(a_1)/b(a_2) \), tj.\ \( b(a_1) \le b(a_2) \). Dakle,
+	\( a \mapsto b(a) \) je multiplikativna i neopadajuća. Poznato je da je rješenje
+	takve funkcijske jednadžbe dano s \( b(a) = a^H \) za neki fiksni \( H \ge 0 \).
+\end{proof}
+
+\begin{komentar}\label{kom:ss}
+	Pojasnimo slučaj \( H = 0 \) i diskrepanciju između teorema~\ref{tm:ss-opci} i~\ref{tm:ss}. Ako \( H = 0 \) je \( \left\{ X_{at} \right\} \jpod \left\{ X_t \right\}\)
+	za svaki \( a > 0 \). Za svaki \( t \ge 0 \) posebice \( X_t-X_0 \jpod X_{at}-X_0 \).
+	Onda i
+	\begin{equation}
+		\P(\abs{X_t-X_0} > \varepsilon) = \lim\limits_{a \downarrow 0}
+		\P(\abs{X_{at} - X_0} > \varepsilon) = 0, \quad \varepsilon > 0,
+	\end{equation}
+	pri čemu druga jednakost vrijedi zbog stohastičke neprekidnosti.
+	Zbog proizvoljnosti \( \varepsilon \), slijedi \( X_t = X_0 \) g.s.
+	Kada bismo još zahtijevali da je \( X_0 \) g.s.\ konstanta kao u teoremu~\ref{tm:ss-opci},
+	bio bi proces \( \left\{ X_t \right\} \) trivijalan.
+
+	Obratno, ako je \( H > 0 \) stavimo \( t=0 \) pa \( X_0 \jpod a^HX(0) \), i
+	uz \( a \downarrow 0 \) dobivamo \( X_0 = 0 \) g.s. Zbog tih činjenica
+	kod samosličnih procesa često podrazumijevamo stohastičku neprekidnost
+	i \( H > 0 \).
+\end{komentar}
+
+Kada je riječ o samosličnim \levy jevim procesima, koristimo i sljedeće pojmove.
+
+\begin{definicija}\label{def:stab}
+	Kažemo da je beskonačno djeljiva distribucija \( \mu \) na \( \mathcal B(\R^d) \):
+	\begin{itemize}
+		\item \emph{strogo stabilna} ako za svaki \( a > 0 \) postoji \( b > 0 \)
+		      takav da \begin{equation}\label{defeq:strogostab}
+			      \wh \mu(z)^a = \wh \mu(bz), \quad z \in \R^d,
+		      \end{equation}
+		\item \emph{stabilna} ako za svaki \( a > 0 \) postoje \( b > 0 \) i \( c \in \R^d \) takvi
+		      da
+		      \begin{equation}\label{defeq:stab}
+			      \wh \mu(z)^a = \wh \mu(bz)e^{i \skp cz}, \quad z \in \R^d,
+		      \end{equation}
+		\item \emph{strogo polu-stabilna} ako za neki \( a > 0 \), \( a \neq 1 \), postoji \( b > 0 \) takav
+		      da vrijedi~\eqref{defeq:strogostab},
+		\item \emph{polu-stabilna} ako za neki \( a > 0 \), \( a \neq 1 \), postoje \( b > 0 \) i \( c \in \R^d \)
+		      takvi da vrijedi~\eqref{defeq:stab}.
+	\end{itemize}
+\end{definicija}
+
+Kažemo da je \levy jev proces strogo stabilan ili dr.\ ako je to distribucija
+\( \P_{X_1} \). Lako je dokazati da je \levy jev proces strogo stabilan, stabilan, strogo polu-stabilan
+ili polu-stabilan ako i samo ako je redom samosličan, samosličan u širem smislu,
+polu-samosličan ili polu-samosličan u širem smislu. U~\cite[\textsection1.4]{em} navodi se
+rezultat analogan teoremu~\ref{tm:ss-opci}: u~\eqref{defeq:strogostab} i~\eqref{defeq:stab}
+vrijedi \( b=a^{1/\alpha} \) za neki fiksni \( \alpha \in \left\langle 0, 2 \right] \). Za takav
+\( \alpha \) onda se lako pokaže \( H = 1/\alpha \ge 1/2 \). Parametar \( \alpha \)
+zove se \emph{indeks}, a za proces se kaže da je \( \alpha \)-stabilan ili \( \alpha \)-polu-stabilan i sl.
+
+Primjerice, lako se vidi da su normalna (\( \alpha=2 \)) i Cauchyjeva (\( \alpha=1 \)) distribucija stabilne. Standardna normalna i Cauchyjeva
+su štoviše strogo stabilne. Sve stabilne distribucije moguće je karakterizirati preko četiriju
+parametara što je tema u~\cite[\textsection14]{sato}. Zato se često
+govori o \emph{stabilnoj distribuciji} umjesto \emph{stabilnim distribucijama}.
+
+Svaki samoslični proces sa stacionarnim i nezavisnim inkrementima, podrazumijevajući stohastičku neprekidnost i \( X_0=0 \) g.s.\ (v.\ komentar~\ref{kom:ss}) je
+\levy jev strogo stabilni proces (uz ev.\ modifikaciju; odjeljak~\ref{sec:sp-markov}).
+Ipak, nisu svi samoslični procesi \levy jevi, pa se proučavaju odvojeno samoslični procesi čiji su inkrementi
+jedino stacionarni odn.\ jedino nezavisni (v.~\cite{em}).
+
+U slučaju samosličnih procesa sa stacionarnim inkrementima, možemo naći vezu s fenomenom
+\emph{dugoročne zavisnosti} (\emph{pamćenja}; \cite[\textsection3.2]{em}), koja se konkretno
+definira sporim opadanjem autokovarijacijske funkcije. Stavimo \( J_n = X_{n+1}-X_n \) za \( n \in \N_0 \)
+i \( \gamma(n) = \E(J_0J_n) \). U analizi stacionarnih nizova često nam je poželjan uvjet
+\[
+	\sum_n \gamma(n) < \infty,
+\]
+koji zovemo \emph{kratkoročna zavisnost} te se javlja npr.\ kod ARMA modela. S druge strane, dokazat ćemo da
+za \( H > 1/2 \) red ne konvergira. Osim toga, \( H>1/2 \) i \( H<1/2 \) impliciraju da su
+inkrementi redom pozitivno odn.\ negativno korelirani.
+Najprije, potrebna nam je sljedeća lema.
+
+\begin{lema}\label{lema:sssi}
+	Neka je \( \left\{ X_t \right\} \) \( H \)-samosličan slučajni proces sa stacionarnim inkrementima
+	u \( \R \) i \( \E X_1^2 < \infty \). Tada vrijedi
+	\begin{equation}
+		\E(X_tX_s) = \frac 12 \left( t^{2H}+s^{2H}-\abs{t-s}^{2H} \right) \E X_1^2
+		, \quad t,s \ge 0.
+	\end{equation}
+\end{lema}
+
+\begin{proof}
+	Iz samosličnosti \( X_t \jpod t^HX_1 \), stoga \( \E X_t^2 = t^{2H}\E X_1^2 \). Zatim
+	\begin{align}
+		2 \E(X_tX_s) & =  \E X_t^2 + \E X_s^2 - \E\left( X_t-X_s \right)^2          \\
+		             & =  \E X_t^2 + \E X_s^2 - \E X_{\abs{s-t}} ^2                 \\
+		             & =  \E X_1^2 \left( t^{2H} + s^{2H} - \abs{t-s}^{2H} \right). %\qquad \qedhere
+	\end{align}
+\end{proof}
+
+\begin{teorem}
+	Neka je \( \left\{ X_t \right\} \) \( H \)-samosličan sa stacionarnim inkrementima, \( 0 < H < 1 \),
+	svaka \( X_t \) netrivijalna i \( \E X_1^2 < \infty \). Tada vrijedi
+	\begin{equation}
+		\gamma(n)  \begin{cases}\begin{aligned}
+				 & \sim H(2H-1)n^{2H-2}\E X_1^2, & \quad n \ub,    & \quad H\neq 1/2, \\
+				 & =0,                           & \quad n \in \N, & \quad H=1/2.
+			\end{aligned}\end{cases}
+	\end{equation}
+	Posljedično,
+	\begin{enumerate}[label=(\roman*)]
+		\item ako \( H < 1/2 \) je \( \gamma(n) < 0 \) za \( n \in \N \) i \( \sum_{n=0}^\infty \abs{\gamma(n)} < \infty \),
+		\item ako \( H=1/2 \) je \( \gamma(n)=0 \) za \( n \in \N \),
+		\item ako \( H>1/2 \) je \( \gamma(n) > 0\) za \( n \in \N \) i  \( \sum_{n=0}^\infty \abs{\gamma(n)} = \infty \).
+	\end{enumerate}
+\end{teorem}
+
+\begin{proof}
+	Za izračunati \( \gamma(n) \) prvo primijenimo lemu~\ref{lema:sssi}, a zatim
+	razvijamo u Taylorov red (smijemo jer \( \abs{1/n} \le 1 \) i \( 2H > 0 \)) kako slijedi:
+	\begin{align}
+		\gamma(n) & = \frac 12 \left[ (n+1)^{2H} - 2n^{2H} + (n-1)^{2H} \right] \E X_1^2                                          \label{eq:tmsssi-al1} \\
+		          & = \frac 12 n^{2H} \left[ \left( 1+\frac 1n \right)^{2H} - 2 + \left( 1-\frac 1n \right)^{2H} \right] \E X_1^2                       \\
+		          & = n^{2H} \E X_1^2 \sum_{k=1}^\infty \binom{2H}{2k} \frac 1{n^{2k}}                                                                  \\
+		          & = H(2H-1)n^{2H-2}\E X_1^2 + \E X_1^2 \sum_{k=2}^\infty \binom{2H}{2k}n^{2H-2k}.\label{eq:tmsssi-al4}
+	\end{align}
+	Tvrdnje za \( H=1/2 \) slijede odmah iz~\eqref{eq:tmsssi-al1}, a inače iz~\eqref{eq:tmsssi-al4}: drugi sumand teži u \( 0 \) kad \( n \ub \), ne utječe na konvergenciju niti na
+	predznak.
+
+\end{proof}
 \end{document}

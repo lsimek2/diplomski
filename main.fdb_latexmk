@@ -1,13 +1,13 @@
 # Fdb version 4
-["biber main"] 1748011004.71818 "main.bcf" "main.bbl" "main" 1748011629.49778 0
+["biber main"] 1748112141.64547 "main.bcf" "main.bbl" "main" 1748118703.55932 0
   "literatura.bib" 1747943541.43799 1331 0255cfb2f4e5faf75f934a77492e78be ""
-  "main.bcf" 1748011629.291 109858 8d93a3fd963873db6a0066d7128ba328 "pdflatex"
+  "main.bcf" 1748118703.34927 110092 eda764c6b3044f7ad95b22dec9bae275 "pdflatex"
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1748011628.14309 "/home/lsimek/projects/diplomski/main.tex" "main.pdf" "main" 1748011629.49802 0
-  "/home/lsimek/projects/diplomski/main.tex" 1748010932.04936 9247 c4192cf2b4fe6e72df86cc5cbd788441 ""
+["pdflatex"] 1748118702.14237 "/home/lsimek/projects/diplomski/main.tex" "main.pdf" "main" 1748118703.55957 0
+  "/home/lsimek/projects/diplomski/main.tex" 1748118578.83097 9279 385021a9afcd8db46925d58f2db11be2 ""
   "/nix/store/73pbsbdmwsfynw5aza54plj25mxqr172-texlive-combined-2023-texmfdist/fonts/enc/dvips/cm-super/cm-super-t1.enc" 1 2971 def0b6c1f0b107b3b936def894055589 ""
   "/nix/store/73pbsbdmwsfynw5aza54plj25mxqr172-texlive-combined-2023-texmfdist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/nix/store/73pbsbdmwsfynw5aza54plj25mxqr172-texlive-combined-2023-texmfdist/fonts/map/fontname/texfonts.map" 1 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -29,6 +29,7 @@
   "/nix/store/73pbsbdmwsfynw5aza54plj25mxqr172-texlive-combined-2023-texmfdist/fonts/tfm/jknappen/ec/ecti1000.tfm" 1 3072 3bce340d4c075dffe6d4ec732b4c32fe ""
   "/nix/store/73pbsbdmwsfynw5aza54plj25mxqr172-texlive-combined-2023-texmfdist/fonts/tfm/jknappen/ec/ecti1200.tfm" 1 3072 8b5a64dc91775463bc95e2d818524028 ""
   "/nix/store/73pbsbdmwsfynw5aza54plj25mxqr172-texlive-combined-2023-texmfdist/fonts/tfm/jknappen/ec/tcrm1200.tfm" 1 1536 74b7293ec3713bb7fdca8dd1bd1f469c ""
+  "/nix/store/73pbsbdmwsfynw5aza54plj25mxqr172-texlive-combined-2023-texmfdist/fonts/tfm/jknappen/ec/tcti1200.tfm" 1 2048 4bf576aaa733142ac4e68faea01bc92e ""
   "/nix/store/73pbsbdmwsfynw5aza54plj25mxqr172-texlive-combined-2023-texmfdist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1 1004 54797486969f23fa377b128694d548df ""
   "/nix/store/73pbsbdmwsfynw5aza54plj25mxqr172-texlive-combined-2023-texmfdist/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
   "/nix/store/73pbsbdmwsfynw5aza54plj25mxqr172-texlive-combined-2023-texmfdist/fonts/tfm/public/amsfonts/symbols/msam10.tfm" 1 916 f87d7c45f9c908e672703b83b72241a3 ""
@@ -342,16 +343,16 @@
   "diplomski.sty" 1747171339.77885 3380 4ae0b53cdc4f7bed2c8deba986d1b95f ""
   "gl.tex" 1747942456.82555 175 315f4f24d1ba1567dc9b03af2f6a8bd5 ""
   "ha.tex" 1747942418.66511 112 b2021e5ef697dad0509b93955bf54cdf ""
-  "main.aux" 1748011629.287 15718 518d82b716d2a677f7e353ad75060f26 "pdflatex"
-  "main.bbl" 1748011005.43616 7228 5cbc9c7331a918fcfd1ab23500a45b1f "biber main"
-  "main.out" 1748011629.289 1934 bffb938ca4643b3254968c6f92cf1a4c "pdflatex"
-  "main.run.xml" 1748011629.292 2312 41c57239f0c07c6eec605d2c7bed6cf3 "pdflatex"
-  "main.tex" 1748010932.04936 9247 c4192cf2b4fe6e72df86cc5cbd788441 ""
-  "main.toc" 1748011629.292 1029 ef15b33e5f14be775ad3cdee65bcd0f5 "pdflatex"
+  "main.aux" 1748118703.34627 18977 751eb0adeaf3f6dae0c91141497231dd "pdflatex"
+  "main.bbl" 1748112142.37405 7228 5cbc9c7331a918fcfd1ab23500a45b1f "biber main"
+  "main.out" 1748118703.34727 1934 bffb938ca4643b3254968c6f92cf1a4c "pdflatex"
+  "main.run.xml" 1748118703.35027 2312 41c57239f0c07c6eec605d2c7bed6cf3 "pdflatex"
+  "main.tex" 1748118578.83097 9279 385021a9afcd8db46925d58f2db11be2 ""
+  "main.toc" 1748118703.35027 1029 fb73e84844adf41f93279d016bea0cf9 "pdflatex"
   "markov1.tex" 1748000601.99894 10441 2cfb4fb8c20ad079ad47ab2853d562b4 ""
-  "markov2.tex" 1748011628.05101 16075 c1de6493c5ec43a63704c4c7b821df05 ""
+  "markov2.tex" 1748098237.81113 16104 2eb368a14e786a0198f80ab57cd4912b ""
   "sp-pois-brown.tex" 1747957674.76091 17099 00effc5bb1dcb06b478a3097d6cd803b ""
-  "ss.tex" 1748011230.38465 123 f17d8855161d627c03fd852be45b3f23 ""
+  "ss.tex" 1748118702.04825 11333 7d4188c3447fb163962c7700a2450baf ""
   (generated)
   "main.aux"
   "main.bcf"

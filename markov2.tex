@@ -187,7 +187,7 @@ Slijedi glavni rezultat odjeljka koji daje dovoljne uvjete da bi Markovljev proc
 	\]
 	gdje je \( X'_{t-} \) limes slijeva u \( t \). Neka je \( N \) fiksan i definiramo za \( \ell \in \N \) i \( \varepsilon > 0 \)
 	\begin{align}
-		R_{\ell, \varepsilon}   & = \sum_{j=1}^\ell 1_{\abs{X'_{t_j}-X'_{t_{j-1}}} > \varepsilon},                                            \\
+		R_{\ell, \varepsilon}   & = \sum_{j=1}^\ell 1_{\left\{ \abs{X'_{t_j}-X'_{t_{j-1}}} > \varepsilon \right\}},                           \\
 		R_{\varepsilon}(\omega) & = \card \left\{ t \in \left\langle0, N\right] \st \abs{X'_t(\omega)-X'_{t-}(\omega)} > \varepsilon \right\}
 	\end{align}
 	pa je \( R_\varepsilon(\omega) \le \liminf\limits_{\ell \ub} R_{\ell, \varepsilon}(\omega) \). Vrijedi
@@ -211,7 +211,7 @@ proces po distribuciji, koji je Markovljev s prostorno homogenim tranzicijskim f
 	\Ptrans_{s, t}(x, K_\varepsilon^c(x)) = \Ptrans_{s, t}(0, K_\varepsilon^c(0)) = \P(\abs{X_s-X_t} > \varepsilon).
 \]
 Slijedi \( \alpha_{\varepsilon, T}(u) \un \) kad \( u \un \). Za taj zaključak nam je zapravo
-potrebna i uniformnost stohastičke neprekidnosti (v.~\cite[lema~9.6]{sato}). Dakle, po
+potrebna i uniformnost stohastičke neprekidnosti na segmentu (v.~\cite[lema~9.6]{sato}). Dakle, po
 teoremu~\ref{markov-dov} svaki \levy jev po distribuciji (aditivan po distribuciji)
 proces ima modifikaciju s \cadlag \ trajektorijama, tj.\ koja je \levy jev (aditivni) proces.
 
@@ -221,7 +221,7 @@ je svaka konačnodimenzionalna distribucija normalna) proces u \( \R \) g.s.\ im
 što je tvrdnja sljedećeg teorema. Tvrdnja vrijedi i za aditivni proces u općem \( \R^d \) (v.~\cite[tm.~11.7]{sato}). Čak vrijedi i obrat, tj.\ jedini aditivni procesi s neprekidnim trajektorijama su gaussovski (v.~\cite[\textsection21]{sato}).
 
 \begin{teorem}\label{tm:aditgauss}
-	Ako je \( X_t \) \levy jev gaussovski proces na \( \R \), tada gotovo sigurno vrijedi da je trajektorija \( t \mapsto X_t(\omega) \) neprekidna, tj.\ postoji \( \Omega_1 \in \mathcal F \) takav da \( \P(\Omega_1)=1 \) i \( \omega\in \Omega_1\) povlači da je trajektorija \( t \mapsto X_t(\omega) \) neprekidna.
+	Ako je \( \left\{ X_t \right\} \) \levy jev gaussovski proces na \( \R \), tada gotovo sigurno vrijedi da je trajektorija \( t \mapsto X_t(\omega) \) neprekidna, tj.\ postoji \( \Omega_1 \in \mathcal F \) takav da \( \P(\Omega_1)=1 \) i \( \omega\in \Omega_1\) povlači da je trajektorija \( t \mapsto X_t(\omega) \) neprekidna.
 \end{teorem}
 
 \begin{proof}

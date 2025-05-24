@@ -590,6 +590,7 @@ INPUT ./ss.tex
 INPUT ss.tex
 INPUT ./ss.tex
 INPUT ss.tex
+INPUT /nix/store/73pbsbdmwsfynw5aza54plj25mxqr172-texlive-combined-2023-texmfdist/fonts/tfm/jknappen/ec/tcti1200.tfm
 INPUT ./gl.tex
 INPUT gl.tex
 INPUT ./gl.tex
