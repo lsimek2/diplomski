@@ -3,6 +3,80 @@
 \begin{document}
 \nocite{*}
 
-\chapter{\holder -regularnost trajektorija frakcionalnog Brownovog gibanja}\label{chapter-gl}
+\chapter[\holder -regularnost trajektorija FBM]{\holder -regularnost trajektorija frakcionalnog Brownovog gibanja}\label{chapter-gl}
+% \chapter{\holder -regularnost trajektorija frakcionalnog Brownovog gibanja}
+% \markboth{\holder -regularnost trajektorija FBM}{\holder -regularnost traktorija FBM}
+% \markright{\holder -regularnost trajektorija FBM}
+\section{Reprezentacija Brownovog gibanja slučajnim redom}\label{sec:gl-brown}
+U ovom poglavlju ćemo definirati frakcionalno Brownovo gibanje (FBM), koje je svojevrsna generalizacija
+Brownovog gibanja u kojemu ulogu \( 1/2 \) kao parametra samosličnosti zauzima bilo koji drugi
+eksponent \( 0 < H < 1 \). Nakon toga ćemo riješiti problem \holder -regularnosti trajektorija FBM
+koristeći valiće za razvoj u slučajni red i time pokazati vrijednost harmonijske analize
+u primjeni na analizu slučajnih procesa. Pojam \holder -regularnosti uvest ćemo sada.
+
+\begin{definicija}
+	Za funkciju \( f \colon \R \to \R \) kažemo da je \emph{\holder -regularna} s parametrom
+	\( 0 < \alpha < 1 \) ili da zadovoljava \emph{\holder ov uvjet} ako
+	\begin{equation} \label{eq:defholder}
+		\abs{f(x)-f(y)} \lesssim \abs{x-y}^\alpha, \quad x,y \in \R.
+	\end{equation}
+\end{definicija}
+
+Jasno, definiciju je moguće proširiti na funkcije na proizvoljnom metričkom prostoru.
+Lako se pokaže da je zahtjev~\eqref{eq:defholder} jači od uniformne neprekidnosti,
+ali slabiji od Lipschitz-neprekidnosti (time i diferencijabilnosti). Ideja je da se parametrom
+\( \alpha \) kvalificira vrsta glatkoće slabija od diferencijabilnosti. Dobri primjer su funkcije
+\( x \mapsto \abs x ^\alpha \) za \( 0 < \alpha < 1 \) --- poznato nam je da te funkcije (korijeni)
+nisu diferencijabilne u nuli, ali na njihovim grafovima možemo vidjeti da singularitet u nuli
+postaje sve manje izražen povećanjem \( \alpha \). Uvjet~\eqref{eq:defholder} postaje
+jači povećanjem \( \alpha \), pa nam je najzanimljiviji najveći \( \alpha \) (supremum) za koji uvjet vrijedi --- takav
+\( \alpha \) zove se \emph{kritični \holder ov eksponent}. U slučaju
+FBM, vidjet ćemo da parametar \( H \) odgovara tom kritičnom eksponentu.
+
+U ostatku ovog odjeljka prikazat ćemo ukratko motivacijski primjer reprezentacije Brownovog gibanja
+pomoću Haarovog sistema.\footnote{budući da ćemo na kraju doći do funkcija u tzv.\ Faber--Schauderovom sistemu, češće se govori o reprezentaciji Faber--Schauderovim sistemom}
+Neka je \( \left\{ B_t \st t \in \left[ 0,1 \right] \right\} \) Brownovo gibanje u \( \R \) nad\footnote{smisao se nebi promijenio ni na \( \left[ 0,\infty \right\rangle \); spomenimo i još jednu transformaciju na koje je Browonovo gibanje invarijantno: ako stavimo \( Y_0=0 \) i \( Y_t = tX_{t^{-1}} \) za \( t > 0 \) je \( \left\{ Y_t \right\} \) opet Brownovo gibanje} \( \left[ 0,1 \right] \). Ono ima jednostavni prikaz
+pomoću Paley--Wienerovog integrala:
+\begin{equation} \label{eq:bmwint}
+	B_t = \int_0^1 1_{\left[ 0,1 \right]}(s) \D B_s.
+\end{equation}
+Funkciju \( f = 1_{\left[ 0,t \right]} \) želimo razviti u Haarovom sistemu. Na \( \L^2(\left[0,1  \right]) \)
+imamo varijantu Haarovog sistema u odnosu na \( \L^2(\R) \):
+\begin{equation}
+	h_0 = 1_{\left[0,1 \right]}, \qquad h_{j,k}(s) = 2^{j/2}h(2^js - k), \quad j \ge 0, \ 0 \le k \le 2^j-1
+\end{equation}
+gdje \( h(s) = 1_{\left[ 0, 1/2 \right\rangle}(s) - 1_{\left[ 1/2,1 \right]}(s) \). Zbog jednostavnog
+oblika funkcija možemo direktno izračunati:
+\begin{equation}
+	\skp f{h_0} = t1_{\left[ 0,1 \right]}, \qquad
+	\skp f{h_{j,k}} = 2^{-j/2} \tau(2^jt - k), \quad j \ge 0, \ 0 \le k \le 2^j-1,
+\end{equation}
+pri čemu je \( \tau \) trokutasta funkcija na \( \left[ 0,1 \right] \) s \( \tau(1/2)=1/2 \), čime
+dobivamo
+\begin{equation}
+	1_{\left[ 0,t \right]}(s) = t1_{\left[ 0,1 \right]}(s) +
+	\sum_{j=0}^\infty \sum_{k=0}^{2^j-1}
+	2^{-j/2} \tau(2^jt - k)2^{j/2} h(2^js - k).
+\end{equation}
+Uvrštavanjem i primjenom izometričnosti Paley--Wienerovog integrala dobivamo na\-jav\-lje\-nu reprezentaciju
+\begin{equation} \label{eq:brownhaar}
+	B_t = t\varepsilon_0 + \sum_{j=0}^\infty\sum_{k=0}^{2^j-1} 2^{-j/2}\tau(2^jt - k) \varepsilon_{j,k},
+\end{equation}
+pri čemu
+\begin{equation}
+	\varepsilon_0 = \int_0^1 1_{\left[ 0,1 \right]}(s) \D B_s, \qquad
+	\varepsilon_{j,k} = \int_0^1 2^{j/2} h(2^js - k) \D B_s, \quad j \ge 0, \ 0 \le k \le 2^j-1.
+\end{equation}
+Lako je pokazati \( \varepsilon_0, \varepsilon_{j,k} \sim \mathrm N(0,1) \) i da su nezavisni.
+Vrijedi i da red u~\eqref{eq:brownhaar}, osim što konvergira za svaki \( t \) po
+normi u \( \L^2(\Omega) \), gotovo sigurno konvergira uniformno po \( t \).
+Ovo je ujedno i temelj za \levy jevu konstrukciju Brownovog gibanja. Definiramo li
+slučajni proces desnom stranom u~\eqref{eq:brownhaar}, slijede
+svojstva \levy jevog procesa (v.~\cite{diez}), a reprezentacija je korisna
+i za daljnje bavljenje trajektorijama.
+
+\section[FBM i integralne reprezentacije]{Frakcionalno Brownovo gibanje i integralne reprezentacije}\label{sec:gl-fbm}
+Frakcionalno Brownovo gibanje definirat ćemo kao gaussovski proces
+s odgovarajućom kovarijacijskom strukturom, a zatim ispitati njegova svojstva
 
 \end{document}

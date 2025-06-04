@@ -1,0 +1,227 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.2 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{anyt/global//global/global}
+    \entry{flandrin}{article}{}
+      \name{author}{3}{}{%
+        {{hash=e17ed7b15e34e85d3e0045a376d776ba}{%
+           family={Abry},
+           familyi={A\bibinitperiod},
+           given={Patrice},
+           giveni={P\bibinitperiod}}}%
+        {{hash=949edf4bf7efbd5b0f583bb4adaf763e}{%
+           family={Flandrin},
+           familyi={F\bibinitperiod},
+           given={Patrick},
+           giveni={P\bibinitperiod}}}%
+        {{hash=5acbc61360e2e9c7a50cb7d6027d9d27}{%
+           family={Taqqu},
+           familyi={T\bibinitperiod},
+           given={M.},
+           giveni={M\bibinitperiod}}}%
+      }
+      \strng{namehash}{23b0969304195d58a5da079032e8b376}
+      \strng{fullhash}{23b0969304195d58a5da079032e8b376}
+      \strng{bibnamehash}{23b0969304195d58a5da079032e8b376}
+      \strng{authorbibnamehash}{23b0969304195d58a5da079032e8b376}
+      \strng{authornamehash}{23b0969304195d58a5da079032e8b376}
+      \strng{authorfullhash}{23b0969304195d58a5da079032e8b376}
+      \field{labelalpha}{AFT00}
+      \field{sortinit}{A}
+      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{05}
+      \field{title}{Self-Similarity and Long-Range Dependence Through the Wavelet Lens}
+      \field{year}{2000}
+    \endentry
+    \entry{ayache}{article}{}
+      \name{author}{1}{}{%
+        {{hash=aadf84d7509278e31b966a86f8e286e3}{%
+           family={Ayache},
+           familyi={A\bibinitperiod},
+           given={Antoine},
+           giveni={A\bibinitperiod}}}%
+      }
+      \strng{namehash}{aadf84d7509278e31b966a86f8e286e3}
+      \strng{fullhash}{aadf84d7509278e31b966a86f8e286e3}
+      \strng{bibnamehash}{aadf84d7509278e31b966a86f8e286e3}
+      \strng{authorbibnamehash}{aadf84d7509278e31b966a86f8e286e3}
+      \strng{authornamehash}{aadf84d7509278e31b966a86f8e286e3}
+      \strng{authorfullhash}{aadf84d7509278e31b966a86f8e286e3}
+      \field{labelalpha}{Aya10}
+      \field{sortinit}{A}
+      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{A mini-course on Wavelets and Fractional Processes}
+      \field{year}{2010}
+      \verb{urlraw}
+      \verb https://pro.univ-lille.fr/fileadmin/user_upload/pages_pros/antoine_ayache/COURSE-WavFrac.pdf
+      \endverb
+      \verb{url}
+      \verb https://pro.univ-lille.fr/fileadmin/user_upload/pages_pros/antoine_ayache/COURSE-WavFrac.pdf
+      \endverb
+    \endentry
+    \entry{daub}{book}{}
+      \name{author}{1}{}{%
+        {{hash=fc8f0a493fb89e7630e821dfefb6a2c2}{%
+           family={Daubechies},
+           familyi={D\bibinitperiod},
+           given={Ingrid},
+           giveni={I\bibinitperiod}}}%
+      }
+      \list{publisher}{2}{%
+        {Society for Industrial}%
+        {Applied Mathematics (SIAM)}%
+      }
+      \strng{namehash}{fc8f0a493fb89e7630e821dfefb6a2c2}
+      \strng{fullhash}{fc8f0a493fb89e7630e821dfefb6a2c2}
+      \strng{bibnamehash}{fc8f0a493fb89e7630e821dfefb6a2c2}
+      \strng{authorbibnamehash}{fc8f0a493fb89e7630e821dfefb6a2c2}
+      \strng{authornamehash}{fc8f0a493fb89e7630e821dfefb6a2c2}
+      \strng{authorfullhash}{fc8f0a493fb89e7630e821dfefb6a2c2}
+      \field{labelalpha}{Dau92}
+      \field{sortinit}{D}
+      \field{sortinithash}{6f385f66841fb5e82009dc833c761848}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{number}{61}
+      \field{series}{{CBMS}-{NSF} {Regional} conference series in applied mathematics}
+      \field{title}{Ten lectures on wavelets}
+      \field{year}{1992}
+    \endentry
+    \entry{diez}{article}{}
+      \name{author}{1}{}{%
+        {{hash=37ffdc61fa83cfbe4a2bfeda1fd6b4c5}{%
+           family={Diez},
+           familyi={D\bibinitperiod},
+           given={Antoine},
+           giveni={A\bibinitperiod}}}%
+      }
+      \strng{namehash}{37ffdc61fa83cfbe4a2bfeda1fd6b4c5}
+      \strng{fullhash}{37ffdc61fa83cfbe4a2bfeda1fd6b4c5}
+      \strng{bibnamehash}{37ffdc61fa83cfbe4a2bfeda1fd6b4c5}
+      \strng{authorbibnamehash}{37ffdc61fa83cfbe4a2bfeda1fd6b4c5}
+      \strng{authornamehash}{37ffdc61fa83cfbe4a2bfeda1fd6b4c5}
+      \strng{authorfullhash}{37ffdc61fa83cfbe4a2bfeda1fd6b4c5}
+      \field{labelalpha}{Die16}
+      \field{sortinit}{D}
+      \field{sortinithash}{6f385f66841fb5e82009dc833c761848}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Lévy's construction of Brownian motion}
+      \field{year}{2016}
+      \true{nocite}
+      \verb{urlraw}
+      \verb https://perso.eleves.ens-rennes.fr/people/Antoine.Diez/brownienlevy.pdf
+      \endverb
+      \verb{url}
+      \verb https://perso.eleves.ens-rennes.fr/people/Antoine.Diez/brownienlevy.pdf
+      \endverb
+    \endentry
+    \entry{em}{book}{}
+      \name{author}{2}{}{%
+        {{hash=1cb1372ef5a179bf72e7bc72d0a9c941}{%
+           family={Embrechts},
+           familyi={E\bibinitperiod},
+           given={Paul},
+           giveni={P\bibinitperiod}}}%
+        {{hash=7c6461282f8346ed77ef9550b568bbdc}{%
+           family={Maejima},
+           familyi={M\bibinitperiod},
+           given={Makoto},
+           giveni={M\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Princeton University Press}%
+      }
+      \strng{namehash}{f06410cd805a864e8077e04160f31fba}
+      \strng{fullhash}{f06410cd805a864e8077e04160f31fba}
+      \strng{bibnamehash}{f06410cd805a864e8077e04160f31fba}
+      \strng{authorbibnamehash}{f06410cd805a864e8077e04160f31fba}
+      \strng{authornamehash}{f06410cd805a864e8077e04160f31fba}
+      \strng{authorfullhash}{f06410cd805a864e8077e04160f31fba}
+      \field{labelalpha}{EM02}
+      \field{sortinit}{E}
+      \field{sortinithash}{8da8a182d344d5b9047633dfc0cc9131}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{series}{Princeton series in applied mathematics}
+      \field{title}{Selfsimilar processes}
+      \field{year}{2002}
+    \endentry
+    \entry{sarapa}{book}{}
+      \name{author}{1}{}{%
+        {{hash=7cc3185bef97d05c36010ae8e767558b}{%
+           family={Sarapa},
+           familyi={S\bibinitperiod},
+           given={Nikola},
+           giveni={N\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Školska Knjiga}%
+      }
+      \strng{namehash}{7cc3185bef97d05c36010ae8e767558b}
+      \strng{fullhash}{7cc3185bef97d05c36010ae8e767558b}
+      \strng{bibnamehash}{7cc3185bef97d05c36010ae8e767558b}
+      \strng{authorbibnamehash}{7cc3185bef97d05c36010ae8e767558b}
+      \strng{authornamehash}{7cc3185bef97d05c36010ae8e767558b}
+      \strng{authorfullhash}{7cc3185bef97d05c36010ae8e767558b}
+      \field{labelalpha}{Sar80}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{series}{Udžbenici Sveučilišta u Zagrebu}
+      \field{title}{Teorija vjerojatnosti}
+      \field{year}{1980}
+    \endentry
+    \entry{sato}{book}{}
+      \name{author}{1}{}{%
+        {{hash=1bb282830d01c5398cbd88176ce65ed4}{%
+           family={Sato},
+           familyi={S\bibinitperiod},
+           given={Ken-iti},
+           giveni={K\bibinithyphendelim i\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Cambridge Univ.\ Press}%
+      }
+      \strng{namehash}{1bb282830d01c5398cbd88176ce65ed4}
+      \strng{fullhash}{1bb282830d01c5398cbd88176ce65ed4}
+      \strng{bibnamehash}{1bb282830d01c5398cbd88176ce65ed4}
+      \strng{authorbibnamehash}{1bb282830d01c5398cbd88176ce65ed4}
+      \strng{authornamehash}{1bb282830d01c5398cbd88176ce65ed4}
+      \strng{authorfullhash}{1bb282830d01c5398cbd88176ce65ed4}
+      \field{labelalpha}{Sat99}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{number}{68}
+      \field{series}{Cambridge studies in advanced mathematics}
+      \field{title}{Lévy processes and infinitely divisible distributions}
+      \field{year}{1999}
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+
