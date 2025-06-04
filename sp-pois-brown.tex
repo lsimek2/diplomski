@@ -14,7 +14,7 @@ U kontekstu ovog rada podrazumijevamo \( T = \left[ 0,\infty \right\rangle \) i 
 \( \left\{ X_t \right\} \).
 
 Razlikujemo proces od realizacije
-\[ t \mapsto X_t(\omega), \quad t \in \left[ 0,\infty \right\rangle, \quad \mathrm{za \ neki} \ \omega \in \Omega \]
+\( t \mapsto X_t(\omega) \) za fiksni \( \omega \in \Omega \)
 koju još zovemo \emph{trajektorijom}. Nadalje, kažemo da je slučajni proces \( \left\{ X_t \right\} \) \emph{modifikacija} procesa
 \( \left\{ Y_t \right\} \) ako je \( \P(X_t = Y_t) = 1 \) za sve \( t \in \left[ 0,\infty \right\rangle \). Primijetimo razliku u odnosu
 na jači uvjet \( \P(X_t = Y_t,\ \forall t \in \left[ 0,\infty \right\rangle) = 1 \) kada procese više načelno ne razlikujemo.
@@ -31,10 +31,10 @@ nije bitan vjerojatnosni prostor u kojem se nalazimo.
 Sada ćemo definirati \levy jeve procese, jednu od najznamenitijih klasa slučajnih procesa. Uvest ćemo Poissonov proces
 i Brownovo gibanje kao poznate primjere. Pokazat ćemo i vrlo blisku vezu \levy jevih procesa i beskonačno djeljivih distribucija (definiranih u odjeljku~\ref{sec:sp-bdd}), koja
 je potrebna za naš dokaz da Brownovo gibanje postoji. Nakon toga ćemo skrenuti pažnju na teoriju samosličnih procesa i uvesti
-frakcionalno Brownovo gibanje kao generalizaciju. Prije te definicije, uvedimo još jedan osnovni pojam.
+frakcionalno Brownovo gibanje kao generalizaciju u poglavlju~\ref{chapter-gl}. Prije te definicije, uvedimo još jedan osnovni pojam.
 
 \begin{definicija}
-	Slučajni proces \( \left\{ X_t \right\} \) je \emph{stohastički neprekidan} ako vrijedi
+	Slučajni proces \( \left\{ X_t \right\} \) je \emph{stohastički neprekidan} ili \emph{neprekidan po vjerojatnosti} ako vrijedi
 	\begin{equation} \label{def:stohnep}
 		\lim\limits_{s \rightarrow t} \P (\abs{X_s - X_t} > \varepsilon)  = 0,
 	\end{equation}
@@ -46,8 +46,8 @@ frakcionalno Brownovo gibanje kao generalizaciju. Prije te definicije, uvedimo j
 	\begin{enumerate}[label=(\roman*)]
 		\item \( X_0 = 0 \) g.s.,
 		\item \( \left\{ X_t \right\} \) je stohastički neprekidan,
-		\item varijable \( X_{t_0}, X_{t_1}-X_{t_0}, \ldots ,X_{t_n}-X_{t_{n-1}} \) su nezavisne za sve \( n \ge 1 \) i \(0 \le t_1 < t_2 < \cdots < t_n \) (nezavisnost inkremenata),
-		\item distribucija varijable \( X_{s+t}-X_s \) ne ovisi o \( s \) (stacionarnost inkremenata), \label{stacink}
+		\item varijable \( X_{t_0}, X_{t_1}-X_{t_0}, \ldots ,X_{t_n}-X_{t_{n-1}} \) su nezavisne za sve \( n \ge 1 \) i \(0 \le t_1 < t_2 < \cdots < t_n \) (nezavisnost prirasta),
+		\item distribucija varijable \( X_{s+t}-X_s \) ne ovisi o \( s \) (stacionarnost prirasta), \label{stacink}
 		\item Postoji \( \Omega_0 \in \mathcal F \) takav da je \( \P(\Omega_0) = 1 \) te za svaki \( \omega \in \Omega_0 \) vrijedi da je trajektorija
 		      \( t \mapsto X_t(\omega) \) \cadlag\footnote{\cadlag, od fr.\ \textit{continue à droite, limite à gauche}, označava funkciju koja je na cijeloj domeni neprekidna zdesna s limesima slijeva}. \label{cadlag}
 	\end{enumerate}
@@ -88,7 +88,7 @@ bilo kojom beskonačno djeljivom distribucijom.
 		\P(W_n \le t) \le \P(T_1 \le t, T_2 \le t, \ldots, T_n \le t) = \left[ \P(T_1 \le t) \right]^n \rightarrow 0, \textquotestraightdblbase n \ub.
 	\]
 	Slijedi da je svaka \( X_t \) g.s.\ dobro definirana preko~\eqref{eq:poiscons}. Da je \( \left\{ X_t \right\} \) stohastički neprekidan
-	s \cadlag \ trajektorijama i \( X_0 = 0 \) g.s.\ je trivijalno. Preostaje dokazati~\eqref{eq:poispois} i da su inkrementi stacionarni i nezavisni.
+	s \cadlag \ trajektorijama i \( X_0 = 0 \) g.s.\ je trivijalno. Preostaje dokazati~\eqref{eq:poispois} i da su prirasti stacionarni i nezavisni.
 
 	Prvo se dobije iz
 	\begin{align}
@@ -121,7 +121,7 @@ bilo kojom beskonačno djeljivom distribucijom.
 			= \P(W_m \le s < W_{m+1}) = \P(X_s=m).
 		\end{aligned}
 	\end{equation}
-	Sada stacionarnost inkremenata slijedi sumiranjem po \( n \ge 0 \) jednakosti:
+	Sada stacionarnost prirasta slijedi sumiranjem po \( n \ge 0 \) jednakosti:
 	\begin{equation}
 		\begin{aligned}
 			\P & (X_{t+s}-X_t =  m, X_t=n) = \P(X_{t+s}=n+m, X_t=n)                              \\
@@ -129,7 +129,7 @@ bilo kojom beskonačno djeljivom distribucijom.
 		\end{aligned}
 	\end{equation}
 
-	Nezavisnost inkremenata slijedi iz
+	Nezavisnost prirasta slijedi iz
 	\begin{equation}
 		\begin{aligned}
 			\P & (X_{t_0}=n_0, X_{t_1}- X_{t_0} = n_1, \ldots, X_{t_k}-X_{t_{k-1}} = n_k)                                \\
@@ -153,7 +153,7 @@ Sada na slični način uvodimo Brownovo gibanje.
 
 Ovime nismo dokazali da takav proces postoji, što ćemo ostaviti za kasnije. Dana svojstva su nam dovoljna da dokažemo nekoliko osnovnih rezultata
 o Brownovom gibanju. Dokazat ćemo par nama najznačajnijih rezultata, a drugi se mogu naći u~\cite[\textsection 5]{sato}. Spomenimo još kako je svojstvo~\ref{enum:browndef1}
-skupa s \levy jevosti dovoljno za~\ref{enum:browndef2} po teoremu~\ref{adit-gauss}.
+skupa s \levy jevosti dovoljno za~\ref{enum:browndef2} po teoremu~\ref{tm:aditgauss}.
 
 Prvo ćemo dokazati da Brownovo gibanje zadržava istu distribuciju pri širenju u vremenu i odgovarajućem širenju u prostoru. To svojstvo ćemo kasnije zvati
 \emph{samosličnost}.
@@ -165,9 +165,9 @@ Prvo ćemo dokazati da Brownovo gibanje zadržava istu distribuciju pri širenju
 
 \begin{proof}
 	Neka je \( Y_t = c^{-1/2}X_{ct} \). Odmah slijedi \( Y \sim \mathrm N(0, tI) \). Stohastička neprekidnost, g.s.\ neprekidnost trajektorija i nezavinost
-	inkremenata lako se svedu na isto za \( \left\{ X_t \right\} \).
+	prirasta lako se svedu na isto za \( \left\{ X_t \right\} \).
 
-	Stacionarnost inkremenata također --- neka \( 0 \le s < t \) pa \[ Y_t - Y_s = c^{-1/2}\left( X_{ct} - X_{cs} \right) \jpod c^{-1/2}X_{ct-cs} \jpod Y_{t-s}. \]
+	Stacionarnost prirasta također --- neka \( 0 \le s < t \) pa \[ Y_t - Y_s = c^{-1/2}\left( X_{ct} - X_{cs} \right) \jpod c^{-1/2}X_{ct-cs} \jpod Y_{t-s}. \]
 \end{proof}
 
 Sada ćemo dokazati da u jednoj dimenziji g.s.\ vrijede dva inače neuobičajena svojstva --- nigdje-monotonost i nigdje-diferencijabilnost.\footnote{ustvari je dovoljno dokazati nigdje-diferencijabilnost;
@@ -190,7 +190,7 @@ Sada ćemo dokazati da u jednoj dimenziji g.s.\ vrijede dva inače neuobičajena
 		A_n = \left\{ \omega \in \Omega_0 \st X_{t_0}(\omega) \le X_{t_1}(\omega) \le \cdots \le X_{t_n}(\omega) \right\} \in \mathcal F.
 	\end{equation}
 	Očito \( A \subset A_n \) i
-	% Kada bismo znali \( A \in \mathcal F \) bi bilo i \( \P(A) \le P(A_n) \) pri čemu zbog nezavisnosti inkremenata
+	% Kada bismo znali \( A \in \mathcal F \) bi bilo i \( \P(A) \le P(A_n) \) pri čemu zbog nezavisnosti prirasta
 	\begin{align}
 		\P(A_n) & \le \P\left(\bigcap_{k=1}^n \left\{ X_{t_k} - X_{t_{k-1}} \ge 0  \right\} \right) \\
 		        & = \prod_{k=1}^n P(X_{t_k} - X_{t_{k-1}} \ge 0) = 2^{-n} \un, \quad n \ub
@@ -247,7 +247,7 @@ Sada ćemo dokazati da u jednoj dimenziji g.s.\ vrijede dva inače neuobičajena
 	Neka je \( \omega \in A_n \) i \( s \) iz~\eqref{eq:brownndif-defAn}. Lako se pokaže da je \( \omega \in \left\{ Y_{n,k} \le 4MN/n \right\} \) gdje je \( k \) takav da \( s \) nije udaljen ni od kojeg ruba segmenta
 	\( \left[ t_{k-1}, t_{k+2} \right] \) za više od \( 2N/n \). Dakle, \( A_n \subseteq B_n \).
 
-	Uvedimo oznaku \( a_n = \P\left(\abs{X_{N/n}} \le 4MN/n \right) \). Pomoću stacionarnosti i nezavisnosti inkremenata dobivamo
+	Uvedimo oznaku \( a_n = \P\left(\abs{X_{N/n}} \le 4MN/n \right) \). Pomoću stacionarnosti i nezavisnosti prirasta dobivamo
 	\begin{align}
 		\P(B_n) & \le \sum_{k=0}^{n-2} \P(Y_{n, k} \le 4MN/n) = \P(Y_{n, 0}) + \sum_{k=1}^{n-2} \P(Y_{n, k}) \\
 		        & =  \P\left(\abs{X_{t_1}-X_{t_0}} \le 4MN/n, \abs{X_{t_2} - X_{t_1}} \le 4MN/n\right) +     \\&+

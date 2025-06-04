@@ -72,7 +72,7 @@ Najvažnije nam je vidjeti da logaritmirajne i potenciranje beskonačno djeljivi
 		      \[
 			      X_1 = \sum_{k=0}^n \left( X_{t_k} - X_{t_{k-1}} \right) \quad \mathrm{g.s.}
 		      \]
-		      Tvrdnja slijedi zbog stacionarnosti i nezavisnosti inkremenata.
+		      Tvrdnja slijedi zbog stacionarnosti i nezavisnosti prirasta.
 	\end{itemize}
 \end{komentar}
 
@@ -91,7 +91,7 @@ Slijedi glavni rezultat ovog odjeljka koji smo najavili na početku.
 	Neka je sada \( t \) iracionalan i \( t_n \rightarrow t \) gdje \( t_n \in \mathbb Q \). Stohastičku neprekidnost u \( t \) možemo zapisati kao \( X_{t_n} \konvp X_{t} \) pa konvergencija vrijedi i po distribuciji
 	te povlači konvergenciju mjera \( \P_{X_1}^{t_n} = \P_{X_{t_n}} \konvw \P_{X_t} \). Također \( \P_{X_1}^{t_n} \konvw P_{X_1}^t \) po prop.~\ref{bdd-prop}, t.~\ref{bdd-prop-4}. Tvrdnja slijedi zbog jedinstvenosti limesa (npr.\ prop.~13.7 u~\cite{sarapa}).
 
-	Sada dokažimo~\ref{bddlpd3}. Po~\ref{bddlpd1} slijedi \( X_t \jpod X_t' \) za \( t \ge 0 \) i po stacionarnosti inkremenata \( X_{s+t}-X_s \jpod X_{s+t}'-X_s' \) za \( s, t \ge 0 \). Zbog nezavisnosti komponenti jednako su distribuirani i vektori\footnote{njihove komponente isto mogu biti vektori, tada se radi o blok-zapisu}
+	Sada dokažimo~\ref{bddlpd3}. Po~\ref{bddlpd1} slijedi \( X_t \jpod X_t' \) za \( t \ge 0 \) i po stacionarnosti prirasta \( X_{s+t}-X_s \jpod X_{s+t}'-X_s' \) za \( s, t \ge 0 \). Zbog nezavisnosti komponenti jednako su distribuirani i vektori\footnote{njihove komponente isto mogu biti vektori, tada se radi o blok-zapisu}
 	\begin{equation} \label{jd7103}
 		( X_{t_0}, X_{t_1}-X_{t_0}, \ldots, X_{t_n}-X_{t_{n-1}}  )
 		\jpod
@@ -156,7 +156,7 @@ Slijedi glavni rezultat ovog odjeljka koji smo najavili na početku.
 		\end{aligned}
 	\end{equation}
 
-	Na kraju jer \( \mu_t \konvw \mu_0 = \delta_0  \) slijedi \( X_t \konvd 0 \) i \( X_t \konvp 0 \) kad \( t \downarrow 0 \). Zbog stacionarnosti inkremenata, to se lako proširi na stohastičku neprekidnost na cijeloj domeni. Dakle, \( \left\{ X_t \right\} \) je \levy jev po distribuciji.
+	Na kraju jer \( \mu_t \konvw \mu_0 = \delta_0  \) slijedi \( X_t \konvd 0 \) i \( X_t \konvp 0 \) kad \( t \downarrow 0 \). Zbog stacionarnosti prirasta, to se lako proširi na stohastičku neprekidnost na cijeloj domeni. Dakle, \( \left\{ X_t \right\} \) je \levy jev po distribuciji.
 \end{proof}
 
 \begin{komentar} \label{tmbdd-komentar}
@@ -165,7 +165,7 @@ Slijedi glavni rezultat ovog odjeljka koji smo najavili na početku.
 		\item Intuicija iza~\eqref{tmbdd-mjera} je sljedeća: svakako nas zanima
 		      vjerojatnost da \( x_k \in B_k \), no preostaje pitanje kako \enquote{mjeriti} pojedini skok.
 		      Dekomponiranje mjere na komponente koje ovise samo o rasponu \( t_k-t_{k-1} \) i mjerenje po
-		      inkrementima (\( y_0=x_0, y_k = x_k-x_{k-1} \)) osiguravaju željena svojstva, a to se i
+		      prirastima (\( y_0=x_0, y_k = x_k-x_{k-1} \)) osiguravaju željena svojstva, a to se i
 		      potvrdi formalno.
 
 		\item Obrazložimo zašto je familija mjera definiranih preko~\eqref{tmbdd-mjera} suglasna.

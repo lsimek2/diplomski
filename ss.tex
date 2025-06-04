@@ -142,25 +142,25 @@ su štoviše strogo stabilne. Sve stabilne distribucije moguće je karakterizira
 parametara što je tema u~\cite[\textsection14]{sato}. Zato se često
 govori o \emph{stabilnoj distribuciji} umjesto \emph{stabilnim distribucijama}.
 
-Svaki samoslični proces sa stacionarnim i nezavisnim inkrementima, podrazumijevajući stohastičku neprekidnost i \( X_0=0 \) g.s.\ (v.\ komentar~\ref{kom:ss}) je
+Svaki samoslični proces sa stacionarnim i nezavisnim prirastima, podrazumijevajući stohastičku neprekidnost i \( X_0=0 \) g.s.\ (v.\ komentar~\ref{kom:ss}) je
 \levy jev strogo stabilni proces (uz ev.\ modifikaciju; odjeljak~\ref{sec:sp-markov}).
-Ipak, nisu svi samoslični procesi \levy jevi, pa se proučavaju odvojeno samoslični procesi čiji su inkrementi
+Ipak, nisu svi samoslični procesi \levy jevi, pa se proučavaju odvojeno samoslični procesi čiji su prirasti
 jedino stacionarni odn.\ jedino nezavisni (v.~\cite{em}).
 
-U slučaju samosličnih procesa sa stacionarnim inkrementima, možemo naći vezu s fenomenom
+U slučaju samosličnih procesa sa stacionarnim prirastima, možemo naći vezu s fenomenom
 \emph{dugoročne zavisnosti} (\emph{pamćenja}; \cite[\textsection3.2]{em}), koja se konkretno
 definira sporim opadanjem autokovarijacijske funkcije. Stavimo \( J_n = X_{n+1}-X_n \) za \( n \in \N_0 \)
 i \( \gamma(n) = \E(J_0J_n) \). U analizi stacionarnih nizova često nam je poželjan uvjet
 \[
-	\sum_n \gamma(n) < \infty,
+	\sum_n \abs{\gamma(n)} < \infty,
 \]
 koji zovemo \emph{kratkoročna zavisnost} te se javlja npr.\ kod ARMA modela. S druge strane, dokazat ćemo da
 za \( H > 1/2 \) red ne konvergira. Osim toga, \( H>1/2 \) i \( H<1/2 \) impliciraju da su
-inkrementi redom pozitivno odn.\ negativno korelirani.
+prirasti redom pozitivno odn.\ negativno korelirani.
 Najprije, potrebna nam je sljedeća lema.
 
 \begin{lema}\label{lema:sssi}
-	Neka je \( \left\{ X_t \right\} \) \( H \)-samosličan slučajni proces sa stacionarnim inkrementima
+	Neka je \( \left\{ X_t \right\} \) \( H \)-samosličan slučajni proces sa stacionarnim prirastima
 	u \( \R \) i \( \E X_1^2 < \infty \). Tada vrijedi
 	\begin{equation}
 		\E(X_tX_s) = \frac 12 \left( t^{2H}+s^{2H}-\abs{t-s}^{2H} \right) \E X_1^2
@@ -178,12 +178,12 @@ Najprije, potrebna nam je sljedeća lema.
 \end{proof}
 
 \begin{teorem}
-	Neka je \( \left\{ X_t \right\} \) \( H \)-samosličan sa stacionarnim inkrementima, \( 0 < H < 1 \),
+	Neka je \( \left\{ X_t \right\} \) \( H \)-samosličan sa stacionarnim prirastima, \( 0 < H < 1 \),
 	svaka \( X_t \) netrivijalna i \( \E X_1^2 < \infty \). Tada vrijedi
 	\begin{equation}
-		\gamma(n)  \begin{cases}\begin{aligned}
-				 & \sim H(2H-1)n^{2H-2}\E X_1^2, & \quad n \ub,    & \quad H\neq 1/2, \\
-				 & =0,                           & \quad n \in \N, & \quad H=1/2.
+		\gamma(n)=  \begin{cases}\begin{aligned}
+				 & H(2H-1)n^{2H-2}\E X_1^2 + o(1), & \quad n \ub,    & \quad H\neq 1/2, \\
+				 & 0,                              & \quad n \in \N, & \quad H=1/2.
 			\end{aligned}\end{cases}
 	\end{equation}
 	Posljedično,
@@ -204,7 +204,7 @@ Najprije, potrebna nam je sljedeća lema.
 		          & = H(2H-1)n^{2H-2}\E X_1^2 + \E X_1^2 \sum_{k=2}^\infty \binom{2H}{2k}n^{2H-2k}.\label{eq:tmsssi-al4}
 	\end{align}
 	Tvrdnje za \( H=1/2 \) slijede odmah iz~\eqref{eq:tmsssi-al1}, a inače iz~\eqref{eq:tmsssi-al4}: drugi sumand teži u \( 0 \) kad \( n \ub \), ne utječe na konvergenciju niti na
-	predznak.
+	predznak ni za koji \( n \in \N \).
 
 \end{proof}
 \end{document}
