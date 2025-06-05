@@ -25,20 +25,23 @@ u primjeni na analizu slučajnih procesa. Pojam \holder -regularnosti uvest ćem
 Jasno, definiciju je moguće proširiti na funkcije na proizvoljnom metričkom prostoru.
 Lako se pokaže da je zahtjev~\eqref{eq:defholder} jači od uniformne neprekidnosti,
 ali slabiji od Lipschitz-neprekidnosti (time i diferencijabilnosti). Ideja je da se parametrom
-\( \alpha \) kvalificira vrsta glatkoće slabija od diferencijabilnosti. Dobri primjer su funkcije
+\( \alpha \) kvantificira vrsta glatkoće slabija od diferencijabilnosti. Dobri primjer su funkcije
 \( x \mapsto \abs x ^\alpha \) za \( 0 < \alpha < 1 \) --- poznato nam je da te funkcije (korijeni)
 nisu diferencijabilne u nuli, ali na njihovim grafovima možemo vidjeti da singularitet u nuli
 postaje sve manje izražen povećanjem \( \alpha \). Uvjet~\eqref{eq:defholder} postaje
 jači povećanjem \( \alpha \), pa nam je najzanimljiviji najveći \( \alpha \) (supremum) za koji uvjet vrijedi --- takav
 \( \alpha \) zove se \emph{kritični \holder ov eksponent}. U slučaju
-FBM, vidjet ćemo da parametar \( H \) odgovara tom kritičnom eksponentu.
+FBM, vidjet ćemo da parametar \( H \) odgovara tom kritičnom eksponentu. Opet,
+za veći eksponent trajektorija ima glađi izgled (v.~\cite[str.~6]{se}).
 
 U ostatku ovog odjeljka prikazat ćemo ukratko motivacijski primjer reprezentacije Brownovog gibanja
 pomoću Haarovog sistema.\footnote{budući da ćemo na kraju doći do funkcija u tzv.\ Faber--Schauderovom sistemu, češće se govori o reprezentaciji Faber--Schauderovim sistemom}
-Neka je \( \left\{ B_t \st t \in \left[ 0,1 \right] \right\} \) Brownovo gibanje u \( \R \) nad\footnote{smisao se nebi promijenio ni na \( \left[ 0,\infty \right\rangle \); spomenimo i još jednu transformaciju na koje je Browonovo gibanje invarijantno: ako stavimo \( Y_0=0 \) i \( Y_t = tX_{t^{-1}} \) za \( t > 0 \) je \( \left\{ Y_t \right\} \) opet Brownovo gibanje} \( \left[ 0,1 \right] \). Ono ima jednostavni prikaz
+Neka je \( \left\{ B_t \st t \in \left[ 0,1 \right] \right\} \) Brownovo gibanje u \( \R \) nad
+%\footnote{smisao se nebi promijenio ni na \( \left[ 0,\infty \right\rangle \); spomenimo i još jednu transformaciju na koje je Browonovo gibanje invarijantno: ako stavimo \( Y_0=0 \) i \( Y_t = tX_{t^{-1}} \) za \( t > 0 \) je \( \left\{ Y_t \right\} \) opet Brownovo gibanje}
+\( \left[ 0,1 \right] \). Ono ima jednostavni prikaz
 pomoću Paley--Wienerovog integrala:
 \begin{equation} \label{eq:bmwint}
-	B_t = \int_0^1 1_{\left[ 0,1 \right]}(s) \D B_s.
+	B_t = \int_0^1 1_{\left[ 0,t \right]}(s) \D B_s.
 \end{equation}
 Funkciju \( f = 1_{\left[ 0,t \right]} \) želimo razviti u Haarovom sistemu. Na \( \L^2(\left[0,1  \right]) \)
 imamo varijantu Haarovog sistema u odnosu na \( \L^2(\R) \):
@@ -77,6 +80,160 @@ i za daljnje bavljenje trajektorijama.
 
 \section[FBM i integralne reprezentacije]{Frakcionalno Brownovo gibanje i integralne reprezentacije}\label{sec:gl-fbm}
 Frakcionalno Brownovo gibanje definirat ćemo kao gaussovski proces
-s odgovarajućom kovarijacijskom strukturom, a zatim ispitati njegova svojstva
+s odgovarajućom kovarijacijskom strukturom, a zatim ispitati njegova svojstva.
+
+\begin{definicija}\label{def:fbm}
+	Neka je \( H \in \left\langle 0,1 \right\rangle \). \emph{Frakcionalno Brownovo gibanje} (skraćeno FBM ili fBm) s parametrom \( H \) je gaussovki proces \( \left\{ B^H_t \right\} \) u \( \R \) definiran s
+	\( \E B^H_t = 0 \) za svaki \( t \ge 0 \) i
+	\begin{equation} \label{eq:deffbm}
+		\E(B^H_t B^H_s) = \frac 12 \E \left[ (B^H_1)^2 \right]
+		\left( t^{2H} + s^{2H} - \abs{t-s}^{2H} \right), \quad t,s\ge 0.
+	\end{equation}
+\end{definicija}
+
+\noindent Razmotrimo svojstva takvog procesa:
+\begin{itemize}
+	\item Normalne konačnodimenzionalne distribucije, pa i slučajni proces, jedinstveno su (u smislu distribucije) definirani preko~\eqref{eq:deffbm}. Ipak, potrebno je paziti da odgovarajuće kovarijacijske matrice budu pozitivno semidefinitne. To je moguće dokazati direktno,
+	      ili je zbog leme~\ref{lema:sssi} dovoljno dokazati da uopće postoji \( H \)-samosličan
+	      proces sa stacionarnim prirastima. Alternativno, FBM se može definirati tzv.\ integralnim
+	      reprezentacijama kojima ćemo se baviti vrlo skoro.
+
+	\item Lako se dobije \( B^H_0 = 0 \) g.s. i s tim je~\eqref{eq:deffbm} ekvivalentno sa
+	      \begin{equation}\label{eq:deffbmalt}
+		      \E \left[ \left( B^H_t-B^H_s \right)^2 \right] = \E\left[ (B^H_1)^2 \right] \abs{t-s}^{2H}.
+	      \end{equation}
+
+
+	\item Varijacija na definiciju~\ref{def:fbm} moguća je ako dodatno pretpostavimo \( \var B_1^H = 1 \) kao npr.\ u~\cite{se}, čime nestaje faktor \( \E\left[ (B_1^H)^2 \right] \) u~\eqref{eq:deffbm}.
+
+	\item Ako uzmemo \( \var B_1^H = 1 \) i \( H=1/2 \), riječ je o običnom Brownovom gibanju. Naime, dobije se \( \E(B^H_tB^H_s) = \min\left\{ t,s \right\} \), što se lako pokaže da vrijedi i za Brownovo gibanje.
+	\item Za \( H=1 \) dobio bi se degenerirani slučaj --- kao u dokazu teorema~\ref{tm:sssi} dobili bismo \( \gamma(n) = \E\left[ (B^H_1)^2 \right] \), tj.\ autokorelacija je uvijek \( 1 \) i
+	      \( B^H_t = tB_1^H \) g.s.
+
+	\item Za svaki gaussovski \( H \)-samoslični proces sa stacionarnim prirastima
+	      nužno vrijedi~\eqref{eq:deffbm} po lemi~\eqref{lema:sssi}. Dakle,
+	      ako takav proces postoji je jednak FBM.
+
+
+	\item Za \( H \neq 1/2 \) prirasti nisu nezavisni po teoremu~\ref{tm:sssi}, što znači da FBM nije \levy jev proces. Štoviše, nije ni aditivan ni Markovljev (v.~\cite{se}).
+
+	\item FBM g.s.\ ima neprekidne i nigdje-diferencijabilne trajektorije. Te tvrdnje
+	      slijedit će kad riješimo pitanje \holder -regularnosti trajektorija.
+
+	\item FBM je \( H \)-samoslično. Za \( a > 0 \) vrijedi:
+	      \begin{align}
+		      \E \left( B^H_{at} B^H_{as} \right) & = \frac 12 \var B^H_1 \left[ (at)^{2H} + (as)^{2H} - (a\abs{t-s})^{2H} \right] \\
+		                                          & = a^{2H}\E \left( B^H_t B^H_s \right)
+		      = \E \left[ \left( a^H B^H_t \right)\left( a^HB^H_s \right) \right].
+	      \end{align}
+	      Ponovo jer kovarijacijska struktura određuje gaussovski proces,
+	      slijedi \[ \left\{ B^H_{at} \right\} \jpod \left\{ a^HB^H_t \right\}. \]
+
+	\item FBM ima stacionarne priraste. Tvrdnja se opet dobije direktno preko~\eqref{eq:deffbm}. Time smo dokazali sljedeću propoziciju.
+\end{itemize}
+
+\begin{propozicija}\label{prop:fbm}
+	Za dani \( H \in \left\langle0,1\right\rangle \) je FBM jedinstveni (do na množenje konstantom; u smislu distribucije) centrirani gaussovski \( H \)-samoslični proces sa stacionarnim prirastima.
+\end{propozicija}
+
+Sada ćemo prijeći na temu integralnih reprezentacija FBM. Općenito, pod izrazom
+integralna reprezentacija podrazumijevamo prikaz slučajnog procesa stohastičkim
+integralom nekog drugog procesa (ili determinističke funkcije). U ovom radu
+uvijek je riječ o integralu determinističke funkcije s obzirom na Brownovo gibanje --- dakle
+o Paley--Wienerovom integralu. Konkretno, želimo prikaz oblika
+\begin{equation}\label{eq:intrepgen}
+	B^H_t \jpod \int_0^t K(u) \D B_u \quad \text{ili općenitije} \quad
+	B^H_t \jpod \int_\R K_t(u) \D B_u
+\end{equation}
+za \( K, K_t \in \L^2(\R) \) determinističke integralne jezgre. Primijetimo da
+u desnoj varijanti~\eqref{eq:intrepgen} trebamo Brownovo gibanje
+za \( t \in \R \), što dobijemo npr.\ spajanjem dva nezavisna Brownova gibanja
+\( \left\{ B_t \st t \ge 0 \right\} \) i \( \left\{ B_{-t} \st t \ge 0 \right\} \).
+
+Slučajni proces definiran kao u~\eqref{eq:intrepgen} nužno je centriran
+i gaussovski. Neka su dani trenuci \( s_1 < t_1 \le s_2 < t_2 \le \cdots \le s_n < t_n \),
+realni brojevi \( a_1, \ldots, a_n \) i step-funkcija \( h \) dana s
+\[
+	h(u) = \sum_{k=1}^n a_k 1_{\left[ s_k, t_k \right]}(u), \quad
+	\text{dakle} \quad
+	I(h) = \int_\R h(u) \D B_u
+	= \sum_{k=1}^n a_k(B_{t_k}-B_{s_k}).
+\]
+Trivijalna je centriranost tj.\ \( \E I(h) = 0 \). Da je
+\( I(h) \) normalno distribuiran slijedi jer je suma nezavisnih
+normalnih varijabli iz familije
+\(
+\left\{ B_{t_k} - B_{s_k} \st k = 1, \ldots, n  \right\}
+\)
+uz skaliranja s \( a_k \). Nezavisnost i normalnost vrijedi
+jer je riječ o prirastima Brownovog gibanja. Oba svojstva
+će se prenijeti na opću \( h \in \L^2(\R) \) kao limes
+step-funkcija. Zbog dokazanog svojstva, dovoljno je dokazati~\eqref{eq:deffbm}
+ili~\eqref{eq:deffbmalt} da bismo dokazali da je s~\eqref{eq:intrepgen}
+doista dano FBM (iako, takav dokaz ne govori kako do dotične reprezentacije možemo doći).
+
+Do kraja odjeljka prikazat ćemo dvije takve reprezentacije ---
+prva je \emph{Mandelbrot--van~Nessova} ili \emph{(non-anticipative) moving average},
+druga se naziva \emph{harmonizabilna} i ona će nam jedina biti potrebna u daljnjem radu.
+Još jedna, \emph{Volterrinog tipa} može se naći u~\cite{se}, a
+od interesa je jer njena jezgra ima kompaktni nosač.
+U literaturi se uvijek dodaju uz integral i konstante potrebne za normalizaciju varijance.
+Budući da nam normalizirana varijanca nije bitna, niti ju tražimo
+u definiciji~\ref{def:fbm}, konstante
+ćemo izostaviti. Ipak, vidljive su iz računa i mogu se naći u~\cite{se}.
+
+\begin{teorem} (Mandelbrot--van Nessova reprezentacija FBM).
+	Neka je \( H \in \left\langle 0, 1 \right\rangle \) i\footnote{\( a_+=\max\left\{ 0,a \right\} \)}
+	\begin{equation}
+		K_t(u) =
+		(t-u)_+^{H-1/2} 1_{\left\langle -\infty,0 \right\rangle}(u) - (-u)_+^{H-1/2}, \quad t \ge 0.
+	\end{equation}
+	Tada je \( \left\{ X_t \right\} \),
+	definiran s \( X_t = I(K_t) \), FBM s parametrom \( H \).
+\end{teorem}
+
+\begin{proof}
+	Neka je bez smanjenja općenitosti \( t > s \ge 0 \).
+	Dokazujemo~\eqref{eq:deffbmalt}. Prvu jednakost
+	dobivamo zbog linearnosti i izometričnosti Paley--Wienerovog integrala:
+	\begin{align}
+		\E\left[ \left( X_t-X_s \right)^2 \right]
+		 & = \int_\R \left[ (t-u)_+^{H-1/2} - (s-u)_+^{H-1/2} \right]^2 \D u                          \\
+		 & = (t-s)^{2H} \int_\R \left[ (u+1)_+^{H-1/2} - (u)_+^{H-1/2}  \right]^2 \D u = C(t-s)^{2H}.
+	\end{align}
+	Drugu jednakost dobivamo supstitucijom \( u \leftarrow \frac{s-u}{t-s} \)
+	nakon čega \( (t-s)^{2H} \) izlazi van. Preostaje samo konstatirati da je
+	integral koji stoji iza \( C \) doista konačan.
+\end{proof}
+
+\begin{teorem} (Harmonizabilna reprezentacija FBM).
+	Neka je \( H \in \left\langle0,1\right\rangle \) i
+	\begin{equation}
+		K_t(u) =
+		\abs{u}^{-H-1/2} \cdot \begin{cases}
+			\sin tu, \quad   & u \ge 0, \\
+			1-\cos tu, \quad & u < 0.
+		\end{cases}
+	\end{equation}
+	Tada je \( \left\{ X_t \right\} \),
+	definiran s \( X_t = I(K_t) \), FBM s parametrom \( H \).
+\end{teorem}
+
+\begin{proof}
+	Počinjemo kao u prošlom dokazu:
+	\begin{align}
+		\E \left[ \left( X_t-X_s \right)^2 \right] & =
+		\int_0^\infty \frac{(\sin tu - \sin su)^2}{u^{2H+1}} \D u +
+		\int_{-\infty}^0 \frac{(\cos tu - \cos su)^2}{(-u)^{2H+1}} \D u                                  \\
+		                                           & = \int_0^\infty \frac{2-2\cos(t-s)u}{u^{2H+1}} \D u \\ &=  (t-s)^{2H}\int_0^\infty \frac{1-\cos u}{u^{2H+1}} \D u =C(t-s)^{2H}.
+	\end{align}
+	Pritom, druga jednakost dobiva se supstitucijom \( u \leftarrow -u \)
+	u drugom integralu da se svedu na jedan, zatim se
+	dovršava s \( u \leftarrow (t-s)u \). Očito je \( C \) opet konačan.
+\end{proof}
+
+\begin{komentar}
+	Bla bla
+\end{komentar}
 
 \end{document}
