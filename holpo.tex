@@ -1,0 +1,120 @@
+\documentclass[main.tex]{subfiles}
+
+\begin{document}
+\nocite{*}
+
+\section{\holder -regularnost u točkama}\label{sec:holpo}
+%fiksirati prozivoljni Hi
+%napomenuti da je \psi meyerov mat. valic
+Potrebno je definirati kritični \emph{točkovni} \holder ov eksponent.
+
+\begin{definicija}
+	Neka je \( \left\{ X_t \right\} \) slučajni proces čije su trajektorije gotovo sigurno
+	lokalno ograničene i nigdje diferencijabilne. Za proizvoljni
+	\( t_0 \ge 0 \) definira se \emph{kritični točkovni \holder ov eksponent} procesa
+	\( \left\{ X_t \right\} \) u \( t_0 \) sa
+	\begin{equation}
+		\alpha(t_0) = \sup \left\{ \alpha > 0 \st
+		\limsup\limits_{h \rightarrow 0} \frac{\abs{X_{t_0+h}-X_{t_0}}}{\abs h^\alpha} = 0
+		\right\}.
+	\end{equation}
+\end{definicija}
+
+%glavni teorem je 3.9 u ayache
+%napomenuti da je potrebno dokazati \le dio
+%\Omega_1 ne smije ovisiti o t_0
+
+Prije nego nastavimo, još je korisno definirati dva pojma
+standardna u frakcionalnom kalkulusu.
+
+\begin{definicija}
+	%Neka je \( \psi \) Meyerov matični valić.
+	\begin{enumerate}
+		\item \emph{Lijeva frakcionalna antiderivacija reda} \( H+1/2 \) od \( \psi \) definira se sa
+		      \begin{equation}
+			      \Psi_H(x) = \int_\R e^{ix\xi} \frac{\wh \psi(\xi)}{(i\xi)^{H+1/2}} \D \xi, \quad x \in \R.
+		      \end{equation}
+		\item \emph{Desna frakcionalna derivacija reda} \( H+1/2 \) od \( \psi \) definira se sa
+		      \begin{equation}
+			      \Psi_{-H}(x)= \int_\R e^{ix\xi}\wh \psi(\xi)(-i\xi)^{H+1/2} \D \xi, \quad x \in \R.
+		      \end{equation}
+	\end{enumerate}
+\end{definicija}
+
+\begin{komentar}
+	...
+\end{komentar}
+
+Konačno, dolazimo do valićne reprezentacije FBM.
+
+\begin{teorem}
+	Neka je FBM dano s (komentar~\ref{kom:harmrep})
+	\begin{equation}
+		B^H_t = \int_\R \frac{e^{it\xi}-1}{(i\xi)^{H+1/2}} \D \wh B_\xi, \quad t \ge 0
+	\end{equation}
+	i
+	\( \left\{ \varepsilon_{j,k} \st j,k \in \Z \right\} \)
+	nezavisne jednako distribuirane varijable iz \( \mathrm N(0,1) \) definirane s
+	\begin{equation}\label{eq:defepsjk}
+		\varepsilon_{j,k} =
+		\int_\R 2^{-j/2}e^{ik2^{-j}\xi}\wh \psi(-2^{-j}\xi)\D \wh B_\xi =
+		\int_\R 2^{j/2} \psi(2^jt-k) \D B_t, \quad j,k\in \Z.
+	\end{equation}
+	Tada \( \left\{ B^H_t  \right\} \) ima reprezentaciju
+	\begin{equation}\label{eq:valfbmrep}
+		B^H_t = \sum_{j,k \in \Z}
+		2^{-jH} \left( \Psi_H(2^jt - k) - \Psi_H(-k)  \right) \varepsilon_{j,k}, \quad t \ge 0
+	\end{equation}
+	pri čemu konvergencija vrijedi i g.s.\ uniformno po \( t \) na svakom
+	kompaktnom podskupu od \( \R \).
+\end{teorem}
+
+\begin{proof}
+	Definirajmo prvo  \( \left\{ \varepsilon_{j,k }\right\} \) desnom stranom~\eqref{eq:defepsjk}, tj.\ \( \varepsilon_{j,k} = I(\psi_{j,k}) \).
+	Po diskusiji iz odjeljka~\ref{sec:fbm}, znamo da su varijable \( \left\{ \varepsilon_{j,k} \right\} \)
+	centrirane i normalno distribuirane. Varijancu dobijemo zbog izometričnosti
+	Paley--Wienerovog integrala:
+	\begin{equation}
+		\E\varepsilon_{j,k}^2 = \E(I(\psi_{j,k})^2) = \norm{\psi_{j,k}}^2_{\L^2} = 1.
+	\end{equation}
+	Na isti način možemo dobiti nekoreliranost: \( \E (\varepsilon_{j,k}\varepsilon_{j',k'}) = \skp{\psi_{j,k}}{\psi_{j',k'}} = 0 \) za \( (j,k) \neq (j',k') \). Ako varijable \( \left\{ \varepsilon_{j,k}  \right\} \)
+	zajedno čine normalne slučajne vektore, tada je to dovoljno za nezavisnost.
+	To je istina --- možemo nastaviti razmatranja iz odjeljka~\ref{sec:fbm} pa dokazati i ovo: ako su \( f_1, \ldots, f_n \in \L^2(\R) \)
+	linearno nezavisne, tada je \( \left( I(f_1),\ldots,I(f_n) \right)  \) normalni slučajni vektor.
+
+	Slijedeći pravila za modulacije i translacije (\ref{??})
+	dobiva se da je Fourierova transformacija od \( \psi_{j,k} \) jednaka
+	\( \xi \mapsto -2^{j/2}e^{ik2^{-j}\xi}\wh\psi(2^{-j}\xi) \).
+	Konjugacijom, jer je Meyerov valić realan,
+	dobiva se integrand u sredini~\eqref{eq:defepsjk}.
+	Budući da je integral realan, konjugaciju maknemo i time
+	je~\eqref{eq:defepsjk} dokazano.
+
+	Jer je \( \left\{ \psi_{j,k} \st j,k \in \Z \right\} \) ortonormirana baza
+	prostora \( \L^2(\R) \) i Fourierova transformacija izometrija, familija
+	\[
+		\xi \mapsto \left\{ 2^{-j/2} e^{ik2^{-j}\xi}\wh\psi(-2^{-j}\xi) \st j,k \in \Z \right\}
+	\]
+	je također ortonormirana baza prostora \( \L^2(\R) \). Sada želimo dekomponirati
+	funkciju \( f(\xi) = \frac{e^{it\xi}-1}{(i\xi)^{H+1/2}} \), koja je očito u \( \L^2(\R) \), u toj bazi:
+	\begin{equation} \label{eq:dekompfxi}
+		f(\xi) =
+		\sum_{j,k \in \Z} c_{j,k}(t) 2^{-j/2}e^{ik2^{-j}\xi}\wh \psi(-2^{-j}\xi),
+	\end{equation}
+	gdje
+	\begin{equation}
+		\begin{aligned}
+			c_{j,k}(t) & = 2^{-j/2} \int_\R \frac{e^{it\xi}-1}{(i\xi)^{H+1/2}}e^{-ik2^{-j}\xi}\wh \psi(2^{-j}\xi) \D \xi
+			\\ &= 2^{-jH} \left( \Psi_H(2^jt-k)-\Psi_H(-k) \right),
+		\end{aligned}
+	\end{equation}
+	a zadnja jednakost dobiva se supstitucijom \( \xi \leftarrow 2^{-j}\xi \).
+	Integriranjem~\eqref{eq:dekompfxi} po \( \xi \), zamjenom sume i integrala (dominirana konvergencija zbog \( \Psi_H, \widehat{\psi} \in \mathcal S(\R) \)) i izometričnosti Paley--Wienerovog integrala
+	dobiva se~\eqref{eq:valfbmrep}.
+
+	Time smo dokazali da konvergencija u~\eqref{eq:valfbmrep} vrijedi u \( \L^2(\Omega) \), ali ne i g.s.\ uniformno po \( t \) na kompaktu. Dokaz te tvrdnje oslanja
+	se na dva teorema izvan opsega ovog rada i može se naći u~\cite[tm.~3.15]{ayache}.
+
+\end{proof}
+
+\end{document}

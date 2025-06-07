@@ -78,7 +78,7 @@ slučajni proces desnom stranom u~\eqref{eq:brownhaar}, slijede
 svojstva \levy jevog procesa (v.~\cite{diez}), a reprezentacija je korisna
 i za daljnje bavljenje trajektorijama.
 
-\section[FBM i integralne reprezentacije]{Frakcionalno Brownovo gibanje i integralne reprezentacije}\label{sec:gl-fbm}
+\section[FBM i integralne reprezentacije]{Frakcionalno Brownovo gibanje i integralne reprezentacije}\label{sec:fbm}
 Frakcionalno Brownovo gibanje definirat ćemo kao gaussovski proces
 s odgovarajućom kovarijacijskom strukturom, a zatim ispitati njegova svojstva.
 
@@ -115,7 +115,7 @@ s odgovarajućom kovarijacijskom strukturom, a zatim ispitati njegova svojstva.
 	      ako takav proces postoji je jednak FBM.
 
 
-	\item Za \( H \neq 1/2 \) prirasti nisu nezavisni po teoremu~\ref{tm:sssi}, što znači da FBM nije \levy jev proces. Štoviše, nije ni aditivan ni Markovljev (v.~\cite{se}).
+	\item Za \( H \neq 1/2 \) prirasti nisu nezavisni po teoremu~\ref{tm:sssi}, što znači da FBM nije \levy jev niti aditivni proces. Štoviše, nije ni Markovljev (v.~\cite{se}).
 
 	\item FBM g.s.\ ima neprekidne i nigdje-diferencijabilne trajektorije. Te tvrdnje
 	      slijedit će kad riješimo pitanje \holder -regularnosti trajektorija.
@@ -232,8 +232,21 @@ u definiciji~\ref{def:fbm}, konstante
 	dovršava s \( u \leftarrow (t-s)u \). Očito je \( C \) opet konačan.
 \end{proof}
 
-\begin{komentar}
-	Bla bla
+\begin{komentar}\label{kom:harmrep}
+	U~\cite{ayache} navodi se sljedeće kao harmonizabilna reprezentacija i to
+	je ona koju ćemo koristiti u nastavku:
+	%file:///home/lsimek/Downloads/074921706000000770.pdf
+	\begin{equation}\label{eq:harmrep}
+		B^H_t \jpod
+		\int_\R \frac{e^{it\xi}-1}{(i\xi)^{H+1/2}} \D \wh B_\xi,
+		\quad \text{gdje} \quad
+		(i\xi)^{H+1/2}=\begin{cases}
+			\abs \xi ^{H+1/2} e^{i(H+1/2)\pi/2}, \quad  & \xi \ge 0, \\
+			\abs \xi ^{H+1/2} e^{-i(H+1/2)\pi/2}, \quad & \xi < 0.
+		\end{cases}
+	\end{equation}
+	Dobiva se Fourierovom transformacijom Mandelbrot--van Nessove reprezentacije. Dokaz
+	zahtijeva frakcionalni kalkulus i može se naći u~\cite{ojeda}.
 \end{komentar}
 
 \end{document}
