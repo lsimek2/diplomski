@@ -87,13 +87,13 @@ Konačno, dolazimo do valićne reprezentacije FBM.
 	\( \xi \mapsto -2^{j/2}e^{ik2^{-j}\xi}\wh\psi(2^{-j}\xi) \).
 	Konjugacijom, jer je Meyerov valić realan,
 	dobiva se integrand u sredini~\eqref{eq:defepsjk}.
-	Budući da je integral realan, konjugaciju maknemo i time
+	Budući da je integral realan, konjugaciju dodamo bez promjene i time
 	je~\eqref{eq:defepsjk} dokazano.
 
 	Jer je \( \left\{ \psi_{j,k} \st j,k \in \Z \right\} \) ortonormirana baza
 	prostora \( \L^2(\R) \) i Fourierova transformacija izometrija, familija
 	\[
-		\xi \mapsto \left\{ 2^{-j/2} e^{ik2^{-j}\xi}\wh\psi(-2^{-j}\xi) \st j,k \in \Z \right\}
+		\left\{ \xi \mapsto 2^{-j/2} e^{ik2^{-j}\xi}\wh\psi(-2^{-j}\xi) \st j,k \in \Z \right\}
 	\]
 	je također ortonormirana baza prostora \( \L^2(\R) \). Sada želimo dekomponirati
 	funkciju \( f(\xi) = \frac{e^{it\xi}-1}{(i\xi)^{H+1/2}} \), koja je očito u \( \L^2(\R) \), u toj bazi:
@@ -114,6 +114,78 @@ Konačno, dolazimo do valićne reprezentacije FBM.
 
 	Time smo dokazali da konvergencija u~\eqref{eq:valfbmrep} vrijedi u \( \L^2(\Omega) \), ali ne i g.s.\ uniformno po \( t \) na kompaktu. Dokaz te tvrdnje oslanja
 	se na dva teorema izvan opsega ovog rada i može se naći u~\cite[tm.~3.15]{ayache}.
+
+\end{proof}
+
+Slijedi zanimljiva lema koja nam
+omogućava da cijelu familiju slučajnih varijabli
+ocijenimo jednom zajedničkom. Iz te perspektive
+ju možemo zvati slučajnom konstantom.
+Dokaz je adaptiran iz~\cite[str~459.]{jourfa-ayache}.
+Primijetimo da tražimo da su varijable jednako distribuirane,
+ali ne i da su nezavisne.
+
+\begin{lema}
+	Neka je \( \left\{ \varepsilon_{j,k} \right\} \) familija jednako distribuiranih
+	\( \mathrm N(0,1) \) varijabli. Tada postoji \( \Omega_1^* \) s \( \P(\Omega_1^*) = 1 \)
+	takav da
+	\begin{equation}
+		\abs{\varepsilon_{j,k}(\omega)} \le C_1(\omega) \sqrt{\log(2 + \abs j + \abs k)}
+		,\quad \omega \in \Omega_1^*, \ j,k \in \Z.
+	\end{equation}
+	gdje je \( C_1  \) slučajna varijabla čiji je svaki moment konačan.
+\end{lema}
+
+\begin{proof}
+	Gledajmo prvo \( \N \)-indeksiranu familiju \( \left\{ \varepsilon_n \right\} \)
+	i dokažimo analognu tvrdnju
+	\begin{equation}\label{eq:holpo-lema1-anal}
+		\abs{\varepsilon_n(\omega)} \le C(\omega) \sqrt{\log(2+n)}.
+	\end{equation}
+	Koristeći ocjenu iz dokaza teorema~\ref{tm:aditgauss} je:
+	\begin{equation}
+		\sum_{n=1}^\infty \P\left(\abs{\varepsilon_n} > a\sqrt{\log(2+n)}\right) \lesssim
+		\sum_{n=1}^\infty (2+n)^{-a^2/2},
+	\end{equation}
+	što konvergira ako odaberemo \( a > \sqrt 2 \). Po Borel--Cantellijevoj lemi
+	\begin{equation}
+		\P\left(\abs{\varepsilon_n} > a\sqrt{\log(2+n)} \text{\ za beskonačno mnogo } n \in \N \right) = 0
+	\end{equation}
+	pa za \( \Omega_1^* \) stavimo komplement tog događaja, tj.\ na \( \Omega_1^* \)
+	je dobro definirano vrijeme zaustavljanja
+	\begin{equation}
+		T(\omega) = \min \left\{ n \in \N \st m \ge n \implies
+		\abs{\varepsilon_m(\omega)} \le a \sqrt{\log(2+m)}  \right\}.
+	\end{equation}
+	Ideja je sada \( C \) odabrati tako da u~\eqref{eq:holpo-lema1-anal} pokrije
+	onih konačno \( n \) za koje tvrdnja već ne vrijedi. Nije očito da takva varijabla
+	ima sve momente konačne. Ipak, možemo gledati i veću slučajnu konstantu
+	\begin{equation}
+		\widetilde C(\omega) = \max\limits_{0 \le m \le T(\omega)} \abs{\varepsilon_m(\omega)},
+		\quad \omega \in \Omega_1^*
+	\end{equation}
+	i dokazati da su joj svi momenti konačni kako slijedi
+	\begin{align}
+		\E \widetilde C^p & =
+		\sum_{n=1}^\infty \E \left[ \max\limits_{0 \le m \le T} \abs{\varepsilon_m}^p 1_{\left\{ T=n \right\}} \right]                                                  \\
+		                  & \le \E \left[ \abs{\varepsilon_1}^p 1_{\left\{T=1\right\}}  \right]
+		+ \sum_{n=2}^\infty \sum_{m=1}^n \E\left[ \abs{\varepsilon_m}^p 1_{\left\{ \abs{\varepsilon_{n-1}} > a\sqrt{\log(n+1)} \right\} } \right]                       \\
+		                  & \le \E \abs{\varepsilon_1}^p + \sum_{n=1}^\infty \sum_{m=1}^n
+		\sigma_{2p}^{1/2} \P \left( \abs{\varepsilon_{n-1}} > a\sqrt{\log(n+1)} \right)^{1/2}                                                                           \\
+		                  & \lesssim \E \abs{\varepsilon_1}^p + \sigma_{2p}^{1/2}\sum_{n=2}^\infty (n+1)^{-a^2/4+1} < \infty \quad \left(\text{za } a > 2\sqrt2\right).
+	\end{align}
+	Pritom, druga nejednakost se dobije \holder ovom nejednakosti, uz oznaku
+	\( \sigma_{2p} = \E \abs{\varepsilon_m}^{2p} \) (ne ovisi o \( m \)).
+	Za treću primjenimo istu ocjenu repa normalne distribucije kao prije i koristimo
+	jednaku distribuiranost.
+
+	Jedan način za prelazak na \( (\Z\times\Z) \)-indeksiranu familiju je sljedeći:
+	uzmemo bijekciju \( f\colon \Z\times\Z \to \N \) takvu da
+	\[
+		n = f(j,k) \implies n \lesssim \abs j + \abs k.
+	\]
+	To svojstvo ima uobičajena bijekcija (v.~\cite[lema~2]{jourfa-ayache} za eksplicitnu definiciju).
+	Traženo se dobije iz~\eqref{eq:holpo-lema1-anal} uz odgovarajuću izmjenu konstante.
 
 \end{proof}
 

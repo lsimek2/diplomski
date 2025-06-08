@@ -52,6 +52,38 @@
       \field{title}{Self-Similarity and Long-Range Dependence Through the Wavelet Lens}
       \field{year}{2000}
     \endentry
+    \entry{jourfa-ayache}{article}{}
+      \name{author}{2}{}{%
+        {{hash=aadf84d7509278e31b966a86f8e286e3}{%
+           family={Ayache},
+           familyi={A\bibinitperiod},
+           given={Antoine},
+           giveni={A\bibinitperiod}}}%
+        {{hash=2a9f821a11bf7478e13959132fc4483a}{%
+           family={Taqqu},
+           familyi={T\bibinitperiod},
+           given={Murad\bibnamedelima S.},
+           giveni={M\bibinitperiod\bibinitdelim S\bibinitperiod}}}%
+      }
+      \strng{namehash}{06a19dc3ab3b6a7cd117494f614bc181}
+      \strng{fullhash}{06a19dc3ab3b6a7cd117494f614bc181}
+      \strng{bibnamehash}{06a19dc3ab3b6a7cd117494f614bc181}
+      \strng{authorbibnamehash}{06a19dc3ab3b6a7cd117494f614bc181}
+      \strng{authornamehash}{06a19dc3ab3b6a7cd117494f614bc181}
+      \strng{authorfullhash}{06a19dc3ab3b6a7cd117494f614bc181}
+      \field{labelalpha}{AT03}
+      \field{sortinit}{A}
+      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Journal of Fourier Analysis and Applications}
+      \field{month}{9}
+      \field{title}{Rate Optimality of Wavelet Series Approximations of Fractional Brownian Motion}
+      \field{volume}{9}
+      \field{year}{2003}
+      \field{pages}{451\bibrangedash 471}
+      \range{pages}{21}
+    \endentry
     \entry{ayache}{article}{}
       \name{author}{1}{}{%
         {{hash=aadf84d7509278e31b966a86f8e286e3}{%
@@ -129,13 +161,47 @@
       \field{labeltitlesource}{title}
       \field{title}{Lévy's construction of Brownian motion}
       \field{year}{2016}
-      \true{nocite}
       \verb{urlraw}
       \verb https://perso.eleves.ens-rennes.fr/people/Antoine.Diez/brownienlevy.pdf
       \endverb
       \verb{url}
       \verb https://perso.eleves.ens-rennes.fr/people/Antoine.Diez/brownienlevy.pdf
       \endverb
+    \endentry
+    \entry{ojeda}{article}{}
+      \name{author}{2}{}{%
+        {{hash=4d810c703e63560a77850ab814d2beb2}{%
+           family={Dobrić},
+           familyi={D\bibinitperiod},
+           given={Vladimir},
+           giveni={V\bibinitperiod}}}%
+        {{hash=f853d632dc0f330148145794e463162c}{%
+           family={Ojeda},
+           familyi={O\bibinitperiod},
+           given={Francisco\bibnamedelima M.},
+           giveni={F\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Insitute of Mathematical Statistics}%
+      }
+      \strng{namehash}{827135463e972f539b15291065d65cf5}
+      \strng{fullhash}{827135463e972f539b15291065d65cf5}
+      \strng{bibnamehash}{827135463e972f539b15291065d65cf5}
+      \strng{authorbibnamehash}{827135463e972f539b15291065d65cf5}
+      \strng{authornamehash}{827135463e972f539b15291065d65cf5}
+      \strng{authorfullhash}{827135463e972f539b15291065d65cf5}
+      \field{labelalpha}{DO06}
+      \field{sortinit}{D}
+      \field{sortinithash}{6f385f66841fb5e82009dc833c761848}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{High Dimensional Probability}
+      \field{series}{IMS Lecture Notes--Monograph Series}
+      \field{title}{Fractional Brownian fields, duality, and martingales}
+      \field{volume}{51}
+      \field{year}{2006}
+      \field{pages}{77\bibrangedash 95}
+      \range{pages}{19}
     \endentry
     \entry{em}{book}{}
       \name{author}{2}{}{%
@@ -220,6 +286,34 @@
       \field{series}{Cambridge studies in advanced mathematics}
       \field{title}{Lévy processes and infinitely divisible distributions}
       \field{year}{1999}
+    \endentry
+    \entry{se}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=db6c963548aa82aadaba3c60601d1592}{%
+           family={Ševčenko},
+           familyi={Š\bibinitperiod},
+           given={Heorhij},
+           giveni={H\bibinitperiod}}}%
+      }
+      \strng{namehash}{db6c963548aa82aadaba3c60601d1592}
+      \strng{fullhash}{db6c963548aa82aadaba3c60601d1592}
+      \strng{bibnamehash}{db6c963548aa82aadaba3c60601d1592}
+      \strng{authorbibnamehash}{db6c963548aa82aadaba3c60601d1592}
+      \strng{authornamehash}{db6c963548aa82aadaba3c60601d1592}
+      \strng{authorfullhash}{db6c963548aa82aadaba3c60601d1592}
+      \field{labelalpha}{Šev14}
+      \field{sortinit}{Š}
+      \field{sortinithash}{fe7d139ff25af1da92945fcf3e00cef5}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Fractional Brownian motion in a nutshell}
+      \field{year}{2014}
+      \verb{urlraw}
+      \verb https://arxiv.org/abs/1406.1956
+      \endverb
+      \verb{url}
+      \verb https://arxiv.org/abs/1406.1956
+      \endverb
     \endentry
   \enddatalist
 \endrefsection
