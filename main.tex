@@ -78,7 +78,7 @@
 \definecolor{red}{HTML}{da272f}
 \definecolor{blue}{HTML}{4682b4}
 \definecolor{navy}{HTML}{06038d}
-\definecolor{nred}{HTML}{5c1200}
+\definecolor{nred}{HTML}{650015}
 
 \definecolor{codebg}{HTML}{f0f0f0}
 \definecolor{commentfg}{HTML}{333333}
@@ -113,8 +113,16 @@
 \providecommand*{\blx@noerroretextools}{}
 \makeatother
 
-\usepackage[style=alphabetic]{biblatex}
+\usepackage[
+	style=alphabetic,	
+	% firstinits=true,
+	% terseinits=true,
+	% giveninits=true
+]{biblatex}
 \addbibresource{literatura.bib}
+% \renewcommand{\mkbibnamegiven}[1]{#1\adddot}
+% \DeclareDelimFormat{multinamedelim}{\addcoma\space}
+% \DeclareDelimAlias{finalnamedelim}{multinamedelim}
 
 \usepackage{pgfplots}
 \pgfplotsset{compat=1.15}
@@ -223,7 +231,7 @@
 	podrazumijeva da se distribucija procesa ne mijenja skaliranjem u vremenu i odgovarajućim skaliranjem po amplitudi. Drugim riječima, slična statistička svojstva
 	vrijede i u malim i u velikim rezolucijama. Samoslični slučajni procesi ponekad se nazivaju i \emph{statistički fraktali}, iako se frakcionalno Brownovo gibanje
 	pojavljuje u radovima Kolmogorova više od dvadeset godina prije no što Mandelbrot uvodi izraz \emph{fraktal} (citirati). Za analizu takvih procesa
-	prirodno pogoduju valići koje detaljno uvodimo u poglavlju~\ref{ch-ha}, o čemu najbolje govori ovaj citat iz~\cite[str.~22.]{flandrin}:
+	prirodno pogoduju valići koje detaljno uvodimo u poglavlju~\ref{ch-ha}, o čemu govori ovaj citat iz~\cite[str.~22.]{flandrin}:
 	\begin{displayquote}
 		Štoviše, čim su se pojavile sredinom osamdesetih, gotovo se odmah prepoznalo da su valićne transformacije,
 		zahvaljujući svojoj ugrađenoj multirezolucijskoj strukturi, prirodni alati
@@ -242,7 +250,7 @@
 		\item U trećem poglavlju...
 	\end{itemize}
 
-	Glavnu literaturu čine~\cite{daub} za prvo poglavlje, \cite{sato, em, sarapa} za drugo poglavlje i~\cite{ayache} za treće poglavlje.
+	Glavnu literaturu čine~\cite{daub} za prvo poglavlje, \cite{sato, em, sarapa} za drugo poglavlje i~\cite{se, ayache} za treće poglavlje.
 \end{intro}
 
 \fontsize{11pt}{13.pt}\selectfont

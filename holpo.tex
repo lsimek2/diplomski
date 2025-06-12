@@ -1,20 +1,20 @@
 \documentclass[main.tex]{subfiles}
-
 \begin{document}
 \nocite{*}
 
 \section{\holder -regularnost u točkama}\label{sec:holpo}
-%fiksirati prozivoljni Hi
+%fiksirati prozivoljni Hii
+%napomenuti da je odsad B^H_t na t\in\R; mora se popraviti drugdje ako to mijenjamo
 %napomenuti da je \psi meyerov mat. valic
 Potrebno je definirati kritični \emph{točkovni} \holder ov eksponent.
 
-\begin{definicija}
+\begin{definicija}\label{def:holpo}
 	Neka je \( \left\{ X_t \right\} \) slučajni proces čije su trajektorije gotovo sigurno
 	lokalno ograničene i nigdje diferencijabilne. Za proizvoljni
 	\( t_0 \ge 0 \) definira se \emph{kritični točkovni \holder ov eksponent} procesa
-	\( \left\{ X_t \right\} \) u \( t_0 \) sa
+	\( \left\{ X_t \right\} \) u \( t_0 \) kao slučajna varijabla
 	\begin{equation}
-		\alpha(t_0) = \sup \left\{ \alpha > 0 \st
+		\alpha_{t_0} = \sup \left\{ \alpha > 0 \st
 		\limsup\limits_{h \rightarrow 0} \frac{\abs{X_{t_0+h}-X_{t_0}}}{\abs h^\alpha} = 0
 		\right\}.
 	\end{equation}
@@ -47,10 +47,10 @@ standardna u frakcionalnom kalkulusu.
 
 Konačno, dolazimo do valićne reprezentacije FBM.
 
-\begin{teorem}
+\begin{teorem}\label{holpo-teorem1}
 	Neka je FBM dano s (komentar~\ref{kom:harmrep})
 	\begin{equation}
-		B^H_t = \int_\R \frac{e^{it\xi}-1}{(i\xi)^{H+1/2}} \D \wh B_\xi, \quad t \ge 0
+		B^H_t = \int_\R \frac{e^{it\xi}-1}{(i\xi)^{H+1/2}} \D \wh B_\xi, \quad t \in \R
 	\end{equation}
 	i
 	\( \left\{ \varepsilon_{j,k} \st j,k \in \Z \right\} \)
@@ -63,7 +63,7 @@ Konačno, dolazimo do valićne reprezentacije FBM.
 	Tada \( \left\{ B^H_t  \right\} \) ima reprezentaciju
 	\begin{equation}\label{eq:valfbmrep}
 		B^H_t = \sum_{j,k \in \Z}
-		2^{-jH} \left( \Psi_H(2^jt - k) - \Psi_H(-k)  \right) \varepsilon_{j,k}, \quad t \ge 0
+		2^{-jH} \left( \Psi_H(2^jt - k) - \Psi_H(-k)  \right) \varepsilon_{j,k}, \quad t \in \R
 	\end{equation}
 	pri čemu konvergencija vrijedi i g.s.\ uniformno po \( t \) na svakom
 	kompaktnom podskupu od \( \R \).
@@ -125,7 +125,7 @@ Dokaz je adaptiran iz~\cite[str~459.]{jourfa-ayache}.
 Primijetimo da tražimo da su varijable jednako distribuirane,
 ali ne i da su nezavisne.
 
-\begin{lema}
+\begin{lema}\label{holpo-lema1}
 	Neka je \( \left\{ \varepsilon_{j,k} \right\} \) familija jednako distribuiranih
 	\( \mathrm N(0,1) \) varijabli. Tada postoji \( \Omega_1^* \) s \( \P(\Omega_1^*) = 1 \)
 	takav da
@@ -187,6 +187,162 @@ ali ne i da su nezavisne.
 	To svojstvo ima uobičajena bijekcija (v.~\cite[lema~2]{jourfa-ayache} za eksplicitnu definiciju).
 	Traženo se dobije iz~\eqref{eq:holpo-lema1-anal} uz odgovarajuću izmjenu konstante.
 
+\end{proof}
+
+%%%%%%%%%%%%%%%%%
+
+\begin{propozicija}\label{holpo-prop1}
+	U oznakama teorema~\ref{holpo-teorem1} i leme~\ref{holpo-lema1}, postoji
+	slučajna varijabla \( C_2 \) sa svim momentima konačnima takva
+	da za sve \( t \in \R \) i \( \omega \in \Omega_1^* \) vrijedi
+	\begin{align}
+		\abs{B^H_t(\omega)}
+		 & \le \sum_{j,k \in \Z} 2^{-jH} \abs{\Psi_H(2^jt-k)-\Psi_H(-k)} \abs{\varepsilon_{j,k}(\omega)}
+		\\ &\le C_2(\omega)(1+\abs t)^H\sqrt{\abs{\log \abs{\log (2 + \abs t)}}}.
+	\end{align}
+\end{propozicija}
+
+%%%%%%%%%%%%%%%%
+\begin{lema}\label{holpo-lema2}
+	\begin{enumerate}[label=(\roman*)]
+		\item Vrijedi \label{holpo-lema2-itemi}
+		      \begin{equation}
+			      \int_\R \Psi_{-H}(t) \D t = \int_\R \Psi_H(t) \D t = 0.
+		      \end{equation}
+		\item Za sve parove \( (j,k) \) i \( (j',k') \) cijelih brojeva \label{holpo-lema2-itemii}
+		      \begin{equation}\label{eq:intpsihpsi-h}
+			      2^{(j'+j)/2}\int_\R \Psi_H(2^{j'}t-k')\Psi_{-H}(2^jt-k) \D t =
+			      \begin{cases}
+				      1, \  & (j,k)=(j',k') \\
+				      0, \  & \text{inače}.
+			      \end{cases}
+		      \end{equation}
+	\end{enumerate}
+\end{lema}
+
+\begin{proof}
+	Za~\ref{holpo-lema2-itemi} imamo
+	\[
+		\int_\R \Psi_{-H}(t) \D t = \sqrt{2\pi} \wh \Psi _{-H} (0) = 0,
+	\]
+	zbog \( \wh \Psi_{-H}(\xi) = (-i\xi)^{H+1/2}\wh \psi(\xi) \) (\ref{??}) i \( \wh \psi \)
+	iščezava u okolini nule. Analogno se dokaže tvrdnja za \( \Psi_H \).
+
+	Zatim~\ref{holpo-lema2-itemii} dobivamo iz
+	\begin{align}\noindent
+		 & 2^{( j'+j)/2} \int_\R \Psi_H(2^{j'}t-k')\Psi_{-H}(2^jt-k) \D t                                 \\
+		 & = 2^{-(j'+j)/2}
+		\int_\R  \scriptstyle{e^{-ik'2^{-j'}\xi}  (i2^{-j'}\xi)^{-H-1/2}\wh\psi(2^{-j'}\xi) \label{holpo-lema2-eq1}
+		\ol{e^{-ik2^{-j}\xi}(-i2^{-j}\xi)^{H+1/2}\wh\psi(2^{-j}\xi)}\D \xi}                               \\
+		 & = 2^{(H+1/2)(j'-j)-(j'+j)/2}\int_\R e^{-ik'2^{-j'}\xi}\wh\psi(2^{-j'}\xi)
+		\ol{e^{-ik2^{-j}\xi}\wh\psi(2^{-j}\xi)} \D \xi                                                    \\
+		 & = 2^{(H+1/2)(j'-j)+(j'+j)/2}\int_\R \psi(2^{j'}t-k')\psi(2^jt-k) \D t. \label{holpo-lema2-eq2}
+	\end{align}
+	Jednakost~\eqref{holpo-lema2-eq1} dobije se Plancherelovim teoremom (\ref{??})
+	i rezultatima iz komentara~\ref{??}. Opet primjenimo Plancherelov teorem da dobijemo~\eqref{holpo-lema2-eq2}. Na kraju dobivamo skalarni produkt dvaju valića i rezultat slijedi
+	zbog ortonormiranosti familije.
+\end{proof}
+
+\begin{propozicija}\label{holpo-prop2}
+	U oznakama teorema~\ref{holpo-teorem1} i leme~\ref{holpo-lema2}, vrijedi
+	\begin{equation}
+		\varepsilon_{j,k}(\omega) = 2^{j(1+H)}\int_0^\infty B^H_t(\omega)\Psi_{-H}(2^jt-k) \D t, \quad \omega \in \Omega_1^*.
+	\end{equation}
+	%(kod~\cite{ayache} je \( B^H_t \) def.\ za \( t \in \R \), je li svejedno? \ref{??})
+\end{propozicija}
+
+\begin{proof}
+	\newcommand{\grn}{_\R}
+	%%% odavde nadalje B^H_t je za t \in \R ; popraviti i drugdje
+	Računamo:
+	\begin{align}
+		 & 2^{j(1+H)}\int\grn B^H_t\Psi_{-H}(2^jt-k) \D t                                                                                                                                \\
+		 & = 2^{j(1+H)}\int\grn \left[ \sum_{j',k'\in\Z} 2^{-j'H}\varepsilon_{j',k'}\left( \Psi_H(2^{j'}t-k')-\Psi_H(-k') \right) \right] \Psi_{-H}(2^jt-k) \D t \label{holpo-prop2-eq1} \\
+		 & = \sum_{j',k'\in\Z} 2^{j+(j-j')H}\varepsilon_{j',k'}
+		\int\grn \left( \Psi_H(2^{j'}t-k')-\Psi_H(-k) \right)\Psi_{-H}(2^jt-k) \D t                                                                                                      \\
+		 & = \sum_{j',k'\in\Z} 2^{j+(j-j')H}\varepsilon_{j',k'}
+		\int\grn \Psi_H(2^{j'}t-k')\Psi_{-H}(2^jt-k) \D t \label{holpo-prop2-eq2}                                                                                                        \\
+		 & = \varepsilon_{j,k} \quad \left(\text{za } \omega \in \Omega_1^*\right). \label{holpo-prop2-eq3}
+	\end{align}
+	Zamjenu sume i integrala u~\eqref{holpo-prop2-eq1} možemo opravdati teoremom o
+	dominiranoj konvergenciji --- prvo propozicijom~\ref{holpo-prop1}
+	(zbog koje se zadržavamo na \( \omega \in \Omega_1^* \)) i zbog \( \Psi_{-H} \in \mathcal S(\R) \)
+	(komentar~\ref{??}). Daljnje jednakosti dobiju se pomoću leme~\ref{holpo-lema2}, naime
+	\begin{equation}
+		\int\grn \Psi_H(-k)\Psi_{-H}(2^jt-k) \D t = 0, \quad j \neq 0,
+	\end{equation}
+	jer je riječ o~\eqref{eq:intpsihpsi-h} za \( j'=0 \), daje~\eqref{holpo-prop2-eq2} i direktna primjena daje~\eqref{holpo-prop2-eq3}.
+\end{proof}
+
+% treba reći nešto o tome kako omega* u teoremu ne ovisi o t_0
+\begin{definicija}
+	Za \( \varepsilon_{j,k} \) iz teorema~\ref{holpo-teorem1}, svaki \( j \in \N \)
+	i \( \ell \in \Z \) označimo
+	\begin{equation}
+		\nu_j^\ell = \max\left\{ \abs{\varepsilon_{j, j\ell+m}} \st 0 \le m \le j-1 \right\}.
+	\end{equation}
+\end{definicija}
+
+\begin{lema}\label{holpo-lema3}
+	Pretpostavimo da za neki \( \omega \in \Omega_1^* \) (iz leme~\ref{holpo-lema1}) i neki
+	\( t_0 \in \R \) vrijedi \( \alpha_{t_0}(\omega_0) > H \). Tada
+	\begin{equation}
+		\limsup\limits_{j \ub} \nu_j^{\ell_j(t_0)}(\omega_0) = 0,
+	\end{equation}
+	za \( \ell_j(t_0) = \max\left\{ \ell \in \Z \st j\ell \le 2^jt_0 \right\} \).
+\end{lema}
+
+\begin{proof}
+\end{proof}
+
+\begin{lema}\label{holpo-lema4}
+	Postoji \( \Omega_2^* \in \mathcal F \) takav da \( \P(\Omega_2^*)=1 \) i da za
+	sve \( p \in \Z \) vrijedi
+	\begin{equation}
+		\liminf\limits_{j \ub} \min \left\{ \nu_j^\ell(\omega) \st
+		(p-1)2^j \le j\ell \le (p+1)2^j \right\} \ge \frac 12,
+		\quad \omega \in \Omega_2^*.
+	\end{equation}
+\end{lema}
+
+\begin{proof}
+	Definirajmo
+	\begin{equation}
+		B_j = \min\left\{ \nu_j^\ell \st (p-1)2^j \le j\ell \le (p+1)2^j \right\}
+		\quad \text i \quad A_j = \left\{ B_j < \frac 12 \right\}, \quad j \ge 1.
+	\end{equation}
+	Fiksirajmo \( p \in \Z \) i, koristeći da su
+	\( \varepsilon_{j,k} \) n.j.d.\ varijable jedinične normalne distribucije,
+	za svaki \( j \ge 1 \) dobivamo
+	\begin{align}
+		\P(A_j) & \le \sum_{(p-1)2^j \le j\ell \le (p+1)2^j} \P\left(\bigcap_{m=0}^{j-1} \left\{ \abs{\varepsilon_{j, j\ell+m}} < \frac 12 \right\}\right) \\
+		        & \le \left[ \frac {(p+1)2^j}j - \frac{(p-1)2^j}j + 1  \right]
+		\left( \frac 1{\sqrt{2\pi}} \int_{-1/2}^{1/2}e^{-x^2/2} \D x \right)^j
+		\lesssim j^{-1}\left( \sqrt{\frac 2\pi} \right)^j,
+	\end{align}
+	gdje zadnju ocjenu dobivamo ocjenjujući odozgo gustoću \( \mathrm N(0,1) \) konstantom.
+	Slijedi
+	\begin{equation}
+		\sum_{j=1}^\infty \P(A_j) < \infty \quad \text i \quad
+		\P\left( B_j < \frac 12 \text{ za beskonačno mnogo } j \right) = 0
+	\end{equation}
+	po Borel--Cantellijevoj lemi. Dobili smo traženo po definiciji limesa
+	inferiora.
+\end{proof}
+
+\begin{teorem}\label{holpo-tm}
+	Postoji \( \Omega^* \in \mathcal F \) s \( \P(\Omega^*)=1 \)
+	takav da za kritični točkovni \holder ov eksponent frakcionalnog Brownovog gibanja zadovoljava
+	\begin{equation}
+		\alpha_{t_0}(\omega) = H, \qquad \forall t_0 \in \R, \ \forall \omega \in \Omega^*.
+	\end{equation}
+\end{teorem}
+
+\begin{proof}
+	Stavimo \( \Omega^* = \Omega_1^* \cap \Omega_2^* \). Ako postoje \( \omega_0 \in \Omega^* \)
+	i \( t_0 \in \R \) takvi da \( \alpha_{t_0}(\omega_0) > H \), lako se pokaže
+	da je zaključak iz leme~\ref{holpo-lema3} u kontradikciji
+	s definicijom događaja \( \Omega_2^* \).
 \end{proof}
 
 \end{document}

@@ -43,7 +43,7 @@ let
         mathtools
         autonum
         url
-	subfiles
+        subfiles
         ; # dvisvgm
     }
   );

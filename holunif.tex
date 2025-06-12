@@ -3,7 +3,92 @@
 \begin{document}
 \nocite{*}
 
-\section{Unifomrna \holder -regularnost na kompaktnom skupu}\label{sec:holunif}
-...
+\section{Uniformna \holder -regularnost na kompaktnom skupu}\label{sec:holunif}
+Do kraja radit bavit ćemo se naslovnom \holder -regularnosti
+trajektorija FBM. Već smo neformalno najavili da kritični parametar \holder -regularnosti
+odgovara parametru samosličnosti --- tvrdnju ćemo precizirati u
+korolaru~\ref{holunif-tm}, teoremu~\ref{holunif-prop>} i teoremu~\ref{holpo-tm}. Naime,
+razlikujemo dvije varijante \holder ovog uvjeta. Prvo, uniformno
+kao u definiciji~\ref{def:holderf} ili u danoj točki
+(v.\ definiciju~\ref{def:holpo}). \holder ov uvjet u točki ne mora nužno
+vrijediti na okolini točke.
+
+Za temu uniformne \holder -regularnosti neće nam trebati
+valićne metode. Zato ćemo u ovom poglavlju rješenje prezentirati
+ukratko i bez dokazivanja svih rezultata, a puno više pažnje
+posvetiti sljedećem odjeljku~\ref{sec:holpo} u kojemu
+ćemo konačno koristiti valićnu metodu za dokaz glavnog rezultata sadržanog
+u teoremu~\ref{holpo-tm}.
+
+Posvetimo se onda u ovom odjeljku pitanju uniformne \holder -regularnosti.
+Prvo bez dokaza navodimo ključni teorem (v.~\cite[tm.~3.1]{se}). Do kraja
+rada podrazumijevamo fiksni \( H \in \left\langle 0,1 \right\rangle \).
+
+\begin{teorem}\label{holunif-setm}
+	Ako je \( \left\{ X_t \right\} \) slučajni proces takav da
+	postoje konstante \( K, p, \beta > 0 \) takve da
+	\begin{equation}
+		\E \abs{X_t-X_s}^p \le K \abs{t-s}^{1+\beta}, \quad t,s \ge 0,
+	\end{equation}
+	tada ima modifikaciju \( \bigl\{ \widetilde X_t \bigr\} \)
+	takvu da za svaki \( \alpha \in \left\langle 0, \beta/p \right\rangle \)
+	i \( T > 0 \) vrijedi da je \( \bigl\{ \widetilde X_t \bigr\} \)
+	\holder-regularan s parametrom \( \alpha \) na segmentu \( \left[ 0,T \right] \), tj.\
+	\begin{equation}
+		\sup\limits_{0 \le s, t \le T}
+		\frac{\abs{\widetilde X_t-\widetilde X_s}}{\abs{t-s}^\alpha} < \infty.
+	\end{equation}
+\end{teorem}
+
+\begin{korolar}\label{holunif-tm}
+	Za svaki \( \alpha \in \left\langle0,H\right\rangle  \) FBM \( \left\{ B^H_t \right\} \) ima modifikaciju
+	čije su trajektorije \holder -regularne s parametrom \( \alpha \) na svakom segmentu
+	\( \left[ 0,T \right] \).
+\end{korolar}
+
+\begin{proof}
+	Jer je \( B^H_t-B^H_s \) normalna varijabla, vrijedi ekvivalencija svih
+	apsolutnih momenata (vidljivo iz eksplicitnih formula; v.~\cite[str.~16]{ayache} za referencu) tj.\
+	uz~\eqref{eq:deffbmalt} vrijedi da
+	za sve \( p > 2 \) postoji konstanta \( K_p \) ovisna samo o \( p \) takva da
+	\begin{equation}
+		\E \abs{B^H_t-B^H_s}^p = K_p \left[ E \abs{B^H_t-B^H_s}^2 \right] ^{p/2} = K_p \abs{t-s}^{pH}.
+	\end{equation}
+	Po teoremu~\ref{holunif-setm} dobivamo tvrdnju korolara
+	za sve \( \alpha \in \left\langle 0,H-1/p  \right\rangle  \). Kako je \( p \)
+	proizvoljan, slijedi i tvrdnja za sve \( \alpha \in \left\langle 0,H \right\rangle \).
+\end{proof}
+
+Dokazali smo da \holder -regularnost vrijedi za sve parametre \( \alpha < H \),
+ali ne i da ne vrijedi za \( \alpha > H \). To jamči sljedeći teorem
+kojim smo riješili temu ovog odjeljka.
+
+\begin{teorem}\label{holunif-prop>}
+	Trajektorije FBM ne zadovoljavaju \holder ov uvjet ni za koji \( \alpha > H \).
+\end{teorem}
+
+\begin{proof}
+	Pretpostavimo da postoji kompaktni skup \( I \subseteq \R \)
+	nepraznog interiora i \( \varepsilon > 0 \) takav da
+	\begin{equation}
+		\P\left( \sup\limits_{t,s \in I, t\neq s} \frac{\abs{B^H_t-B^H_s}}{\abs{t-s}^{H+\varepsilon}} < \infty \right) > 0.
+	\end{equation}
+	Sada se pozivamo na zakon nula-jedan za gaussovske procese, rezultat koji nam govori da se razna svojstva
+	trajektorija gaussovskog procesa događaju s vjerojatnosti \( 0 \) ili \( 1 \) (v.~\cite[prop.~3.7]{ayache} za referencu).
+	Posebice je \holder -regularnost jedno od tih svojstava, pa
+	\begin{equation}
+		\P \left( \sup\limits_{t,s \in I, t\neq s} \frac{\abs{B^H_t-B^H_s}}{\abs{t-s}^{H+\varepsilon}} < \infty  \right) = 1.
+	\end{equation}
+	Po Borellovoj\footnote{Christer Borell, a ne \'Emile Borel}(v.~\cite[prop.~3.7]{ayache} za referencu) nejednakosti slijedi
+	\begin{equation}
+		\E \left( \sup_{t,s \in I, t\neq s} \frac{\abs{B^H_t-B^H_s}^2}{\abs{t-s}^{2H+2\varepsilon}} \right) < \infty,
+	\end{equation}
+	no tu dolazimo do kontradikcije zbog~\eqref{eq:deffbmalt}:
+	\begin{equation}
+		\lim_{s \rightarrow t} \frac{\E \abs{B^H_t-B^H_s}^2}{\abs{t-s}^{2H+2\varepsilon}} = \lim_{s \rightarrow t} \abs{t-s}^{-2\varepsilon} = +\infty.
+	\end{equation}
+\end{proof}
+
+
 
 \end{document}
