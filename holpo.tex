@@ -2,11 +2,22 @@
 \begin{document}
 \nocite{*}
 
-\section{\holder -regularnost u točkama}\label{sec:holpo}
+\section{\holder -regularnost po točkama}\label{sec:holpo}
 %fiksirati prozivoljni Hii
 %napomenuti da je odsad B^H_t na t\in\R; mora se popraviti drugdje ako to mijenjamo
 %napomenuti da je \psi meyerov mat. valic
-Potrebno je definirati kritični \emph{točkovni} \holder ov eksponent.
+Definirat ćemo kritični \emph{točkovni} \holder ov eksponent.
+Cilj ovog odjeljka je dokazati da je i takav eksponent g.s.\ jednak \( H \). Odsad ćemo promijeniti konvenciju glede FBM ---
+trenutke odsad čine \( t \in \R \) umjesto \( t \ge 0 \), tj.\ govorimo
+o procesu \( \left\{ B^H_t \st t \in \R \right\} \).
+To možemo napraviti ako~\eqref{eq:deffbm} tražimo
+za sve \( t,s \in \R \) umjesto \( t,s \ge 0 \) ili
+naprosto proširivanjem integralnih reprezentacija na \( t \in \R \).
+Time ćemo se uskladiti s~\cite{ayache} i kasnije
+postići veću elegantnost. Također,
+nadalje pod \( \psi \) podrazumijevamo
+Meyerov matični valić (\ref{??}).
+
 
 \begin{definicija}\label{def:holpo}
 	Neka je \( \left\{ X_t \right\} \) slučajni proces čije su trajektorije gotovo sigurno
@@ -23,7 +34,9 @@ Potrebno je definirati kritični \emph{točkovni} \holder ov eksponent.
 %glavni teorem je 3.9 u ayache
 %napomenuti da je potrebno dokazati \le dio
 %\Omega_1 ne smije ovisiti o t_0
-
+Primijetimo da trebamo samo dokazati \( \alpha_{t_0} \le H \)
+jer za suprotnu nejednakost znamo da vrijedi po prošlom odjeljku (za odgovarjuću
+modifikaciju, koju možemo podrazumijevati).
 Prije nego nastavimo, još je korisno definirati dva pojma
 standardna u frakcionalnom kalkulusu.
 
@@ -45,7 +58,9 @@ standardna u frakcionalnom kalkulusu.
 	...
 \end{komentar}
 
-Konačno, dolazimo do valićne reprezentacije FBM.
+U sljedećem teoremu konačno opet susrećemo teoriju valića na tzv.\ valićnoj
+reprezentaciji FBM, iako će direktniju ulogu imati \( \Psi_H \).
+Ta reprezentacija bit će temelj za našu daljnju analizu.
 
 \begin{teorem}\label{holpo-teorem1}
 	Neka je FBM dano s (komentar~\ref{kom:harmrep})
@@ -189,7 +204,8 @@ ali ne i da su nezavisne.
 
 \end{proof}
 
-%%%%%%%%%%%%%%%%%
+Sljedeća propozicija, koju ćemo navesti bez dokaza (oslanja se na lemu; v.~\cite[prop.~3.17]{ayache} za referencu), daje ocjenu FBM preko valićne reprezentacije. Koristit ćemo
+ju samo da jednom opravdamo zamjenu poretka integracije.
 
 \begin{propozicija}\label{holpo-prop1}
 	U oznakama teorema~\ref{holpo-teorem1} i leme~\ref{holpo-lema1}, postoji
@@ -203,6 +219,9 @@ ali ne i da su nezavisne.
 \end{propozicija}
 
 %%%%%%%%%%%%%%%%
+Nakon toga, dokazat ćemo još neke korisne tvrdnje o \( \Psi_{\pm H} \)
+i kasnije dokazati svojevrsnu inverziju formule~\eqref{eq:valfbmrep}.
+
 \begin{lema}\label{holpo-lema2}
 	\begin{enumerate}[label=(\roman*)]
 		\item Vrijedi \label{holpo-lema2-itemi}
@@ -246,13 +265,14 @@ ali ne i da su nezavisne.
 \begin{propozicija}\label{holpo-prop2}
 	U oznakama teorema~\ref{holpo-teorem1} i leme~\ref{holpo-lema2}, vrijedi
 	\begin{equation}
-		\varepsilon_{j,k}(\omega) = 2^{j(1+H)}\int_0^\infty B^H_t(\omega)\Psi_{-H}(2^jt-k) \D t, \quad \omega \in \Omega_1^*.
+		\varepsilon_{j,k}(\omega) = 2^{j(1+H)}\int_\R B^H_t(\omega)\Psi_{-H}(2^jt-k) \D t, \quad \omega \in \Omega_1^*.
 	\end{equation}
 	%(kod~\cite{ayache} je \( B^H_t \) def.\ za \( t \in \R \), je li svejedno? \ref{??})
 \end{propozicija}
 
+
+\newcommand{\grn}{_\R}
 \begin{proof}
-	\newcommand{\grn}{_\R}
 	%%% odavde nadalje B^H_t je za t \in \R ; popraviti i drugdje
 	Računamo:
 	\begin{align}
@@ -274,6 +294,13 @@ ali ne i da su nezavisne.
 	jer je riječ o~\eqref{eq:intpsihpsi-h} za \( j'=0 \), daje~\eqref{holpo-prop2-eq2} i direktna primjena daje~\eqref{holpo-prop2-eq3}.
 \end{proof}
 
+Sada smo spremni krenuti prema glavnom teoremu.
+Definirat ćemo novu varijablu kao maksimum
+jednog podskupa familije \( \left\{ \varepsilon_{j,k} \right\} \).
+Lema~\ref{holpo-lema4} daje jedan opći rezultat,
+a lema~\ref{holpo-lema3} dat će kontradiktorni rezultat
+uz pretpostavku \( \alpha_{t_0} > H \).
+
 % treba reći nešto o tome kako omega* u teoremu ne ovisi o t_0
 \begin{definicija}
 	Za \( \varepsilon_{j,k} \) iz teorema~\ref{holpo-teorem1}, svaki \( j \in \N \)
@@ -293,6 +320,39 @@ ali ne i da su nezavisne.
 \end{lema}
 
 \begin{proof}
+	Pretpostavka \( \alpha_{t_0}(\omega_0) \) znači da postoje konstante \( c_0 > 0 \) i \( \varepsilon_0 \)
+	takve da
+	\begin{equation}
+		\abs{B^H_t(\omega_0)- B^H_{t_0}(\omega_0)} \le
+		c_0 \abs{t-t_0}^{H+\varepsilon_0}.
+	\end{equation}
+	Ocijenimo \( \abs{\varepsilon_{j,k}} \) počevši kombinacijom leme~\ref{holpo-lema2} i propozicije~\ref{holpo-prop2}:
+	\begin{align}
+		\abs{\varepsilon_{j,k}(\omega_0)} & =
+		2^{j(1+H)}\abs{\int\grn \left[ B^H_t(\omega_0)-B^H_{t_0}(\omega_0) \right] \Psi_{-H}(2^jt-k) \D t}                                          \\
+		                                  & \le 2^{j(1+H)} \int\grn \abs{B^H_t(\omega_0)-B^H_{t_0}(\omega_0)} \abs{\Psi_{-H}(2^jt-k)} \D t          \\
+		                                  & \le c_02^{j(1+H)} \int\grn \abs{t-t_0}^{H+\varepsilon_0}\abs{\Psi_{-H}(2^jt-k)} \D t                    \\
+		                                  & = c_02^{jH}\int\grn \abs{2^{-j}s-(t_0-2^{-j}k)}^{H+\varepsilon_0}\abs{\Psi_{-H}(s)} \D s                \\
+		                                  & \le c_1 2^{-j\varepsilon_0}\left( 1+\abs{2^jt_0-k}\right)^{H+\varepsilon_0} \label{eq:holpo-lema3-eq1},
+	\end{align}
+	gdje \( c_1 > 0 \) ne ovisi o \( j \) i \( k \). Pretpostavimo nadalje da je \( j \ge 1 \)
+	i \( k \) oblika \( k=j\ell_j(t_0)+m \) za \( 0 \le m \le j-1 \). Ekvivalentno je definiciji
+	\( \ell_j(t_0) \) da
+	\begin{equation}
+		0 \le 2^jt_0 - j\ell_j(t_0) < j,
+	\end{equation}
+	što daje
+	\begin{equation}
+		\left( 1+\abs{2^jt_0-j\ell_j(t_0)-m} \right)^{H+\varepsilon_0}
+		\le (2j)^{H+\varepsilon_0}.
+	\end{equation}
+	S tim iz~\eqref{eq:holpo-lema3-eq1} slijedi
+	\begin{equation}
+		\nu_j^{\ell_j(t_0)}(\omega_0) =
+		\max \left\{ \abs{\varepsilon_{j,j\ell_j(t_0)+m}} \st 0 \le m \le j-1  \right\} \le
+		c_1 2^{-j\varepsilon_0}(2j)^{H+\varepsilon_0}
+	\end{equation}
+	i \( \limsup\limits_{j\ub} \nu_j^{\ell_j(t_0)}(\omega_0)=0 \) .
 \end{proof}
 
 \begin{lema}\label{holpo-lema4}
@@ -330,6 +390,10 @@ ali ne i da su nezavisne.
 	inferiora.
 \end{proof}
 
+
+Došli smo do glavnog teorema koji lagano
+slijedi iz prošlih lema.
+
 \begin{teorem}\label{holpo-tm}
 	Postoji \( \Omega^* \in \mathcal F \) s \( \P(\Omega^*)=1 \)
 	takav da za kritični točkovni \holder ov eksponent frakcionalnog Brownovog gibanja zadovoljava
@@ -344,5 +408,23 @@ ali ne i da su nezavisne.
 	da je zaključak iz leme~\ref{holpo-lema3} u kontradikciji
 	s definicijom događaja \( \Omega_2^* \).
 \end{proof}
+
+\begin{komentar}
+	Primijetimo da naš izbor događaja \( \Omega^* \)
+	ne ovisi o \( t_0 \). Ovako, tvrdnja \( \alpha_{t_0}(\omega) = H \) vrijedi
+	istovremeno za sve \( t_0 \in \R \) dok god \( \omega \in \Omega^* \).
+	U suprotnom, tvrdnja bi se donekle trivijalizirala (v.~\cite[str.~18.]{ayache}).
+	Naime, ako za gaussovski proces \( \left\{ X_t \st t \in \R  \right\} \)
+	s g.s.\ neprekidnim trajektorijama, neke \( t_0 \in \R \) i \( \delta> 0 \) vrijedi
+	\begin{equation}\label{eq:zadnja}
+		\limsup\limits_{h \downarrow 0} \frac{\E \abs{X_{t_0+h}-X_{t_0}}^2}{\abs h^{2\delta+\varepsilon}} = +\infty,
+		\quad \forall \varepsilon > 0,
+	\end{equation}
+	tada postoji događaj \( \Omega_{t_0}^* \) s \( \P(\Omega_{t_0}^*) = 1 \)
+	takav da \( \alpha_{t_0}(\omega) \le \delta \) za sve \( \omega \in \Omega_{t_0}^* \).
+	Tvrdnja se dokaže gotovo jednako kao teorem~\ref{holunif-prop>}.
+	Jasno,~\eqref{eq:zadnja} za \( \delta=H \) slijedi iz~\eqref{eq:deffbmalt}.
+
+\end{komentar}
 
 \end{document}

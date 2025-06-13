@@ -1,0 +1,68 @@
+\documentclass[main.tex]{subfiles}
+
+\begin{document}
+\nocite{*}
+
+\chapter{Pitanja}
+
+\begin{enumerate}
+	\item \ito v integral i Paley--Wienerov integral. Ono što sam
+	      čitao o \ito vom integralu je iz skripte V.\ Wagner (Fin.\ modeliranje 2).
+	      Koliko sam shvatio, kada je integrand deterministička funkcija
+	      je riječ o Wienerovom ili Paley--Wienerovom integralu. To je jedini koji
+	      se zpravo u radu koristi. Ipak, na internetu sam našao nešto slabije(?), da
+	      su \enquote{jednaki kad su oba definirani}.
+
+	\item Bilo bi dobro ukratko ali formalno obraditi Fourierovu transformaciju
+	      Brownovog gibanja i integriranje po tome jer se nalazi u integralnoj rep.\ FBM.
+	      Tu bi koristila neka literatura gdje se to obrađuje donekle udžbenički.
+
+	\item Tvrdnja koja se javlja u~\cite[str.~6]{se} je
+	      da za \( f_1,\ldots,f_n \in \L^2(\R) \)
+	      je \( (I(f_1),\ldots,I(f_n)) \) normalni slučajni vektor. Jasno,
+	      to nije istina ako su \( f_n \)  linearno zavisne (ili samo \( f_1=f_2 \)).
+	      Je li onda nezavisnost i dovoljni uvjet? Mislim da je
+	      ali nisam sasvim precizno raspisao još.
+
+	\item Ponekad se umjesto procesa \( \left\{ X_t \st t \ge 0 \right\} \)
+	      prebaci na \( \left\{ X_t \st t \in \R \right\} \). Za Brownovo gibanje
+	      sam negdje vidio da je to spoj dva nezavisna Brownova gibanja
+	      \( \left\{ B_t \st t \ge 0 \right\} \)
+	      i \( \left\{ B_{-t} \st t \ge 0 \right\} \). Ipak, npr.\ tvrdnju o nezavisnosti
+	      prirasta ne možemo samo kopirati jer bi ispalo
+	      za \( t < 0 \)
+	      da su nezavisne \( X_t \) i \( X_0 - X_t = -X_t \).
+	      S FBM mi se čini potencijalno problematičnije jer postoji i ta
+	      zavisnost među prirastima. Dakle, ne čini mi se trivijalno
+	      da su stvari uvijek analogne.
+
+	\item U~\cite[str.~16.]{ayache} i~\cite[str.~3.]{se}
+	      su, ako se ne varam, drukčija definicija uniformne \holder -regularnosti.
+	      Kod~\cite{se} se traži
+	      \begin{equation}
+		      \sup\limits_{0 \le s < t \le T} \frac{\abs{X_t-X_s}}{(t-s)^\gamma}, \quad t \in [0,T]
+	      \end{equation}
+	      što bi značilo da je sl.\ konstanta \( C(\omega) \) dana kao najveća takva da
+	      \begin{equation}
+		      \abs{B^H_{t}(\omega)-B^H_s(\omega)} \le C(\omega) \abs{t-s}^\gamma
+	      \end{equation}
+	      dobro definirana, ali ne i da ima sve momente konačne (ili jače da postoji \( \limsup \) po \( \omega \)) kako to traži~\cite{ayache}. Dokaz tvrdnje je isti na oba mjesta, samo
+	      što~\cite{ayache} čini se već kod teorema (Kolmogorov ili Kolmogorov--Čencov)
+	      podrazumijeva taj jači uvjet.
+
+	\item Bilo bi dobro izvesti Fourierove transformacije
+	      od \( \Psi_{\pm H} \) (umjesto samo navesti, jer je ipak riječ o nečemu dosta centralnom). Je li ovo dobro, vrijedi li
+	      doslovno ili slabo? Ako je \( \delta \) kao distribucija
+	      nužna, htio bih i nešto o tome ukratko dodati.
+	      \begin{align}
+		      \Psi_{-H}(\xi) & = \int_\R \left[ \int_\R e^{ix\eta} \wh \psi(\eta) (-i\eta)^{H+1/2} \D \eta \right]
+		      e^{ix\xi} \D x                                                                                       \\
+		                     & \stackrel{\wh \psi \in \mathcal S(\R)}{=}
+		      \int_\R \wh \psi(\eta) (-i\eta)^{H+1/2} \left[ \int_\R e^{ix(\xi+\eta)}  \D x\right] \D \eta         \\
+		                     & = \int_\R \wh \psi(\eta) (-i\eta)^{H+1/2} \delta(\xi + \eta) \D \eta                \\ &= \wh \psi(-\xi)(i\xi)^{H+1/2}
+		      = \ol{\wh \psi(\xi) (-i\xi)^{H+1/2}} = \wh \psi(\xi) (-i\xi)^{H+1/2},
+	      \end{align}
+	      gdje zadnje znamo nakon što dokažemo \( \Psi_{\pm H} \in \mathcal S(\R) \).
+\end{enumerate}
+
+\end{document}
