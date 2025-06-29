@@ -557,10 +557,6 @@ INPUT ./ha.tex
 INPUT ha.tex
 INPUT /nix/store/73pbsbdmwsfynw5aza54plj25mxqr172-texlive-combined-2023-texmfdist/fonts/tfm/jknappen/ec/ecsl1200.tfm
 INPUT /nix/store/73pbsbdmwsfynw5aza54plj25mxqr172-texlive-combined-2023-texmfdist/fonts/enc/dvips/cm-super/cm-super-ts1.enc
-INPUT ./sp-pois-brown.tex
-INPUT sp-pois-brown.tex
-INPUT ./sp-pois-brown.tex
-INPUT sp-pois-brown.tex
 INPUT /nix/store/73pbsbdmwsfynw5aza54plj25mxqr172-texlive-combined-2023-texmfdist/fonts/tfm/public/cm/cmmi10.tfm
 INPUT /nix/store/73pbsbdmwsfynw5aza54plj25mxqr172-texlive-combined-2023-texmfdist/fonts/tfm/public/cm/cmsy10.tfm
 INPUT /nix/store/73pbsbdmwsfynw5aza54plj25mxqr172-texlive-combined-2023-texmfdist/fonts/tfm/public/cm/cmex10.tfm
@@ -576,6 +572,10 @@ INPUT /nix/store/73pbsbdmwsfynw5aza54plj25mxqr172-texlive-combined-2023-texmfdis
 INPUT /nix/store/73pbsbdmwsfynw5aza54plj25mxqr172-texlive-combined-2023-texmfdist/fonts/tfm/public/rsfs/rsfs5.tfm
 INPUT /nix/store/73pbsbdmwsfynw5aza54plj25mxqr172-texlive-combined-2023-texmfdist/fonts/tfm/jknappen/ec/ecti1095.tfm
 INPUT /nix/store/73pbsbdmwsfynw5aza54plj25mxqr172-texlive-combined-2023-texmfdist/fonts/tfm/jknappen/ec/ecbx1095.tfm
+INPUT ./sp-pois-brown.tex
+INPUT sp-pois-brown.tex
+INPUT ./sp-pois-brown.tex
+INPUT sp-pois-brown.tex
 INPUT /nix/store/73pbsbdmwsfynw5aza54plj25mxqr172-texlive-combined-2023-texmfdist/fonts/tfm/jknappen/ec/ecrm0800.tfm
 INPUT /nix/store/73pbsbdmwsfynw5aza54plj25mxqr172-texlive-combined-2023-texmfdist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm
 INPUT /nix/store/73pbsbdmwsfynw5aza54plj25mxqr172-texlive-combined-2023-texmfdist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm

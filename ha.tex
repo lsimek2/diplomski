@@ -4,5 +4,95 @@
 \nocite{*}
 
 \chapter{Valići}\label{ch-ha}
+\section{Fourierova transformacija}\label{sec:ha-four}
+Fourierova transformacija prvi je i temeljni pojam u harmonijskoj analizi.
+Iako se pojavljuje u više varijanti i konteksta, sve ih povezuje
+ideja da se funkcija prikaže kao zbroj (superpozicija) komponenti s određenim simetričnim svojstvima.
+Tu se najčešće podrazumijevaju tzv.\ frekvencije
+\( x \mapsto e^{ikx} \) gdje \( k \in \Z \) ili \( k \in \R \).
+Možemo reći da na taj način dobivamo drugi pogled na funkciju, a njime
+mnoge probleme puno lakše rješavamo.
+
+Pojedinosti Fourierove transformacije ovise o funkcijskom prostoru
+na kojem se definira. Pogledajmo prvo \( \L^2(\mathbb S^1) \),
+pri čemu \( \mathbb S^1 \) možemo poistovjetiti
+s torusom \( \mathbb T = \R/\Z \). Oboje se može interpretirati
+i kao prostor periodičkih funkcija na \( \R \) s odgovarajućim svojstvom.
+U~\cite[\textsection 6.2]{gogic} pokazuje se (pomoću Stone--Weierstrassovog i Luzinovog teorema) da je, uz normalizaciju mjere,
+\( \left\{ x \mapsto e^{ikx} \st k \in \Z \right\} \)
+ortonormirana baza (Hilbertovog prostora) \( \L^2(\mathbb S^1) \).
+Uz oznake \( e_k(x) = e^{ikx} \) je stoga za sve \( f \in \L^2(\mathbb S^1) \)
+\begin{equation}
+	f = \sum_{k \in \Z} \wh f_k e_k,
+	\qquad \wh f_k = \skp f{e_k} = \int_0^{2\pi} f(e^{i\theta}) e^{-ikx} \D \theta
+\end{equation}
+i lako se pokaže da je Fourierova transformacija \( \mathcal F \),
+definirana s \( \mathcal F(f) = (\wh f_k)_{k \in \Z} \) za sve \( f \in \L^2(\mathbb S^1) \), izometrički izomorfizam
+Hilbertovih prostora \( \L^2(\mathbb S^1) \) i \( \ell^2(\Z) \).
+Primijetimo kako je u ovom slučaju dovoljno prebrojivo mnogo frekvencija za doći do
+proizovljne \( f \), umjesto svih iz \( \R \). To nije slučaj na \( \L^2(\R) \) kojim ćemo se baviti u ovom radu.
+Štoviše, uopće definirati Fourierovu transformaciju na \( \L^2(\R) \) pokazuje se izazovnijim.
+
+Generalizaciju Fourierove transformacije nalazimo na lokalno kompaktnim Hausdorffovim Abelovim grupama (v.~\cite[\textsection 5.4,5.2]{gogic} za detalje).
+Neka je \( G \) takva grupa s Haarovom mjerom \( \mu \).
+Definiramo prvo \emph{karakter} na \( G \) kao neprekidni homomorfizam \( \chi \colon G \to \left( \mathbb S^1, \cdot \right) \).
+Skup karaktera označavamo \( \wh G \) i zovemo \emph{Pontrjaginov dual} od \( G \). Za
+\( f \in \L^1(G) \) definiramo Fourierovu transformaciju \( \wh f \colon \wh G \to \C \) sa
+\begin{equation}\label{eq:fourgrupa}
+	\wh f \left( \chi \right) =
+	\int_G f(x) \ol{\chi(x)} \D \mu, \quad \chi \in \wh G.
+\end{equation}
+Najrelevantnije je ovdje da su za \( G = \R \) karakteri upravo sve
+funkcije \( x \mapsto e^{i\xi x} \) za \( \xi \in \R \).
+Posebice, \( \R \) (kao aditivna grupa) je izomorfan
+svom Pontrjaginovom dualu. Uz njihovo poistovjećenje,
+Fourierova transformacija dana s~\eqref{eq:fourgrupa}
+jednaka je onoj iz definicije~\ref{def:four}.
+Simetrična svojstva Fourierove transformacije, koja ćemo vidjeti u nastavku, upravo
+proizlaze iz njihovog homomorfnog svojstva kao karaktera.
+
+Još svakako vrijedi spomenuti i Fourierovu transformaciju na vjerojatnosnom prostoru.
+Često se karakteristična funkcija zove Fourierovom transformacijom odgovarajuće
+vjerojatnosne mjere odn.\ gustoće ako postoji.
+To je u principu točno, iako uz konvenciju
+\( \varphi_X(t)=\E(e^{itX}) \) kao npr.\ u~\cite[\textsection 13.1]{sarapa}
+i \( \wh X \) danu analogonom~\eqref{eq:four} vrijedi
+\begin{equation}
+	\varphi_X(t) = \sqrt{2\pi}\wh X(-t), \quad t \in \R.
+\end{equation}
+Jasno, ova razlika neće ništa bitno promijeniti pa će tako
+mnoga svojstva Fourierove trans\-formacije funkcija na \( \R \)
+biti zajednička karakterističnim funkcijama. Primijetimo
+kako je, zbog konačnosti mjere, karakteristična funkcija
+dobro definirana bez obzira na integrabilnost slučajne
+varijable \( X \). Situacija na prostorima s Lebesgueovom mjerom
+bit će kompliciranija. Sada ćemo definirati
+Fourierovu transformaciju na \( \L^1(\R) \) i pokazati
+kako se može proširiti na pogodniji (Hilbertov)
+prostor \( \L^2(\R) \).
+
+\begin{definicija}\label{def:four}
+	\emph{Fourierova transformacija} \( \mathcal F \colon \L^1(\R) \to \mathrm C_0(\R) \)
+	definirana je s
+	\begin{equation}\label{eq:four}
+		\mathcal F(f)(\xi) = \wh f(\xi) =
+		\frac 1{\sqrt{2\pi}} \int_\R f(x)e^{-i\xi x} \D \lambda.
+	\end{equation}
+	za svaku \( f \in \L^1(\R) \). Funkcija \( \wh f \)
+	zove se \emph{Fourierov transformat} ili također \emph{Fourierova trans\-for\-ma\-ci\-ja}.
+\end{definicija}
+
+\begin{komentar}\label{kom:four1}
+	Moguće su varijacije na~\eqref{eq:four}.
+
+\end{komentar}
+
+\begin{komentar}\label{kom:four2}
+	% dobro def za L^1
+	% u C_0
+\end{komentar}
+
+
+
 
 \end{document}
