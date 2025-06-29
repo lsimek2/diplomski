@@ -173,7 +173,7 @@ Slijedi glavni rezultat odjeljka koji daje dovoljne uvjete da bi Markovljev proc
 		\P\left[ B\left(p, 1/k, \left\{ s_1, \ldots, s_n  \right\}\right) \right] \le
 		\left( 2\alpha_{\frac 1{4k}, N} \left( \frac N\ell \right)  \right)^p.
 	\end{equation}
-	Aproksimirajući \( I_j \) odozgo konačnim skupovima (\( n \ub \)) slijedi
+	Aproksimirajući \( I_j \) odozdo konačnim skupovima (\( n \ub \)) slijedi
 	\begin{equation}
 		\P\left[ B\left(p, 1/k, I_j\right) \right] \le
 		\left( 2\alpha_{\frac 1{4k}, N} \left( \frac N\ell \right)  \right)^p,
@@ -227,15 +227,15 @@ je svaka konačnodimenzionalna distribucija normalna; to je Brownovo gibanje do 
 \begin{proof}
 	Neka je bez smanjenja općenitosti \( X_1 \sim \mathrm N(0,1) \). Ocjenu
 	\[
-		\int_c^\infty e^{-\frac{x^2}2} \D x \le
-		\int_c^\infty e^{-\frac{x^2}2} \left( 1 + \frac 1{x^2} \right) \D x
-		= \frac 1c e^{-\frac{c^2}2}, \quad c > 0,
+		\int_c^\infty e^{-{x^2}/2} \D x \le
+		\int_c^\infty e^{-{x^2}/2} \left( 1 + \frac 1{x^2} \right) \D x
+		= \frac 1c e^{-{c^2}/2}, \quad c > 0,
 	\]
 	gdje se jednakost dobije direktno antiderivacijom, iskoristimo za
 	\begin{align}
-		\P(\abs{X_s} > \varepsilon) & = \frac 2{\sqrt{2\pi s}} \int_\varepsilon^\infty e^{-\frac{-x^2}{2s}} \D x      \\
-		                            & = \frac 2{\sqrt{2 \pi}} \int_{\varepsilon/\sqrt s}^\infty e^{-\frac{x^2}2} \D x
-		\le \frac{2 \sqrt s}{\varepsilon \sqrt{2\pi}} e^{\frac{\varepsilon^2}{2s}}.
+		\P(\abs{X_s} > \varepsilon) & = \frac 2{\sqrt{2\pi s}} \int_\varepsilon^\infty e^{-x^2/{2s}} \D x         \\
+		                            & = \frac 2{\sqrt{2 \pi}} \int_{\varepsilon/\sqrt s}^\infty e^{-{x^2}/2} \D x
+		\le \frac{2 \sqrt s}{\varepsilon \sqrt{2\pi}} e^{-\varepsilon^2/{2s}}.
 	\end{align}
 	Stoga,
 	\begin{equation}

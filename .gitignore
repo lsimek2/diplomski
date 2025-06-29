@@ -18,8 +18,8 @@ output/
 *.xml
 *.snm
 *.toc
-*.run.xml
-*.bcf-SAVE-ERROR
+*.run
+*SAVE-ERROR
 *.fdb_latexmk
 *.gz
 
@@ -27,6 +27,7 @@ output/
 *.blg
 *.bbl
 *.fls
+*.bcf
 
 # beamer
 *.vrb

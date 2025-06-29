@@ -619,10 +619,6 @@ INPUT ./holpo.tex
 INPUT holpo.tex
 INPUT ./holpo.tex
 INPUT holpo.tex
-INPUT ./pitanja.tex
-INPUT pitanja.tex
-INPUT ./pitanja.tex
-INPUT pitanja.tex
 INPUT /nix/store/73pbsbdmwsfynw5aza54plj25mxqr172-texlive-combined-2023-texmfdist/fonts/tfm/jknappen/ec/eccc1200.tfm
 INPUT /nix/store/73pbsbdmwsfynw5aza54plj25mxqr172-texlive-combined-2023-texmfdist/tex/latex/base/t1cmtt.fd
 INPUT /nix/store/73pbsbdmwsfynw5aza54plj25mxqr172-texlive-combined-2023-texmfdist/tex/latex/base/t1cmtt.fd
