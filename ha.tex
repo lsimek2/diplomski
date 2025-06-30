@@ -40,7 +40,7 @@ Skup karaktera označavamo \( \wh G \) i zovemo \emph{Pontrjaginov dual} od \( G
 \( f \in \L^1(G) \) definiramo Fourierovu transformaciju \( \wh f \colon \wh G \to \C \) sa
 \begin{equation}\label{eq:fourgrupa}
 	\wh f \left( \chi \right) =
-	\int_G f(x) \ol{\chi(x)} \D \mu, \quad \chi \in \wh G.
+	\int_G f(x) \ol{\chi(x)} \D \mu(x), \quad \chi \in \wh G.
 \end{equation}
 Najrelevantnije je ovdje da su za \( G = \R \) karakteri upravo sve
 funkcije \( x \mapsto e^{i\xi x} \) za \( \xi \in \R \).
@@ -76,7 +76,8 @@ prostor \( \L^2(\R) \).
 	definirana je s
 	\begin{equation}\label{eq:four}
 		\mathcal F(f)(\xi) = \wh f(\xi) =
-		\frac 1{\sqrt{2\pi}} \int_\R f(x)e^{-i\xi x} \D \lambda.
+		\frac 1{\sqrt{2\pi}} \int_\R f(x)e^{-i\xi x} \D \lambda(x), \quad
+		\xi \in \R.
 	\end{equation}
 	za svaku \( f \in \L^1(\R) \). Funkcija \( \wh f \)
 	zove se \emph{Fourierov transformat} ili također \emph{Fourierova trans\-for\-ma\-ci\-ja}.
@@ -84,15 +85,155 @@ prostor \( \L^2(\R) \).
 
 \begin{komentar}\label{kom:four1}
 	Moguće su varijacije na~\eqref{eq:four}.
+	Primijetimo prvo konstantu \( 1/\sqrt{2\pi} \) --- njena poanta je da čuva
+	\( L^2 \)-normu (jednom kad definiramo Fourierovu transformaciju na \( \L^2(\R) \)).
+	Ako želimo uljepšati~\eqref{eq:four} moguće je Lebesgueovu mjeru
+	zamijeniti s \( \mu = \lambda/\sqrt{2\pi} \) što je konvencija
+	u~\cite[\textsection 9]{rudin}. To ćemo u ovom odjeljku napraviti i mi,
+	s tim da, jer najčešće nije bitno, nećemo naglašavati da radimo
+	na prostoru \( \L^1\left( \R, \mathcal B, \mu \right) \) umjesto
+	\( \L^1\left(\R, \mathcal B, \lambda \right) \). Ipak, radi jasnoće naznačit ćemo
+	mjeru \( \mu \) u integralima.
 
+	Druge moguće varijacije su promjena predznaka u eksponentu od
+	\( e^{-i\xi x} \) kao kod karakterističnih funkcija, ili izlučiti faktor
+	\( 2\pi \) iz \( \xi \) tj.\ staviti \( \xi = 2\pi\eta \).
 \end{komentar}
 
 \begin{komentar}\label{kom:four2}
 	% dobro def za L^1
 	% u C_0
+	Kod jednakosti oblika~\eqref{eq:four} prvo pitanje
+	je je li uopće \( \wh f \) dobro definirana tj.\ koje su moguće domene
+	za \( \mathcal F \). Drugo, koja je slika ili prikladan izbor kodomene?
+
+	Najprije, \( \wh f \) je dobro definirana jer iz~\eqref{eq:four}
+	zbog \( \abs{e^{-i\xi x}} = 1 \) odmah slijedi
+	\( \abs{\wh f(\xi)} \le \norm f_1 \) za sve \( \xi \in \R \),
+	a iz toga i \( \norm {\wh f}_\infty \le \norm f_1 \).
+	Prethodno ujedno znači da je \( \mathcal F \) neprekidni linearni operator,
+	ali možemo odabrati puno bolju kodomenu od \( \L^\infty(\R) \).
+
+	Dokažimo da je \( \wh f \) neprekidna za sve \( f \in \L^1(\R) \).
+	Za \( \xi, \eta \in \R \) vrijedi
+	\begin{equation}
+		\abs{\wh f(\xi) - \wh f(\eta)}
+		\le \int_\R \abs{f(x)}\abs{e^{-i\xi x} - e^{-i\eta x}} \D \mu(x).
+	\end{equation}
+	Iz \( \abs{e^{-i\xi x} - e^{-i\eta x}} \un \) za \( \eta \rightarrow \xi \)
+	po Lebesgueovom teoremu o dominiranoj konvergenciji (\( \le 2 \))
+	slijedi i \( \abs{\wh f(\xi) - \wh f(\eta)} \rightarrow 0 \).
+	Ovdje zapravo LTDK ne primjenjujemo na neprebrojivi skup funkcija,
+	već koristimo Heineovu karakterizaciju kojom se limes funkcije u točki
+	svodi na limes niza. Ovo pozadinsko značenje podrazumijevat ćemo i ubuduće.
+
+	Dokažimo još da \( \wh f \) iščezava u beskonačnosti. Iz~\eqref{eq:four}
+	odmah se dobije i
+	\begin{equation}\label{eq:four2}
+		\wh f (\xi) = -\int_\R f(x) e^{-i\xi(x + \pi/\xi)} \D \mu(x)
+		= -\int_\R f(x-\pi/\xi) e^{-i\xi x} \D \mu(x), \quad \xi \in \R
+	\end{equation}
+	gdje se zadnje dobije supstitucijom \( x \leftarrow x - \pi/\xi \). Sada
+	miješanjem~\eqref{eq:four} i~\eqref{eq:four2}
+	je
+	\begin{equation}
+		\wh f(\xi) = \frac 12 \int_\R \left[ f(x)-f\left( x-\frac \pi \xi \right) \right] e^{-i\xi x} \D \mu(x), \quad \xi \in \R,
+	\end{equation}
+	to jest
+	\begin{equation}
+		\abs{\wh f (\xi)} \le \frac 12 \norm{f - f_{\pi/\xi}}_1, \quad \xi \in \R,
+	\end{equation}
+	gdje smo kao u teoremu~\ref{tm:trans} označili
+	\( f_{y} = f(\cdot - y) \). Kad u tom teoremu dokažemo
+	da je operator \( y \mapsto f_y \) neprekidan, odmah slijedi
+	\( \lim\limits_{\xi \rightarrow \pm \infty} \abs{\wh f (\xi)} = 0 \)
+	i \( \wh f \in \mathrm C_0(\R) \). Izbor kodomene
+	\( \mathrm C_0(\R) \) je na neki način i najbolji. Iako
+	\( \mathcal F \) nije surjekcija, slika joj je gusta u
+	\( \mathrm C_0(\R) \) (v.~\cite[exercise~9.2]{rudin}).
 \end{komentar}
 
+Sljedeća propozicija daje neka osnovna svojstva Fourierove transformacije.
 
+\begin{propozicija}\label{prop:form}
+	Neka je \( f \in \L^1(\R) \) i neka su
+	\( \alpha \) i \( \lambda > 0\) realni brojevi. Tada vrijedi:
+	\begin{enumerate}[label=(\roman*)]
+		\item Ako \( g(x)=f(x)e^{i\alpha x} \), tada \( \wh g(\xi) = \wh f(\xi-\alpha) \).\label{i:propform:a}
+		\item Ako \( g(x)=f(x-\alpha) \), tada \( \wh g(\xi) = \wh f(\xi)e^{-i \alpha \xi} \).\label{i:propform:b}
+		\item Ako \( g \in \L^1(\R) \) i \( h = f*g \), tada \( \wh h(\xi) = \wh f(\xi) \wh g(\xi) \).\label{i:propform:c}
+		\item Ako \( g(x) = \ol{f(-x)} \), tada \( \wh g(\xi) = \ol{\wh f(\xi)} \).\label{i:propform:d}
+		\item Ako \( g(x) = f(x/\lambda) \), tada \( \wh g(\xi) = \lambda \wh f(\lambda\xi) \).\label{i:propform:e}
+		\item Ako \( g(x) = -ixf(x) \) i \( g \in \L^1(\R) \),
+		      tada je \( \wh f \) diferencijabilna i \( \wh f'(\xi) = \wh g(\xi) \).\label{i:propform:f}
+	\end{enumerate}
+\end{propozicija}
 
+\begin{proof}
+	Točke~\ref{i:propform:a},~\ref{i:propform:b},~\ref{i:propform:d},~\ref{i:propform:e}
+	trivijalno slijede iz definicije. Primijetimo kako~\ref{i:propform:a} i~\ref{i:propform:b}
+	pokazuju dualnost između translacije i modulacije (množenja karakterom).
+	Točka~\ref{i:propform:c} isto lako slijedi raspisom. Potrebna primjena Fubinijevog teorema
+	valjana je zbog \( h \in \L^1(\R) \). Naime, opet Fubinijevim teoremom ali za
+	nenegativne funkcije, lako se dobije \( \norm h_1 \le \norm f_1 \norm g_1 \).
+
+	Dokažimo~\ref{i:propform:f}. Za različite \( \xi, \eta \in \R \) vrijedi
+	\begin{equation}
+		\frac{\wh f(\xi)-\wh f(\eta)}{\xi-\eta} =
+		\int_\R f(x) e^{-i\xi x} u(x, \eta-\xi) \D \mu(x),
+	\end{equation}
+	gdje
+	\begin{equation}
+		u(x, \alpha) = \frac{1-e^{-i\alpha x}}{\alpha}.
+	\end{equation}
+	Iz ocjene \( \abs{e^{i\alpha}-1} \le \abs \alpha \) za \( \alpha \in \R \)
+	(v.~\cite[str.~514.]{sarapa}) je \( \abs{u(x, \alpha)} \le \abs x \) za
+	\( \alpha \neq 0 \) i
+	\( u(x, \alpha) \rightarrow -ix \) kad \( \alpha \un \) vrijedi
+	Taylorovim razvojem. Stoga, po LTDK za \( \eta \rightarrow \xi \) je
+	\begin{equation}
+		\wh f'(\xi) = -i \int_\R xf(x) e^{-i \xi x} \D \mu (x), \quad \xi \in \R.
+	\end{equation}
+\end{proof}
+
+\begin{komentar}
+	\newcommand{\fourderi}[1]{\wh{{#1}^{\prime\phantom{.}}  }}
+	Nakon točke~\ref{i:propform:f} možemo se pitati postoji li dualna tvrdnja
+	tj.\ što je Fourierova transformacija derivacije. Rješenje je dosta
+	jednostavno i to čini Fourierovu transformaciju korisnu u proučavanju
+	diferencijalnih jednadžbi. Ako \( f,f' \in \L^1(\R) \) i ako je \( f \in \mathrm C^1(\R )\),
+	tada se parcijalnom integracijom jednostavno dobije
+	\begin{equation}\label{eq:fourderi}
+		\fourderi f (\xi) = (i\xi)\wh f(\xi), \quad \xi \in \R.
+	\end{equation}
+	Induktivno, za veće stupnjeve glatkoće \( \ell \in \N \)
+	je \( \wh{f^{(\ell)}}(\xi) = (i\xi)^\ell \wh f(\xi)  \).
+
+	S druge strane, ako je \( f \) samo diferencijabilna g.s., identitet~\eqref{eq:fourderi}
+	ne mora vrijediti (v.~\cite[exercise~9.6]{rudin}). Uzmemo li \( f=1_{[-1,1]} \)
+	je \( f'=0 \) g.s.\ i \( \fourderi f = 0 \), ali
+	\begin{equation}
+		(i\xi)\wh f(\xi) = i\sqrt{\frac 2\pi} \sin \xi, \quad \xi \in \R.
+	\end{equation}
+\end{komentar}
+
+Slijedi teorem u kojem uvodimo
+operator translacije i dokazujemo njegovu neprekidnost.
+Primijetimo razliku u odnosu na operatore \( \mathrm T_. \)
+iz~\ref{??} --- ovdje je riječ o operatoru \( \R \to \L^p(\R) \),
+a tamo \( \L^2(\R) \to \L^2(\R) \).
+
+\begin{teorem}\label{tm:trans}
+	Za funkciju \( f \) realne varijable i \( y \in \R \) definiramo
+	translat \( f_y \) sa
+	\begin{equation}
+		f_y(x) = f(x-y), \quad x \in \R.
+	\end{equation}
+	Za  \( 1 \le p < \infty \) je preslikavanje \( y \mapsto f_y \)
+	uniformno neprekidni operator između \( \R \) i \( \L^p(\R) \).
+\end{teorem}
+
+\begin{proof}
+\end{proof}
 
 \end{document}

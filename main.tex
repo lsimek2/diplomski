@@ -121,10 +121,15 @@
 	% giveninits=true
 ]{biblatex}
 \addbibresource{literatura.bib}
-% \renewcommand{\mkbibnamegiven}[1]{#1\adddot}
-% \DeclareDelimFormat{multinamedelim}{\addcoma\space}
-% \DeclareDelimAlias{finalnamedelim}{multinamedelim}
-
+\let\oldcite\cite
+\renewcommand{\cite}[2][]{%
+    \def\tmp{#1}%
+    \ifx\tmp\empty
+        \mbox{\oldcite{#2}}%
+    \else
+        \mbox{\oldcite[\tmp]{#2}}%
+    \fi
+}
 \usepackage{pgfplots}
 \pgfplotsset{compat=1.15}
 \usepackage{mathrsfs}
@@ -166,6 +171,8 @@
 
 \newcommand{\ol}[1]{\overline{#1}}
 \newcommand{\wh}[1]{\widehat{#1}}
+\newcommand{\wt}[1]{\widetilde{#1}}
+\renewcommand{\th}[1]{\hat{#1}} % drukciji hat za tekst?
 % \newcommand{\eqdef}{\ {=\colon} \ } 
 % \newcommand{\defeq}{\ {\colon\!=} \ }
 
@@ -251,7 +258,7 @@
 		\item U trećem poglavlju...
 	\end{itemize}
 
-	Glavnu literaturu čine~\cite{daub} za prvo poglavlje, \cite{sato, em, sarapa} za drugo poglavlje i~\cite{se, ayache} za treće poglavlje.
+	Glavnu literaturu čine~\cite{rudin,daub} za prvo poglavlje, \cite{sato,em,sarapa} za drugo poglavlje i~\cite{se,ayache} za treće poglavlje.
 \end{intro}
 
 \fontsize{11pt}{13.pt}\selectfont
