@@ -186,7 +186,7 @@ Sljedeća propozicija daje neka osnovna svojstva Fourierove transformacije.
 	\begin{equation}
 		u(x, \alpha) = \frac{1-e^{-i\alpha x}}{\alpha}.
 	\end{equation}
-	Iz ocjene \( \abs{e^{i\alpha}-1} \le \abs \alpha \) za \( \alpha \in \R \)
+	Iz ocjene \( \abs{e^{i\theta}-1} \le \abs \theta \) za \( \theta \in \R \)
 	(v.~\cite[str.~514.]{sarapa}) je \( \abs{u(x, \alpha)} \le \abs x \) za
 	\( \alpha \neq 0 \) i
 	\( u(x, \alpha) \rightarrow -ix \) kad \( \alpha \un \) vrijedi
@@ -234,6 +234,212 @@ a tamo \( \L^2(\R) \to \L^2(\R) \).
 \end{teorem}
 
 \begin{proof}
+	Fiksirajmo \( p \) i \( \varepsilon > 0 \). Jer je \( \mrC_\mrc(\R) \) (neprekidne funkcije s kompaktnim nosačem)
+	gust\footnote{tvrdnju nije teško dokazati, ali može se naći i kao theorem 3.14 u~\cite{rudin}} u \( \L^p(\R) \), postoji \( g \in \mrC_\mrc(\R) \) sa \( \supp g \subseteq \left[ -A, A \right] \)
+	za neki \( A \in \R \) i \( \norm{f-g}_p < \varepsilon \). Funkcija \( g \)
+	je uniformno neprekidna (neprekidna funkcija na segmentu) pa postoji \( \delta \in \left\langle0,A\right\rangle \) takav da
+	\begin{equation}
+		\abs{s-t} < \delta \implies \abs{g(s)-g(t)} < \left( 3A \right)^{-1/p} \varepsilon.
+	\end{equation}
+	Iz \( \abs{s-t} < \delta \) onda slijedi i
+	\begin{equation}
+		\int_\R \abs{g(x-s)-g(x-t)}^p \D x < \left( 3A \right)^{-1}\varepsilon^p
+		\left( 2A + \delta \right) < \varepsilon^p,
+	\end{equation}
+	tj.\ \( \norm{g_s-g_t}_p < \varepsilon \). Sada je ključna invarijantnost
+	Lebesgueove mjere na translaciju za
+	\begin{equation}
+		\begin{aligned}
+			\norm{f_s-f_t}_p & \le \norm{f_s-g_s}_p + \norm{g_s-g_t}_p + \norm{g_t-f_t}_p                                         \\
+			                 & = \norm{\left( f-g \right)_s}_p + \norm{g_s-g_t}_p + \norm{\left( g-f \right)_t}_p < 3\varepsilon,
+			\quad \abs{s-t}<\delta.
+		\end{aligned}
+	\end{equation}
+\end{proof}
+
+Sada ćemo definirati dvije pomoćne funkcije. Definiramo \( H \) s
+\begin{equation}
+	H(\xi) = e^{-\abs \xi}, \quad \xi \in \R
+\end{equation}
+i za svaki \( \lambda > 0 \) definiramo
+\begin{equation}
+	h_\lambda(x) = \int_\R H(\lambda \xi) e^{i\xi x} \D \mu(\xi), \quad x \in \R,
+\end{equation}
+tako da
+\begin{equation} \label{eq:hseintu1}
+	h_\lambda(x) = \sqrt{\frac 2\pi} \frac \lambda{\lambda^2 + x^2}
+	\quad \mathrm i \quad
+	\int_\R h_\lambda(x) \D \mu(x) = 1.
+\end{equation}
+Možemo prepoznati \( H(\lambda \xi) \) i
+\( h_\lambda \) kao redom karakterističnu funkciju i gustoću (u odnosu na mjeru \( \mu \))
+centrirane Cauchyjeve distribucije s parametrom \( \lambda \). Dokazat ćemo tri
+leme vezane za ove funkcije, da bi nam na kraju bile od koristi
+u dokazivanju dva glavna teorema ovog odjeljka~---~teorema
+inverzije~\ref{tm:inverzije} i Plancherelovog teorema~\ref{tm:planche}.
+%Vidjet ćemo da su baš ovako odabrane funkcije od koristi jer...~\ref{??}.
+
+Prvu lemu nećemo dokazivati jer slijedi direktnim računom
+i već viđenom primjenom Fubinijevog teorema.
+
+\begin{lema}\label{lema:four1}
+	Ako je \( f \in \L^1(\R) \), tada je
+	\begin{equation}
+		(f*h_\lambda)(x) = \int_\R H(\lambda \xi)\wh f(\xi) e^{i\xi x} \D \mu(\xi), \quad x \in \R.
+	\end{equation}
+\end{lema}
+
+\begin{lema}\label{lema:four2}
+	Ako je \( g \in \L^\infty(\R) \) i ako je \( g \) neprekidna u nekoj točki \( x \in \R \),
+	tada je
+	\begin{equation}
+		\lim\limits_{\lambda \un} (g * h_\lambda)(x) = g(x).
+	\end{equation}
+\end{lema}
+
+\begin{proof}
+	Ključno je da
+	\begin{equation}
+		h_\lambda(y) = \lambda^{-1} h_1\left( \frac y\lambda \right),
+	\end{equation}
+	što je vrlo bliska tvrdnja t.~\ref{i:propform:e} iz prop.~\ref{prop:form}.
+	Druga bitna tvrdnja je da zbog~\eqref{eq:hseintu1} vrijedi
+	\begin{equation}
+		g(x) = \int_\R g(x) h_\lambda(y) \D \mu(y)
+	\end{equation}
+	čime dobivamo prvu jednakost u
+	\begin{align}
+		(g*h_\lambda)(x) - g(x) & = \int_\R \left[ g(x-y) - g(x) \right] h_\lambda(y) \D \mu(y)                                     \\
+		                        & = \int_\R \left[ g(x-y) - g(x) \right] \lambda^{-1} h_1 \left( \frac y \lambda \right) \D \mu (y) \\
+		                        & = \int_\R \left[ g(x-\lambda y) - g(x) \right] h_1(y) \D \mu(y). \label{eq:99z}
+	\end{align}
+	Pritom se~\eqref{eq:99z} dobije supstitucijom \( y \leftarrow \lambda y \).
+	Integrand u~\eqref{eq:99z} je dominiran integrabilnom funkcijom
+	\( 2\norm g_\infty h_\lambda (y) \) i konvergira u \( 0 \) kad \( \lambda \un \)
+	za svaki \( y \in \R \) pa tvrdnja slijedi preko LTDK.
+\end{proof}
+
+\begin{lema}\label{lema:four3}
+	Ako je \( 1 \le p < \infty \) i \( f \in \L^p(\R) \), tada
+	\begin{equation}
+		\lim\limits_{\lambda \un} \norm{f*h_\lambda - f}_p = 0.
+	\end{equation}
+\end{lema}
+
+\begin{proof}
+	Jer je \( h \in \L^q(\R) \) za \( q \) konjugirani eksponent od \( p \) je
+	\( f * h_\lambda \in \L^1(\R) \) po Youngovoj nejednakosti. Analogno kao u lemi~\ref{lema:four2}
+	počinjemo s
+	\begin{equation}
+		(f*h_\lambda)(x) - f(x) = \int_\R \left[ f(x-y)-f(x) \right] h_\lambda(y) \D \mu (y).
+	\end{equation}
+	Pomoću Jensenove jednakosti za konveksnu funkciju \( x \mapsto \abs x ^p \) slijedi
+	\begin{equation}
+		\abs{(f*h_\lambda)(x)-f(x)}^p \le \int_\R \abs{f(x-y)-f(x)}^p h_\lambda(y) \D\mu(y).
+	\end{equation}
+	Integriranjem po \( x \) i primjenom Fubinijevog teorema je i
+	\begin{equation}\label{eq:four31}
+		\norm{f*h_\lambda - f}_p^p \le \int_\R \norm{f_y-f}_p^p h_\lambda(y) \D\mu(y).
+	\end{equation}
+	Označimo \( g(y) = \norm{f_{-y}-f}_p^p \). Funkcija \( g \) je onda
+	omeđena s \( 2^p\norm f_p^p \) i neprekidna po teoremu~\ref{tm:trans}
+	te \( g(0)=0 \). Prepoznamo li desnu stranu u~\eqref{eq:four31} kao
+	konvoluciju \( (g*h_\lambda)(0) \), možemo primijeniti lemu~\ref{lema:four2}
+	da zaključimo da desna strana teži u \( 0 \) za \( \lambda \rightarrow 0 \).
+\end{proof}
+
+Spremni smo dokazati teorem inverzije koji pokazuje
+kako se iz \( \wh f \) vratiti u \( f \).
+
+\begin{teorem}\label{tm:inverzije}
+	Neka je \( f \in \L^1(\R) \) i \( \wh f \in \L^1(\R) \). Ako
+	\begin{equation}
+		g(x) = \int_\R \wh f(\xi) e^{i \xi x} \D \mu(\xi), \quad x \in \R,
+	\end{equation}
+	tada je \( g \in \mrC_0(\R) \) i \( f=g \) g.s.
+\end{teorem}
+
+\begin{proof}
+	Po lemi~\ref{lema:four1} je
+	\begin{equation}
+		(f * h_\lambda)(x) = \int_\R H(\lambda \xi) \wh f (\xi) e^{i \xi x} \D \mu(\xi).
+	\end{equation}
+	Integrand zdesna je omeđen s \( \abs{\wh f(\xi)} \) za svaki \( \xi \in \R \)
+	pa uz \( H(\lambda \xi) \rightarrow 1 \) za \( \lambda \un \) zaključujemo da desna
+	strana konvergira prema \( g(x) \) za svaki \( x \in \R \) po LTDK. Iz
+	leme~\ref{lema:four3} i činjenice da konvergencija po normi
+	povlači konvergenciju g.s.\ nekog podniza, zaključujemo
+	\begin{equation}
+		\lim\limits_{n \ub} (f * h_{\lambda_n})(x) = f(x) \ \mathrm{g.s.},
+	\end{equation}
+	za neki niz \( (\lambda_n)_n \) s \( \lambda_n \un \). Time
+	slijedi  \( f(x) = g(x) \) g.s.
+
+	Tvrdnja da je \( g \in \mrC_0(\R) \) dokaže se analogno
+	istom za \( \wh f \) u komentaru~\ref{kom:four2}.
+\end{proof}
+
+Posljedica teorema inverzije je i rezultat koji se ponekad sam
+naziva \emph{teorem jedinstvenosti}: ako je
+\( \wh f = \wh g \), tada je i \( f=g \) g.s.
+
+Teorem inverzije pokazuje još jedno lijepo svojstvo Fourierove transformacije,
+a to je da je inverz vrlo sličan njoj samoj. Zapravo, da bismo mogli
+govoriti o pravom inverzu \( \mathcal F^{-1} \) potrebno je za
+domenu od \( \mathcal F \) uzeti prostor na kojemu
+je \( \mathcal F \) automorfizam.
+To ćemo postići Plancherelovim teoremom koji omogućuje da \( \mathcal F \)
+proširimo na \( \L^2(\R) \), štoviše pokazujući da je riječ o izometričkom
+izomorfizmu \( \L^2(\R) \to \L^2(\R) \).
+
+Osnovna ideja je prvo se restringirati na \( \L^1(\R) \cap \L^2(\R) \)
+što je gust potprostor od \( \L^2(\R) \) (\( \mrC_\mrc(\R) \) gust je u svakom
+\( \L^p(\R) \), \( 1 \le p < \infty \)). Tada svakako postoji
+jedinstveno neprekidno proširenje na cijeli \( \L^2(\R) \) (v.~\cite[prop.~1.6.8~(iv)]{gogic}),
+no i dalje je pitanje kakva će svojstva imati to proširenje.
+
+\begin{teorem}\label{tM:planche}
+	Postoji izometrički izomorfizam \( \mathcal F \colon \L^2(\R) \to \L^2(\R) \)
+	takav da, uz oznaku \( \wh f = \mathcal F(f) \), vrijedi:
+	\begin{enumerate}[label=(\roman*)]
+		\item Ako je \( f \in \L^1(\R) \cap \L^2(\R) \), onda je \( \wh f \)
+		      dana s~\eqref{eq:four}.
+		\item Ako je
+		      \begin{equation}
+			      \varphi_A(\xi) = \int_{-A}^A f(x)e^{-i\xi x} \D \mu(x)
+			      \quad \mathrm i \quad
+			      \psi_A(x) = \int_{-A}^A \wh f(\xi) e^{i\xi x} \D \mu(\xi),
+		      \end{equation}
+		      onda \( \norm{\varphi_A - \wh f}_2 \un \) i \( \norm{\psi_A - f}_2 \un \)
+		      kad \( A \ub \).
+	\end{enumerate}
+\end{teorem}
+
+\begin{proof}
+	Definirajmo \( \mathcal F \) na gustom potprostoru \( \L^1(\R) \cap \L^2(\R) \) s~\eqref{eq:four}
+	i proširimo do operatora na \( \L^2(\R) \). Da dokažemo da je riječ o izometričkom izomorfizmu
+	dovoljno je sljedeće:
+	\begin{itemize}
+		\item Vrijedi
+		      \begin{equation}\label{eq:fl2izo}
+			      \norm {\wh f}_2 = \norm f_2, \quad f\in \L^1(\R) \cap \L^2(\R).
+		      \end{equation}
+		      Po neprekidnosti norme, iz~\eqref{eq:fl2izo} tvrdnja
+		      odmah slijedi za sve \( f \in \L^2(\R) \).
+
+		\item Slika od \( \mathcal F \) gusta je u \( \L^2(\R) \).
+		      To je dovoljno da \( \mathcal F \) bude surjekcija. Neka je
+		      \( f \in \L^2(\R) \) proizvoljna i \( (f_n)_n \) niz u \( \im \mathcal F \)
+		      takav da \( f_n \rightarrow f \) i \( \mathcal F g_n = f_n \)
+		      za neku \( g_n \in \L^2(\R) \) za svaki \( n \in \N \).
+		      Zbog izometričnosti je niz \( (g_n)_n \) također Cauchyjev,
+		      pa zbog potpunosti prostora \( \L^2(\R) \) postoji limes
+		      \( g = \lim\limits_{n \ub} g_n \) te zbog neprekidnosti
+		      od \( \mathcal F \) je \( \mathcal Fg = f \).
+		      %Dakle, \( f \in \im \mathcal F \).
+	\end{itemize}
+
+	Dokažimo prvo~\eqref{eq:fl2izo}.
 \end{proof}
 
 \end{document}
