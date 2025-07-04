@@ -219,8 +219,8 @@ Sljedeća propozicija daje neka osnovna svojstva Fourierove transformacije.
 
 Slijedi teorem u kojem uvodimo
 operator translacije i dokazujemo njegovu neprekidnost.
-Primijetimo razliku u odnosu na operatore \( \mathrm T_. \)
-iz~\ref{??} --- ovdje je riječ o operatoru \( \R \to \L^p(\R) \),
+Primijetimo razliku u odnosu na operatore \( \mathrm T_y \)
+iz komentara~\ref{kom:four-kovac} --- ovdje je riječ o operatoru \( \R \to \L^p(\R) \),
 a tamo \( \L^2(\R) \to \L^2(\R) \).
 
 \begin{teorem}\label{tm:trans}
@@ -398,12 +398,12 @@ Osnovna ideja je prvo se restringirati na \( \L^1(\R) \cap \L^2(\R) \)
 jedinstveno neprekidno proširenje na cijeli \( \L^2(\R) \) (v.~\cite[prop.~1.6.8~(iv)]{gogic}),
 no i dalje je pitanje kakva će svojstva imati to proširenje.
 
-\begin{teorem}\label{tM:planche}
+\begin{teorem}\label{tm:planche}
 	Postoji izometrički izomorfizam \( \mathcal F \colon \L^2(\R) \to \L^2(\R) \)
 	takav da, uz oznaku \( \wh f = \mathcal F(f) \), vrijedi:
 	\begin{enumerate}[label=(\roman*)]
 		\item Ako je \( f \in \L^1(\R) \cap \L^2(\R) \), onda je \( \wh f \)
-		      dana s~\eqref{eq:four}.
+		      dana s~\eqref{eq:four}. \label{i:planche1}
 		\item Ako je
 		      \begin{equation}
 			      \varphi_A(\xi) = \int_{-A}^A f(x)e^{-i\xi x} \D \mu(x)
@@ -411,7 +411,7 @@ no i dalje je pitanje kakva će svojstva imati to proširenje.
 			      \psi_A(x) = \int_{-A}^A \wh f(\xi) e^{i\xi x} \D \mu(\xi),
 		      \end{equation}
 		      onda \( \norm{\varphi_A - \wh f}_2 \un \) i \( \norm{\psi_A - f}_2 \un \)
-		      kad \( A \ub \).
+		      kad \( A \ub \). \label{i:planche2}
 	\end{enumerate}
 \end{teorem}
 
@@ -425,7 +425,7 @@ no i dalje je pitanje kakva će svojstva imati to proširenje.
 			      \norm {\wh f}_2 = \norm f_2, \quad f\in \L^1(\R) \cap \L^2(\R).
 		      \end{equation}
 		      Po neprekidnosti norme, iz~\eqref{eq:fl2izo} tvrdnja
-		      odmah slijedi za sve \( f \in \L^2(\R) \).
+		      odmah slijedi za sve \( f \in \L^2(\R) \). %\label{i:planche1}
 
 		\item Slika od \( \mathcal F \) gusta je u \( \L^2(\R) \).
 		      To je dovoljno da \( \mathcal F \) bude surjekcija. Neka je
@@ -435,11 +435,146 @@ no i dalje je pitanje kakva će svojstva imati to proširenje.
 		      Zbog izometričnosti je niz \( (g_n)_n \) također Cauchyjev,
 		      pa zbog potpunosti prostora \( \L^2(\R) \) postoji limes
 		      \( g = \lim\limits_{n \ub} g_n \) te zbog neprekidnosti
-		      od \( \mathcal F \) je \( \mathcal Fg = f \).
+		      od \( \mathcal F \) je \( \mathcal Fg = f \). %\label{i:planche2}
 		      %Dakle, \( f \in \im \mathcal F \).
 	\end{itemize}
 
 	Dokažimo prvo~\eqref{eq:fl2izo}.
+	Neka je \( f\in\L^2(\R) \) fiksna i definirajmo \( \wt f \) sa \( \wt f(x) = \ol{f(-x)} \) i
+	\( g = f * \wt f \). Onda je
+	\begin{equation}
+		g(x) = \int_\R f(x-y)\ol{f(-y)} \D \mu(y)
+		= \int_\R f(x+y)\ol{f(y)} \D \mu(y), \quad x \in \R,
+	\end{equation}
+	tj.\ \( g(x) = \skp {f_{-x}} f \).
+	Po teoremu~\ref{tm:trans} je preslikavanje
+	\( x \mapsto f_{-x} \) neprekidno, pa je zbog neprekidnosti skalarnog produkta
+	neprekidna i \( g \). Cauchy--Schwarzova nejednakost daje
+	\( \abs{g(x)} \le \norm{f_{-x}}_2 \norm f_2 = \norm f_2^2 \) tako
+	da je \( g \) ograničena. Još je i \( g \in \L^1(\R) \) jer je konvolucija
+	dviju funkcija iz \( \L^1(\R) \).
+	Imamo uvjete lema~\ref{lema:four1} i~\ref{lema:four2} i
+	primjenom dobivamo redom
+	\begin{align}
+		(g * h_\lambda)(0)                                   & = \int_\R H(\lambda\xi)\wh g(\xi) \D \mu(\xi) \label{eq:dokplanche-1}, \\
+		\lim\limits_{\lambda \rightarrow 0} (g*h_\lambda)(0) & = g(0) = \norm f_2^2. \label{eq:dokplanche-2}
+	\end{align}
+
+	Po prop.~\ref{prop:form} t.~\ref{i:propform:d} slijedi
+	\( \wh g = \abs{\wh f}^2 \ge 0 \). Iz~\eqref{eq:dokplanche-1}
+	i~\eqref{eq:dokplanche-2} i po Lebesgueovom teoremu o monotonoj
+	konvergenciji (\( \wh g \ge 0 \) i \( H(\lambda\xi) \uparrow 1 \) kad \( \lambda \downarrow 0 \))
+	dobiva se
+	\begin{equation}
+		\norm f_2^2 = \lim\limits_{\lambda \un}
+		\int_\R H(\lambda\xi)\wh g(\xi) \D \mu(\xi)
+		= \int_\R \abs{\wh f(\xi)} ^2 \D \mu(\xi) = \norm{\wh f}_2^2.
+	\end{equation}
+	Ovime smo posebice dokazali da je \( \L^2(\R) \) uopće smislen
+	izbor kodomene.
+
+	Dokažimo sada da je \( \im \mathcal F \) gusta u \( \L^2(\R) \).
+	Ekvivalentno je da je anihilator \( \left(\im \mathcal F\right) ^{{\perp}} \) trivijalan.
+	Neka je \( \rho \in {\left( \im\mathcal F \right)^{\perp}}\) i
+	\( \rho \in \L^2(\R) \) (poistovjećujemo Hilbertov prostor s njegovim dualom)
+	i dokažimo \( \rho = 0 \).
+	Funkcije \( x \mapsto e^{i\alpha x}H(\lambda x) \) su u \( \L^1(\R) \cap \L^2(\R) \)
+	za sve \( \alpha \in \R \) i \( \lambda > 0 \). Njihove Fourierove transformacije
+	dane su s~\eqref{eq:four} i jednake su
+	\begin{equation}
+		\int_\R H(\lambda x) e^{i(\alpha-x)\xi} \D \mu(x) = h_\lambda(\alpha-\xi), \quad \xi \in \R.
+	\end{equation}
+	Jasno, one se nalaze u \( \im \mathcal F \) pa ih \( \rho \)
+	poništava:
+	\begin{equation}
+		0=\int_\R h_\lambda(\alpha - \xi) \ol{\rho(\xi)} \D \mu(\xi) =
+		(h_\lambda * \ol \rho)(\alpha),
+	\end{equation}
+	te zbog proizvoljnosti \( \alpha \) i \( \lambda \) po
+	lemi~\ref{lema:four3} slijedi \( \rho = 0 \).
+
+	\newcommand{\tempjj}{1_{\left[ -A,A \right]}}
+	\newcommand{\tempj}{K_A}
+	Preostaje t.~\ref{i:planche2}. Označimo \( \tempj = \tempjj \).
+	Zbog \( \tempj f \in \L^1(\R) \cap \L^2(\R) \) je
+	\( \varphi_A = \wh{\tempj f} \).
+	Kako \( \norm{f-\tempj f}_2 \un \) kad \( A \ub \),
+	zbog izometričnosti~\eqref{eq:fl2izo} slijedi
+	i \( \norm{\wh f - \varphi_A}_2 \un \) kad \( A \ub \).
+	Druga tvrdnja dokaže se analogno.
 \end{proof}
 
+\begin{komentar}\label{kom:four-planche}
+	\begin{itemize}
+		\item Točka~\ref{i:planche2} iz teorema~\ref{tm:planche}
+		      odmah povlači što možemo zvati teoremom inverzije na \( \L^2(\R) \): ako
+		      su \( f \in \L^2(\R) \) i \( \wh f \in \L^1(\R) \), onda
+		      \begin{equation}
+			      f(x) = \int_\R \wh f(\xi) e^{i\xi x} \D \mu(\xi) \quad \mathrm{g.s.}
+		      \end{equation}
+
+		\item Primijetimo kako \( \wh f \) u teoremu~\ref{tm:planche}
+		      nije definiran po točkama već samo kao element \( \L^2(\R) \).
+		      Drugim riječima, definiran je tek g.s., za razliku od \( \wh f \)
+		      iz definicije~\ref{def:four}.
+		      Također, iako je Fourierova transformacija definirana na \( \L^2(\R) \),
+		      ne treba ju poistovjećivati s formulom~\eqref{eq:four}
+		      koja vrijedi samo za \( f \in \L^1(\R) \).
+
+		\item Poznato je, a dokaže se preko polarizacijskih formula,
+		      da izometrički izomorfizam Hilberotovog prostora čuva i skalarni produkt.
+		      Dakle, za \( f,g \in \L^2(\R) \) vrijedi
+		      % \( \skp fg = \skp {\wh f}{\wh g} \)%ruzno
+		      \( \skp fg = \langle \scriptsize \wh f, \wh g \rangle \)
+		      što možemo zapisati i kao
+		      \begin{equation}\label{eq:parse}
+			      \int_\R f(x) \ol {g(x)} \D x =
+			      \int_\R \wh f(\xi) \ol{\wh g(\xi)} \D \xi.
+		      \end{equation}
+		      Identitet~\eqref{eq:parse} može se zvati
+		      \emph{Parsevalova jednakost}. Po nekim konvencijama Parsevalova jednakost
+		      je naziv analogona~\eqref{eq:fl2izo} ili~\eqref{eq:parse}
+		      na \( \L^2(\mathbb S^1) \).
+		      % Zapravo se mnogi termini koje smo vidjeli koriste
+		      % u općenitijim okolnostima. Primjerice u~\cite{gogic}
+		      % se na općem Hilbertovom prostoru \( H \) za \( x \in H \)
+		      % i ortonormiranu bazu \( (r_k)_k \) 		
+	\end{itemize}
+\end{komentar}
+
+\newcommand{\fusnota}{\footnote{
+		primijetimo da prelazimo na \( \L^2(\R^n) \) za opći \( n \);
+		tamo vrijede analogoni dosadašnjih rezultata,
+		a razlog je da je familija ortogonalnih
+		transformacija trivijalna za \( n=1 \)
+	}}
+\begin{komentar}\label{kom:four-kovac}
+	Fouerierova transformacija lijepo se ponaša u odnosu
+	na neke \enquote{geometrijske} transformacije (v.~\cite[prop.~3]{kovac-wroclaw}).
+	Dio toga već smo vidjeli u prop.~\ref{prop:form} t.~\ref{i:propform:a}
+	i~\ref{i:propform:b}. Definirajmo sada već viđene\fusnota
+	\begin{itemize}
+		\item \emph{translaciju} za \( y \in \R^n \) sa
+		      \( (\mathrm T_y f)(x) = f(x-y) \) za \( x \in \R^n \) i
+		\item \emph{modulaciju} s \( \eta \in \R^n \) sa
+		      \( (\mathrm M_\eta f)(x) = e^{i\skp x \eta}f(x) \) za \( x \in \R^n \),
+	\end{itemize}
+	gdje \( f \in \L^2(\R^n) \). Možemo im dodati
+	\begin{itemize}
+		\item \emph{dilataciju} za \( r \in \R \setminus \left\{ 0 \right\} \)
+		      danu s \( (\mathrm D_r f)(x) = \abs r^{-n/2}f(r^{-1}x) \) za \( x \in \R^n \) i
+		\item \emph{rotaciju} u odnosu na ortogonalnu transformaciju \( S \)
+		      na \( \R^n \) danu sa \( (\mathrm R_S f)(x) = f(S^{-1}x) \) za \( x \in \R^n \).
+	\end{itemize}
+	Svi od navedenih operatora su izometrički automorfizmi
+	od \( \L^2(\R^n) \). Vrijedi:
+	\begin{equation}\label{eq:four-kovac}
+		\mathcal F \mathrm T_y = \mathrm M_{-y} \mathcal F, \quad
+		\mathcal F \mathrm M_\eta = \mathrm T_\eta \mathcal F, \quad
+		\mathcal F \mathrm D_r = \mathrm D_{r^{-1}} \mathcal F, \quad
+		\mathcal F \mathrm R_S = \mathrm R_S \mathcal F,
+	\end{equation}
+	za sve \( y, \eta \in \R^n \), \( r \in \R \setminus \left\{0\right\} \)
+	i ortogonalne transformacije \( S \) na \( \R^n \).
+\end{komentar}
 \end{document}
