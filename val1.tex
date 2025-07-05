@@ -1,6 +1,136 @@
 \documentclass[main.tex]{subfiles}
+\newcommand{\mr}[1]{\mathrm{#1}}
+\newcommand{\mc}[1]{\mathcal{#1}}
 
 \begin{document}
 \section{Osnovno o valićima. Haarov sistem}\label{sec:val1}
+Nakon Fourierove transformacije, javlja se ideja funkcije dekomponirati
+s obzirom na neku drugu familiju funkcija. Unatoč brojnim lijepim svojstvima
+Fourierove transformacije koja smo vidjeli u prošlom odjeljku, možemo naći i dvije
+mane. Prvo: da daje globalno ponašanje funkcije u frekvencijskoj dimenziji, ali
+nije osjetljiva na lokalne fenomene. Drugo, da iako su funkcije
+\( x \mapsto e^{i\xi x} \) jednostavne u frekvencijskoj dimenziji,
+u vremenskoj nemaju kompaktan nosač, a nisu niti integrabilne (osim u smislu temperiranih distribucija).
+To nas može motivirati da ih zamijenimo funkcijama koje su po tom pitanju bolje.
+Pokazuje se da je tu uvijek nužan kompromis, tj.\ inzistiranjem na novim svojstvima
+izgubit ćemo neka lijepa svojstva koja smo prije imali.
+
+Jedna takva alternativna familija su \emph{valići}.
+Počnimo od neke funkcije \( \psi \colon \R \to \C \)
+koju zovemo \emph{matični valić}.
+Zatim, za \( a \in \R \setminus \left\{ 0 \right\} \)
+i \( b \in \R \) definiramo
+\begin{equation}
+	\psi_{a,b}(x) = \abs a^{-1/2} \psi \left( \frac {x-b}a \right), \quad x \in \R.
+\end{equation}
+Primijetimo da s \( b \) pomičemo početni \( \psi \) po \( x \)-osi, dok smanjenjem \( a \)
+sužavamo \( \psi \) i povećavamo amplitudu. Riječ je redom o translaciji i dilataciji,
+pa u oznakama komentara~\ref{kom:four-kovac} možemo pisati i
+\( \psi_{a,b} = \mr D_a \mr T_b \psi \). Ta dva operatora onda generiraju
+\emph{sistem} funkcija pa je pravilnije govoriti o valićima kao sistemu funkcija,
+dok se za neki konkretni matični valić \( \psi \) dobivamo \emph{familiju} \( \left\{ \psi_{a,b} \right\}_{a\neq 0, b \in \R} \).
+
+Pitanje je kakva svojstva mora imati \( \psi \). Zahtjevi se razlikuju ovisno o primjeni,
+ali vjerojatno najčešći i najosnovniji zahtjev je
+\begin{equation}\label{eq:psi-dopustiv}
+	\int_\R \psi(x) \D x = 0.
+\end{equation}
+Matični valić \( \psi \) koji zadovoljava~\eqref{eq:psi-dopustiv} ponekad se zove \emph{dopustiv}.
+Objasnimo taj uvjet. Uzmimo svakako \( \psi \in \L^2(\R) \) tako da ima
+Fourierovu transformaciju. Definiramo \emph{neprekidnu valićnu transformaciju} \( {\mc T^{\mr{wav}}} \) s
+\begin{equation}\label{eq:cwt}
+	(\mc T^{\mr{wav}} f)(a,b) = \skp f{\psi_{a,b}} =
+	\int_\R f(x) \abs a^{-1/2} \ol{\psi\left( \frac{x-b}a \right)} \D x, \quad f \in \L^2(\R).
+\end{equation}
+Riječ je o valićnom analogonu formule~\eqref{eq:four}.
+U ovom radu se nećemo baviti neprekidnom valićnom transformacijom, pa ćemo
+samo navesti i analogon formule inverzije~\eqref{eq:four-inverzija}:
+\begin{equation}\label{eq:wav-inverzija}
+	f = C_\psi^{-1} \int_\R \int_\R
+	(\mc T^{\mr{wav}} f)(a,b) \psi_{a,b} \frac{\D a \D b}{a^2}, \quad f \in \L^2(\R),
+\end{equation}
+pri čemu je \( C_\psi \) konstanta koja mora biti konačna:
+\begin{equation}\label{eq:cpsikon}
+	C_\psi = 2\pi \int_\R \abs \xi ^{-1} \abs{\wh \psi(\xi)}^2 \D \xi < \infty.
+\end{equation}
+Ako je \( \psi \in \L^1(\R) \) je \( \wh \psi \)
+neprekidan pa je jedini način da vrijedi~\eqref{eq:cpsikon}
+da je \( \wh \psi (0)=0 \), a to je
+upravo~\eqref{eq:psi-dopustiv} po definiciji~\ref{def:four}.
+S druge strane, može se pokazati (v.~\cite[\textsection 2.4]{daub}) da ako vrijedi~\eqref{eq:psi-dopustiv}
+i jači uvjet od integrabilnosti
+\begin{equation}\label{eq:psijaceodl1}
+	\int_\R \left( 1 + \abs x \right)^\alpha \psi(x) \D x < \infty
+\end{equation}
+za neki \( \alpha > 0 \) da slijedi~\eqref{eq:cpsikon}.
+Uvjeti~\eqref{eq:cpsikon} i~\eqref{eq:psi-dopustiv} su u
+praksi ekvivalentni jer će se zahtjevi na \( \psi \)
+ipak biti dosta jači nego~\eqref{eq:psijaceodl1}.
+
+Ne moramo \( a \) i \( b \) uzimati neprekidno, već je moguće
+razmatrati samo diskretnu rešetku. Za \( j, k \in \Z \) definirajmo
+\begin{equation}\label{eq:psijk}
+	\psi_{j, k}(x) = 2^{-j/2} \psi(2^{-j}x-k), \quad x \in \R,
+\end{equation}
+tj.\ \( \psi_{j,k} = \mr D_{2^j}T_k \psi \). Familija
+\( \left\{ \psi_{j,k} \right\}_{j,k\in\Z} \) je prebrojiva, a
+idealno bi bilo kad bi bila ortonormirana baza prostora \( \L^2(\R) \).
+Nije \emph{a priori} jasno da je to ikada moguće, ali
+pokazat ćemo u drugom dijelu ovog i sljedećem odjeljku da
+zapravo postoji puno takvih ortonormiranih baza.
+To je prednost u odnosu na Fourierovu transformaciju jer
+\( x \mapsto e^{ikx} \) za \( k \in \Z \) razapinju
+samo periodičke funkcije. Odsad se bavimo familijama danima s~\eqref{eq:psijk}.
+
+Prije nego damo primjer ortonormirane valićne baze,
+vratimo se na pitanje svojstava \( \psi \).
+Tipična poželjna svojstva koja se traže su sljedeća:
+\begin{itemize}
+	\item glatkoća, ili, blisko tome, nestajući momenti,
+	\item kompaktan nosač u vremenskoj ili frekvencijskoj dimenziji (tj.\ kompaktnost od \( \supp \psi \) i \( \supp \wh \psi \) redom),
+	\item kada nemamo kompaktnost da \( \psi \), neke derivacije od \( \psi \) ili \( \wh \psi \) padaju nekom brzinom,
+	\item da je \( \psi  \) parna funkcija (simetrična; ekvivalentno je da je \( \wh \psi \) realna) ili da je
+	      realan; alternativno, u nekim primjenama korisni su kompleksni valići.
+\end{itemize}
+Sljedeći teorem (v.~\cite[\textsection 9]{daub}) pokazuje da su uz vrlo razumne zahtjeve ortonormirane baze na
+\( \L^2(\R) \) ujedno bezuvjetne baze na drugim funkcijskim prostorima.
+
+\newcommand{\fusnota}{\footnote{oznaka \( \lesssim \) u \( f(x) \lesssim g(x) \) znači \( f(x) \le Cg(x) \) za neku konstantu \( C > 0 \) neovisnu o \( x \)}}
+\begin{teorem} \label{bezbazaLp}
+	Ako je \( \psi \) takav da je \( \left\{ \psi_{j,k} \st j,k \in \Z \right\} \) iz~\eqref{eq:psijk} ortonormirana bazu na \( \L^2(\R) \) i ako dodatno vrijede uvjeti\fusnota
+	\begin{equation} \label{dovuvjetipsi}
+		\psi \in \mr C^1(\R) \qquad \mathrm i \qquad \abs{\psi(x)}, \abs{\psi'(x)} \lesssim (1 + \abs x)^{-1-\varepsilon},
+	\end{equation}
+	tada je \( \left\{ \psi_{j,k} \st j,k \in \mathbb Z \right\} \) također bezuvjetna baza na \( \L^p(\R) \), \( 1 < p < \infty \).
+\end{teorem}
+Zapravo, isti uvjeti dovoljni su da \( \psi_{j,k} \) čine ortonormiranu bazu \emph{Hardy--Littlewoodovog}
+prostora kojeg ovdje nećemo definirati, a uz nešto jače uvjete i drugih funkcijskih prostora kao što
+su npr.\ \emph{Soboljevljevi prostori}.
+
+Poželjna svojstva imaju svoje granice. Najpoznatiji
+primjer je \emph{princip neodređenosti} koji govori
+da nije moguće (osim u trivijalnom slučaju)
+postići da funkcija ima kompaktan nosač i u
+vremenskoj i u frekvencijskoj dimenziji (v.~\cite[theorem~4]{kovac-wroclaw}).
+
+\begin{teorem}
+	Ako je \( f \in \L^2(\R) \) takva da su i \( \supp f \)
+	i \( \supp \wh f \) kompaktni, tada je \( f=0 \)~g.s.
+\end{teorem}
+Sljedeći teorem (v.~\cite{daub2}) uvodi Daubechiesjine valiće, ali i sugerira ograničenje
+da ne postoje valići klase \( \mr C^\infty \) kompaktnog nosača
+koji čine ortonormiranu bazu na \( \L^2(\R) \).
+\begin{teorem}
+	Za svaki \( r \in \N \) postoji \( \psi \in \mr C_\mrc ^r(\R) \)
+	takav da je s~\eqref{eq:psijk} dana
+	ortonormirana baza na \( \L^2(\R) \).
+\end{teorem}
+Poznato je i što smo rekli, da tvrdnja ne vrijedi za \( r = \infty \).
+Meyerovi valići koje uvodimo u odjeljku~\ref{sec:meyer}
+nalazit će se taman izvan ovih ograničenja.
+
+\bigskip
+U nastavku odjeljka cilj nam je dokazati da Haarovi valići čine ortonormiranu bazu
+na \( \L^2(\R) \).
 
 \end{document}
