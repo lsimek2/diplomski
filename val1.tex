@@ -72,7 +72,7 @@ razmatrati samo diskretnu rešetku. Za \( j, k \in \Z \) definirajmo
 \begin{equation}\label{eq:psijk}
 	\psi_{j, k}(x) = 2^{-j/2} \psi(2^{-j}x-k), \quad x \in \R,
 \end{equation}
-tj.\ \( \psi_{j,k} = \mr D_{2^j}T_k \psi \). Familija
+tj.\ \( \psi_{j,k} = \mr D_{2^j}\mr T_k \psi \). Familija
 \( \left\{ \psi_{j,k} \right\}_{j,k\in\Z} \) je prebrojiva, a
 idealno bi bilo kad bi bila ortonormirana baza prostora \( \L^2(\R) \).
 Nije \emph{a priori} jasno da je to ikada moguće, ali
@@ -121,16 +121,69 @@ Sljedeći teorem (v.~\cite{daub2}) uvodi Daubechiesjine valiće, ali i sugerira 
 da ne postoje valići klase \( \mr C^\infty \) kompaktnog nosača
 koji čine ortonormiranu bazu na \( \L^2(\R) \).
 \begin{teorem}
-	Za svaki \( r \in \N \) postoji \( \psi \in \mr C_\mrc ^r(\R) \)
+	Za svaki \( k \in \N \) postoji \( \psi \in \mr C_\mrc ^k(\R) \)
 	takav da je s~\eqref{eq:psijk} dana
 	ortonormirana baza na \( \L^2(\R) \).
 \end{teorem}
-Poznato je i što smo rekli, da tvrdnja ne vrijedi za \( r = \infty \).
+Poznato je i što smo rekli, da tvrdnja ne vrijedi za \( k = \infty \).
 Meyerovi valići koje uvodimo u odjeljku~\ref{sec:meyer}
 nalazit će se taman izvan ovih ograničenja.
 
 \bigskip
-U nastavku odjeljka cilj nam je dokazati da Haarovi valići čine ortonormiranu bazu
-na \( \L^2(\R) \).
+\newcommand{\psh}{\psi^{\mathrm{Haar}}}
+U ostatku odjeljka cilj nam je dokazati da Haarovi valići čine ortonormiranu bazu
+na \( \L^2(\R) \). Haarovi valići dani su matičnim valićem
+\begin{equation}\label{eq:haar}
+	\psi^{\mathrm{Haar}}(x) = \begin{cases}\begin{aligned}
+			1,  & \quad & 0 \le x < 1/2, \\
+			-1, & \quad & 1/2 \le x < 1, \\
+			0,  & \quad & \text{inače}.
+		\end{aligned}\end{cases}
+\end{equation}
+Familija generirana preko~\eqref{eq:haar} zapravo je poznata
+kao ortonormirana baza na \( \L^2(\R) \) puno dulje nego što uopće postoji pojam valića.
+Poznatija je kao \emph{Haarov sistem}, makar po prethodnoj diskusiji na te funkcije
+doista možemo gledati kao na valiće. Ti valići nemaju lijepa svojstva (imaju
+kompaktan nosač u vremenskoj dimenziji; ali u frekvencijskoj opadaju sporo;
+nemaju glatkoću), ali zbog svoje jednostavnosti često igraju didaktičku ulogu.
+To je slučaj i ovdje~---~poanta dokaza je motivirati temu sljedećeg odjeljka.
+
+\begin{teorem}
+	Familija valića \( \left\{ \psh_{j,k} \st j,k \in \Z \right\} \)
+	je ortonormirana baza prostora \( \L^2(\R) \).
+\end{teorem}
+
+\renewcommand{\fusnota}{\footnote{dijadski intervali
+su oni iz familije \( \mathcal D = \left\{ \left[ 2^jk, 2^j(k+1) \right\rangle \st j,k\in\Z \right\} \)}}
+\begin{proof}
+	Normiranost lako slijedi direktnim računom. Dokažimo da su
+	\( \psh_{j,k} \) i \( \psh_{j',k'} \) ortogonalni ako \( (j,k) \neq (j',k') \).
+	Ako je \( j=j' \) su im nosači disjunktni. Neka je bez smanjenja općenitosti
+	\( j < j' \). Nosač od
+	\( \psh_{j,k} \) je, do na rub, dijadski interval\fusnota \( \left[ 2^jk,2^j(k+1) \right\rangle \)
+	(to vrijedi općenito ako \( \supp \psi = \left[ 0,1 \right] \)).
+	Nosač \( \supp \psh_{j',k'} \) je dijadski interval veće duljine, pa je
+	\( \supp \psh_{j,k} \) cijeli sadržan ili u lijevoj ili u desnoj polovici
+	od \( \supp \psh_{j',k'} \). Na tim polovicama je \( \psh_{j',k'} \) konstantan,
+	pa je skalarni produkt proporcionalan sa \( \int_\R \psh_{j,k}(x) \D x = 0 \)
+	zbog svojstva~\eqref{eq:psi-dopustiv}.
+
+	Glavni dio dokaza je dokazati da Haarovi valići
+	razapinju potprostor gust u \( \L^2(\R) \). Svaka \( f \in \L^2(\R) \)
+	može se proizvoljno dobro aproksimirati funkcijom \( f_0 \)
+	čiji je nosač \( \left[ -2^{J_1},2^{J_1} \right] \)
+	i koja je konstantna na dijadskim intervalima
+	\( \left[ 2^{-J_0}\ell, 2^{-J_0}(\ell+1) \right\rangle \)
+	gdje \( -2^{J_1+J_0-1}+1 \le \ell \le 2^{J_1+J_0-1} \)
+	(za dovoljno velike \( J_0, J_1 \in \Z \)). Dovoljno je dokazati
+	da se \( f_0 \) može proizvoljno dobro aproksimirati Haarovim valićima.
+
+	Uvedimo skalare \( f_{0,\ell} \in \R \),
+	gdje \( \ell \) ima isti (ili kasnije analogni) raspon kao u prošlom paragrafu, sa
+	\( f_0 = \sum\limits_{\ell} f_{0,\ell} 1_{\left[ 2^{-J_0}\ell, 2^{-J_0}(\ell+1)  \right\rangle} \).
+
+
+
+\end{proof}
 
 \end{document}
