@@ -148,7 +148,7 @@ kompaktan nosač u vremenskoj dimenziji; ali u frekvencijskoj opadaju sporo;
 nemaju glatkoću), ali zbog svoje jednostavnosti često igraju didaktičku ulogu.
 To je slučaj i ovdje~---~poanta dokaza je motivirati temu sljedećeg odjeljka.
 
-\begin{teorem}
+\begin{teorem}\label{tm:haar}
 	Familija valića \( \left\{ \psh_{j,k} \st j,k \in \Z \right\} \)
 	je ortonormirana baza prostora \( \L^2(\R) \).
 \end{teorem}
@@ -171,19 +171,106 @@ su oni iz familije \( \mathcal D = \left\{ \left[ 2^jk, 2^j(k+1) \right\rangle \
 	Glavni dio dokaza je dokazati da Haarovi valići
 	razapinju potprostor gust u \( \L^2(\R) \). Svaka \( f \in \L^2(\R) \)
 	može se proizvoljno dobro aproksimirati funkcijom \( f_0 \)
-	čiji je nosač \( \left[ -2^{J_1},2^{J_1} \right] \)
+	čiji je nosač \( I_{M} \coloneq \left[ -2^{M},2^{M} \right] \)
 	i koja je konstantna na dijadskim intervalima
-	\( \left[ 2^{-J_0}\ell, 2^{-J_0}(\ell+1) \right\rangle \)
-	gdje \( -2^{J_1+J_0-1}+1 \le \ell \le 2^{J_1+J_0-1} \)
-	(za dovoljno velike \( J_0, J_1 \in \Z \)). Dovoljno je dokazati
+	\( I_{N,\ell} \coloneq \left[ 2^{-N}\ell, 2^{-N}(\ell+1) \right\rangle \)
+	gdje je \( \ell \) takav da \( I_{N,\ell} \subseteq I_M \).
+	S \( f_{0, \ell} \) označimo skalare takve da
+	\begin{equation}
+		f_0 = \sum_{\ell \st I_{N,\ell} \subseteq I_M} f_{0,\ell} 1_{I_{N,\ell}}
+	\end{equation}
+	i analogne oznake koristimo drugdje.
+	Dovoljno je dokazati
 	da se \( f_0 \) može proizvoljno dobro aproksimirati Haarovim valićima.
 
-	Uvedimo skalare \( f_{0,\ell} \in \R \),
-	gdje \( \ell \) ima isti (ili kasnije analogni) raspon kao u prošlom paragrafu, sa
-	\( f_0 = \sum\limits_{\ell} f_{0,\ell} 1_{\left[ 2^{-J_0}\ell, 2^{-J_0}(\ell+1)  \right\rangle} \).
+	Prikažimo \( f_0 \) u obliku \( f_0 = f_1 + \delta_1 \) gdje je
+	\( f_1 \) funkcija konstantna na intervalima dvostruko veće duljine
+	\( 2^{-N+1} \), a te konstante su prosjeci od \( f_0 \) na
+	odgovarajućim intervalima. Drugim riječima
+	\( f_{1, \ell} = \frac 12 \left( f_{0,2\ell} + f_{0,2\ell + 1} \right) \)
+	za \( \ell \) takav da \( I_{N-1,\ell} \subseteq I_M \) .
+	Funkcija \( \delta_1 \) je onda konstanta na intervalima iste duljine kao kod \( f_0 \)
+	i štoviše
+	\begin{align}
+		\footnotesize
+		\delta_{1, 2\ell}  & = f_{0,2\ell} - f_{1,\ell} = \frac 12 \left( f_{0,2\ell} - f_{0,2\ell + 1} \right)
+		\\
+		\delta_{1,2\ell+1} & = f_{0,2\ell+1} - f_{1,\ell}
+		= \frac 12 \left( f_{0,2\ell+1} - f_{0,2\ell} \right) = -\delta_{1,2\ell},
+	\end{align}
+	za \( \ell \) takve da \( I_{N,2\ell} \subseteq I_M \).
+	Time smo dobili da je \( \delta_1 \) linearna kombinacija Haarovih valića:
+	\begin{equation}
+		\delta_1(x) = \sum_{\ell \st I_{N,2\ell} \subseteq I_M} \delta_{1,2\ell}
+		\psh\left( 2^{N_1}x-\ell \right), \quad x \in I_M.
+	\end{equation}
 
+	Postupak možemo ponavljati i dobiti funkcije \( f_2, f_3 \) itd. Ponavljanjem
+	postupka ukupno \( N+M \) puta dobit ćemo funkciju \( f_{N+M} \)
+	kojoj je nosač i dalje \( I_M \), a konstantna je na intervalima
+	\( \left[ -2^M,0 \right] \) i \( \left[ 0,2^M \right] \)
+	i tamo jednaka odgovarajućim prosjecima funkcije \( f_0 \).
+	Dobiva se
+	\begin{equation}
+		f_0 = f_{N+M} + \sum_{k=1}^{N+M} \delta_k
+		= f_{N+M} + \sum_{k=1}^{N+M} \sum_{\ell \st I_{N-k+1, 2\ell} \subseteq I_M}
+		c_{-N+k, \ell} \psh_{-N+k,\ell},
+	\end{equation}
+	pri čemu su \( c_{-N+k,\ell} \) skalari.
 
-
+	Možemo nastaviti, tako da \( f_{N+M+1} \) ima
+	dvostruko veći nosač \( I_{M+1} \), pri čemu će biti
+	\[ \delta^{N+M+1}(x) = \frac12 \left[ f_{N+M,0} \psh\left( 2^{-M-1}x \right) \right]
+		+ \frac 12 \left[ f_{N+M,-1}\psh\left( 2^{-M-1}x + 1 \right) \right].,
+		\quad x \in I_{M+1}.\]
+	Ponavljanjem postupka ukupno \( K \) puta dolazimo do funkcije
+	\( f_{N+M+K} \) takve da
+	\begin{equation}
+		f_{N+M+K}(x) = \begin{cases}
+			\begin{aligned}
+				2^{-K}f_{N+M,-1} & , \quad  x \in  \left[ -2^{M+K}, 0 \right\rangle, \\
+				2^{-K}f_{N+M,0}  & , \quad x \in \left[ 0, 2^{M+K} \right\rangle.
+			\end{aligned}
+		\end{cases}
+	\end{equation}
+	Vrijedi \begin{equation} \norm{f_{N+M+K}}_2 = \sqrt{\left[ \abs{f_{N+M,0}}^2+\abs{f_{N+M,-1}}^2 \right] 2^{M-K}} \rightarrow 0, \quad K \ub,
+	\end{equation}
+	što nam daje i traženu aproksimaciju
+	\begin{equation}\label{eq:aproxf0}
+		\sum_{k=1}^{N+M+K} \delta_k \stackrel{\L^2}{\longrightarrow} f_0, \quad K \ub.
+	\end{equation}
 \end{proof}
+
+\begin{komentar}
+	Rezultat~\eqref{eq:aproxf0} može se činiti paradoksalan.
+	Ako za svaki \( \psi_{j,k} \) vrijedi~\eqref{eq:psi-dopustiv},
+	isto vrijedi za svaku linearnu kombinaciju. Kako je onda moguće proizvoljnu
+	\( f \in \L^2(\R) \) dobiti kao limes funkcija s integralom nula?
+	Ključno je da aproksimacija vrijedi u \( \L^2 \)-normi,
+	ali ne i u \( \L^1 \)-normi~---~niz (u \(K\)) funkcija \( f_{N+M+K} \)
+	primjer je niza koji u \( \L^1(\R) \) ima (zbog konstrukcije) konstantu normu, ali u \( \L^2(\R) \)
+	konvergira u \( 0 \).
+\end{komentar}
+
+\begin{komentar}\label{kom:tmhaar2}
+	Definirajmo za fiksni \( j \in \Z \)
+	\begin{equation}
+		V_j = \left\{ f \in \L^2(\R) \st
+		f \text{ konstantna na} \left[ 2^jk, 2^j(k+1) \right\rangle \text{ za sve } k \in \Z
+		\right\}.
+	\end{equation}
+	Lako je dokazati da je \( V_j \) zatvoreni potprostor od \( \L^2(\R) \).
+	Kad \( j \rightarrow -\infty \), možemo reći da prostori dopuštaju
+	sve više \emph{detalja} ili sve finiju \emph{rezoluciju}.
+	Istovremeno, prostori \( V_j \) su međusobno slični;
+	svaki se može dobiti kao dilatacija bilo kojeg drugog.
+
+	U dokazu teorema~\ref{tm:haar} dokazali smo
+	\begin{equation}
+		\olspan \left\{ \psh_{j',k} \st j' \ge j,\ k \in \Z \right\}
+		= V_j, \quad j \in \Z.
+	\end{equation}
+	Očekivano, sve finiji valići razapinju sve finije potprostore.
+\end{komentar}
 
 \end{document}
