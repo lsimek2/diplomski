@@ -2,5 +2,38 @@
 
 \begin{document}
 \section{Multirezolucijska analiza}\label{sec:mra}
+Multirezolucijska analiza pojam je koji uopćuje
+pojmove i rezultate iz komentara~\ref{kom:tmhaar2}
+i dokaza teorema~\ref{tm:haar}.
+Nije riječ samo o elegantnom misaonom modelu, nego
+se pokazuje puno više~---~omogućava sistematičnu konstrukciju
+ortonormiranih valićnih baza.
+
+\setlist{leftmargin=*}
+\begin{definicija}
+	\emph{Multirezolucijsku analizu} (skraćemo MRA)
+	čine niz \( (V_j)_{j \in \Z} \) zatvorenih potprostora od \( \L^2(\R) \)
+	i \emph{skalirajuća funkcija} \( \phi \in V_0 \) takvi da vrijede sljedeći uvjeti.
+	\begin{enumerate}[label=(MRA\arabic*)]
+		\item Niz \( (V_j)_{j \in \Z} \) je padajući:
+		      \begin{equation}
+			      \cdots \subseteq V_2 \subseteq V_1 \subseteq V_0
+			      \subseteq V_{-1} \subseteq V_{-2} \subseteq \cdots
+		      \end{equation} \label{i:mra1}
+		\item Vrijedi
+		      \begin{equation}
+			      \bigcap_{j \in \Z} V_j = \left\{ 0 \right\}
+			      \quad \text i \quad
+			      \ol{\bigcup_{j \in \Z} V_j} = \L^2(\R).
+		      \end{equation} \label{i:mra2}
+
+		\item Za sve \( j \in Z \), \( f \in V_j \) ako i samo ako \( f(2^j\cdot) \in V_0 \). \label{i:mra3}
+		\item Ako je \( f \in V_0 \), tada je \( f(\cdot - k) \in V_0 \) za sve \( k \in \Z \). \label{i:mra4}
+		\item Familija\footnote{analogno kao za valiće, definiramo \( \phi_{j,k}(x)=2^{-j/2}\phi(2^{-j}x-k)\)} \( \left\{ \phi_{0,k} \st k \in \Z \right\} \) je ortonormirana baza od
+		      \( \L^2(\R) \). \label{i:mra5}
+	\end{enumerate}
+\end{definicija}
+
+
 
 \end{document}
