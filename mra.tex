@@ -11,7 +11,7 @@ ortonormiranih valićnih baza.
 
 \setlist{leftmargin=*}
 \begin{definicija}
-	\emph{Multirezolucijsku analizu} (skraćemo MRA)
+	\emph{Multirezolucijsku analizu} (skraćeno MRA)
 	čine niz \( (V_j)_{j \in \Z} \) zatvorenih potprostora od \( \L^2(\R) \)
 	i \emph{skalirajuća funkcija} \( \phi \in V_0 \) takvi da vrijede sljedeći uvjeti.
 	\begin{enumerate}[label=(MRA\arabic*)]
@@ -27,13 +27,221 @@ ortonormiranih valićnih baza.
 			      \ol{\bigcup_{j \in \Z} V_j} = \L^2(\R).
 		      \end{equation} \label{i:mra2}
 
-		\item Za sve \( j \in Z \), \( f \in V_j \) ako i samo ako \( f(2^j\cdot) \in V_0 \). \label{i:mra3}
+		\item Za sve \( j \in \Z \), \( f \in V_j \) ako i samo ako \( f(2^j\cdot) \in V_0 \). \label{i:mra3}
 		\item Ako je \( f \in V_0 \), tada je \( f(\cdot - k) \in V_0 \) za sve \( k \in \Z \). \label{i:mra4}
 		\item Familija\footnote{analogno kao za valiće, definiramo \( \phi_{j,k}(x)=2^{-j/2}\phi(2^{-j}x-k)\)} \( \left\{ \phi_{0,k} \st k \in \Z \right\} \) je ortonormirana baza od
 		      \( \L^2(\R) \). \label{i:mra5}
 	\end{enumerate}
 \end{definicija}
 
+Da je MRA moguće povezati s ortonormiranom valićnom bazom tvrdi sljedeći teorem.
 
+\begin{teorem}\label{tm:mra}
+	Ako niz potprostora \( (V_j)_{j \in \Z} \) i funkcija \( \phi \)
+	čine multirezolucijsku analizu i označimo s \( P_j \)
+	projektor na potprostor \( V_j \),
+	tada postoji
+	%(ne nužno jedinstvena)
+	ortonormirana valićna baza \( \left\{ \psi_{j,k} \st j,k\in\Z \right\} \) na \( \L^2(\R) \) takva da
+	\begin{equation}\label{eq:mrapj}
+		P_{j-1} = P_j + \sum_{k \in \Z} \skp \cdot{\psi_{j,k}}\psi_{j,k}, \quad j \in \Z.
+	\end{equation}
+\end{teorem}
+\noindent Cilj ovog odjeljka je dokazati teorem~\ref{tm:mra} i konstruirati
+traženu valićnu bazu. Napomenimo kako se uvjet~\ref{i:mra5} može zamijeniti slabijim
+gdje je \( \left\{ \phi_{0,k} \st k \in \Z \right\} \) samo Rieszova baza (v.~\cite[\textsection 5.3]{daub}).
 
+Za svaki \( j \in \Z \) označimo s \( W_j \) ortogonalni komplement od \( V_j \)
+u \( V_{j-1} \), tj.\ vrijedi
+\begin{equation}
+	V_{j-1} = V_j \oplus W_j, \quad j \in \Z.
+\end{equation}
+Slijedi \( W_j \perp W_{j'} \) za \( j \neq j' \). Naime, ako je bez smanjenja općenitosti
+\( j > j' \), onda \( W_j \subseteq V_{j'} \perp W_{j'} \). Zato možemo pisati
+\begin{equation}
+	V_j = V_J \oplus \bigoplus_{k=1}^{J-j+1} W_{J-k}, \quad j < J.
+\end{equation}
+Skupa s uvjetom~\ref{i:mra2} to daje
+\begin{equation}\label{eq:l2jopluswj}
+	\L^2(\R) = \bigoplus_{j \in Z} W_j.
+\end{equation}
+Jednakost~\eqref{eq:mrapj} znači da je
+\( \left\{ \psi_{j,k} \st k \in \Z \right\} \) ortonormirana baza
+na \( W_j \) za svaki \( j \in \Z \). Zbog~\eqref{eq:l2jopluswj}
+je to i dovoljno da \( \left\{ \psi_{j,k} \st j,k \in \Z \right\} \)
+bude ortonormirana baza na \( \L^2(\R) \). Zbog uvjeta~\ref{i:mra3}
+dovoljno je samo da je \( \left\{ \psi_{0,k} \st k \in \Z \right\} \)
+ortonormirana baza od \( W_0 \).
+
+Zbog~\ref{i:mra3} je \( \left\{ \psi_{-1, k} \st k \in \Z \right\} \)
+ortnormirana baza od \( V_{-1} \). Kako je \( \phi \in V_0 \subseteq V_{-1} \)
+je
+\begin{equation}\label{eq:mraphih}
+	\phi = \sum_{k \in \Z} h_k \phi_{-1,k}, \quad h_k = \skp \phi{\phi_{-1,k}},
+	\quad \sum_{k \in \Z} \abs{h_k}^2 = 1.
+\end{equation}
+Identitet~\eqref{eq:mraphih} može se zapisati kao
+\begin{equation}
+	\phi(x) = \sqrt 2 \sum_{k \in \Z} h_k \phi(2x-k), \quad x \in \R.
+\end{equation}
+Primijenimo Fourierovu transformaciju na obje strane. Po rezultatima iz komentara~\ref{kom:four-kovac}
+\newcommand{\mathgs}{\ \ \mathrm{g.s.}}
+\begin{equation}
+	\wh \phi(\xi) = \frac 1{\sqrt 2} \sum_{k \in \Z}
+	h_k e^{-i\xi k/2} \wh \phi(\xi/2) \mathgs
+\end{equation}
+To možemo zapisati i kao
+\begin{equation}\label{eq:mraphim0}
+	\wh \phi(\xi) = m_0(\xi/2)\wh \phi(\xi/2) \mathgs, \quad
+	m_0(\xi) = \frac 1{\sqrt 2} \sum_{k \in \Z} h_k e^{-i\xi k}.
+\end{equation}
+Očito je \( m_0 \) \( 2\pi \)-periodična funkcija te je
+zbog~\eqref{eq:mraphih} \( m_0 \in \L^2([0,2\pi]) \).
+
+Pogledajmo što daje ortonormiranost od \( \left\{ \phi_{0,k} \st k \in \Z \right\} \).
+Vrijedi
+\begin{align}
+	\delta_{0,k} & = \int_\R \phi(x) \ol{\phi(x-k)} \D x
+	\stackrell{\eqref{eq:parse}}{=} \int_\R \abs{\wh \phi(\xi)}^2 e^{i\xi k} \D \xi                                                         \\
+	             & = \int_0^{2\pi} e^{i \xi k} \sum_{\ell \in \Z} \abs{\wh \phi \left( \xi + 2\pi\ell \right)}^2 \D \xi, \label{eq:mraal11}
+\end{align}
+gdje se do~\eqref{eq:mraal11} dolazi zbog periodičnosti \( \xi \mapsto e^{i\xi k} \).
+Po teoremu~\ref{tm:inverzije} slijedi
+\begin{equation}\label{eq:mrasumwhphi}
+	\sum_{\ell \in \Z} \abs{\wh \phi\left( \xi + 2\pi\ell \right)}^2 = \frac 1 {2\pi} \mathgs
+\end{equation}
+Pomoću~\eqref{eq:mraphim0} i oznake \( \zeta = \xi/2 \) je
+\begin{equation}\label{eq:mrasuma2}
+	\sum_{\ell \in \Z} \abs{m_0\left( \zeta + \pi\ell \right)}^2
+	\abs{\wh \phi \left( \zeta + \pi\ell \right)}^2 = \frac 1{2\pi} \mathgs
+\end{equation}
+Zbog periodičnosti \( m_0 \) možemo~\eqref{eq:mrasuma2} podijeliti
+na dva dijela za parne i neparne \( \ell \) i koristeći opet~\eqref{eq:mrasumwhphi}
+dobiti
+\begin{equation}\label{eq:mram0sum1}
+	\abs{m_0(\zeta)}^2 + \abs{m_0(\zeta+\pi)}^2 = 1 \mathgs
+\end{equation}
+
+Nadalje pogledajmo što dobivamo za \( f \in W_0 \), što je ekvivalentno
+\( f \in V_{-1} \) i \( f \perp V_0 \).
+Zbog prvog
+\begin{equation}
+	f = \sum_{k \in \Z} f_k \phi_{-1,k}, \quad
+	f_k = \skp f{\phi_{-1, k}}.
+\end{equation}
+Opet primijenimo Fourierovu transformaciju da dobijemo
+\begin{equation}\label{eq:mrawhf}
+	\wh f(\xi) = \frac 1{\sqrt 2} \sum_{k \in \Z}
+	f_k e^{-i\xi k/2} \wh \phi(\xi/2) = m_f(\xi/2)\wh\phi(\xi/2),
+	\quad m_f(\xi) = \frac 1{\sqrt 2} \sum_{k \in \Z} f_k e^{-i\xi k/2} \mathgs
+\end{equation}
+Funkcija \( m_f \) opet je \( 2\pi \)-periodična i u \( \L^2([0,2\pi]) \).
+Uvjet \( f \perp V_0 \) znači \( f \perp \phi_{0,k} \) za sve \( k \in \Z \) tj.
+\begin{equation}
+	0 = \int_\R f(x) \ol{\phi(x-k)} \D x \stackrell{\eqref{eq:parse}}=
+	\int_\R \wh f(\xi) \ol{\wh \phi(\xi)} e^{i\xi k} \D \xi.
+\end{equation}
+Ponovo koristeći periodičnost \( \xi \mapsto e^{i\xi k} \) je
+\begin{equation}
+	\int_0^{2\pi} e^{i\xi k} \sum_{\ell \in \Z}
+	\wh f\left( \xi + 2\pi\ell \right) \ol{\wh \phi \left( \xi + 2\pi\ell \right)}
+	\D \xi = 0
+\end{equation}
+i po teoremu~\ref{tm:inverzije}
+\begin{equation}\label{eq:mrafphi}
+	\sum_{\ell \in \Z} \wh f(\xi + 2\pi\ell) \ol{\wh \phi(\xi + 2\pi\ell)} = 0 \mathgs
+\end{equation}
+Konvergencija u~\eqref{eq:mrafphi} je apsolutna
+pa možemo permutirati elemente i primijeniti~\eqref{eq:mrasumwhphi}
+da dobijemo
+\begin{equation}\label{eq:mramfm0}
+	m_f(\zeta)\ol{m_0(\zeta)} + m_f(\zeta+\pi) \ol{m_0(\zeta+\pi)} = 0 \mathgs
+\end{equation}
+Zbog~\eqref{eq:mram0sum1} ne mogu
+\( m_0(\zeta) \) i \( m_0(\zeta + \pi) \) istovremeno biti \( 0 \)
+(osim na skupu mjere \( 0 \)), pa~\eqref{eq:mramfm0}
+povlači da postoji \( 2\pi \)-periodična funkcije \( \lambda \) takve da
+\begin{equation}\label{eq:mramflambda}
+	m_f(\zeta) = \lambda(\zeta) \ol{m_0(\zeta + \pi)}, \quad
+	\lambda(\zeta) + \lambda(\zeta + \pi)=0 \mathgs
+\end{equation}
+Drugo možemo zapisati i kao
+\begin{equation}\label{eq:mralambdanu}
+	\lambda(\zeta) = e^{i\zeta} \nu(2\zeta) \mathgs
+\end{equation}
+za neku \( 2\pi \)-periodičnu \( \nu \).
+Uvrštavanjem~\eqref{eq:mralambdanu} i~\eqref{eq:mramflambda}
+u~\eqref{eq:mrawhf} dobiva se
+\begin{equation}\label{eq:mradefwhf}
+	\wh f(\xi) = e^{i\xi/2} \ol{m_0(\xi/2 + \pi)} \nu(\xi) \wh \phi(\xi/2) \mathgs
+\end{equation}
+za \( 2\pi \)-periodičnu \( \nu \).
+
+Ovo nam daje ideju \( \psi \) definirati preko
+\begin{equation}\label{eq:mradefwhpsi}
+	\wh \psi(\xi) = e^{i\xi/2} \ol{m_0(\xi/2 + \pi)} \wh \phi(\xi/2).
+\end{equation}
+Formalno je
+\begin{equation}
+	\wh f(\xi) = \nu(\xi) \wh \psi(\xi) = \sum_{k \in \Z} \nu_k e^{-i\xi k} \wh \psi(\xi) \mathgs,
+\end{equation}
+tj.\ inverzijom
+\begin{equation}
+	f = \sum_{k \in \Z} \nu_k \psi_{0,k}.
+\end{equation}
+S \( \nu_k \) definiraju se Fourierovi koeficijenti od \( \nu \),
+budući da je \( 2\pi \)-periodična.
+Zato su preko~\eqref{eq:mradefwhpsi} dani dobri
+kandidati za ortonormiranu bazu od \( W_0 \).
+
+Preostaje dokazati da je \( \left\{ \psi_{0,k} \st k \in \Z \right\} \)
+doista ortonormirana baza od \( W_0 \).
+Po prethodnoj analizi slijedi da je uopće \( \psi \in W_0 \).
+Dokažimo ortonormiranost familije.
+Koristimo se već viđenim idejama. Najprije
+\begin{align}
+	\int_\R \psi(x) \ol{\psi(x-k)} \D x
+	= \int_\R e^{i \xi k} \abs{\wh \psi(\xi)}^2 \D \xi
+	= \int_0^{2\pi} e^{i\xi k} \sum_{\ell \in \Z} \abs{\wh \psi(\xi + 2\pi\ell)}^2 \D \xi,
+\end{align}
+pa zatim
+\begin{align}
+	\sum_{\ell \in \Z} \abs{\wh \psi(\xi + 2\pi\ell)}^2
+	       & \stackrell{\eqref{eq:mradefwhpsi}}{=}
+	\sum_{\ell \in \Z} \abs{m_0(\xi/2 + \pi\ell + \pi)}^2 \abs{\wh \phi(\xi/2 + \pi)}                \\
+	       & = \abs{m_0(\xi/2 + \pi)}^2 \sum_{n \in \Z} \abs{\wh \phi(\xi/2 + 2\pi n)}^2
+	\qquad & (\text{za neparne } \ell)                                                               \\
+	       & \phantom{=} + \abs{m_0(\xi/2)}^2 \sum_{n \in \Z} \abs{\wh \phi(\xi/2 + \pi + 2\pi n)}^2
+	\qquad & (\text{za parne } \ell)                                                                 \\
+	       & \stackrell{\eqref{eq:mrasumwhphi}}= \frac 1{2\pi}
+	\left[ \abs{m_0(\xi/2)}^2 + \abs{m_0(\xi/2 + \pi)}^2 \right] \mathgs                             \\
+	       & \stackrell{\eqref{eq:mram0sum1}}=
+	\frac 1{2\pi} \mathgs
+\end{align}
+Sada odmah slijedi \( \skp{\psi}{\psi_{0,k}} = \delta_{0,k} \).
+
+Na kraju, dokažimo da \( \left\{ \psi_{0,k} \st k \in \Z \right\} \)
+doista generiraju cijeli \( W_0 \). Dovoljno je da se svaka \( f \in W_0 \)
+može zapisati kao
+\begin{equation}
+	f = \sum_{k \in \Z} \gamma_k \psi_{0,k}, \quad \sum_{k \in \Z} \abs{\gamma_k}^2 < \infty,
+\end{equation}
+ili, ekvivalentno
+\begin{equation}
+	\wh f(\xi) = \gamma(\xi) \wh \psi(\xi) \mathgs
+\end{equation}
+za neku \( 2\pi \)-periodičnu i kvadratno integrabilnu funkciju \( \gamma \).
+U~\eqref{eq:mradefwhf} već smo dobili
+\( \wh f(\xi) = \nu(\xi) \wh \psi(\xi) \) za \( \nu \) \( 2\pi \)-periodičnu,
+pa je dovoljno još dokazati da je \( \nu \) kvadratno integrabilna.
+Vrijedi
+\begin{align}
+	\int_0^{2\pi} \abs{\nu(\xi)}^2 \D \xi & \stackrell{\eqref{eq:mralambdanu}}= 2\int_0^\pi \abs{\lambda(\xi)}^2 \D \xi \\
+	                                      & \stackrell {\eqref{eq:mram0sum1}}=
+	\int_0^\pi \abs{\lambda(\xi)}^2 \left[ \abs{m_0(\xi + \pi)}^2 + \abs{m_0(\xi)}^2 \right] \D \xi                     \\
+	                                      & \stackrell{\eqref{eq:mramflambda}}=
+	\int_0^{2\pi} \abs{\lambda(\xi)}^2 \abs{m_0(\xi + \pi)}^2 \D \xi                                                    \\
+	                                      & \stackrell{\eqref{eq:mramflambda}}=
+	\int_0^{2\pi} \abs{m_f(\xi)}^2 \D \xi = \pi \sum_{k \in \Z} \abs{f_k}^2 = \pi \norm f_2^2 < \infty.
+\end{align}
 \end{document}
