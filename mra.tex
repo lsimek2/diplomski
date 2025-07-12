@@ -73,7 +73,7 @@ bude ortonormirana baza na \( \L^2(\R) \). Zbog uvjeta~\ref{i:mra3}
 dovoljno je samo da je \( \left\{ \psi_{0,k} \st k \in \Z \right\} \)
 ortonormirana baza od \( W_0 \).
 
-Zbog~\ref{i:mra3} je \( \left\{ \psi_{-1, k} \st k \in \Z \right\} \)
+Zbog~\ref{i:mra3} je \( \left\{ \phi_{-1, k} \st k \in \Z \right\} \)
 ortnormirana baza od \( V_{-1} \). Kako je \( \phi \in V_0 \subseteq V_{-1} \)
 je
 \begin{equation}\label{eq:mraphih}
@@ -208,7 +208,7 @@ pa zatim
 \begin{align}
 	\sum_{\ell \in \Z} \abs{\wh \psi(\xi + 2\pi\ell)}^2
 	       & \stackrell{\eqref{eq:mradefwhpsi}}{=}
-	\sum_{\ell \in \Z} \abs{m_0(\xi/2 + \pi\ell + \pi)}^2 \abs{\wh \phi(\xi/2 + \pi)}                \\
+	\sum_{\ell \in \Z} \abs{m_0(\xi/2 + \pi\ell + \pi)}^2 \abs{\wh \phi(\xi/2 + \pi)}^2              \\
 	       & = \abs{m_0(\xi/2 + \pi)}^2 \sum_{n \in \Z} \abs{\wh \phi(\xi/2 + 2\pi n)}^2
 	\qquad & (\text{za neparne } \ell)                                                               \\
 	       & \phantom{=} + \abs{m_0(\xi/2)}^2 \sum_{n \in \Z} \abs{\wh \phi(\xi/2 + \pi + 2\pi n)}^2
@@ -236,12 +236,12 @@ U~\eqref{eq:mradefwhf} već smo dobili
 pa je dovoljno još dokazati da je \( \nu \) kvadratno integrabilna.
 Vrijedi
 \begin{align}
-	\int_0^{2\pi} \abs{\nu(\xi)}^2 \D \xi & \stackrell{\eqref{eq:mralambdanu}}= 2\int_0^\pi \abs{\lambda(\xi)}^2 \D \xi \\
-	                                      & \stackrell {\eqref{eq:mram0sum1}}=
-	\int_0^\pi \abs{\lambda(\xi)}^2 \left[ \abs{m_0(\xi + \pi)}^2 + \abs{m_0(\xi)}^2 \right] \D \xi                     \\
-	                                      & \stackrell{\eqref{eq:mramflambda}}=
-	\int_0^{2\pi} \abs{\lambda(\xi)}^2 \abs{m_0(\xi + \pi)}^2 \D \xi                                                    \\
-	                                      & \stackrell{\eqref{eq:mramflambda}}=
+	\frac 12 \int_0^{2\pi} \abs{\nu(\xi)}^2 \D \xi & \stackrell{\eqref{eq:mralambdanu}}= \int_0^\pi \abs{\lambda(\xi)}^2 \D \xi \\
+	                                               & \stackrell {\eqref{eq:mram0sum1}}=
+	\int_0^\pi \abs{\lambda(\xi)}^2 \left[ \abs{m_0(\xi + \pi)}^2 + \abs{m_0(\xi)}^2 \right] \D \xi                             \\
+	                                               & \stackrell{\eqref{eq:mramflambda}}=
+	\int_0^{2\pi} \abs{\lambda(\xi)}^2 \abs{m_0(\xi + \pi)}^2 \D \xi                                                            \\
+	                                               & \stackrell{\eqref{eq:mramflambda}}=
 	\int_0^{2\pi} \abs{m_f(\xi)}^2 \D \xi = \pi \sum_{k \in \Z} \abs{f_k}^2 = \pi \norm f_2^2 < \infty.
 \end{align}
 \end{document}

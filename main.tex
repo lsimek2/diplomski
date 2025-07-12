@@ -68,7 +68,6 @@
   \clipbox{\dimexpr(\wd4-.6\wd0) 0pt 0pt 0pt}{\copy4}%
 }
 \makeatother
-
 %%%
 
 
@@ -77,7 +76,7 @@
 \definecolor{gold}{HTML}{ca9520}
 \definecolor{red}{HTML}{da272f}
 \definecolor{blue}{HTML}{4682b4}
-\definecolor{navy}{HTML}{06038d}
+\definecolor{navy}{HTML}{7b000b} %% orig 06038d % onda 7b0000
 \definecolor{nred}{HTML}{650015}
 
 \definecolor{codebg}{HTML}{f0f0f0}
@@ -114,7 +113,8 @@
 \makeatother
 
 \usepackage[
-	style=alphabetic,
+%	style=alphabetic,
+	style=numeric,
 	giveninits
 	% firstinits=true,
 	% terseinits=true,
@@ -217,7 +217,13 @@
 % \newcommand{\fave}[2]{\left\langle {#1} \right\rangle_{#2}}
 \let\etoolboxforlistloop\forlistloop % save the good meaning of \forlistloop
 \usepackage{autonum}
-\let\forlistloop\etoolboxforlistloop % restore the good meaning of \forlistloop
+\let\forlistloop\etoolboxforlistloop % restore the good meaning of \forlistloopi
+
+\newenvironment{npb}
+  {\par\nobreak\vskip-\baselineskip
+   \vtop\bgroup}
+  {\par\xdef\tpd{\the\prevdepth}\egroup
+   \prevdepth=\tpd}
 
 \title{Harmonijska analiza i slu\v{c}ajni procesi}
 \author{Luka Šimek}
@@ -225,6 +231,7 @@
 \newdate{date}{10}{09}{2025}
 \date{date}
 
+\usepackage[defaultlines=4,all]{nowidow}
 \begin{document}
 % \nocite{*}
 \frontmatter
@@ -232,44 +239,50 @@
 \begin{intro}
 	Slučajni procesi su višestruko zanimljivi~---~iz perspektive drugih znanosti jer
 	se njima modeliraju razne veličine koje se mijenjaju kroz vrijeme, i u teoriji vjerojatnosti
-	jer podrazumijevaju kompliciraniju i bogatiju strukturu nego familije nezavisnih
-	slučajnih varijabli. Zbog njihove velike važnosti, razumno se pitati koji nam
-	sve alati mogu pomoći da ih bolje razumijemo. Harmonijska analiza nameće se kao mogući odgovor.
+	jer vremenska povezanost daje kompliciraniju i bogatiju strukturu nego druge familije slučajnih varijabli.
+	Zbog njihove velike važnosti, razumno se pitati koji nam
+	sve alati mogu pomoći da ih bolje razumijemo. Harmonijska analiza nameće se kao odgovor.
 	Kao i većina matematičkih disciplina, harmonijska analiza nema strogu definiciju, ali
 	možemo reći da se bavi reprezentacijom funkcija u \emph{frekvencijskoj} domeni, za razliku
 	od uobičajene vremenske. Pogled na taj alternativni prikaz funkcije često može teške
 	probleme u vremenskoj domeni znatno olakšati u frekvencijskoj. Primjer nam
 	je poznat i u teoriji vjerojatnosti~---~upravo su karakteristične funkcije Fourierove transformacije
-	vjerojatnosnih mjera, a znamo da su u teoriji vjerojatnosti jedan od najvažnijih analitičkih alata.
+	vjerojatnosnih mjera, a izuzetno su vrijedan analitički alat.
 
-	Uža tema ovog rada je \holder -regularnost trajektorija frakcionalnog Brownovog gibanja (poglavlje~\ref{chapter-gl}).
-	Frakcionalno Brownovo gibanje primjer je \emph{samosličnog} slučajnog procesa, a i generalizacija poznatijeg Brownovog gibanja (koje je također samoslično). Samosličnost kod slučajnih procesa
-	podrazumijeva da se distribucija procesa ne mijenja skaliranjem u vremenu i odgovarajućim skaliranjem po amplitudi. Drugim riječima, slična statistička svojstva
-	vrijede i u malim i u velikim rezolucijama. Samoslični slučajni procesi ponekad se nazivaju i \emph{statistički fraktali}, iako se frakcionalno Brownovo gibanje
-	pojavljuje u radovima Kolmogorova više od dvadeset godina prije no što Mandelbrot uvodi izraz \emph{fraktal} (citirati). Za analizu takvih procesa
-	prirodno pogoduju valići koje detaljno uvodimo u poglavlju~\ref{ch-ha}, o čemu govori ovaj citat iz~\cite[str.~22.]{flandrin}:
-	\begin{displayquote}
-		Štoviše, čim su se pojavile sredinom osamdesetih, gotovo se odmah prepoznalo da su valićne transformacije,
-		zahvaljujući svojoj ugrađenoj multirezolucijskoj strukturi, prirodni alati
-		za otkrivanje samosličnih pojava u signalima, slikama i procesima.
-	\end{displayquote}
+	Uža tema ovog rada je \holder -regularnost trajektorija frakcionalnog Brownovog gibanja (FBM).
+	FBM je primjer samosličnog slučajnog procesa, a i generalizacija poznatijeg Brownovog gibanja. Samosličnost kod slučajnih procesa
+	podrazumijeva da se distribucija procesa ne mijenja skaliranjem u vremenu i odgovarajućim skaliranjem po amplitudi. Drugim riječima, ista statistička svojstva
+	vrijede i u malim i u velikim rezolucijama.
+	Možemo reći i da se slika ne pojednostavljuje kada ju se gleda iz veće blizine, pa se
+	samoslični slučajni procesi ponekad se nazivaju \emph{statistički fraktali}.
+	Za njihovu analizu prirodno pogoduju valići koje detaljno uvodimo u prvom poglavlju.%, a o čemu govori ovaj citat iz~\cite[str.~22.]{flandrin}:
+	%	\begin{displayquote}
+	%		Štoviše, čim su se pojavile sredinom osamdesetih, gotovo se odmah prepoznalo da su valićne transformacije,
+	%		zahvaljujući svojoj ugrađenoj multirezolucijskoj strukturi, prirodni alati
+	%		za otkrivanje samosličnih pojava u signalima, slikama i procesima.
+	%	\end{displayquote}
 
-	\bigskip
-	Osim posljednjeg trećeg poglavlja, ovaj rad se sastoji od dva pripremna poglavlja kojima je cilj
-	predstaviti osnovne pojmove, rezultate i tehnike u svojim područjima~---~redom teoriji valića i teoriji
-	slučajnih procesa u neprekidnom vremenu.
-	\begin{itemize}
-		\item U prvom poglavlju...
+	%	\bigskip
+	Osim zaključnog trećeg poglavlja, ovaj rad se sastoji i od dva pripremna poglavlja.
+	Prvo poglavlje vezano je za harmonijsku analizu i bavi se Fourierovom transformacijom
+	i valićima, posebice ortonormiranim valićnim bazama na \( \L^2(\R) \).
+	Drugo poglavlje bavi se slučajnim procesima u neprekidnom vremenu~---~uvodi se pojam \levy jevih
+	procesa i proučava njihova veza sa beskonačno djeljivim distribucijama. Posebice, dokazujemo
+	postojanje Brownovog gibanja i neka njegova osnovna svojstva. Na kraju poglavlja formalno se uvodi pojam samosličnosti.
+	Treće poglavlje uvodi frakcionalno Brownovo gibanje, njegove integralne reprezentacije i
+	rješava pitanje \holder -regularnosti njegovih trajektorija valićnom metodom.
 
-		\item U drugom poglavlju...
+	% \begin{itemize}
+	% 	\item U prvom poglavlju uvodimo Fourierovu transformaciju na \( \L^1(\R) \) i \( \L^2(\R) \) 
 
-		\item U trećem poglavlju...
-	\end{itemize}
+	% 	\item U drugom poglavlju...
 
-	Glavnu literaturu čine~\cite{rudin,daub} za prvo poglavlje, \cite{sato,em,sarapa} za drugo poglavlje i~\cite{se,ayache} za treće poglavlje.
+	% 	\item U trećem poglavlju...
+	% \end{itemize}
+	Glavnu literaturu čine~\cite{rudin,daub} za prvo poglavlje, \cite{sato,em,sarapa} za drugo poglavlje \nopagebreak[4] i~\cite{se,ayache} za treće poglavlje.
 \end{intro}
 
-\fontsize{11pt}{13.pt}\selectfont
+% \fontsize{11pt}{13.pt}\selectfont
 
 % ha --------------------
 \subfile{ha.tex}
@@ -295,11 +308,53 @@
 \pagestyle{empty}
 
 \begin{sazetak}
-	U ovom radu...
+	Ovaj diplomski rad bavi se primjenom harmonijske analize na proučavanje slučajnih procesa,
+	konkretno na primjeru problema \holder -regularnosti trajektorija frakcionalnog
+	Brownovog gibanja i rješenja valićnom metodom.
+
+	Prvo poglavlje definira Fourierovu transformaciju na \( \L^1(\R) \) i
+	\( \L^2(\R) \), a nakon toga se bavi ortonormiranim valićnim bazama na \( \L^2(\R) \)
+	kroz motivacijski primjer Haarovog sistema i općenitije kroz multirezolucijsku analizu.
+	Ukratko se uvode Meyerovi valići za korištenje u završnom dijelu rada.
+
+	Drugo poglavlje uvodi pojam \levy jevog procesa i primjere --- Poissonov proces
+	i Brownovo gibanje. Pokazuje se korespondencija između \levy jevih procesa
+	i beskonačno djeljivih distribucija te dovoljni uvjeti
+	da Markovljev proces ima modifikaciju čije su trajektorije
+	\cadlag \  odn.\ neprekidne. Posebice,
+	dokazuje se da Brownovo gibanje postoji. Na kraju se uvodi
+	pojam samosličnosti i nekoliko osnovnih rezultata.
+
+	Treće poglavlje uvodi frakcionalno Brownovo gibanje, njegova osnovna svojstva i
+	njegove integralne reprezentacije. Rješava se problem \holder -regularnosti
+	trajektorija~---~uniformno na kompaktnom skupu i po točkama.
+	Prvo se oslanja na neke dodatne rezultate te se prikazuje ukratko,
+	dok se drugo rješava valićnom metodom te je prikazano puno detaljnije.
 \end{sazetak}
 
 \begin{summary}
-	In this thesis...
+	This master's thesis is concerned with the applications of harmonic analysis to the study
+	of stochastic processes, specifically solving the problem of \holder -regularity of the trajectories
+	of fractional Brownian motion by means of a wavelet method.
+
+	The first chapter defines the Fourier transform on \( \L^1(\R) \) and
+	\( \L^2(\R) \), before turning its attention to orthonormal wavelet bases
+	on \( \L^2(\R) \) through the motivational example of Haar's system and
+	more generally through multiresolution analysis. Meyer wavelets are briefly introduced
+	for use in the thesis' final parts.
+
+	The second chapter introduces \levy \ processes and examples --- the Poisson process and
+	Brownian motion. The correspondence between \levy \ processes and infinitely divisible
+	distribution is shown, as well as sufficient conditions for a Markov process to have a
+	modification with \cadlag \ or continuous trajectories. In particular, the existence of
+	Brownian motion is proven. The final part of the chapter introduces
+	the concept of selfsimilarity along with some basic results.
+
+	The third chapter introduces fractional Brownian motion, its basic properties and
+	its integral representations. The problem of the trajectories' \holder -regularity
+	is solved---uniformly on a compact set and pointwise. The former
+	requires some auxilliary results and is shown briefly, while the latter
+	uses a wavelet method and is shown in much more detail.
 \end{summary}
 
 \begin{cv}

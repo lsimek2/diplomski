@@ -3,20 +3,19 @@
 \nocite{*}
 
 \section{\holder -regularnost po točkama}\label{sec:holpo}
-%fiksirati prozivoljni Hii
-%napomenuti da je odsad B^H_t na t\in\R; mora se popraviti drugdje ako to mijenjamo
-%napomenuti da je \psi meyerov mat. valic
 Definirat ćemo kritični \emph{točkovni} \holder ov eksponent.
-Cilj ovog odjeljka je dokazati da je i takav eksponent g.s.\ jednak \( H \). Odsad ćemo promijeniti konvenciju glede FBM ---
-trenutke odsad čine \( t \in \R \) umjesto \( t \ge 0 \), tj.\ govorimo
+Cilj ovog odjeljka je dokazati da je i takav eksponent g.s.\ jednak \( H \). Odsad ćemo promijeniti konvenciju glede FBM~---~trenutke
+odsad čine \( t \in \R \) umjesto \( t \ge 0 \), tj.\ govorimo
 o procesu \( \left\{ B^H_t \st t \in \R \right\} \).
 To možemo napraviti ako~\eqref{eq:deffbm} tražimo
 za sve \( t,s \in \R \) umjesto \( t,s \ge 0 \) ili
 naprosto proširivanjem integralnih reprezentacija na \( t \in \R \).
 Time ćemo se uskladiti s~\cite{ayache} i kasnije
-postići veću elegantnost. Također,
-nadalje pod \( \psi \) podrazumijevamo
-Meyerov matični valić (\ref{??}).
+postići veću elegantnost.
+
+Uvodi se još jedna promjena konvencije, naime je \( \psi_{j,k}(x) = 2^{j/2}\psi(2^jx-k) \). Dakle, riječ je o dilataciji inverznoj onoj u~\eqref{eq:psijk}.
+Nadalje pod \( \psi = \psi^{\mathrm{Meyer}}\) podrazumijevamo
+Meyerov matični valić (v.~odjeljak~\ref{sec:meyer}).
 
 
 \begin{definicija}\label{def:holpo}
@@ -54,7 +53,7 @@ standardna u frakcionalnom kalkulusu.
 	\end{enumerate}
 \end{definicija}
 
-\begin{komentar}
+\begin{komentar}\label{kom:Psi}
 	...
 \end{komentar}
 
@@ -97,7 +96,7 @@ Ta reprezentacija bit će temelj za našu daljnju analizu.
 	To je istina --- možemo nastaviti razmatranja iz odjeljka~\ref{sec:fbm} pa dokazati i ovo: ako su \( f_1, \ldots, f_n \in \L^2(\R) \)
 	linearno nezavisne, tada je \( \left( I(f_1),\ldots,I(f_n) \right)  \) normalni slučajni vektor.
 
-	Slijedeći pravila za modulacije i translacije (\ref{??})
+	Slijedeći pravila za modulacije i translacije (v.~komentar~\ref{kom:four-kovac})
 	dobiva se da je Fourierova transformacija od \( \psi_{j,k} \) jednaka
 	\( \xi \mapsto -2^{j/2}e^{ik2^{-j}\xi}\wh\psi(2^{-j}\xi) \).
 	Konjugacijom, jer je Meyerov valić realan,
@@ -244,7 +243,7 @@ i zatim dokazati svojevrsnu inverziju formule~\eqref{eq:valfbmrep}.
 	\[
 		\int_\R \Psi_{-H}(t) \D t = \sqrt{2\pi} \wh \Psi _{-H} (0) = 0,
 	\]
-	zbog \( \wh \Psi_{-H}(\xi) = (-i\xi)^{H+1/2}\wh \psi(\xi) \) (\ref{??}) i \( \wh \psi \)
+	zbog \( \wh \Psi_{-H}(\xi) = (-i\xi)^{H+1/2}\wh \psi(\xi) \) (v.~komentar~\ref{kom:Psi}) i \( \wh \psi \)
 	iščezava u okolini nule. Analogno se dokaže tvrdnja za \( \Psi_H \).
 
 	Zatim~\ref{holpo-lema2-itemii} dobivamo iz
@@ -257,8 +256,9 @@ i zatim dokazati svojevrsnu inverziju formule~\eqref{eq:valfbmrep}.
 		\ol{e^{-ik2^{-j}\xi}\wh\psi(2^{-j}\xi)} \D \xi                                                    \\
 		 & = 2^{(H+1/2)(j'-j)+(j'+j)/2}\int_\R \psi(2^{j'}t-k')\psi(2^jt-k) \D t. \label{holpo-lema2-eq2}
 	\end{align}
-	Jednakost~\eqref{holpo-lema2-eq1} dobije se Plancherelovim teoremom (\ref{??})
-	i rezultatima iz komentara~\ref{??}. Opet primjenimo Plancherelov teorem da dobijemo~\eqref{holpo-lema2-eq2}. Na kraju dobivamo skalarni produkt dvaju valića i rezultat slijedi
+	Jednakost~\eqref{holpo-lema2-eq1} dobije se Parsevalovom jednakosti~\eqref{eq:parse}
+	i rezultatima iz komentara~\ref{kom:four-kovac}. Primijenimo Parsevalovu jednakost u suprotnom smjeru
+	da dobijemo~\eqref{holpo-lema2-eq2}. Na kraju dobivamo skalarni produkt dvaju valića i rezultat slijedi
 	zbog ortonormiranosti familije.
 \end{proof}
 
@@ -287,7 +287,7 @@ i zatim dokazati svojevrsnu inverziju formule~\eqref{eq:valfbmrep}.
 	Zamjenu sume i integrala u~\eqref{holpo-prop2-eq1} možemo opravdati teoremom o
 	dominiranoj konvergenciji --- prvo propozicijom~\ref{holpo-prop1}
 	(zbog koje se zadržavamo na \( \omega \in \Omega_1^* \)) i zbog \( \Psi_{-H} \in \mathcal S(\R) \)
-	(komentar~\ref{??}). Daljnje jednakosti dobiju se pomoću leme~\ref{holpo-lema2}, naime
+	(v.~komentar~\ref{kom:four-kovac}). Daljnje jednakosti dobiju se pomoću leme~\ref{holpo-lema2}, naime
 	\begin{equation}
 		\int\grn \Psi_H(-k)\Psi_{-H}(2^jt-k) \D t = 0, \quad j \neq 0,
 	\end{equation}

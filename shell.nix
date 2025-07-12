@@ -44,6 +44,7 @@ let
         autonum
         url
         subfiles
+        nowidow
         ; # dvisvgm
     }
   );

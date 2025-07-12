@@ -113,14 +113,14 @@ da nije moguće (osim u trivijalnom slučaju)
 postići da funkcija ima kompaktan nosač i u
 vremenskoj i u frekvencijskoj dimenziji (v.~\cite[theorem~4]{kovac-wroclaw}).
 
-\begin{teorem}
+\begin{teorem}\label{tm:neodredjenosti}
 	Ako je \( f \in \L^2(\R) \) takva da su i \( \supp f \)
 	i \( \supp \wh f \) kompaktni, tada je \( f=0 \)~g.s.
 \end{teorem}
 Sljedeći teorem (v.~\cite{daub2}) uvodi Daubechiesjine valiće, ali i sugerira ograničenje
 da ne postoje valići klase \( \mr C^\infty \) kompaktnog nosača
 koji čine ortonormiranu bazu na \( \L^2(\R) \).
-\begin{teorem}
+\begin{teorem}\label{tm:daub}
 	Za svaki \( k \in \N \) postoji \( \psi \in \mr C_\mrc ^k(\R) \)
 	takav da je s~\eqref{eq:psijk} dana
 	ortonormirana baza na \( \L^2(\R) \).
@@ -134,11 +134,11 @@ nalazit će se taman izvan ovih ograničenja.
 U ostatku odjeljka cilj nam je dokazati da Haarovi valići čine ortonormiranu bazu
 na \( \L^2(\R) \). Haarovi valići dani su matičnim valićem
 \begin{equation}\label{eq:haar}
-	\psi^{\mathrm{Haar}}(x) = \begin{cases}\begin{aligned}
-			1,  & \quad & 0 \le x < 1/2, \\
-			-1, & \quad & 1/2 \le x < 1, \\
-			0,  & \quad & \text{inače}.
-		\end{aligned}\end{cases}
+	\psi^{\mathrm{Haar}}(x) = \begin{cases}
+		\phantom{-} 1, & \quad  0 \le x < 1/2, \\
+		-1,            & \quad  1/2 \le x < 1, \\
+		\phantom{-} 0, & \quad  \text{inače}.
+	\end{cases}
 \end{equation}
 Familija generirana preko~\eqref{eq:haar} zapravo je poznata
 kao ortonormirana baza na \( \L^2(\R) \) puno dulje nego što uopće postoji pojam valića.

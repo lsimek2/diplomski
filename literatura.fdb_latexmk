@@ -1,10 +1,10 @@
 # Fdb version 4
-["pdflatex"] 1751192813.9074 "/home/lsimek/projects/diplomski/literatura.bib" "literatura.pdf" "literatura" 1751192814.06729 2
-  "/home/lsimek/projects/diplomski/literatura.bib" 1751192813.82444 2958 09c0418cd5e0d993bc67a20c123b27dd ""
-  "/nix/store/wwfq8brj795wbpfc5x8dhcv5i5ay8qqw-texlive-combined-2023/share/texmf-var/web2c/pdftex/pdflatex.fmt" 1 8021457 de3c7488d73b1b6fe059bab0526fa73d ""
-  "/nix/store/wwfq8brj795wbpfc5x8dhcv5i5ay8qqw-texlive-combined-2023/share/texmf-var/web2c/texmf.cnf" 1 42803 25506858c009a3a3559b863182d009e5 ""
-  "literatura.aux" 1747412174.67036 32 3985256e7290058c681f74d7a3565a19 "pdflatex"
-  "literatura.bib" 1751192813.82444 2958 09c0418cd5e0d993bc67a20c123b27dd ""
+["pdflatex"] 1752337937.21953 "/home/lsimek/projects/diplomski/literatura.bib" "literatura.pdf" "literatura" 1752337937.40854 2
+  "/home/lsimek/projects/diplomski/literatura.bib" 1752337937.13369 3718 dc3817627dadc8943a0edbe469da7711 ""
+  "/nix/store/51qpi3w884k2sr2fsw9jrc4032aqmnmx-texlive-combined-2023/share/texmf-var/web2c/pdftex/pdflatex.fmt" 1 8021403 a76617e52b5c2800573f2169320d0635 ""
+  "/nix/store/51qpi3w884k2sr2fsw9jrc4032aqmnmx-texlive-combined-2023/share/texmf-var/web2c/texmf.cnf" 1 42803 5c732fc6cb67190b645267c903b3d91e ""
+  "literatura.aux" 1752337937.2177 32 3985256e7290058c681f74d7a3565a19 "pdflatex"
+  "literatura.bib" 1752337937.13369 3718 dc3817627dadc8943a0edbe469da7711 ""
   (generated)
   "literatura.aux"
   "literatura.log"
