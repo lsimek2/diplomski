@@ -34,7 +34,7 @@ rada podrazumijevamo fiksni \( H \in \left\langle 0,1 \right\rangle \).
 	takvu da za svaki \( \alpha \in \left\langle 0, \beta/p \right\rangle \)
 	i \( T > 0 \) vrijedi da je \( \bigl\{ \widetilde X_t \bigr\} \)
 	\holder-regularan s parametrom \( \alpha \) na segmentu \( \left[ 0,T \right] \), tj.\
-	\begin{equation}
+	\begin{equation}\label{eq:kolmcen}
 		\sup\limits_{0 \le s, t \le T}
 		\frac{\abs{\widetilde X_t-\widetilde X_s}}{\abs{t-s}^\alpha} < \infty.
 	\end{equation}
@@ -48,7 +48,7 @@ rada podrazumijevamo fiksni \( H \in \left\langle 0,1 \right\rangle \).
 
 \begin{proof}
 	Jer je \( B^H_t-B^H_s \) normalna varijabla, vrijedi ekvivalencija svih
-	apsolutnih momenata (vidljivo iz eksplicitnih formula; v.~\cite[str.~16]{ayache} za referencu) tj.\
+	apsolutnih momenata (v.~\cite[str.~16]{ayache} za referencu) tj.\
 	uz~\eqref{eq:deffbmalt} vrijedi da
 	za sve \( p > 2 \) postoji konstanta \( K_p \) ovisna samo o \( p \) takva da
 	\begin{equation}
@@ -89,6 +89,19 @@ kojim smo riješili temu ovog odjeljka.
 	\end{equation}
 \end{proof}
 
+\begin{komentar}
+	Moguće je koristiti (v.~\cite[lema~3.6]{ayache}) jaču verziju teorema~\ref{holunif-setm}
+	gdje je \holder ov uvjet~\eqref{eq:kolmcen} zamijenjen sa:
+	\begin{equation}
+		\abs{\wt X_t - \wt X_s} \le C \abs{t-s}^\alpha, \quad 0 \le t,s \le T
+	\end{equation}
+	gdje je \( C \) slučajna varijabla sa svim konačnim momentima.
+	U~\eqref{eq:kolmcen} tvrdi se samo da je takva varijabla \( C \)
+	dobro definirana.
+	Naravno, u oba slučaja je nenegativna i ovisi samo o \( T \) i \( \alpha \).
+	I u korolaru~\ref{holunif-tm} je onda moguće
+	podrazumijevati tu jaču varijantu \holder ovog uvjeta.
+\end{komentar}
 
 
 \end{document}

@@ -148,7 +148,7 @@ Ipak, nisu svi samoslični procesi \levy jevi, pa se proučavaju odvojeno samosl
 jedino stacionarni odn.\ jedino nezavisni (v.~\cite{em}).
 
 U slučaju samosličnih procesa sa stacionarnim prirastima, možemo naći vezu s fenomenom
-\emph{dugoročne zavisnosti} (\emph{pamćenja}; \cite[\textsection3.2]{em}), koja se konkretno
+\emph{dugoročne zavisnosti} ili \emph{zavisnosti dugog dosega} (v.~\cite[\textsection3.2]{em}), koja se konkretno
 definira sporim opadanjem autokovarijacijske funkcije. Stavimo \( J_n = X_{n+1}-X_n \) za \( n \in \N_0 \)
 i \( \gamma(n) = \E(J_0J_n) \). U analizi stacionarnih nizova često nam je poželjan uvjet
 \[
@@ -205,6 +205,16 @@ Najprije, potrebna nam je sljedeća lema.
 	\end{align}
 	Tvrdnje za \( H=1/2 \) slijede odmah iz~\eqref{eq:tmsssi-al1}, a inače iz~\eqref{eq:tmsssi-al4}: drugi sumand teži u \( 0 \) kad \( n \ub \), ne utječe na konvergenciju niti na
 	predznak ni za koji \( n \in \N \).
-
 \end{proof}
+
+\begin{komentar}
+	U teoremu smo isključili mogućnost \( H \ge 1 \). Kad bi bio \( H > 1 \),
+	iz~\eqref{eq:tmsssi-al4} dobili bismo \( \gamma(n) \ub \) za \( n \ub \),
+	no to je nemoguće za stacionarne nizove zbog poznate činjenice \( \abs{\gamma(n)} \le \gamma(0) \).
+	Dakle, konačna varijanca kod samosličnih procesa sa stacionarnim prirastima nemogućim čini \( H > 1 \).
+
+	Slučaj \( H=1 \) je moguć ali trivijalan. Naime, odmah se iz~\eqref{eq:tmsssi-al1}
+	dobiva \( \gamma(n) = \E X_1^2 \) za sve \( n \) tj.\ autokorelacijska funkcija je uvijek \( 1 \).
+	Iz toga slijedi \( X_t = tX_1 \) g.s.
+\end{komentar}
 \end{document}

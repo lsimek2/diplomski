@@ -34,8 +34,8 @@ Meyerov matični valić (v.~odjeljak~\ref{sec:meyer}).
 %napomenuti da je potrebno dokazati \le dio
 %\Omega_1 ne smije ovisiti o t_0
 Primijetimo da trebamo samo dokazati \( \alpha_{t_0} \le H \)
-jer za suprotnu nejednakost znamo da vrijedi po prošlom odjeljku (za odgovarjuću
-modifikaciju, koju možemo podrazumijevati).
+jer za suprotnu nejednakost znamo da vrijedi po prošlom odjeljku (za odgovarajuću
+modifikaciju, koju podrazumijevamo).
 Prije nego nastavimo, još je korisno definirati dva pojma
 standardna u frakcionalnom kalkulusu.
 
@@ -89,12 +89,14 @@ Ta reprezentacija bit će temelj za našu daljnju analizu.
 	centrirane i normalno distribuirane. Varijancu dobijemo zbog izometričnosti
 	Paley--Wienerovog integrala:
 	\begin{equation}
-		\E\varepsilon_{j,k}^2 = \E(I(\psi_{j,k})^2) = \norm{\psi_{j,k}}^2_{\L^2} = 1.
+		\E\varepsilon_{j,k}^2 = \E \left[ I(\psi_{j,k})^2 \right]  = \norm{\psi_{j,k}}^2_2 = 1.
 	\end{equation}
 	Na isti način možemo dobiti nekoreliranost: \( \E (\varepsilon_{j,k}\varepsilon_{j',k'}) = \skp{\psi_{j,k}}{\psi_{j',k'}} = 0 \) za \( (j,k) \neq (j',k') \). Ako varijable \( \left\{ \varepsilon_{j,k}  \right\} \)
 	zajedno čine normalne slučajne vektore, tada je to dovoljno za nezavisnost.
 	To je istina --- možemo nastaviti razmatranja iz odjeljka~\ref{sec:fbm} pa dokazati i ovo: ako su \( f_1, \ldots, f_n \in \L^2(\R) \)
-	linearno nezavisne, tada je \( \left( I(f_1),\ldots,I(f_n) \right)  \) normalni slučajni vektor.
+	linearno nezavisne, tada je \( \left( I(f_1),\ldots,I(f_n) \right)  \) neprekidni normalni slučajni vektor.
+	Naime, singularnost kovarijacijske matrice općenito povlači linearnu zavisnost varijabli, a to bi povuklo i
+	linearnu zavisnost polaznih funkcija.
 
 	Slijedeći pravila za modulacije i translacije (v.~komentar~\ref{kom:four-kovac})
 	dobiva se da je Fourierova transformacija od \( \psi_{j,k} \) jednaka
@@ -110,9 +112,9 @@ Ta reprezentacija bit će temelj za našu daljnju analizu.
 		\left\{ \xi \mapsto 2^{-j/2} e^{ik2^{-j}\xi}\wh\psi(-2^{-j}\xi) \st j,k \in \Z \right\}
 	\]
 	je također ortonormirana baza prostora \( \L^2(\R) \). Sada želimo dekomponirati
-	funkciju \( f(\xi) = \frac{e^{it\xi}-1}{(i\xi)^{H+1/2}} \), koja je očito u \( \L^2(\R) \), u toj bazi:
+	funkciju \( \xi \mapsto \frac{e^{it\xi}-1}{(i\xi)^{H+1/2}} \), koja je očito u \( \L^2(\R) \), u toj bazi:
 	\begin{equation} \label{eq:dekompfxi}
-		f(\xi) =
+		\frac{e^{it\xi}-1}{(i\xi)^{H+1/2}} =
 		\sum_{j,k \in \Z} c_{j,k}(t) 2^{-j/2}e^{ik2^{-j}\xi}\wh \psi(-2^{-j}\xi),
 	\end{equation}
 	gdje
@@ -276,12 +278,12 @@ i zatim dokazati svojevrsnu inverziju formule~\eqref{eq:valfbmrep}.
 	%%% odavde nadalje B^H_t je za t \in \R ; popraviti i drugdje
 	Računamo:
 	\begin{align}
-		 & 2^{j(1+H)}\int\grn B^H_t\Psi_{-H}(2^jt-k) \D t                                                                                                                                \\
-		 & = 2^{j(1+H)}\int\grn \left[ \sum_{j',k'\in\Z} 2^{-j'H}\varepsilon_{j',k'}\left( \Psi_H(2^{j'}t-k')-\Psi_H(-k') \right) \right] \Psi_{-H}(2^jt-k) \D t \label{holpo-prop2-eq1} \\
+		 & 2^{j(1+H)}\int\grn B^H_t\Psi_{-H}(2^jt-k) \D t                                                                                                                                                     \\
+		 & = 2^{j(1+H)}\int\grn  \scriptstyle \left[ \sum\limits_{j',k'\in\Z} 2^{-j'H}\varepsilon_{j',k'}\left( \Psi_H(2^{j'}t-k')-\Psi_H(-k') \right) \right] \Psi_{-H}(2^jt-k) \D t \label{holpo-prop2-eq1} \\
 		 & = \sum_{j',k'\in\Z} 2^{j+(j-j')H}\varepsilon_{j',k'}
-		\int\grn \left( \Psi_H(2^{j'}t-k')-\Psi_H(-k) \right)\Psi_{-H}(2^jt-k) \D t                                                                                                      \\
+		\int\grn \left( \Psi_H(2^{j'}t-k')-\Psi_H(-k) \right)\Psi_{-H}(2^jt-k) \D t                                                                                                                           \\
 		 & = \sum_{j',k'\in\Z} 2^{j+(j-j')H}\varepsilon_{j',k'}
-		\int\grn \Psi_H(2^{j'}t-k')\Psi_{-H}(2^jt-k) \D t \label{holpo-prop2-eq2}                                                                                                        \\
+		\int\grn \Psi_H(2^{j'}t-k')\Psi_{-H}(2^jt-k) \D t \label{holpo-prop2-eq2}                                                                                                                             \\
 		 & = \varepsilon_{j,k} \quad \left(\text{za } \omega \in \Omega_1^*\right). \label{holpo-prop2-eq3}
 	\end{align}
 	Zamjenu sume i integrala u~\eqref{holpo-prop2-eq1} možemo opravdati teoremom o

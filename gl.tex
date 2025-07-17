@@ -61,7 +61,7 @@ dobivamo
 	\sum_{j=0}^\infty \sum_{k=0}^{2^j-1}
 	2^{-j/2} \tau(2^jt - k)2^{j/2} h(2^js - k).
 \end{equation}
-Uvrštavanjem i primjenom izometričnosti Paley--Wienerovog integrala dobivamo na\-jav\-lje\-nu reprezentaciju
+Uvrštavanjem, integriranjem i primjenom izometričnosti Paley--Wienerovog integrala dobivamo na\-jav\-lje\-nu reprezentaciju
 \begin{equation} \label{eq:brownhaar}
 	B_t = t\varepsilon_0 + \sum_{j=0}^\infty\sum_{k=0}^{2^j-1} 2^{-j/2}\tau(2^jt - k) \varepsilon_{j,k},
 \end{equation}
@@ -70,7 +70,8 @@ pri čemu
 	\varepsilon_0 = \int_0^1 1_{\left[ 0,1 \right]}(s) \D B_s, \qquad
 	\varepsilon_{j,k} = \int_0^1 2^{j/2} h(2^js - k) \D B_s, \quad j \ge 0, \ 0 \le k \le 2^j-1.
 \end{equation}
-Lako je pokazati \( \varepsilon_0, \varepsilon_{j,k} \sim \mathrm N(0,1) \) i da su nezavisni.
+Vrijedi \( \varepsilon_0, \varepsilon_{j,k} \sim \mathrm N(0,1) \) i da su nezavisni.
+To ćemo kasnije dokazati u općenitijim uvjetima.
 Vrijedi i da red u~\eqref{eq:brownhaar}, osim što konvergira za svaki \( t \) po
 normi u \( \L^2(\Omega) \), gotovo sigurno konvergira uniformno po \( t \).
 Ovo je ujedno i temelj za \levy jevu konstrukciju Brownovog gibanja. Definiramo li
@@ -107,8 +108,6 @@ s odgovarajućom kovarijacijskom strukturom, a zatim ispitati njegova svojstva.
 	\item Varijacija na definiciju~\ref{def:fbm} moguća je ako dodatno pretpostavimo \( \var B_1^H = 1 \) kao npr.\ u~\cite{se}, čime nestaje faktor \( \E\left[ (B_1^H)^2 \right] \) u~\eqref{eq:deffbm}.
 
 	\item Ako uzmemo \( \var B_1^H = 1 \) i \( H=1/2 \), riječ je o običnom Brownovom gibanju. Naime, dobije se \( \E(B^H_tB^H_s) = \min\left\{ t,s \right\} \), što se lako pokaže da vrijedi i za Brownovo gibanje.
-	\item Za \( H=1 \) dobio bi se degenerirani slučaj --- kao u dokazu teorema~\ref{tm:sssi} dobili bismo \( \gamma(n) = \E\left[ (B^H_1)^2 \right] \), tj.\ autokorelacija je uvijek \( 1 \) i
-	      \( B^H_t = tB_1^H \) g.s.
 
 	\item Za svaki gaussovski \( H \)-samoslični proces sa stacionarnim prirastima
 	      nužno vrijedi~\eqref{eq:deffbm} po lemi~\eqref{lema:sssi}. Dakle,
@@ -142,7 +141,7 @@ integralom nekog drugog procesa (ili determinističke funkcije). U ovom radu
 uvijek je riječ o integralu determinističke funkcije s obzirom na Brownovo gibanje --- dakle
 o Paley--Wienerovom integralu. Konkretno, želimo prikaz oblika
 \begin{equation}\label{eq:intrepgen}
-	B^H_t \jpod \int_0^t K(u) \D B_u \quad \text{ili općenitije} \quad
+	B^H_t \jpod \int_0^t K(u) \D B_u \quad \text{ili} \quad
 	B^H_t \jpod \int_\R K_t(u) \D B_u
 \end{equation}
 za \( K, K_t \in \L^2(\R) \) determinističke integralne jezgre. Primijetimo da
@@ -154,8 +153,8 @@ Slučajni proces definiran kao u~\eqref{eq:intrepgen} nužno je centriran
 i gaussovski. Neka su dani trenuci \( s_1 < t_1 \le s_2 < t_2 \le \cdots \le s_n < t_n \),
 realni brojevi \( a_1, \ldots, a_n \) i step-funkcija \( h \) dana s
 \[
-	h(u) = \sum_{k=1}^n a_k 1_{\left[ s_k, t_k \right]}(u), \quad
-	\text{dakle} \quad
+	h(u) = \sum_{k=1}^n a_k 1_{\left[ s_k, t_k \right]}(u) \quad
+	\implies \quad
 	I(h) = \int_\R h(u) \D B_u
 	= \sum_{k=1}^n a_k(B_{t_k}-B_{s_k}).
 \]
@@ -239,11 +238,13 @@ u definiciji~\ref{def:fbm}, konstante
 	\begin{equation}\label{eq:harmrep}
 		B^H_t \jpod
 		\int_\R \frac{e^{it\xi}-1}{(i\xi)^{H+1/2}} \D \wh B_\xi,
-		\quad \text{gdje} \quad
-		(i\xi)^{H+1/2}=\begin{cases}
-			\abs \xi ^{H+1/2} e^{i(H+1/2)\pi/2}, \quad  & \xi \ge 0, \\
-			\abs \xi ^{H+1/2} e^{-i(H+1/2)\pi/2}, \quad & \xi < 0.
-		\end{cases}
+		\qquad
+		(i\xi)^{H+1/2} = \abs\xi^{H+1/2}e^{\sgn\xi \cdot i(H+1/2)\pi/2}.
+		% \quad \text{gdje} \quad
+		% (i\xi)^{H+1/2}=\begin{cases}
+		% 	\abs \xi ^{H+1/2} e^{i(H+1/2)\pi/2}, \quad  & \xi \ge 0, \\
+		% 	\abs \xi ^{H+1/2} e^{-i(H+1/2)\pi/2}, \quad & \xi < 0.
+		% \end{cases}
 	\end{equation}
 	Dobiva se Fourierovom transformacijom Mandelbrot--van Nessove reprezentacije. Dokaz
 	zahtijeva frakcionalni kalkulus i može se naći u~\cite{ojeda}.

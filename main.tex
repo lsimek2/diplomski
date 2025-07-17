@@ -121,15 +121,15 @@
 	% giveninits=true
 ]{biblatex}
 \addbibresource{literatura.bib}
-\let\oldcite\cite
-\renewcommand{\cite}[2][]{%
-    \def\tmp{#1}%
-    \ifx\tmp\empty
-        \mbox{\oldcite{#2}}%
-    \else
-        \mbox{\oldcite[\tmp]{#2}}%
-    \fi
-}
+% \let\oldcite\cite
+% \renewcommand{\cite}[2][]{%
+%     \def\tmp{#1}%
+%     \ifx\tmp\empty
+%         \mbox{\oldcite{#2}}%
+%     \else
+%         \mbox{\oldcite[\tmp]{#2}}%
+%     \fi
+% }
 \usepackage{pgfplots}
 \pgfplotsset{compat=1.15}
 \usepackage{mathrsfs}
@@ -153,6 +153,7 @@
 \newcommand{\ub}{\rightarrow \infty}
 \newcommand{\un}{\rightarrow 0}
 \newcommand{\norm}[1]{\left\lVert#1\right\rVert} 
+\newcommand{\dotnorm}{\left\lVert \, \cdot \, \right\rVert}
 % \newcommand{\given}{\, \middle\vert \,}
 \newcommand{\given}{\, \vert \,}
 \newcommand{\st}{\, \colon \,}
@@ -174,6 +175,8 @@
 \DeclareMathOperator{\supp}{supp}
 \DeclareMathOperator{\im}{im}
 \DeclareMathOperator{\olspan}{\overline{span}}
+\DeclareMathOperator{\re}{Re}
+\DeclareMathOperator{\sgn}{sgn}
 
 \newcommand{\ol}[1]{\overline{#1}}
 \newcommand{\wh}[1]{\widehat{#1}}
@@ -254,7 +257,7 @@
 	podrazumijeva da se distribucija procesa ne mijenja skaliranjem u vremenu i odgovarajućim skaliranjem po amplitudi. Drugim riječima, ista statistička svojstva
 	vrijede i u malim i u velikim rezolucijama.
 	Možemo reći i da se slika ne pojednostavljuje kada ju se gleda iz veće blizine, pa se
-	samoslični slučajni procesi ponekad se nazivaju \emph{statistički fraktali}.
+	samoslični slučajni procesi ponekad nazivaju \emph{statistički fraktali}.
 	Za njihovu analizu prirodno pogoduju valići koje detaljno uvodimo u prvom poglavlju.%, a o čemu govori ovaj citat iz~\cite[str.~22.]{flandrin}:
 	%	\begin{displayquote}
 	%		Štoviše, čim su se pojavile sredinom osamdesetih, gotovo se odmah prepoznalo da su valićne transformacije,
