@@ -37,12 +37,12 @@ Primijetimo da trebamo samo dokazati \( \alpha_{t_0} \le H \)
 jer za suprotnu nejednakost znamo da vrijedi po prošlom odjeljku (za odgovarajuću
 modifikaciju, koju podrazumijevamo).
 Prije nego nastavimo, još je korisno definirati dva pojma
-standardna u frakcionalnom kalkulusu.
+standardna u frakcionalnom diferencijalnom i integralnom računu.
 
 \begin{definicija}
 	%Neka je \( \psi \) Meyerov matični valić.
 	\begin{enumerate}
-		\item \emph{Lijeva frakcionalna antiderivacija reda} \( H+1/2 \) od \( \psi \) definira se sa
+		\item \emph{Lijevi frakcionalni integral reda} \( H+1/2 \) od \( \psi \) definira se sa
 		      \begin{equation}
 			      \Psi_H(x) = \int_\R e^{ix\xi} \frac{\wh \psi(\xi)}{(i\xi)^{H+1/2}} \D \xi, \quad x \in \R.
 		      \end{equation}
@@ -54,7 +54,13 @@ standardna u frakcionalnom kalkulusu.
 \end{definicija}
 
 \begin{komentar}\label{kom:Psi}
-	...
+	O frakcionalnom integriranju i deriviranju može se naći u~\cite{fidta}.
+	Posebice, u~\cite[\textsection 7]{fidta} dokazuje se da vrijede frakcionalni analogoni
+	rezultata iz komentara~\ref{kom:four-deri}. Nama će samo biti bitna
+	posljedica \( \wh \Psi_{\pm H}(0)=0 \).
+	Ostala svojstva \( \Psi_{\pm H} \) slijede iz odgovarajućih svojstava Meyerovih valića, pa
+	su tako \( \Psi_{\pm H} \) dobro definirane, pripadaju Schwartzovom prostoru
+	i poprimaju samo realne vrijednosti.
 \end{komentar}
 
 U sljedećem teoremu konačno opet susrećemo teoriju valića na tzv.\ valićnoj

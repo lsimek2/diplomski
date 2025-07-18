@@ -183,9 +183,11 @@ u definiciji~\ref{def:fbm}, konstante
 
 \begin{teorem} (Mandelbrot--van Nessova reprezentacija FBM).
 	Neka je \( H \in \left\langle 0, 1 \right\rangle \) i\footnote{\( a_+=\max\left\{ 0,a \right\} \)}
-	\begin{equation}
+	\begin{equation}\label{eq:kermvanness}
 		K_t(u) =
-		(t-u)_+^{H-1/2} 1_{\left\langle -\infty,0 \right\rangle}(u) - (-u)_+^{H-1/2}, \quad t \ge 0.
+		(t-u)_+^{H-1/2}
+		%1_{\left\langle -\infty,0 \right\rangle}(u)
+		- (-u)_+^{H-1/2}, \quad t \ge 0.
 	\end{equation}
 	Tada je \( \left\{ X_t \right\} \),
 	definiran s \( X_t = I(K_t) \), FBM s parametrom \( H \).
@@ -246,8 +248,14 @@ u definiciji~\ref{def:fbm}, konstante
 		% 	\abs \xi ^{H+1/2} e^{-i(H+1/2)\pi/2}, \quad & \xi < 0.
 		% \end{cases}
 	\end{equation}
-	Dobiva se Fourierovom transformacijom Mandelbrot--van Nessove reprezentacije. Dokaz
-	zahtijeva frakcionalni kalkulus i može se naći u~\cite{ojeda}.
+	Pritom se integriranje po \( \wh B \) može definirati s
+	\begin{equation}
+		\int_\R \wh f(\xi) \D \wh B _\xi = \int_R f(t) \D B_t, \quad
+		f \in \L^2(\R).
+	\end{equation}
+	Reprezentacija~\eqref{eq:harmrep} dobiva se po tom principu,
+	gdje je integrand Fourierova transformacija Mandelbrot--van Nessove jezgre~\eqref{eq:kermvanness}.
+	Dokaz se može naći u~\cite{pipiras}.
 \end{komentar}
 
 \end{document}

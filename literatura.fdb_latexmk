@@ -1,10 +1,10 @@
 # Fdb version 4
-["pdflatex"] 1752337937.21953 "/home/lsimek/projects/diplomski/literatura.bib" "literatura.pdf" "literatura" 1752337937.40854 2
-  "/home/lsimek/projects/diplomski/literatura.bib" 1752337937.13369 3718 dc3817627dadc8943a0edbe469da7711 ""
+["pdflatex"] 1752862510.85624 "/home/lsimek/projects/diplomski/literatura.bib" "literatura.pdf" "literatura" 1752862511.05493 2
+  "/home/lsimek/projects/diplomski/literatura.bib" 1752862510.74812 4294 67f4cfd3f97c77d1ab6446bc5fc08df3 ""
   "/nix/store/51qpi3w884k2sr2fsw9jrc4032aqmnmx-texlive-combined-2023/share/texmf-var/web2c/pdftex/pdflatex.fmt" 1 8021403 a76617e52b5c2800573f2169320d0635 ""
   "/nix/store/51qpi3w884k2sr2fsw9jrc4032aqmnmx-texlive-combined-2023/share/texmf-var/web2c/texmf.cnf" 1 42803 5c732fc6cb67190b645267c903b3d91e ""
-  "literatura.aux" 1752337937.2177 32 3985256e7290058c681f74d7a3565a19 "pdflatex"
-  "literatura.bib" 1752337937.13369 3718 dc3817627dadc8943a0edbe469da7711 ""
+  "literatura.aux" 1752862510.85412 32 3985256e7290058c681f74d7a3565a19 "pdflatex"
+  "literatura.bib" 1752862510.74812 4294 67f4cfd3f97c77d1ab6446bc5fc08df3 ""
   (generated)
   "literatura.aux"
   "literatura.log"
