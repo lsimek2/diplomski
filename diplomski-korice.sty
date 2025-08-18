@@ -1,0 +1,51 @@
+\newif\ifdedication
+\dedicationfalse
+
+\def\title#1{\gdef\@title{\uppercase{#1}}}
+%\def\advisor#1{\gdef\@advisor{#1}}
+\def\dedication#1{\gdef\@dedication{#1}\dedicationtrue}
+
+\def\frontmatter{
+	%\pagenumbering{roman}
+	\titlepage
+	%\komisija
+	%\ifdedication \dedicationpage \fi
+	%\tableofcontents*
+	%\clearpage
+	%\pagenumbering{arabic}
+}
+
+\def\titlepage{
+	\thispagestyle{empty}
+	\enlargethispage{2cm}
+	\begin{center}
+		{\Large \textbf{\textsf{SVEU\v CILI\v STE U ZAGREBU}}} \\[5mm]
+		{\Large \textbf{\textsf{PRIRODOSLOVNO--MATEMATI\v CKI FAKULTET}}} \\[5mm]
+		{\Large \textbf{\textsf{MATEMATI\v CKI ODSJEK}}}
+		% \null}
+	\end{center}
+	\vskip 150pt
+	\begin{center}
+		{\LARGE \lineskip .75em
+			\begin{tabular}[t]{c} \textsf{\@author}
+			\end{tabular}\par}
+		\vskip 3em
+			{\huge \textbf{\textsf{\@title}} \par}
+		\vskip 3em{\Large \textsf{Diplomski rad}}
+	\end{center}
+	\par
+	%\vskip 125pt
+	\vskip 100pt
+	%
+	\mbox{} \hfill
+	\begin{minipage}{7cm}
+%		{\Large    \textsf{Voditelj rada:} \\
+%			\textsf{\@advisor}}
+	\end{minipage}
+	\vfill
+	\begin{center}
+		{\Large \textsf{Zagreb, rujan 2025.} \par}
+	\end{center}
+	\newpage
+}
+
