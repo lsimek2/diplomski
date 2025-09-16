@@ -8,10 +8,10 @@
 \usepackage{thmtools}
 
 \declaretheorem{teorem}
-\numberwithin{teorem}{section}
-\numberwithin{equation}{section}
-\numberwithin{figure}{section}
-\numberwithin{table}{section}
+% \numberwithin{teorem}{section}
+% \numberwithin{equation}{section}
+% \numberwithin{figure}{section}
+% \numberwithin{table}{section}
 \declaretheorem[sibling=teorem, style=plain]{lema}
 \declaretheorem[style=remark, sibling=teorem]{napomena}
 \declaretheorem[style=remark, sibling=teorem]{komentar}
@@ -30,7 +30,7 @@ style=authoryear,
 	% terseinits=true,
 	% giveninits=true
 ]{biblatex}
-\addbibresource{literatura.bib}
+\addbibresource{literatura-prez.bib}
 \usepackage{tikz}
 
 \usepackage{listings}
@@ -45,8 +45,9 @@ style=authoryear,
 
 % 225fb9, 238947?
 % orig 21b2aa b2217f
-\definecolor{seagreen}{HTML}{105010}
-\definecolor{magenta}{HTML}{309030}
+% dobar zeleno-ljubicasti par 309030-903090
+\definecolor{seagreen}{HTML}{309030}
+\definecolor{magenta}{HTML}{903090}
 \definecolor{gold}{HTML}{ca9520}
 \definecolor{red}{HTML}{da272f}
 \definecolor{blue}{HTML}{4682b4}
@@ -168,6 +169,7 @@ style=authoryear,
 \newcommand{\levy}{L\' evy}
 \newcommand{\ito}{It\= o}
 \newcommand{\dnorm}{\norm{\, \cdot \,}}
+\newcommand{\mathgs}{\ \ \mathrm{g.s.}}
 \def\L{\mathrm{L}}
 \def\w{\mathrm{w}}
 \def\mrC{\mathrm{C}}
@@ -187,13 +189,14 @@ style=authoryear,
 \providecommand*{\blx@noerroretextools}{}
 \makeatother
 
-
+\newcommand{\advisor}{Voditelj rada: prof.\ dr.\ sc.\ Nikola Sandrić}
 \title[HASP]{Harmonijska analiza i slučajni procesi}
-%\subtitle{Diplomski rad}
-\author[Luka Šimek]{Luka Šimek \\ \scriptsize Voditelj rada: prof.\ dr.\ sc.\ Nikola Sandrić}
-\institute[PMF--MO]{Diplomski rad\\Prirodoslovno-matematički fakultet --- Matematički odsjek\\Sveučilište u Zagrebu}
-\date{Rujan 2025.}
+\subtitle{Diplomski rad}
+\author[Luka Šimek]{Luka Šimek}
+\institute[PMF--MO]{Prirodoslovno-matematički fakultet --- Matematički odsjek\\Sveučilište u Zagrebu}
+\date{\today}% \raggedleft{\scriptsize \advisor}}
 \nocite{*}
+\setbeamertemplate{navigation symbols}{}
 
 \begin{document}
 
@@ -206,8 +209,155 @@ style=authoryear,
 \end{frame}
 
 \section{Samosličnost i FBM}
-\begin{frame}{Samosličnost}
+\begin{frame}{Samoslični slučajni procesi}
+\textbf{Definicija.} Slučajni proces \( \left\{X_t\right\} \) na \( \R^d \) je \emph{samosličan} ako za svaki \( a > 0 \) 
+postoji \( b > 0 \) takav da
+		      \begin{equation}\label{defeq:ss}
+			      \left\{ X_{at} \right\} \jpod \left\{ bX_t \right\}.
+		      \end{equation}
 
+\vskip20pt
+\pause
+\textbf{Teorem.} Ako je \( \left\{ X_t \right\} \) samosličan, stohastički neprekidan i netrivijalan, tada postoji
+\( H \ge 0 \) takav da
+\[ b = a^H \] za sve \( a,b \) iz~\eqref{defeq:ss}.
+\end{frame}
+
+\begin{frame}{Frakcionalno Brownovo gibanje}
+\textbf{Definicija.} \emph{Frakcionalno Brownovo gibanje} (FBM) s parametrom \( H \in \langle0,1\rangle \) je gaussovki proces \( \left\{ B^H_t \right\} \) u \( \R \) definiran s
+	\[ \E B^H_t = 0,\quad t \ge 0,\]
+	\begin{equation} \label{eq:deffbm}
+		\E(B^H_t B^H_s) = \frac 12 \E \left[ (B^H_1)^2 \right]
+		\left( t^{2H} + s^{2H} - \abs{t-s}^{2H} \right), \quad t,s\ge 0.
+	\end{equation}
+
+\pause
+\vskip30pt
+
+\begin{itemize}
+\item jedinstveni centr.\ gauss.\ $H$-ss.\ proces sa stacionarnim prirastima
+\item prirasti korelirani
+\end{itemize}
+\end{frame}
+
+\begin{frame}[plain]{Parametar \( H \) i glatkoća trajektorija}
+\begin{figure}
+\center
+\includegraphics[scale=0.95]{fbm2.jpg}
+\caption{\footnotesize simulacije FBM za različite \( H \) (\cite{fracizvor})}
+\end{figure}
+\end{frame}
+
+\begin{frame}{Integralne reprezentacije FBM}
+Mandelbrot--van Ness:
+\begin{equation}
+B^H_t \jpod \int_\R \left[ (t-u)_+^{H-1/2}-(-u)_+^{H-1/2} \right] \D B_u, \quad t \ge 0.
+\end{equation}
+\vskip20pt
+Harmonizabilna reprezentacija:
+\begin{equation}
+B_t^H \jpod \int_\R \frac{e^{it\xi}-1}{(i\xi)^{H+1/2}} \D \wh B_\xi, \quad t \ge 0.
+\end{equation}
+\end{frame}
+
+\section{\holder -regularnost}
+\begin{frame}{Uniformna \holder-regularnost na kompaktnom skupu}
+\textbf{Teorem.} Za svaki \( \alpha \in \left\langle0,H\right\rangle \) FBM ima modifikaciju 
+\( \left\{ \wt B_t^H \right\} \) takvu da
+\begin{equation}
+\sup_{0 \le s,t \le T} \frac{\abs{\wt B_t^H - \wt B_s^H}}{\abs{t-s}^\alpha} < \infty, \quad T \ge 0.
+\end{equation}
+
+\vskip20pt
+\textbf{Teorem.} Trajektorije FBM ne zadovoljavaju \holder ov uvjet u smislu prošlog teorema ni
+za koji \( \alpha > H \).
+\end{frame}
+
+\begin{frame}{\holder -regularnost po točkama}
+\textbf{Definicija.}
+Neka je \( \left\{ X_t \st t \in \R\right\} \) slučajni proces čije su trajektorije g.s.\
+	lokalno ograničene i nigdje diferencijabilne. Za proizvoljni
+	\( t_0 \in \R \) definira se \emph{kritični točkovni \holder ov eksponent} u \( t_0 \)
+	\begin{equation}
+		\alpha_{t_0} = \sup \left\{ \alpha > 0 \st
+		\limsup\limits_{h \rightarrow 0} \frac{\abs{X_{t_0+h}-X_{t_0}}}{\abs h^\alpha} = 0
+		\right\}.
+	\end{equation}
+
+\vskip20pt
+\textbf{Teorem.} Za FBM g.s.\ vrijedi \( \alpha_{t_0} = H \) za sve \( t_0 \in \R \).
+
+\end{frame}
+
+\section{Rješenje problema \holder -regularnosti po točkama}
+\begin{frame}{Funkcije \( \Psi_{\pm H} \)}
+Neka je \( \psi \) Meyerov matični valić. Definiramo
+\begin{align}
+\Psi_H(x) &= \int_\R
+e^{ix\xi} \frac{\wh \psi(\xi)}{(i\xi)^{H+1/2}} \D \xi, \\
+\Psi_{-H}(x) &= \int_\R e^{ix\xi} \wh \psi(\xi)
+(-i\xi)^{H+1/2} \D \xi, \quad x \in \R.
+\end{align}
+
+\vskip20pt
+Vrijedi
+		      \begin{equation}
+			      \int_\R \Psi_{-H}(t) \D t = \int_\R \Psi_H(t) \D t = 0.
+		      \end{equation}
+              		      \begin{equation}\label{eq:intpsihpsi-h}
+			      2^{(j'+j)/2}\int_\R \Psi_H(2^{j'}t-k')\Psi_{-H}(2^jt-k) \D t =
+			      \begin{cases}
+				      1, \  & (j,k)=(j',k') \\
+				      0, \  & \text{inače}.
+			      \end{cases}
+		      \end{equation}
+\end{frame}
+
+\begin{frame}{Valićna reprezentacija FBM}
+\textbf{Teorem.} Neka je 
+\begin{equation}
+B_t^H = \int_\R \frac{e^{it\xi}-1}{(i\xi)^{H+1/2}} \D \wh B_\xi, \quad t \in \R
+\end{equation}
+i \( \varepsilon_{j,k} \stackrel{\mathrm{n.j.d.}}{\sim} \mathrm N(0,1) \) definirane sa
+\begin{equation}
+\varepsilon_{j,k} =
+		\int_\R 2^{-j/2}e^{ik2^{-j}\xi}\wh \psi(-2^{-j}\xi)\D \wh B_\xi =
+		\int_\R 2^{j/2} \psi(2^jt-k) \D B_t.
+\end{equation}
+Tada je 
+	\begin{equation}\label{eq:valfbmrep}
+		B^H_t = \sum_{j,k \in \Z}
+		2^{-jH} \left( \Psi_H(2^jt - k) - \Psi_H(-k)  \right) \varepsilon_{j,k}, \quad t \in \R
+	\end{equation}
+    pri čemu konvergencija vrijedi i g.s.\ uniformno po \( t \) na svakom
+	kompaktnom podskupu od \( \R \).
+\end{frame}
+
+\begin{frame}[allowframebreaks]{Put do glavnog rezultata}
+\textbf{Definicija.} Za \( j \in \N \) i \( \ell \in \Z \) označimo
+\begin{equation}
+\nu_j^\ell = \max \left\{ \abs{\varepsilon_{j,j\ell+m}} \st 0 \le m \le j-1 \right\}.
+\end{equation}
+
+\vskip10pt
+\textbf{Lema.} Gotovo sigurno iz \( \alpha_{t_0}(\omega_0) > H \) slijedi
+\begin{equation}
+\limsup\limits_{j \ub} \nu_j^{\ell_j(t_0)}(\omega_0) = 0
+\end{equation}
+gdje \( \ell_j(t_0) = \max\left\{ \ell \in \Z \st j\ell \le 2^jt_0 \right\} \).
+
+\vskip10pt
+Za dokaz se koristi ova formula inverzije:
+	\begin{equation}
+		\varepsilon_{j,k} = 2^{j(1+H)}\int_\R B^H_t\Psi_{-H}(2^jt-k) \D t \mathgs
+	\end{equation}
+
+\framebreak
+\textbf{Lema.} Gotovo sigurno za sve \( p \in \Z \) vrijedi
+\begin{equation}
+\liminf\limits_{j \ub} \min \left\{ \nu_j^\ell(\omega) \st
+		(p-1)2^j \le j\ell \le (p+1)2^j \right\} \ge \frac 12.
+\end{equation}
 \end{frame}
 
 
