@@ -193,7 +193,9 @@ style=authoryear,
 \title[HASP]{Harmonijska analiza i slučajni procesi}
 \subtitle{Diplomski rad}
 \author[Luka Šimek]{Luka Šimek}
-\institute[PMF--MO]{Prirodoslovno-matematički fakultet --- Matematički odsjek\\Sveučilište u Zagrebu}
+\institute[PMF--MO]{
+Voditelj rada: prof.\ dr.\ sc.\ Nikola Sandrić \\ \vspace{.5em}
+Prirodoslovno-matematički fakultet --- Matematički odsjek\\Sveučilište u Zagrebu}
 \date{\today}% \raggedleft{\scriptsize \advisor}}
 \nocite{*}
 \setbeamertemplate{navigation symbols}{}
@@ -355,11 +357,22 @@ style=authoryear,
 	\framebreak
 	\textbf{Lema.} Gotovo sigurno za sve \( p \in \Z \) vrijedi
 	\begin{equation}
-		\liminf\limits_{j \ub} \min \left\{ \nu_j^\ell(\omega) \st
+		\liminf\limits_{j \ub} \min \left\{ \nu_j^\ell \st
 		(p-1)2^j \le j\ell \le (p+1)2^j \right\} \ge \frac 12.
 	\end{equation}
-\end{frame}
 
+	\vskip10pt
+
+	\textbf{Dokaz.} Za fiksni \( p \in \Z \) definiramo
+	\[ B_j = \min \left\{ \nu_j^\ell \st (p-1)2^j \le j\ell \le (p+1)2^j \right\},
+		\quad j \ge 1.
+	\]
+	Dobiva se \( \sum\limits_{j=1}^\infty \P\left(B_j < \frac 12\right) < \infty \)
+	pa po Borel--Cantellijevoj lemi
+	\[
+		\P \left( B_j < \frac 12 \text{ za beskonačno mnogo } j \right) = 0.
+	\]
+\end{frame}
 
 \begin{frame}[t, allowframebreaks]{Bibliografija}
 	\printbibliography

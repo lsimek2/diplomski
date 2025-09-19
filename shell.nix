@@ -45,6 +45,7 @@ let
         url
         subfiles
         nowidow
+        beamertheme-npbt
         ; # dvisvgm
     }
   );
